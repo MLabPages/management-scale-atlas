@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="経営学・マーケティングの構成概念と尺度を検索・比較する研究支援用アトラス">
+  <title>経営学・マーケティング概念・尺度アトラス</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="source-links.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <p class="eyebrow">MANAGEMENT &amp; MARKETING SCALE ATLAS</p>
+      <h1>経営学・マーケティング<br>概念・尺度アトラス</h1>
+      <p class="hero-copy">測りたい概念から、尺度の特徴・日本語版・利用条件を比較できます。</p>
+      <div class="sample-notice"><strong>試作版</strong> 掲載情報は画面検証用のサンプルです。研究利用前に必ず原典を確認してください。</div>
+    </div>
+  </header>
+
+  <nav class="tabs" aria-label="メイン画面">
+    <div class="container tab-inner">
+      <button class="tab active" data-view="search">尺度を探す</button>
+      <button class="tab" data-view="concepts">概念一覧</button>
+      <button class="tab" data-view="compare">尺度比較 <span id="compare-count">0</span></button>
+    </div>
+  </nav>
+
+  <main class="container">
+    <section id="view-search" class="view active">
+      <div class="search-panel">
+        <label class="search-box"><span>キーワード</span><input id="query" type="search" placeholder="例：AI自己効力感、大学生、短縮版"></label>
+        <div class="filters">
+          <label>研究領域<select id="domain-filter"><option value="">すべて</option></select></label>
+          <label>日本語版<select id="japanese-filter"><option value="">すべて</option><option value="validated">検証済みのみ</option><option value="available">日本語使用あり</option><option value="none">なし</option></select></label>
+          <label>利用条件<select id="permission-filter"><option value="">すべて</option><option value="open">掲載・利用可</option><option value="research">研究利用可</option><option value="permission">申請が必要</option><option value="unknown">未確認</option></select></label>
+          <label>最大項目数<select id="items-filter"><option value="">指定なし</option><option value="5">5項目以下</option><option value="10">10項目以下</option><option value="20">20項目以下</option></select></label>
+        </div>
+        <button id="clear-filters" class="text-button">条件をクリア</button>
+      </div>
+      <div class="result-head"><h2>尺度一覧</h2><p id="result-count"></p></div>
+      <div id="scale-list" class="card-grid"></div>
+    </section>
+
+    <section id="view-concepts" class="view">
+      <div class="result-head"><h2>概念一覧</h2><p>概念を選ぶと定義と関連尺度を確認できます。</p></div>
+      <div id="concept-list" class="concept-grid"></div>
+    </section>
+
+    <section id="view-compare" class="view">
+      <div class="result-head"><h2>尺度比較</h2><p>尺度一覧から最大4件を選択できます。</p></div>
+      <div id="compare-empty" class="empty-state">比較する尺度がまだ選ばれていません。</div>
+      <div id="compare-table-wrap" class="table-wrap" hidden><table id="compare-table"></table></div>
+    </section>
+  </main>
+
+  <dialog id="detail-dialog"><button class="dialog-close" aria-label="閉じる">×</button><div id="detail-body"></div></dialog>
+  <footer><div class="container">Management and Marketing Scale Atlas — Prototype</div></footer>
+  <script src="data.js"></script><script src="app.js"></script>
+</body>
+</html>
