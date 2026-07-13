@@ -111,7 +111,8 @@ function practiceScore(s) {
 }
 
 function sourceLinks(s) {
-  return `<div class="source-links"><a href="${scholarUrl(s)}" target="_blank" rel="noopener noreferrer">Google Scholar ↗</a>${s.doi ? `<a href="${doiUrl(s)}" target="_blank" rel="noopener noreferrer">DOI ↗</a>` : "<span>DOI未登録</span>"}</div>`;
+  const originalLink = s.sourceUrl ? `<a href="${esc(s.sourceUrl)}" target="_blank" rel="noopener noreferrer">原文・公式資料 ↗</a>` : "";
+  return `<div class="source-links"><a href="${scholarUrl(s)}" target="_blank" rel="noopener noreferrer">Google Scholar ↗</a>${s.doi ? `<a href="${doiUrl(s)}" target="_blank" rel="noopener noreferrer">DOI ↗</a>` : "<span>DOI未登録</span>"}${originalLink}</div>`;
 }
 
 function japaneseEvidenceHtml(s) {
