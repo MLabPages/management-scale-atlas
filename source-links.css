@@ -139,6 +139,11 @@
   color: #216246;
 }
 
+.short-form-badge {
+  background: #e9eefb;
+  color: #354f91;
+}
+
 .study-list {
   display: grid;
   gap: 10px;

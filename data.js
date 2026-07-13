@@ -2,10 +2,10 @@
 // DOI、原典、項目数、下位次元は原著論文または公式資料で確認。
 const ATLAS_DATA = {
   meta: {
-    version: "0.11.0",
+    version: "0.12.0",
     status: "initial-real-data",
     updated: "2026-07-13",
-    scope: "30概念・40尺度",
+    scope: "30概念・41尺度",
   },
 
   concepts: [
@@ -691,9 +691,48 @@ const ATLAS_DATA = {
       ],
       applicationEvidence: [
         { label: "MARKORとは異なる主要測定系統", itemCounts: [15], evidenceType: "scale-development", summary: "市場志向の主要尺度は、行動プロセスを測るMARKOR 20項目と、組織文化的側面を測るMKTOR 15項目に大別されます。項目数だけでなく概念定義で選ぶ必要があります。", title: "The Effect of a Market Orientation on Business Profitability", year: 1990, doi: "10.1177/002224299005400403", url: "https://doi.org/10.1177/002224299005400403" },
+        { label: "オーストラリアでの8項目精選版", itemCounts: [14, 8], evidenceType: "comparative-validation", summary: "オーストラリアの民間企業標本で項目を精選し、上場企業標本で交差検証した結果、3次元8項目モデルの適合と各信頼性係数.80超を報告。原版15項目から一意に定まる公式短縮版ではなく、比較検証による精選版です。", title: "An Analysis of the MKTOR and MARKOR Measures of Market Orientation: An Australian Perspective", year: 1997, url: "https://marketing-bulletin.massey.ac.nz/V8/MB_V8_A3_Farrell.pdf" },
+        { label: "セルビア輸出企業での11項目精選版", itemCounts: [15, 11], evidenceType: "comparative-validation", summary: "原版15項目と精選11項目を1因子・3因子モデルで比較し、3因子11項目モデルが最良適合。原版では弁別妥当性の問題が示されました。", title: "Testing MKTOR Scale Properties in Serbian Exporters’ Context", year: 2020, doi: "10.7595/management.fon.2019.0011", url: "https://doi.org/10.7595/management.fon.2019.0011" },
+      ],
+      usageStudies: [
+        { title: "An Analysis of the MKTOR and MARKOR Measures of Market Orientation: An Australian Perspective", authors: "Farrell & Oczkowski", year: 1997, context: "オーストラリア企業での比較検証", sample: "民間企業190社、上場企業237社（有効回答計427社）", itemCount: 8, responseFormat: "原論文参照", language: "English", adaptation: "研究内で用いた14項目構成から6項目を削除し、3次元8項目モデルを別標本で交差検証。", result: "民間企業標本と上場企業標本で適合改善。各信頼性係数は.80超。", url: "https://marketing-bulletin.massey.ac.nz/V8/MB_V8_A3_Farrell.pdf" },
+        { title: "Testing MKTOR Scale Properties in Serbian Exporters’ Context", authors: "Njegić, Đokić, & Milanović", year: 2020, context: "セルビアの輸出企業", sample: "輸出企業の管理者60名", itemCount: 11, responseFormat: "5件法", language: "Serbian", adaptation: "原版15項目を翻訳・使用した後、交差負荷などを基に4項目を除いた3次元11項目版を比較。", result: "3因子11項目モデルが比較4モデル中で最良適合。原版の弁別妥当性問題を改善。", doi: "10.7595/management.fon.2019.0011", url: "https://doi.org/10.7595/management.fon.2019.0011" },
       ],
       itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-13",
-      notes: "『3項目』ではなく、3次元15項目の原版。研究によって各次元から項目を抜粋する場合がある。",
+      notes: "『3項目』ではなく、3次元15項目の原版。3つの下位次元を3つの観測指標として扱うモデルと、質問票が3項目であることは別です。後続研究には8項目・11項目の精選例があります。",
+      recordStatus: "verified-metadata",
+    },
+    {
+      id: "mortn-market-orientation-scale",
+      name: "Synthesized Market Orientation Scale",
+      abbreviation: "MORTN",
+      conceptId: "market-orientation",
+      authors: ["Rohit Deshpandé", "John U. Farley"],
+      year: 1998,
+      sourceTitle: "Measuring Market Orientation: Generalization and Synthesis",
+      journal: "Journal of Market-Focused Management, 2, 213–232",
+      doi: "10.1023/A:1009719615327",
+      itemCount: 10,
+      dimensions: ["Customer focus", "Continuous needs assessment"],
+      responseFormat: "原典参照（後続研究では5件法の例あり）",
+      reverseItems: [], scoring: "10項目を用いて、顧客創造・顧客満足に向けた部門横断的な活動を測定。研究文脈での因子構造を確認する。",
+      targetPopulation: ["企業の管理者", "従業員"],
+      language: "English", versionType: "short", parentScaleId: null,
+      japaneseVersionStatus: "unconfirmed",
+      japaneseStatusNote: "標準化された日本語版と日本語での検証研究は今回未登録です。独自翻訳で使用する場合は翻訳過程と因子構造を確認してください。",
+      japaneseEvidence: [],
+      validationStudies: [], usagePermission: "unknown", usageEvidence: [],
+      psychometricEvidence: [
+        { label: "3尺度の統合・国際比較による開発", sample: "欧米27社の管理者82名", methods: "既存3尺度の統合、信頼性・妥当性、業績との関連を比較", result: "既存尺度の国際的一般化を確認し、簡潔な10項目尺度を合成", url: "https://doi.org/10.1023/A:1009719615327" },
+      ],
+      applicationEvidence: [
+        { label: "市場志向3尺度から合成された10項目版", itemCounts: [10, 15, 20], evidenceType: "comparative-validation", summary: "MKTOR、MARKOR、顧客志向尺度を統合して10項目へ簡潔化。顧客の表明されたニーズへの反応を中心に捉えるため、競争志向や潜在ニーズまで含めたい研究では概念範囲を確認する必要があります。", title: "Measuring Market Orientation: Generalization and Synthesis", year: 1998, doi: "10.1023/A:1009719615327", url: "https://doi.org/10.1023/A:1009719615327" },
+      ],
+      usageStudies: [
+        { title: "Gaining a Better Understanding of the Types of Organizational Culture to Manage Suffering at Work", authors: "Assens-Serra et al.", year: 2021, context: "スペイン・ペルーの組織文化研究", sample: "スペインの管理者362名、ペルーの管理者1,317名", itemCount: 10, responseFormat: "5件法", language: "Spanish", adaptation: "表明された顧客ニーズを発見・充足する組織能力としてMORTNを使用。", result: "MORTNの信頼性α=.88を報告し、複数の組織文化との関連を検討。", doi: "10.3389/fpsyg.2021.782488", url: "https://doi.org/10.3389/fpsyg.2021.782488" },
+      ],
+      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-13",
+      notes: "15項目MKTORや20項目MARKORより短い選択肢。ただし概念範囲は顧客焦点・表明ニーズへの反応に寄るため、競争志向や潜在ニーズを測る研究では別尺度も比較する。",
       recordStatus: "verified-metadata",
     },
     {
@@ -826,10 +865,18 @@ const ATLAS_DATA = {
       japaneseStatusNote: "日本ではACSIを基礎にした日本版顧客満足度指数JCSIがありますが、構成概念やモデルを調整した関連モデルであり、ACSIの単純な日本語訳とは区別します。",
       japaneseEvidence: [
         { kind: "related-version", label: "ACSIを基礎に開発された日本版JCSI", title: "JCSI因果モデルとは", url: "https://www.jpc-net.jp/research/jcsi/causal_model/" },
+        { kind: "related-version", label: "JCSIモデルの日本語開発論文", authors: "南 知惠子・小川 孔輔", year: 2010, title: "日本版顧客満足度指数（JCSI）のモデル開発とその理論的な基礎", doi: "10.7222/marketing.2010.027", url: "https://doi.org/10.7222/marketing.2010.027" },
       ],
       validationStudies: [], usagePermission: "unknown", usageEvidence: [],
       psychometricEvidence: [
         { label: "国家レベル指数モデル", sample: "米国の主要7経済部門", methods: "全国調査、計量経済モデル、部門横断・時系列ベンチマーキング", result: "企業・産業・部門・国家レベルの顧客満足指数を提示", url: "https://doi.org/10.1177/002224299606000403" },
+      ],
+      applicationEvidence: [
+        { label: "市民満足向け3項目尺度の比較検証", itemCounts: [1, 3], evidenceType: "comparative-validation", summary: "都市サービスへの総合満足について単一項目と複数項目を比較し、ACSIに類似した簡潔な3項目尺度が信頼性・妥当性・実用性のバランスに優れると報告。ACSIそのものではなく公共サービス向け応用版です。", title: "The Measurement of Overall Citizen Satisfaction", year: 2004, doi: "10.1080/15309576.2004.11051805", url: "https://doi.org/10.1080/15309576.2004.11051805" },
+        { label: "日本版JCSIの関連3項目指標", itemCounts: [3], evidenceType: "related-version", summary: "JCSIでは顧客満足を3問で構成します。ACSIを基礎とする日本向け関連モデルであり、ACSIの単純翻訳版とは区別します。", title: "日本版顧客満足度指数（JCSI）のモデル開発とその理論的な基礎", year: 2010, doi: "10.7222/marketing.2010.027", url: "https://doi.org/10.7222/marketing.2010.027" },
+      ],
+      usageStudies: [
+        { title: "Drivers and Consequences of Citizen Satisfaction: An Application of the American Customer Satisfaction Index Model to New York City", authors: "Van Ryzin et al.", year: 2004, context: "ニューヨーク市の公共サービス", sample: "2000年・2001年の住民電話調査、計1,504名", itemCount: 3, responseFormat: "ACSI方式", language: "English", adaptation: "ACSIモデルを地方政府サービスに適用し、総合満足を3指標で測定。", result: "学校、警察、道路、地下鉄などの知覚品質と市民満足の関係を検討。", doi: "10.1111/j.1540-6210.2004.00377.x", url: "https://doi.org/10.1111/j.1540-6210.2004.00377.x" },
       ],
       itemPublicationStatus: "not-published", items: [],
       notes: "一般的な3項目満足尺度としてではなく、ACSI因果モデルの一部として利用する。",
