@@ -1,7 +1,7 @@
 # 経営学・マーケティング概念・尺度アトラス 開発引継ぎ
 
 最終更新: 2026-07-13  
-対象版: v0.16.0<br>
+対象版: v0.16.1<br>
 公開URL: https://mlabpages.github.io/management-scale-atlas/  
 リポジトリ: https://github.com/MLabPages/management-scale-atlas
 
@@ -24,7 +24,7 @@
 
 - 30概念
 - 42尺度
-- 個別の尺度使用研究 33件
+- 個別の尺度使用研究 34件
 - 登録版そのものが3・4項目: 6尺度
 - 個別使用研究で3・4項目版を確認済み: 9尺度
 - 日本語情報の内訳
