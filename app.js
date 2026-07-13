@@ -27,7 +27,34 @@ const evidenceKinds = {
 };
 const verifiedJapaneseStatuses = new Set(["validated", "linguistic-validated", "original-japanese"]);
 const MAX_COMPARE = 8;
-const state = { compare: new Set() };
+const DESIGN_STORAGE_KEY = "management-scale-atlas-design-v1";
+const roleLabels = {
+  unset: "未設定",
+  predictor: "説明変数",
+  mediator: "媒介変数",
+  moderator: "調整変数",
+  outcome: "目的変数",
+  control: "統制変数",
+  other: "その他",
+};
+
+function loadDesignState() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(DESIGN_STORAGE_KEY) || "{}");
+    const validIds = new Set(ATLAS_DATA.scales.map((s) => s.id));
+    const scaleIds = Array.isArray(saved.scaleIds) ? saved.scaleIds.filter((id) => validIds.has(id)).slice(0, MAX_COMPARE) : [];
+    return { scaleIds, roles: saved.roles || {}, notes: saved.notes || {} };
+  } catch {
+    return { scaleIds: [], roles: {}, notes: {} };
+  }
+}
+
+const savedDesign = loadDesignState();
+const state = {
+  compare: new Set(savedDesign.scaleIds),
+  roles: savedDesign.roles,
+  notes: savedDesign.notes,
+};
 const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 const scholarUrl = (s) => `https://scholar.google.com/scholar?q=${encodeURIComponent(`"${s.name}" ${s.authors.join(" ")} ${s.year}`)}`;
 const doiUrl = (s) => (s.doi ? `https://doi.org/${encodeURIComponent(s.doi.trim())}` : "");
@@ -124,6 +151,19 @@ function downloadFile(filename, content, type) {
   link.click();
   link.remove();
   setTimeout(() => URL.revokeObjectURL(url), 0);
+}
+
+function saveDesignState() {
+  try {
+    localStorage.setItem(DESIGN_STORAGE_KEY, JSON.stringify({
+      scaleIds: [...state.compare],
+      roles: state.roles,
+      notes: state.notes,
+      savedAt: new Date().toISOString(),
+    }));
+  } catch {
+    // 保存容量やブラウザ設定で失敗しても、画面上の比較は継続する。
+  }
 }
 
 function csvCell(value) {
@@ -253,9 +293,15 @@ function openConcept(id) {
 }
 
 function toggleCompare(id) {
-  if (state.compare.has(id)) state.compare.delete(id);
-  else if (state.compare.size < MAX_COMPARE) state.compare.add(id);
-  else return alert(`比較できる尺度は最大${MAX_COMPARE}件です。`);
+  if (state.compare.has(id)) {
+    state.compare.delete(id);
+    delete state.roles[id];
+    delete state.notes[id];
+  } else if (state.compare.size < MAX_COMPARE) {
+    state.compare.add(id);
+    state.roles[id] ||= "unset";
+  } else return alert(`比較できる尺度は最大${MAX_COMPARE}件です。`);
+  saveDesignState();
   renderScales(); renderCompare();
 }
 
@@ -295,6 +341,104 @@ function renderShortOptions(scales) {
   $$('[data-add-alternative]').forEach((b) => (b.onclick = () => toggleCompare(b.dataset.addAlternative)));
 }
 
+function designExportRows(scales) {
+  return scales.map((s) => ({
+    role: roleLabels[state.roles[s.id] || "unset"],
+    concept_ja: concepts.get(s.conceptId).nameJa,
+    concept_en: concepts.get(s.conceptId).nameEn,
+    scale_name: s.name,
+    abbreviation: s.abbreviation,
+    registered_item_count: s.itemCount,
+    observed_item_counts: observedItemCounts(s).join("・"),
+    registered_usage_studies: (s.usageStudies || []).length,
+    usage_count_evidence: usageSummary(s),
+    japanese_status: labels[s.japaneseVersionStatus],
+    usage_permission: labels[s.usagePermission],
+    note: state.notes[s.id] || "",
+    doi: s.doi || "",
+    google_scholar: scholarUrl(s),
+  }));
+}
+
+function exportResearchDesign(scales, format) {
+  const rows = designExportRows(scales);
+  const guide = burdenGuide(scales);
+  if (format === "json") {
+    downloadFile("research-design.json", JSON.stringify({
+      exportedAt: new Date().toISOString(),
+      summary: {
+        scales: scales.length,
+        concepts: guide.conceptsCount,
+        totalItems: guide.items,
+        estimatedMinutes: `${guide.minutesMin}-${guide.minutesMax}`,
+      },
+      scales: rows,
+    }, null, 2), "application/json");
+    return;
+  }
+  const headers = Object.keys(rows[0]);
+  const csv = [headers, ...rows.map((row) => headers.map((key) => row[key]))]
+    .map((row) => row.map(csvCell).join(","))
+    .join("\r\n");
+  downloadFile("research-design.csv", `\uFEFF${csv}`, "text/csv;charset=utf-8");
+}
+
+function renderDesignBuilder(scales) {
+  const builder = $("#design-builder");
+  builder.hidden = false;
+  builder.innerHTML = `
+    <div class="design-toolbar">
+      <div><h3>研究モデルを組み立てる</h3><p>各尺度の役割と採用理由を整理できます。入力内容はこのブラウザ内だけに自動保存されます。</p></div>
+      <div class="design-actions">
+        <button type="button" data-export-design="csv">設計をCSV出力</button>
+        <button type="button" data-export-design="json">設計をJSON出力</button>
+        <button type="button" class="subtle-button" data-clear-design>設計をクリア</button>
+      </div>
+    </div>
+    <div class="design-card-list">${scales.map((s) => `
+      <article class="design-card">
+        <div class="design-card-head">
+          <div><span>${esc(concepts.get(s.conceptId).nameJa)}</span><strong>${esc(s.abbreviation)}（${s.itemCount}項目）</strong></div>
+          <button type="button" class="text-button" data-design-detail="${s.id}">尺度詳細</button>
+        </div>
+        <div class="design-fields">
+          <label>研究モデル上の役割
+            <select data-design-role="${s.id}">${Object.entries(roleLabels).map(([value, label]) => `<option value="${value}"${(state.roles[s.id] || "unset") === value ? " selected" : ""}>${label}</option>`).join("")}</select>
+          </label>
+          <label>採用理由・注意点
+            <textarea data-design-note="${s.id}" rows="2" placeholder="例：回答負荷を抑えるため3項目版を候補にする">${esc(state.notes[s.id] || "")}</textarea>
+          </label>
+        </div>
+        <p class="design-evidence">使用先行研究 ${(s.usageStudies || []).length}件登録／確認できた使用項目数 ${esc(observedItemCounts(s).join("・") || "未整理")}／${esc(labels[s.japaneseVersionStatus])}</p>
+      </article>`).join("")}</div>`;
+  $$('[data-design-role]').forEach((select) => (select.onchange = () => {
+    state.roles[select.dataset.designRole] = select.value;
+    saveDesignState();
+    renderCompareTable(scales);
+  }));
+  $$('[data-design-note]').forEach((textarea) => (textarea.oninput = () => {
+    state.notes[textarea.dataset.designNote] = textarea.value;
+    saveDesignState();
+  }));
+  $$('[data-design-detail]').forEach((button) => (button.onclick = () => openScale(button.dataset.designDetail)));
+  $$('[data-export-design]').forEach((button) => (button.onclick = () => exportResearchDesign(scales, button.dataset.exportDesign)));
+  $('[data-clear-design]').onclick = () => {
+    if (!confirm("選択した尺度、役割、メモをすべて消しますか？")) return;
+    state.compare.clear();
+    state.roles = {};
+    state.notes = {};
+    saveDesignState();
+    renderScales();
+    renderCompare();
+  };
+}
+
+function renderCompareTable(scales) {
+  const rows = [["研究モデル上の役割", (s) => roleLabels[state.roles[s.id] || "unset"]], ["概念", (s) => concepts.get(s.conceptId).nameJa], ["実使用・検証", (s) => practiceSummary(s)], ["個別の使用先行研究", (s) => `${(s.usageStudies || []).length}件登録`], ["利用研究数", (s) => usageSummary(s)], ["登録版項目数", (s) => s.itemCount], ["確認できた使用項目数", (s) => observedItemCounts(s).join("・") || "未整理"], ["下位次元", (s) => s.dimensions.join("、")], ["回答件法", (s) => s.responseFormat], ["対象者", (s) => s.targetPopulation.join("、")], ["心理測定情報", (s) => (s.psychometricEvidence || []).length ? "根拠登録あり" : "詳細未登録"], ["日本語の状況", (s) => labels[s.japaneseVersionStatus]], ["利用条件", (s) => labels[s.usagePermission]], ["版", (s) => labels[s.versionType]], ["最終確認日", (s) => s.verifiedAt || ATLAS_DATA.meta.updated]];
+  $("#compare-table").innerHTML = `<thead><tr><th>比較項目</th>${scales.map((s) => `<th>${esc(s.name)}<br><button class="text-button" data-remove="${s.id}">外す</button></th>`).join("")}</tr></thead><tbody>${rows.map(([label, value]) => `<tr><th>${label}</th>${scales.map((s) => `<td>${esc(value(s))}</td>`).join("")}</tr>`).join("")}</tbody>`;
+  $$('[data-remove]').forEach((b) => (b.onclick = () => toggleCompare(b.dataset.remove)));
+}
+
 function renderCompare() {
   const scales = [...state.compare].map((id) => ATLAS_DATA.scales.find((s) => s.id === id));
   $("#compare-count").textContent = scales.length;
@@ -303,14 +447,14 @@ function renderCompare() {
   $("#compare-summary").hidden = !scales.length;
   if (!scales.length) {
     $("#short-option-panel").hidden = true;
+    $("#design-builder").hidden = true;
     return;
   }
   const guide = burdenGuide(scales);
   $("#compare-summary").innerHTML = `<div class="burden-metric"><span>選択尺度</span><strong>${scales.length}</strong></div><div class="burden-metric"><span>概念数</span><strong>${guide.conceptsCount}</strong></div><div class="burden-metric"><span>合計項目数</span><strong>${guide.items}</strong></div><div class="burden-metric"><span>概算回答時間</span><strong>${guide.minutesMin}～${guide.minutesMax}分</strong></div><div class="burden-level ${guide.className}"><span>項目数からみた負荷</span><strong>${guide.label}</strong></div><p>回答時間は1項目10～20秒とした単純目安です。教示、属性項目、自由記述、画面操作、対象者や設問の難しさは含みません。</p>`;
   renderShortOptions(scales);
-  const rows = [["概念", (s) => concepts.get(s.conceptId).nameJa], ["実使用・検証", (s) => practiceSummary(s)], ["個別の使用先行研究", (s) => `${(s.usageStudies || []).length}件登録`], ["利用研究数", (s) => usageSummary(s)], ["登録版項目数", (s) => s.itemCount], ["確認できた使用項目数", (s) => observedItemCounts(s).join("・") || "未整理"], ["下位次元", (s) => s.dimensions.join("、")], ["回答件法", (s) => s.responseFormat], ["対象者", (s) => s.targetPopulation.join("、")], ["心理測定情報", (s) => (s.psychometricEvidence || []).length ? "根拠登録あり" : "詳細未登録"], ["日本語の状況", (s) => labels[s.japaneseVersionStatus]], ["利用条件", (s) => labels[s.usagePermission]], ["版", (s) => labels[s.versionType]], ["最終確認日", (s) => s.verifiedAt || ATLAS_DATA.meta.updated]];
-  $("#compare-table").innerHTML = `<thead><tr><th>比較項目</th>${scales.map((s) => `<th>${esc(s.name)}<br><button class="text-button" data-remove="${s.id}">外す</button></th>`).join("")}</tr></thead><tbody>${rows.map(([label, value]) => `<tr><th>${label}</th>${scales.map((s) => `<td>${esc(value(s))}</td>`).join("")}</tr>`).join("")}</tbody>`;
-  $$("[data-remove]").forEach((b) => (b.onclick = () => toggleCompare(b.dataset.remove)));
+  renderDesignBuilder(scales);
+  renderCompareTable(scales);
 }
 
 init();
