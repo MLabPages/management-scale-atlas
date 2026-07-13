@@ -118,3 +118,18 @@
   color: var(--soft);
   font-size: 0.78rem;
 }
+
+.method-note {
+  margin: -8px 0 18px;
+  padding: 10px 12px;
+  border-left: 3px solid var(--accent2);
+  border-radius: 6px;
+  background: #f2f8f7;
+  color: var(--soft);
+  font-size: 0.8rem;
+  line-height: 1.65;
+}
+
+.method-note strong {
+  color: var(--accent);
+}
