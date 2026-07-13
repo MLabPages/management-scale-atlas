@@ -2,10 +2,10 @@
 // DOI、原典、項目数、下位次元は原著論文または公式資料で確認。
 const ATLAS_DATA = {
   meta: {
-    version: "0.18.0",
+    version: "0.19.0",
     status: "initial-real-data",
     updated: "2026-07-13",
-    scope: "34概念・49尺度",
+    scope: "34概念・50尺度",
   },
 
   concepts: [
@@ -1309,15 +1309,53 @@ const ATLAS_DATA = {
       reverseItems: [], scoring: "4下位次元。得点化は原典を確認。",
       targetPopulation: ["消費者", "耐久消費財の購入検討者・購入者"],
       language: "English", versionType: "original", parentScaleId: null,
-      japaneseVersionStatus: "unconfirmed",
-      japaneseStatusNote: "PERVALそのものの検証済み日本語版・日本語使用例は、今回の確認範囲では登録していません。日本語研究で独自翻訳されている可能性とは区別しています。",
-      japaneseEvidence: [],
+      japaneseVersionStatus: "related-version",
+      japaneseStatusNote: "PERVAL 19項目そのものの標準化された日本語版は未登録です。日本語研究でSweeney & Soutarを含む先行尺度を参考に、機能・感情・社会価値を選択・調整した使用例は、PERVALの日本語版とは区別して示します。",
+      japaneseEvidence: [
+        { kind: "related-version", label: "PERVALを含む先行尺度を基にした日本語価値尺度の使用例", authors: "原田将・松村浩貴・古川裕康", year: 2021, title: "ブランド・コミットメントに及ぼす消費価値の交互作用効果", url: "https://doi.org/10.7222/marketing.2021.026" },
+      ],
       validationStudies: [], usagePermission: "unknown", usageEvidence: [],
       psychometricEvidence: [
         { label: "原著の尺度開発", sample: "耐久消費財をブランド水準で評価する購入前・購入後の消費者標本", methods: "探索的・確認的分析、購入前後での信頼性・妥当性検討", result: "4次元19項目の信頼性・妥当性を支持", url: "https://doi.org/10.1016/S0022-4359(01)00041-0" },
       ],
+      applicationEvidence: [
+        { label: "日本語の3次元選択・文脈調整例", evidenceType: "construct-selection-and-contextual-adaptation", summary: "日本の市民マラソン参加者研究は、Sweeney & Soutar（2001）等を参考に機能的・感情的・社会的価値を5件法で測定した。複数の出典から項目を選び、低負荷項目を除外しているため、PERVAL 19項目の日本語版や汎用短縮版とは扱わない。", title: "ブランド・コミットメントに及ぼす消費価値の交互作用効果", year: 2021, doi: "10.7222/marketing.2021.026", url: "https://doi.org/10.7222/marketing.2021.026" },
+      ],
       itemPublicationStatus: "not-published", items: [],
       notes: "サービス向けに開発された別の知覚価値尺度や短縮・改変版と区別する。",
+      recordStatus: "verified-metadata",
+    },
+    {
+      id: "japanese-customer-value-scale-takahashi-26",
+      name: "顧客価値尺度",
+      abbreviation: "顧客価値尺度（高橋）",
+      conceptId: "perceived-value",
+      authors: ["高橋史早"],
+      year: 2018,
+      sourceTitle: "顧客価値尺度の開発と検証",
+      journal: "JSMDレビュー, 2(2), 39–47",
+      doi: "10.32299/jsmdreview.2.2_39",
+      itemCount: 26,
+      dimensions: ["品質的価値", "価格的価値", "効率的価値", "審美的価値", "娯楽的価値", "認識的価値"],
+      responseFormat: "5件法",
+      reverseItems: [], scoring: "6下位次元。項目構成と得点化は原論文の尺度表を確認。",
+      targetPopulation: ["日本の消費者", "実店舗・オンライン店舗の利用者"],
+      language: "Japanese", versionType: "original", parentScaleId: null,
+      japaneseVersionStatus: "original-japanese",
+      japaneseStatusNote: "日本語で開発・再検証された独立の顧客価値尺度です。PERVALの日本語訳ではなく、効率・審美・娯楽・認識を含む6次元構成です。",
+      japaneseEvidence: [
+        { kind: "original-japanese", label: "日本語での尺度開発・再検証", authors: "高橋史早", year: 2018, title: "顧客価値尺度の開発と検証", url: "https://doi.org/10.32299/jsmdreview.2.2_39" },
+      ],
+      validationStudies: [], usagePermission: "unknown", usageEvidence: [],
+      psychometricEvidence: [
+        { label: "尺度開発と異なる顧客標本での検証", sample: "実店舗利用者362名、オンライン店舗利用者181名、再検証200名", methods: "項目生成、探索的・確認的因子分析、信頼性・収束・弁別・基準関連妥当性の検討", result: "6次元26項目。オンライン標本でCFI=.936、RMSEA=.060、SRMR=.062、再検証でCFI=.933、RMSEA=.059、SRMR=.057。再検証では各次元α≧.80、CR≧.81、AVE≧.53で、再利用意向との有意な関連を確認", url: "https://doi.org/10.32299/jsmdreview.2.2_39" },
+      ],
+      applicationEvidence: [
+        { label: "多面的診断を重視する日本語26項目版", itemCounts: [26], evidenceType: "scale-development", summary: "品質・価格だけでなく、効率・審美・娯楽・認識まで比較したい調査向けです。複数概念調査では回答負担が大きいため、必要な次元だけを抜粋する場合は原版とは別の文脈調整版として再検証が必要です。", title: "顧客価値尺度の開発と検証", year: 2018, doi: "10.32299/jsmdreview.2.2_39", url: "https://doi.org/10.32299/jsmdreview.2.2_39" },
+      ],
+      usageStudies: [],
+      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-13",
+      notes: "原論文には尺度項目表がありますが、本サイトへの転載許諾は未確認のため項目本文は収録しません。DOIリンクから原文を確認できます。",
       recordStatus: "verified-metadata",
     },
     {
