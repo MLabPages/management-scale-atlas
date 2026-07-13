@@ -163,7 +163,34 @@ function applicationEvidenceHtml(s) {
 function usageStudiesHtml(s) {
   const entries = s.usageStudies || [];
   if (!entries.length) return `<div class="detail-section usage-studies"><h3>この尺度を使った先行研究</h3><p><span class="badge neutral">登録準備中</span></p><p class="sub">個別の使用研究はまだ登録していません。利用研究がないという意味ではありません。</p></div>`;
-  return `<div class="detail-section usage-studies"><h3>この尺度を使った先行研究 <span class="badge">${entries.length}件</span></h3><p class="sub">尺度開発論文の引用ではなく、本文・表・付録などで使用方法を確認できた研究です。研究文脈により項目表現や回答件法が異なる場合があります。</p><div class="study-list">${entries.map((e) => `<article class="study-card"><div class="study-card-head"><span class="evidence-kind">${esc(e.context || "利用研究")}</span><span class="badge">${esc(e.itemCount)}項目</span></div><h4>${esc(e.title)}</h4><p class="sub">${esc([e.authors, e.year].filter(Boolean).join("（") + (e.authors && e.year ? "）" : ""))}</p><dl><div><dt>対象・標本</dt><dd>${esc(e.sample || "本文を確認")}</dd></div><div><dt>回答・言語</dt><dd>${esc([e.responseFormat, e.language].filter(Boolean).join("・") || "本文を確認")}</dd></div><div><dt>使い方</dt><dd>${esc(e.adaptation || "原典に基づき使用")}</dd></div>${e.result ? `<div><dt>報告された測定情報</dt><dd>${esc(e.result)}</dd></div>` : ""}</dl>${e.url ? `<a href="${esc(e.url)}" target="_blank" rel="noopener noreferrer">先行研究を開く ↗</a>` : ""}</article>`).join("")}</div></div>`;
+  const itemCounts = [...new Set(entries.map((e) => e.itemCount).filter(Boolean))].sort((a, b) => a - b);
+  const languages = [...new Set(entries.map((e) => e.language).filter(Boolean))].sort();
+  const years = [...new Set(entries.map((e) => e.year).filter(Boolean))].sort((a, b) => b - a);
+  const controls = entries.length > 1 ? `<div class="study-filters"><label>対象・文脈<input type="search" data-study-query placeholder="例：観光、従業員、日本"></label><label>項目数<select data-study-items><option value="">すべて</option>${itemCounts.map((x) => `<option value="${x}">${x}項目</option>`).join("")}</select></label><label>言語<select data-study-language><option value="">すべて</option>${languages.map((x) => `<option value="${esc(x)}">${esc(x)}</option>`).join("")}</select></label><label>年代<select data-study-year><option value="">すべて</option>${years.map((x) => `<option value="${x}">${x}年以降</option>`).join("")}</select></label><button type="button" class="text-button" data-study-clear>条件をクリア</button></div><p class="study-filter-count"><strong data-study-visible>${entries.length}</strong>／${entries.length}件を表示</p>` : "";
+  return `<div class="detail-section usage-studies"><h3>この尺度を使った先行研究 <span class="badge">${entries.length}件</span></h3><p class="sub">尺度開発論文の引用ではなく、本文・表・付録などで使用方法を確認できた研究です。研究文脈により項目表現や回答件法が異なる場合があります。</p>${controls}<div class="study-list">${entries.map((e) => `<article class="study-card" data-study-card data-study-items="${esc(e.itemCount || "")}" data-study-language="${esc(e.language || "")}" data-study-year="${esc(e.year || "")}" data-study-search="${esc([e.title, e.authors, e.context, e.sample, e.adaptation].filter(Boolean).join(" ").toLowerCase())}"><div class="study-card-head"><span class="evidence-kind">${esc(e.context || "利用研究")}</span><span class="badge">${esc(e.itemCount)}項目</span></div><h4>${esc(e.title)}</h4><p class="sub">${esc([e.authors, e.year].filter(Boolean).join("（") + (e.authors && e.year ? "）" : ""))}</p><dl><div><dt>対象・標本</dt><dd>${esc(e.sample || "本文を確認")}</dd></div><div><dt>回答・言語</dt><dd>${esc([e.responseFormat, e.language].filter(Boolean).join("・") || "本文を確認")}</dd></div><div><dt>使い方</dt><dd>${esc(e.adaptation || "原典に基づき使用")}</dd></div>${e.result ? `<div><dt>報告された測定情報</dt><dd>${esc(e.result)}</dd></div>` : ""}</dl>${e.url ? `<a href="${esc(e.url)}" target="_blank" rel="noopener noreferrer">先行研究を開く ↗</a>` : ""}</article>`).join("")}</div><p class="empty-state study-filter-empty" data-study-empty hidden>条件に合う使用研究がありません。</p></div>`;
+}
+
+function bindUsageStudyFilters() {
+  const section = $(".usage-studies");
+  if (!section?.querySelector("[data-study-query]")) return;
+  const controls = ["[data-study-query]", "[data-study-items]", "[data-study-language]", "[data-study-year]"].map((selector) => section.querySelector(selector));
+  const apply = () => {
+    const [queryInput, itemsInput, languageInput, yearInput] = controls;
+    const query = queryInput.value.trim().toLowerCase();
+    let visible = 0;
+    section.querySelectorAll("[data-study-card]").forEach((card) => {
+      const match = (!query || card.dataset.studySearch.includes(query))
+        && (!itemsInput.value || card.dataset.studyItems === itemsInput.value)
+        && (!languageInput.value || card.dataset.studyLanguage === languageInput.value)
+        && (!yearInput.value || Number(card.dataset.studyYear) >= Number(yearInput.value));
+      card.hidden = !match;
+      if (match) visible += 1;
+    });
+    section.querySelector("[data-study-visible]").textContent = visible;
+    section.querySelector("[data-study-empty]").hidden = visible !== 0;
+  };
+  controls.forEach((control) => control.addEventListener(control.matches("input") ? "input" : "change", apply));
+  section.querySelector("[data-study-clear]").onclick = () => { controls.forEach((control) => (control.value = "")); apply(); };
 }
 
 function scaleRelationshipHtml(s) {
@@ -363,6 +390,7 @@ function openScale(id) {
   $("#detail-body").innerHTML = `<p class="sub">尺度詳細・${esc(recordStatusLabels[s.recordStatus] || s.recordStatus)}</p><h2 class="detail-title">${esc(s.name)}</h2><p>${esc(c.nameJa)} / ${esc(c.nameEn)}</p><div class="sample-notice"><strong>確認範囲：</strong>原典、DOI、登録版の項目数、下位次元を確認しています。実使用版、日本語情報、利用研究数、心理測定情報は根拠の強さを区別します。<br><span class="sub">最終確認日：${esc(s.verifiedAt || ATLAS_DATA.meta.updated)}</span></div><div class="detail-section detail-grid"><div><strong>略称</strong>${esc(s.abbreviation)}</div><div><strong>開発年</strong>${s.year}</div><div><strong>登録版項目数</strong>${s.itemCount}</div><div><strong>測定スタイル</strong>${esc(measurementStyle(s))}</div><div><strong>回答形式</strong>${esc(s.responseFormat)}</div><div><strong>下位次元</strong>${esc(s.dimensions.join("、"))}</div><div><strong>対象者</strong>${esc(s.targetPopulation.join("、"))}</div><div><strong>日本語の状況</strong>${esc(labels[s.japaneseVersionStatus])}</div><div><strong>利用条件</strong>${esc(labels[s.usagePermission])}</div></div>${scaleRelationshipHtml(s)}${usageStudiesHtml(s)}${applicationEvidenceHtml(s)}${usageEvidenceHtml(s)}${psychometricEvidenceHtml(s)}${japaneseEvidenceHtml(s)}<div class="detail-section"><h3>原典・文献情報</h3><p><strong>${esc(s.sourceTitle || "原典タイトル未登録")}</strong><br><span class="sub">${esc(s.authors.join("、"))}（${s.year}）${s.journal ? `・${esc(s.journal)}` : ""}</span></p>${sourceLinks(s)}</div><div class="detail-section"><h3>尺度項目</h3><p>掲載していません。利用条件と原典を確認してください。</p>${s.notes ? `<p class="sub">${esc(s.notes)}</p>` : ""}</div>`;
   $("#detail-body .sample-notice").insertAdjacentHTML("afterend", adoptionGuideHtml(s));
   $("#detail-dialog").showModal();
+  bindUsageStudyFilters();
   $$('[data-related-scale]').forEach((b) => (b.onclick = () => openScale(b.dataset.relatedScale)));
   $$('[data-decision-related]').forEach((b) => (b.onclick = () => openScale(b.dataset.decisionRelated)));
   $$('[data-decision-compare]').forEach((b) => (b.onclick = () => { toggleCompare(b.dataset.decisionCompare); openScale(id); }));
@@ -440,6 +468,7 @@ function selectedBasis(s) {
     title: s.sourceTitle,
     authors: s.authors.join("; "),
     year: s.year,
+    journal: s.journal,
     itemCount: s.itemCount,
     responseFormat: s.responseFormat,
     language: s.language,
@@ -547,6 +576,50 @@ function exportEvidencePack(scales) {
   downloadFile("research-design-evidence.csv", `\uFEFF${csv}`, "text/csv;charset=utf-8");
 }
 
+function citationAuthors(value) {
+  return String(value || "").replace(/\s*&\s*/g, " and ").replace(/;\s*/g, " and ");
+}
+
+function bibValue(value) {
+  return String(value).replace(/[{}]/g, "").replace(/([&%#])/g, "\\$1");
+}
+
+function citationKey(basis, index) {
+  const firstAuthor = String(basis.authors || "source").split(/;|&| and /i)[0].trim().split(/\s+/).pop() || "source";
+  return `${firstAuthor}${basis.year || "nd"}${index + 1}`.replace(/[^a-z0-9]/gi, "");
+}
+
+function selectedCitations(scales) {
+  const seen = new Set();
+  return scales.map(selectedBasis).filter((basis) => {
+    const key = String(basis.doi || basis.title || "").toLowerCase();
+    if (!key || seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
+function exportCitations(scales, format) {
+  const citations = selectedCitations(scales);
+  if (!citations.length) return;
+  if (format === "bib") {
+    const bib = citations.map((basis, index) => {
+      const fields = [
+        ["title", basis.title], ["author", citationAuthors(basis.authors)], ["year", basis.year],
+        ["journal", basis.journal], ["doi", basis.doi], ["url", basis.url || (basis.doi ? `https://doi.org/${basis.doi}` : "")],
+      ].filter(([, value]) => value).map(([key, value]) => `  ${key} = {${bibValue(value)}}`).join(",\n");
+      return `@article{${citationKey(basis, index)},\n${fields}\n}`;
+    }).join("\n\n");
+    downloadFile("selected-scale-evidence.bib", bib, "application/x-bibtex;charset=utf-8");
+    return;
+  }
+  const ris = citations.map((basis) => {
+    const authors = citationAuthors(basis.authors).split(/\s+and\s+/).filter(Boolean).map((author) => `AU  - ${author}`);
+    return ["TY  - JOUR", `TI  - ${basis.title || ""}`, ...authors, basis.year ? `PY  - ${basis.year}` : "", basis.journal ? `JO  - ${basis.journal}` : "", basis.doi ? `DO  - ${basis.doi}` : "", basis.url || basis.doi ? `UR  - ${basis.url || `https://doi.org/${basis.doi}`}` : "", "ER  -"].filter(Boolean).join("\r\n");
+  }).join("\r\n\r\n");
+  downloadFile("selected-scale-evidence.ris", ris, "application/x-research-info-systems;charset=utf-8");
+}
+
 function exportResearchDesign(scales, format) {
   const rows = designExportRows(scales);
   const guide = burdenGuide(scales);
@@ -581,6 +654,8 @@ function renderDesignBuilder(scales) {
         <button type="button" data-export-design="csv">設計をCSV出力</button>
         <button type="button" data-export-design="json">設計をJSON出力</button>
         <button type="button" data-export-evidence>先行研究一覧CSV</button>
+        <button type="button" data-export-citations="bib">選択文献をBibTeX出力</button>
+        <button type="button" data-export-citations="ris">選択文献をRIS出力</button>
         <button type="button" class="subtle-button" data-clear-design>設計をクリア</button>
       </div>
     </div>
@@ -626,6 +701,7 @@ function renderDesignBuilder(scales) {
   $$('[data-design-detail]').forEach((button) => (button.onclick = () => openScale(button.dataset.designDetail)));
   $$('[data-export-design]').forEach((button) => (button.onclick = () => exportResearchDesign(scales, button.dataset.exportDesign)));
   $('[data-export-evidence]').onclick = () => exportEvidencePack(scales);
+  $$('[data-export-citations]').forEach((button) => (button.onclick = () => exportCitations(scales, button.dataset.exportCitations)));
   $('[data-clear-design]').onclick = () => {
     if (!confirm("選択した尺度、役割、メモをすべて消しますか？")) return;
     state.compare.clear();
