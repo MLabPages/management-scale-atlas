@@ -2,10 +2,10 @@
 // DOI、原典、項目数、下位次元は原著論文または公式資料で確認。
 const ATLAS_DATA = {
   meta: {
-    version: "0.21.0",
+    version: "0.22.0",
     status: "initial-real-data",
     updated: "2026-07-13",
-    scope: "34概念・53尺度",
+    scope: "34概念・54尺度",
   },
 
   concepts: [
@@ -1463,6 +1463,41 @@ const ATLAS_DATA = {
       usageStudies: [],
       itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-13",
       notes: "低負担を最優先する場合の候補。各次元3項目を確保できるなら12項目版の方が欠測や翻訳調整に対して扱いやすい。",
+      recordStatus: "verified-metadata",
+    },
+    {
+      id: "overall-relational-perceived-value-4",
+      name: "Overall Relational Perceived Value Scale – 4 item",
+      abbreviation: "Overall Value 4",
+      conceptId: "perceived-value",
+      authors: ["Deepak Sirdeshmukh", "Jagdip Singh", "Barry Sabol"],
+      year: 2002,
+      sourceTitle: "Consumer Trust, Value, and Loyalty in Relational Exchanges",
+      journal: "Journal of Marketing, 66(1), 15–37",
+      doi: "10.1509/jmkg.66.1.15.18449",
+      itemCount: 4,
+      dimensions: ["Overall relational perceived value"],
+      responseFormat: "原著は10件法",
+      reverseItems: [], scoring: "4項目で、便益と金銭・時間・努力の費用を総合評価する。",
+      targetPopulation: ["サービス利用者", "継続的な顧客関係を評価する消費者"],
+      language: "English", versionType: "original", parentScaleId: null,
+      japaneseVersionStatus: "unconfirmed",
+      japaneseStatusNote: "Sirdeshmukhらの総合知覚価値4項目そのものの標準化された日本語版・日本語使用例は未登録です。独自翻訳では、価格・時間・努力の表現を対象サービスに合わせて再検証してください。",
+      japaneseEvidence: [],
+      validationStudies: [], usagePermission: "permission-required", usageEvidence: [],
+      psychometricEvidence: [
+        { label: "2つのサービス文脈での4項目尺度", sample: "衣料品小売264名、非業務航空旅行113名", methods: "小売・航空の2文脈で、信頼・価値・ロイヤルティの関係モデルを検証", result: "価格、時間、努力に対して得られる便益を4項目で測定し、両文脈でα=.92。価値が信頼からロイヤルティへの関係を媒介", url: "https://doi.org/10.1509/jmkg.66.1.15.18449" },
+      ],
+      applicationEvidence: [
+        { label: "総合価値を4項目で測る低負担版", itemCounts: [4], evidenceType: "scale-development", summary: "PERVALのように価値の種類を診断するのではなく、得られる便益と支払金額・時間・努力の釣り合いを総合的に測ります。多くの概念を同時に扱う関係性モデルに向きます。", title: "Consumer Trust, Value, and Loyalty in Relational Exchanges", year: 2002, doi: "10.1509/jmkg.66.1.15.18449", url: "https://doi.org/10.1509/jmkg.66.1.15.18449" },
+        { label: "後続研究で3項目使用", itemCounts: [4, 3], evidenceType: "usage-study", summary: "AIサービス採用研究では、Sirdeshmukhらを出典として3項目を採用しています。原版4項目と同一ではないため、低負担な使用例として区別します。", title: "Hello! How Can I Help You? Role of Technology Appetite on AI Adoption in the Post-Pandemic Era", year: 2025, doi: "10.1111/radm.12771", url: "https://doi.org/10.1111/radm.12771" },
+      ],
+      usageStudies: [
+        { title: "Towards an Integrative Model of Loyalty Formation: The Role of Quality and Value", authors: "Li & Petrick", year: 2010, context: "米国のクルーズ旅行ブランド", sample: "過去12か月にクルーズ経験がある反復利用者554名", itemCount: 4, responseFormat: "7件法", language: "English", adaptation: "価格、時間、努力、総合経験に対して得られる便益を評価するようクルーズ文脈へ調整。", result: "4項目のα=.96。知覚価値は満足を介して態度的ロイヤルティに影響し、品質から知覚価値への効果も有意。", doi: "10.1080/01490401003709123", url: "https://doi.org/10.1080/01490401003709123" },
+        { title: "Hello! How Can I Help You? Role of Technology Appetite on AI Adoption in the Post-Pandemic Era", authors: "Sharma et al.", year: 2025, context: "AIベースサービスの採用", sample: "AIサービス利用経験を持つGen Y・Gen Z 283名", itemCount: 3, responseFormat: "7件法", language: "English", adaptation: "Sirdeshmukhらの知覚価値尺度から3項目を使用。原版4項目の完全使用ではない。", result: "知覚価値3項目をAI採用モデルに組み込み、SEMで検証。詳細な信頼性・妥当性は原論文を確認。", doi: "10.1111/radm.12771", url: "https://doi.org/10.1111/radm.12771" },
+      ],
+      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-13",
+      notes: "総合的な関係価値を短く測る尺度。価値の内訳を診断したい場合はPERVAL 12項目版、日本語で多面的に測りたい場合は高橋の26項目版を検討する。AMAの再利用条件を確認する。",
       recordStatus: "verified-metadata",
     },
     {
