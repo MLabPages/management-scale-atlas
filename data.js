@@ -2,7 +2,7 @@
 // DOI、原典、項目数、下位次元は原著論文または公式資料で確認。
 const ATLAS_DATA = {
   meta: {
-    version: "0.12.0",
+    version: "0.13.0",
     status: "initial-real-data",
     updated: "2026-07-13",
     scope: "30概念・41尺度",
@@ -361,6 +361,10 @@ const ATLAS_DATA = {
       validationStudies: [], usagePermission: "unknown",
       usageEvidence: [
         { kind: "systematic-review-count", count: 37, denominator: 139, label: "レビュー内で37研究が使用", scope: "2021年9月までの英語査読誌を対象としたブランド愛着レビュー。尺度を報告した139研究中。", checkedAt: "2026-07-13", title: "Brand attachment: a review and future research", year: 2022, doi: "10.1057/s41262-022-00279-5", url: "https://doi.org/10.1057/s41262-022-00279-5" },
+      ],
+      usageStudies: [
+        { title: "How Do Different Types of Community Commitment Influence Brand Commitment? The Mediation of Brand Attachment", authors: "Zhang, Zhou, Su, & Zhou", year: 2013, context: "中国のオンライン携帯電話ブランド・コミュニティ", sample: "オンラインブランドコミュニティ参加者404名", itemCount: 4, responseFormat: "6件法", language: "Chinese", adaptation: "Parkらの4項目を中国語へ翻訳し、英中バイリンガルのマーケティング研究者12名が表現を確認。", result: "ブランド自己結合とブランド顕著性の2次元。各次元のα=.832／.864、項目負荷=.925／.938を報告。", doi: "10.1089/cyber.2012.0456", url: "https://doi.org/10.1089/cyber.2012.0456" },
+        { title: "Positive and Negative Behaviours Resulting from Brand Attachment: The Moderating Effects of Attachment Styles", authors: "Japutra, Ekinci, & Simkin", year: 2018, context: "英国の消費者が選んだ愛用ブランド", sample: "英国各都市から募集した消費者432名", itemCount: 4, responseFormat: "点数は本文で明示確認できず", language: "English", adaptation: "Parkらの4項目を使用。ブランド自己結合2項目とブランド顕著性2項目で構成。", result: "項目負荷=.77～.89。測定モデルはCFI=.98、RMSEA=.04で、構成概念のCRはすべて.70超。", doi: "10.1108/EJM-10-2016-0566", url: "https://doi.org/10.1108/EJM-10-2016-0566" },
       ],
       applicationEvidence: [
         { label: "原著内で比較された版", itemCounts: [8, 4], evidenceType: "scale-development", summary: "原著は8項目版と簡潔な4項目版を比較し、最終的に4項目版を採用。後続レビューでは4項目版の使用が37研究で確認されています。", title: "Brand Attachment and Brand Attitude Strength", year: 2010, doi: "10.1509/jmkg.74.6.1", url: "https://doi.org/10.1509/jmkg.74.6.1" },

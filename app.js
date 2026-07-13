@@ -43,9 +43,9 @@ function loadDesignState() {
     const saved = JSON.parse(localStorage.getItem(DESIGN_STORAGE_KEY) || "{}");
     const validIds = new Set(ATLAS_DATA.scales.map((s) => s.id));
     const scaleIds = Array.isArray(saved.scaleIds) ? saved.scaleIds.filter((id) => validIds.has(id)).slice(0, MAX_COMPARE) : [];
-    return { scaleIds, roles: saved.roles || {}, notes: saved.notes || {} };
+    return { scaleIds, roles: saved.roles || {}, notes: saved.notes || {}, studyChoices: saved.studyChoices || {} };
   } catch {
-    return { scaleIds: [], roles: {}, notes: {} };
+    return { scaleIds: [], roles: {}, notes: {}, studyChoices: {} };
   }
 }
 
@@ -54,6 +54,7 @@ const state = {
   compare: new Set(savedDesign.scaleIds),
   roles: savedDesign.roles,
   notes: savedDesign.notes,
+  studyChoices: savedDesign.studyChoices,
 };
 const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 const scholarUrl = (s) => `https://scholar.google.com/scholar?q=${encodeURIComponent(`"${s.name}" ${s.authors.join(" ")} ${s.year}`)}`;
@@ -183,6 +184,7 @@ function saveDesignState() {
       scaleIds: [...state.compare],
       roles: state.roles,
       notes: state.notes,
+      studyChoices: state.studyChoices,
       savedAt: new Date().toISOString(),
     }));
   } catch {
@@ -326,9 +328,11 @@ function toggleCompare(id) {
     state.compare.delete(id);
     delete state.roles[id];
     delete state.notes[id];
+    delete state.studyChoices[id];
   } else if (state.compare.size < MAX_COMPARE) {
     state.compare.add(id);
     state.roles[id] ||= "unset";
+    state.studyChoices[id] ||= "original";
   } else return alert(`比較できる尺度は最大${MAX_COMPARE}件です。`);
   saveDesignState();
   renderScales(); renderCompare();
@@ -370,23 +374,108 @@ function renderShortOptions(scales) {
   $$('[data-add-alternative]').forEach((b) => (b.onclick = () => toggleCompare(b.dataset.addAlternative)));
 }
 
+function selectedBasis(s) {
+  const savedChoice = state.studyChoices[s.id];
+  const choice = typeof savedChoice === "string" ? savedChoice : "original";
+  if (choice.startsWith("study-")) {
+    const index = Number(choice.slice(6));
+    const study = (s.usageStudies || [])[index];
+    if (study) return { type: "usage-study", ...study };
+  }
+  return {
+    type: "original",
+    title: s.sourceTitle,
+    authors: s.authors.join("; "),
+    year: s.year,
+    itemCount: s.itemCount,
+    responseFormat: s.responseFormat,
+    language: s.language,
+    doi: s.doi,
+    url: doiUrl(s),
+  };
+}
+
 function designExportRows(scales) {
-  return scales.map((s) => ({
-    role: roleLabels[state.roles[s.id] || "unset"],
-    concept_ja: concepts.get(s.conceptId).nameJa,
-    concept_en: concepts.get(s.conceptId).nameEn,
-    scale_name: s.name,
-    abbreviation: s.abbreviation,
-    registered_item_count: s.itemCount,
-    observed_item_counts: observedItemCounts(s).join("・"),
-    registered_usage_studies: (s.usageStudies || []).length,
-    usage_count_evidence: usageSummary(s),
-    japanese_status: labels[s.japaneseVersionStatus],
-    usage_permission: labels[s.usagePermission],
-    note: state.notes[s.id] || "",
-    doi: s.doi || "",
-    google_scholar: scholarUrl(s),
-  }));
+  return scales.map((s) => {
+    const basis = selectedBasis(s);
+    return {
+      role: roleLabels[state.roles[s.id] || "unset"],
+      concept_ja: concepts.get(s.conceptId).nameJa,
+      concept_en: concepts.get(s.conceptId).nameEn,
+      scale_name: s.name,
+      abbreviation: s.abbreviation,
+      registered_item_count: s.itemCount,
+      observed_item_counts: observedItemCounts(s).join("・"),
+      registered_usage_studies: (s.usageStudies || []).length,
+      usage_count_evidence: usageSummary(s),
+      japanese_status: labels[s.japaneseVersionStatus],
+      usage_permission: labels[s.usagePermission],
+      note: state.notes[s.id] || "",
+      selected_basis_type: basis.type,
+      selected_basis_title: basis.title || "",
+      selected_basis_authors: basis.authors || "",
+      selected_basis_year: basis.year || "",
+      selected_basis_item_count: basis.itemCount || "",
+      selected_basis_response_format: basis.responseFormat || "",
+      selected_basis_language: basis.language || "",
+      selected_basis_doi: basis.doi || "",
+      selected_basis_url: basis.url || "",
+      doi: s.doi || "",
+      google_scholar: scholarUrl(s),
+    };
+  });
+}
+
+function evidenceExportRows(scales) {
+  return scales.flatMap((s) => {
+    const selectedChoice = state.studyChoices[s.id] || "original";
+    const common = { concept_ja: concepts.get(s.conceptId).nameJa, scale_name: s.name, abbreviation: s.abbreviation };
+    const original = {
+      ...common,
+      selected: selectedChoice === "original" ? "yes" : "",
+      evidence_type: "original",
+      title: s.sourceTitle,
+      authors: s.authors.join("; "),
+      year: s.year,
+      context: "尺度開発・原典",
+      sample: "",
+      item_count: s.itemCount,
+      response_format: s.responseFormat,
+      language: s.language,
+      adaptation: "原典",
+      result: "",
+      doi: s.doi || "",
+      url: doiUrl(s),
+    };
+    const studies = (s.usageStudies || []).map((study, index) => ({
+      ...common,
+      selected: selectedChoice === `study-${index}` ? "yes" : "",
+      evidence_type: "usage-study",
+      title: study.title || "",
+      authors: study.authors || "",
+      year: study.year || "",
+      context: study.context || "",
+      sample: study.sample || "",
+      item_count: study.itemCount || "",
+      response_format: study.responseFormat || "",
+      language: study.language || "",
+      adaptation: study.adaptation || "",
+      result: study.result || "",
+      doi: study.doi || "",
+      url: study.url || "",
+    }));
+    return [original, ...studies];
+  });
+}
+
+function exportEvidencePack(scales) {
+  const rows = evidenceExportRows(scales);
+  if (!rows.length) return;
+  const headers = Object.keys(rows[0]);
+  const csv = [headers, ...rows.map((row) => headers.map((key) => row[key]))]
+    .map((row) => row.map(csvCell).join(","))
+    .join("\r\n");
+  downloadFile("research-design-evidence.csv", `\uFEFF${csv}`, "text/csv;charset=utf-8");
 }
 
 function exportResearchDesign(scales, format) {
@@ -402,6 +491,7 @@ function exportResearchDesign(scales, format) {
         estimatedMinutes: `${guide.minutesMin}-${guide.minutesMax}`,
       },
       scales: rows,
+      evidenceStudies: evidenceExportRows(scales),
     }, null, 2), "application/json");
     return;
   }
@@ -421,6 +511,7 @@ function renderDesignBuilder(scales) {
       <div class="design-actions">
         <button type="button" data-export-design="csv">設計をCSV出力</button>
         <button type="button" data-export-design="json">設計をJSON出力</button>
+        <button type="button" data-export-evidence>先行研究一覧CSV</button>
         <button type="button" class="subtle-button" data-clear-design>設計をクリア</button>
       </div>
     </div>
@@ -438,6 +529,13 @@ function renderDesignBuilder(scales) {
             <textarea data-design-note="${s.id}" rows="2" placeholder="例：回答負荷を抑えるため3項目版を候補にする">${esc(state.notes[s.id] || "")}</textarea>
           </label>
         </div>
+        <label class="design-basis">採用根拠にする文献
+          <select data-design-study="${s.id}">
+            <option value="original"${(state.studyChoices[s.id] || "original") === "original" ? " selected" : ""}>原典：${esc(s.sourceTitle)}（${s.itemCount}項目）</option>
+            ${(s.usageStudies || []).map((study, index) => `<option value="study-${index}"${state.studyChoices[s.id] === `study-${index}` ? " selected" : ""}>使用研究：${esc(study.title)}（${study.itemCount}項目・${study.year}年）</option>`).join("")}
+          </select>
+          <span>${(s.usageStudies || []).length ? "実際の使用文脈・項目数を確認したうえで、最も近い研究を選んでください。" : "個別の使用研究は登録準備中です。原典を基準にします。"}</span>
+        </label>
         <p class="design-evidence">${shortFormLabel(s) ? `${esc(shortFormLabel(s))}／` : ""}使用先行研究 ${(s.usageStudies || []).length}件登録／確認できた使用項目数 ${esc(observedItemCounts(s).join("・") || "未整理")}／${esc(labels[s.japaneseVersionStatus])}</p>
       </article>`).join("")}</div>`;
   $$('[data-design-role]').forEach((select) => (select.onchange = () => {
@@ -449,13 +547,20 @@ function renderDesignBuilder(scales) {
     state.notes[textarea.dataset.designNote] = textarea.value;
     saveDesignState();
   }));
+  $$('[data-design-study]').forEach((select) => (select.onchange = () => {
+    state.studyChoices[select.dataset.designStudy] = select.value;
+    saveDesignState();
+    renderCompareTable(scales);
+  }));
   $$('[data-design-detail]').forEach((button) => (button.onclick = () => openScale(button.dataset.designDetail)));
   $$('[data-export-design]').forEach((button) => (button.onclick = () => exportResearchDesign(scales, button.dataset.exportDesign)));
+  $('[data-export-evidence]').onclick = () => exportEvidencePack(scales);
   $('[data-clear-design]').onclick = () => {
     if (!confirm("選択した尺度、役割、メモをすべて消しますか？")) return;
     state.compare.clear();
     state.roles = {};
     state.notes = {};
+    state.studyChoices = {};
     saveDesignState();
     renderScales();
     renderCompare();
@@ -463,7 +568,7 @@ function renderDesignBuilder(scales) {
 }
 
 function renderCompareTable(scales) {
-  const rows = [["研究モデル上の役割", (s) => roleLabels[state.roles[s.id] || "unset"]], ["概念", (s) => concepts.get(s.conceptId).nameJa], ["実使用・検証", (s) => practiceSummary(s)], ["個別の使用先行研究", (s) => `${(s.usageStudies || []).length}件登録`], ["利用研究数", (s) => usageSummary(s)], ["登録版項目数", (s) => s.itemCount], ["確認できた使用項目数", (s) => observedItemCounts(s).join("・") || "未整理"], ["下位次元", (s) => s.dimensions.join("、")], ["回答件法", (s) => s.responseFormat], ["対象者", (s) => s.targetPopulation.join("、")], ["心理測定情報", (s) => (s.psychometricEvidence || []).length ? "根拠登録あり" : "詳細未登録"], ["日本語の状況", (s) => labels[s.japaneseVersionStatus]], ["利用条件", (s) => labels[s.usagePermission]], ["版", (s) => labels[s.versionType]], ["最終確認日", (s) => s.verifiedAt || ATLAS_DATA.meta.updated]];
+  const rows = [["研究モデル上の役割", (s) => roleLabels[state.roles[s.id] || "unset"]], ["採用根拠にする文献", (s) => `${selectedBasis(s).title}（${selectedBasis(s).itemCount}項目）`], ["概念", (s) => concepts.get(s.conceptId).nameJa], ["実使用・検証", (s) => practiceSummary(s)], ["個別の使用先行研究", (s) => `${(s.usageStudies || []).length}件登録`], ["利用研究数", (s) => usageSummary(s)], ["登録版項目数", (s) => s.itemCount], ["確認できた使用項目数", (s) => observedItemCounts(s).join("・") || "未整理"], ["下位次元", (s) => s.dimensions.join("、")], ["回答件法", (s) => s.responseFormat], ["対象者", (s) => s.targetPopulation.join("、")], ["心理測定情報", (s) => (s.psychometricEvidence || []).length ? "根拠登録あり" : "詳細未登録"], ["日本語の状況", (s) => labels[s.japaneseVersionStatus]], ["利用条件", (s) => labels[s.usagePermission]], ["版", (s) => labels[s.versionType]], ["最終確認日", (s) => s.verifiedAt || ATLAS_DATA.meta.updated]];
   $("#compare-table").innerHTML = `<thead><tr><th>比較項目</th>${scales.map((s) => `<th>${esc(s.name)}<br><button class="text-button" data-remove="${s.id}">外す</button></th>`).join("")}</tr></thead><tbody>${rows.map(([label, value]) => `<tr><th>${label}</th>${scales.map((s) => `<td>${esc(value(s))}</td>`).join("")}</tr>`).join("")}</tbody>`;
   $$('[data-remove]').forEach((b) => (b.onclick = () => toggleCompare(b.dataset.remove)));
 }
