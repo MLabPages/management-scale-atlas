@@ -52,6 +52,12 @@ function usageEvidenceHtml(s) {
   return `<div class="detail-section usage-evidence"><h3>尺度の利用実績</h3><div class="usage-count">${esc(entries[0].count)}<span>研究</span></div><p><strong>${esc(entries[0].label)}</strong></p><p>${esc(entries[0].scope)}</p><p class="sub">確認日：${esc(entries[0].checkedAt)}。原著論文の引用数ではなく、レビュー著者が尺度使用を確認した研究数です。レビューの対象期間・領域外は含みません。</p><ul class="evidence-list">${entries.map((e) => `<li><span class="evidence-kind">利用数の根拠</span><strong>${esc(e.title)}</strong><br><span class="sub">${esc(e.year)}年${e.denominator ? `・レビュー内母数 ${esc(e.denominator)}研究` : ""}</span> <a href="${esc(e.url)}" target="_blank" rel="noopener noreferrer">根拠文献を開く ↗</a></li>`).join("")}</ul></div>`;
 }
 
+function psychometricEvidenceHtml(s) {
+  const entries = s.psychometricEvidence || [];
+  if (!entries.length) return `<div class="detail-section psychometric-evidence"><h3>信頼性・妥当性</h3><p class="sub">標本・信頼性・妥当性の詳細情報は未登録です。原典を確認してください。</p></div>`;
+  return `<div class="detail-section psychometric-evidence"><h3>信頼性・妥当性</h3><ul class="evidence-list">${entries.map((e) => `<li><span class="evidence-kind">${esc(e.label)}</span><strong>${esc(e.result)}</strong><br><span class="sub">標本：${esc(e.sample)}<br>検討：${esc(e.methods)}</span>${e.url ? ` <a href="${esc(e.url)}" target="_blank" rel="noopener noreferrer">根拠を開く ↗</a>` : ""}</li>`).join("")}</ul></div>`;
+}
+
 function init() {
   [...new Set(ATLAS_DATA.concepts.map((c) => c.domain))].forEach((d) => $("#domain-filter").insertAdjacentHTML("beforeend", `<option>${esc(d)}</option>`));
   ["query", "domain-filter", "japanese-filter", "permission-filter", "items-filter", "usage-sort"].forEach((id) => $("#" + id).addEventListener(id === "query" ? "input" : "change", renderScales));
@@ -91,8 +97,9 @@ function scaleCard(s) {
   const c = concepts.get(s.conceptId);
   const selected = state.compare.has(s.id);
   const evidenceCount = (s.japaneseEvidence || []).length;
+  const psychometricCount = (s.psychometricEvidence || []).length;
   const usageKnown = (s.usageEvidence || []).length > 0;
-  return `<article class="scale-card"><p class="sub">${esc(c.nameJa)} / ${esc(c.nameEn)}</p><h3>${esc(s.name)}</h3><p class="sub">${esc(s.abbreviation)} ・ ${s.year}年 ・ 書誌確認済み</p><div class="badges"><span class="badge">${s.itemCount}項目</span><span class="badge">${esc(labels[s.versionType])}</span><span class="badge">${esc(labels[s.japaneseVersionStatus])}</span><span class="badge warn">${esc(labels[s.usagePermission])}</span></div><p class="usage-summary ${usageKnown ? "known" : ""}">${esc(usageSummary(s))}${usageKnown ? "（対象レビュー内）" : ""}</p><p class="jp-summary">日本語情報：${esc(labels[s.japaneseVersionStatus])}${evidenceCount ? `（根拠${evidenceCount}件）` : ""}</p>${sourceLinks(s)}<div class="card-actions"><button class="detail-button" data-scale="${s.id}">詳細を見る</button><button class="compare-button ${selected ? "selected" : ""}" data-compare="${s.id}">${selected ? "比較から外す" : "比較に追加"}</button></div></article>`;
+  return `<article class="scale-card"><p class="sub">${esc(c.nameJa)} / ${esc(c.nameEn)}</p><h3>${esc(s.name)}</h3><p class="sub">${esc(s.abbreviation)} ・ ${s.year}年 ・ 書誌確認済み</p><div class="badges"><span class="badge">${s.itemCount}項目</span><span class="badge">${esc(labels[s.versionType])}</span><span class="badge">${esc(labels[s.japaneseVersionStatus])}</span><span class="badge warn">${esc(labels[s.usagePermission])}</span></div><p class="usage-summary ${usageKnown ? "known" : ""}">${esc(usageSummary(s))}${usageKnown ? "（対象レビュー内）" : ""}</p><p class="jp-summary">日本語情報：${esc(labels[s.japaneseVersionStatus])}${evidenceCount ? `（根拠${evidenceCount}件）` : ""}${psychometricCount ? ` ／ 測定情報${psychometricCount}件` : ""}</p>${sourceLinks(s)}<div class="card-actions"><button class="detail-button" data-scale="${s.id}">詳細を見る</button><button class="compare-button ${selected ? "selected" : ""}" data-compare="${s.id}">${selected ? "比較から外す" : "比較に追加"}</button></div></article>`;
 }
 
 function bindCards() {
@@ -115,7 +122,7 @@ function renderConcepts() {
 function openScale(id) {
   const s = ATLAS_DATA.scales.find((x) => x.id === id);
   const c = concepts.get(s.conceptId);
-  $("#detail-body").innerHTML = `<p class="sub">尺度詳細・書誌確認済み</p><h2 class="detail-title">${esc(s.name)}</h2><p>${esc(c.nameJa)} / ${esc(c.nameEn)}</p><div class="sample-notice"><strong>確認範囲：</strong>原典、DOI、項目数、下位次元を確認しています。日本語情報と利用実績は、根拠の強さと確認範囲を区別して表示します。</div><div class="detail-section detail-grid"><div><strong>略称</strong>${esc(s.abbreviation)}</div><div><strong>開発年</strong>${s.year}</div><div><strong>項目数</strong>${s.itemCount}</div><div><strong>回答形式</strong>${esc(s.responseFormat)}</div><div><strong>下位次元</strong>${esc(s.dimensions.join("、"))}</div><div><strong>対象者</strong>${esc(s.targetPopulation.join("、"))}</div><div><strong>日本語の状況</strong>${esc(labels[s.japaneseVersionStatus])}</div><div><strong>利用条件</strong>${esc(labels[s.usagePermission])}</div></div>${usageEvidenceHtml(s)}${japaneseEvidenceHtml(s)}<div class="detail-section"><h3>原典・文献情報</h3><p><strong>${esc(s.sourceTitle || "原典タイトル未登録")}</strong><br><span class="sub">${esc(s.authors.join("、"))}（${s.year}）${s.journal ? `・${esc(s.journal)}` : ""}</span></p>${sourceLinks(s)}</div><div class="detail-section"><h3>尺度項目</h3><p>掲載していません。利用条件と原典を確認してください。</p>${s.notes ? `<p class="sub">${esc(s.notes)}</p>` : ""}</div>`;
+  $("#detail-body").innerHTML = `<p class="sub">尺度詳細・書誌確認済み</p><h2 class="detail-title">${esc(s.name)}</h2><p>${esc(c.nameJa)} / ${esc(c.nameEn)}</p><div class="sample-notice"><strong>確認範囲：</strong>原典、DOI、項目数、下位次元を確認しています。日本語情報・利用実績・心理測定情報は、根拠の強さと確認範囲を区別して表示します。</div><div class="detail-section detail-grid"><div><strong>略称</strong>${esc(s.abbreviation)}</div><div><strong>開発年</strong>${s.year}</div><div><strong>項目数</strong>${s.itemCount}</div><div><strong>回答形式</strong>${esc(s.responseFormat)}</div><div><strong>下位次元</strong>${esc(s.dimensions.join("、"))}</div><div><strong>対象者</strong>${esc(s.targetPopulation.join("、"))}</div><div><strong>日本語の状況</strong>${esc(labels[s.japaneseVersionStatus])}</div><div><strong>利用条件</strong>${esc(labels[s.usagePermission])}</div></div>${usageEvidenceHtml(s)}${psychometricEvidenceHtml(s)}${japaneseEvidenceHtml(s)}<div class="detail-section"><h3>原典・文献情報</h3><p><strong>${esc(s.sourceTitle || "原典タイトル未登録")}</strong><br><span class="sub">${esc(s.authors.join("、"))}（${s.year}）${s.journal ? `・${esc(s.journal)}` : ""}</span></p>${sourceLinks(s)}</div><div class="detail-section"><h3>尺度項目</h3><p>掲載していません。利用条件と原典を確認してください。</p>${s.notes ? `<p class="sub">${esc(s.notes)}</p>` : ""}</div>`;
   $("#detail-dialog").showModal();
 }
 
@@ -140,7 +147,7 @@ function renderCompare() {
   $("#compare-empty").hidden = !!scales.length;
   $("#compare-table-wrap").hidden = !scales.length;
   if (!scales.length) return;
-  const rows = [["概念", (s) => concepts.get(s.conceptId).nameJa], ["利用研究数", (s) => usageSummary(s)], ["項目数", (s) => s.itemCount], ["下位次元", (s) => s.dimensions.join("、")], ["回答件法", (s) => s.responseFormat], ["対象者", (s) => s.targetPopulation.join("、")], ["日本語の状況", (s) => labels[s.japaneseVersionStatus]], ["利用条件", (s) => labels[s.usagePermission]], ["版", (s) => labels[s.versionType]]];
+  const rows = [["概念", (s) => concepts.get(s.conceptId).nameJa], ["利用研究数", (s) => usageSummary(s)], ["項目数", (s) => s.itemCount], ["下位次元", (s) => s.dimensions.join("、")], ["回答件法", (s) => s.responseFormat], ["対象者", (s) => s.targetPopulation.join("、")], ["心理測定情報", (s) => (s.psychometricEvidence || []).length ? "根拠登録あり" : "詳細未登録"], ["日本語の状況", (s) => labels[s.japaneseVersionStatus]], ["利用条件", (s) => labels[s.usagePermission]], ["版", (s) => labels[s.versionType]]];
   $("#compare-table").innerHTML = `<thead><tr><th>比較項目</th>${scales.map((s) => `<th>${esc(s.name)}<br><button class="text-button" data-remove="${s.id}">外す</button></th>`).join("")}</tr></thead><tbody>${rows.map(([label, value]) => `<tr><th>${label}</th>${scales.map((s) => `<td>${esc(value(s))}</td>`).join("")}</tr>`).join("")}</tbody>`;
   $$("[data-remove]").forEach((b) => (b.onclick = () => toggleCompare(b.dataset.remove)));
 }
