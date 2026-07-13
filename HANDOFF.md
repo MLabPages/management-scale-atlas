@@ -1,7 +1,7 @@
 # 経営学・マーケティング概念・尺度アトラス 開発引継ぎ
 
 最終更新: 2026-07-13  
-対象版: v0.25.0<br>
+対象版: v0.26.0<br>
 公開URL: https://mlabpages.github.io/management-scale-atlas/  
 リポジトリ: https://github.com/MLabPages/management-scale-atlas
 
@@ -24,7 +24,7 @@
 
 - 34概念
 - 54尺度
-- 個別の尺度使用研究 44件
+- 個別の尺度使用研究 48件
 - 登録版そのものが3・4項目: 11尺度
 - 個別使用研究で3・4項目版を確認済み: 13尺度
 - 日本語情報の内訳
@@ -39,6 +39,8 @@
 直近の経験研究拡充では、顧客経験のEXQ 19項目版とオムニチャネルCX Scale 18項目版、牧野・三好・瀨良（2026）の消費者の身体的反応6項目版および自動性3項目版を追加した。自動性3項目は6項目版からの単純な短縮ではなく、同じ項目生成過程から得られた別モデルとして扱う。知覚価値では、高橋（2018）の日本語で独自開発された6次元26項目の顧客価値尺度を追加し、PERVAL 19項目版と、日本語研究における3次元の選択・文脈調整例を別物として表示する。さらにWalshら（2014）が原データと英米3研究で再検証したPERVAL-Short 12項目版・8項目版、Sirdeshmukhら（2002）の総合知覚価値4項目版を追加した。総合4項目版にはクルーズでの4項目使用とAIサービス研究の3項目使用を登録した。消費者ブランド・エンゲージメントでは、Hollebeekらの10項目原版に観光文脈の再検証を追加し、髙橋（2022）の日本語12項目関連版を独立した選択肢として追加した。
 
 続いて、Chaudhuri & Holbrook（2001）のブランド信頼4項目、ブランド感情3項目、ブランド・ロイヤルティ4項目を追加した。ブランド・ロイヤルティは購買2項目と態度2項目を区別する。ブランド信頼4項目は、Delgado-BallesterらのBrand reliability／Brand intentionsを分ける8項目BTSとは別尺度として扱う。
+
+SERVQUALには、Cronin & Taylor（1992）による同じ22属性のSERVPERFとの比較、Babakus & Mangold（1992）の病院向け15項目適応版、松尾・奥瀬・プラート（2001）の日本語ホテル文脈における最終26項目版を個別使用研究として追加した。日本語研究は22項目に有形性5項目を加えた知覚のみ27項目から、共通性の低い1項目を除外して6因子26項目を分析したものとして、標準日本語版ではなく文脈適応版に分類する。EXQにはKlaus & Maklan（2013）の英国4サービス・計800名による19項目の後続検証を追加した。
 
 ### 主な機能
 
@@ -179,17 +181,16 @@
 
 優先候補:
 
-1. SERVQUAL
-2. Brand Personality Scale
-3. Consumer Brand Engagement Scale
-4. Brand Trust Scale
-5. Consumer Perceived Value / PERVAL
-6. Entrepreneurial Orientation
-7. Psychological Empowerment Scale
-8. LMX-7
-9. Job Crafting Scale
-10. Maslach Burnout Inventory–General Survey
-11. CETSCALE
+1. Brand Personality Scale
+2. Consumer Brand Engagement Scale
+3. Brand Trust Scale
+4. Consumer Perceived Value / PERVAL
+5. Entrepreneurial Orientation
+6. Psychological Empowerment Scale
+7. LMX-7
+8. Job Crafting Scale
+9. Maslach Burnout Inventory–General Survey
+10. CETSCALE
 
 各尺度について、最低2件を目標に異なる文脈の使用研究を登録する。3・4項目版がある場合は優先し、原版と同一か、抜粋か、再検証された短縮版かを区別する。
 
@@ -243,7 +244,7 @@
 大きな機能追加から始めず、次の順が安全である。
 
 1. `node verify-data.mjs`で既存データを確認する。
-2. SERVQUALについて、原版利用と短縮・文脈調整版の個別使用研究を各1件以上追加する。
+2. Brand Personality Scaleについて、文化別関連版と原版の直接使用を区別して個別使用研究を追加する。
 3. 日本語版の開発・検証、または翻訳・使用根拠を1件確認する。
 4. 原版・短縮版・研究内削除版の区別を明記する。
 5. 構文・データ検証後にコミット・公開する。
@@ -308,7 +309,7 @@ git push
 - `data.js`はJavaScriptオブジェクトであり、同じオブジェクト内のキー重複が構文エラーにならず、後の値で上書きされる。自動検知が必要。
 - `verify-data.mjs`は管理下の`data.js`を検証するローカル用ツールであり、JavaScript実行を安全に隔離する仕組みではない。取得元を確認していない変更には実行しない。
 - ローカル保存はブラウザの`localStorage`依存で、端末間同期はない。
-- 利用研究44件は全尺度を均等にカバーしていない。
+- 利用研究48件は全尺度を均等にカバーしていない。
 - 利用研究数が未集計の尺度が多い。
 - 日本語情報未確認が22尺度ある。
 - 尺度項目本文は未掲載。

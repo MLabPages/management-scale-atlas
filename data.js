@@ -2,7 +2,7 @@
 // DOI、原典、項目数、下位次元は原著論文または公式資料で確認。
 const ATLAS_DATA = {
   meta: {
-    version: "0.25.0",
+    version: "0.26.0",
     status: "initial-real-data",
     updated: "2026-07-13",
     scope: "34概念・54尺度",
@@ -421,7 +421,9 @@ const ATLAS_DATA = {
       applicationEvidence: [
         { label: "B2Cの複数文脈で利用された原版", itemCounts: [19], evidenceType: "cross-context-replication", summary: "後続の再検討研究では、金融、観光、小売、旅行、快楽的サービス、スポーツイベントなどでEXQが使われたと整理されています。利用研究の累計件数ではありません。", title: "Measuring customer experience quality: The EXQ scale revisited", year: 2021, doi: "10.1016/j.jbusres.2020.01.042", url: "https://doi.org/10.1016/j.jbusres.2020.01.042" },
       ],
-      usageStudies: [],
+      usageStudies: [
+        { title: "Towards a Better Measure of Customer Experience", authors: "Klaus & Maklan", year: 2013, context: "英国の住宅ローン、給油所、リテール銀行、高級品の4サービス", sample: "各文脈200名、計800名", itemCount: 19, responseFormat: "7件法", language: "English", adaptation: "2012年EXQの19項目・4次元を4サービス文脈に適用し、多群比較後に統合分析。", result: "CFI=.96、IFI=.96、RMSEA=.06、EXQのCR=.93。EXQは満足、ロイヤルティ、口コミに有意な影響を示し、満足よりロイヤルティ・推奨をよく説明。", doi: "10.2501/IJMR-2013-021", url: "https://doi.org/10.2501/IJMR-2013-021" },
+      ],
       itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-13",
       notes: "サービス品質や顧客満足そのものではなく、サービスを通じた経験品質を測る。2014年の25項目改訂版や2021年の再検討研究と項目集合を混同しない。",
       recordStatus: "verified-metadata",
@@ -815,6 +817,16 @@ const ATLAS_DATA = {
       ],
       psychometricEvidence: [
         { label: "原著の尺度開発", sample: "4つの独立標本", methods: "信頼性、因子構造、妥当性の検討", result: "5次元22項目の尺度を報告", url: "https://scholar.google.com/scholar?q=SERVQUAL%3A+A+Multiple-Item+Scale+for+Measuring+Consumer+Perceptions+of+Service+Quality" },
+      ],
+      applicationEvidence: [
+        { label: "知覚のみを測るSERVPERFとの比較", itemCounts: [22], evidenceType: "measurement-model-comparison", summary: "4サービス業で、期待と知覚の差を用いるSERVQUALと、同じ22属性の知覚だけを用いるSERVPERFを比較した。", title: "Measuring Service Quality: A Reexamination and Extension", year: 1992, doi: "10.1177/002224299205600304", url: "https://doi.org/10.1177/002224299205600304" },
+        { label: "病院向け15項目版", itemCounts: [22, 15], evidenceType: "contextual-adaptation", summary: "病院サービス向けに原版22項目を15項目へ調整し、期待と知覚を5件法で測定。原版5次元を維持した文脈適応版。", title: "Adapting the SERVQUAL Scale to Hospital Services: An Empirical Investigation", year: 1992, url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC1069855/" },
+        { label: "日本語ホテル文脈の最終26項目版", itemCounts: [22, 27, 26], evidenceType: "contextual-adaptation", summary: "ホテル向け日本語SERVQUAL 22項目に有形性5項目を追加し、知覚のみ27項目を測定。共通性の低い1項目を除外して最終26項目・6因子を分析した。", title: "サービス・クオリティ次元に関する実証研究―SERVQUALの再検討", year: 2001, doi: "10.5844/jsmd.4.29", url: "https://doi.org/10.5844/jsmd.4.29" },
+      ],
+      usageStudies: [
+        { title: "Measuring Service Quality: A Reexamination and Extension", authors: "Cronin & Taylor", year: 1992, context: "銀行、害虫駆除、クリーニング、ファストフードの4サービス業", sample: "4業種の顧客（詳細は原論文参照）", itemCount: 22, responseFormat: "原論文参照", language: "English", adaptation: "期待と知覚の差を用いるSERVQUALと、同じ22属性の知覚だけを測るSERVPERFを比較。SERVQUALでは期待・知覚の双方への回答が必要。", result: "知覚のみの尺度がサービス品質の測定を改善し得ることを報告。サービス品質は満足の先行要因で、購買意向には満足が有意に関係した。", doi: "10.1177/002224299205600304", url: "https://doi.org/10.1177/002224299205600304" },
+        { title: "Adapting the SERVQUAL Scale to Hospital Services: An Empirical Investigation", authors: "Babakus & Mangold", year: 1992, context: "米国の病院サービス", sample: "病院患者（詳細は本文参照）", itemCount: 15, responseFormat: "5件法・期待と知覚", language: "English", adaptation: "原版22項目を病院サービス向けの15対応項目へ調整し、原版の5次元を維持。", result: "期待尺度と知覚尺度について、複数の信頼性・妥当性基準を満たしたと報告。病院文脈に限定した適応版として扱う。", url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC1069855/" },
+        { title: "サービス・クオリティ次元に関する実証研究―SERVQUALの再検討", authors: "松尾・奥瀬・プラート", year: 2001, context: "北海道小樽市の観光地で、札幌・小樽地域のホテル宿泊者", sample: "ホテル宿泊旅行者192名（平均36.7歳、観光目的92.2%）", itemCount: 26, responseFormat: "7件法", language: "Japanese", adaptation: "SERVQUAL 22項目をホテル向けに調整し、有形性5項目を追加。期待との差ではなく知覚のみ27項目を測定し、共通性の低い1項目を除外して最終26項目を分析。", result: "6因子（信頼性、探索的有形性、反応性、経験的有形性、共感性、確実性）を抽出。各因子α=.74～.87。有形性は全体品質・満足・再利用意向への影響が強かった。", doi: "10.5844/jsmd.4.29", url: "https://doi.org/10.5844/jsmd.4.29" },
       ],
       itemPublicationStatus: "not-published", items: [],
       notes: "22項目を期待と知覚の双方で尋ねるため、回答数は通常44。業種別改変が非常に多い。",
