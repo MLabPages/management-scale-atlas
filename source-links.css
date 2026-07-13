@@ -31,6 +31,34 @@
   font-size: 0.78rem;
 }
 
+.usage-summary {
+  margin: 10px 0 0;
+  padding: 7px 9px;
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--soft);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.usage-summary.known {
+  color: var(--accent);
+  border-left: 3px solid var(--accent2);
+}
+
+.usage-count {
+  margin: 6px 0;
+  color: var(--accent);
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.usage-count span {
+  margin-left: 5px;
+  font-size: 0.9rem;
+}
+
 .evidence-list {
   list-style: none;
   margin: 12px 0 0;

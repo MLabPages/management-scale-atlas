@@ -2,10 +2,10 @@
 // DOI、原典、項目数、下位次元は原著論文または公式資料で確認。
 const ATLAS_DATA = {
   meta: {
-    version: "0.2.0",
+    version: "0.3.0",
     status: "initial-real-data",
     updated: "2026-07-13",
-    scope: "5概念・8尺度",
+    scope: "5概念・9尺度",
   },
 
   concepts: [
@@ -84,6 +84,7 @@ const ATLAS_DATA = {
         { kind: "context-reference", label: "日本的ブランド経験尺度開発に向けた概念・尺度検討", title: "「ブランド経験」概念の意義と展開", year: 2016, doi: "10.7222/marketing.2016.029", url: "https://doi.org/10.7222/marketing.2016.029" },
       ],
       validationStudies: [], usagePermission: "unknown",
+      usageEvidence: [],
       itemPublicationStatus: "not-published", items: [],
       notes: "日本語での研究・予備的検討はあるが、検証済み日本語版としては未登録。",
       recordStatus: "verified-metadata",
@@ -108,6 +109,9 @@ const ATLAS_DATA = {
       japaneseStatusNote: "Parkらの4項目版そのものの日本語版・日本語使用例は、今回の確認範囲では登録していません。",
       japaneseEvidence: [],
       validationStudies: [], usagePermission: "unknown",
+      usageEvidence: [
+        { kind: "systematic-review-count", count: 37, denominator: 139, label: "レビュー内で37研究が使用", scope: "2021年9月までの英語査読誌を対象としたブランド愛着レビュー。尺度を報告した139研究中。", checkedAt: "2026-07-13", title: "Brand attachment: a review and future research", year: 2022, doi: "10.1057/s41262-022-00279-5", url: "https://doi.org/10.1057/s41262-022-00279-5" },
+      ],
       itemPublicationStatus: "not-published", items: [],
       notes: "原著では8項目版との比較後、簡潔な4項目版を採用。",
       recordStatus: "verified-metadata",
@@ -134,6 +138,7 @@ const ATLAS_DATA = {
         { kind: "psychometric-validation", label: "検証済み日本語版（J-SoAS）", authors: "Xu, Legaspi, Ishikawa, & Washida", year: 2024, title: "Measuring general sense of agency: a Japanese adaptation and validation of the sense of agency scale (J-SoAS)", doi: "10.3389/fpsyg.2024.1427169", url: "https://doi.org/10.3389/fpsyg.2024.1427169" },
       ],
       validationStudies: [], usagePermission: "unknown",
+      usageEvidence: [],
       itemPublicationStatus: "not-published", items: [],
       notes: "特定課題ではなく、文脈横断的・一般的な主体感の信念を測定。原著はオープンアクセス。",
       recordStatus: "verified-metadata",
@@ -158,6 +163,7 @@ const ATLAS_DATA = {
       japaneseStatusNote: "SOARSそのものの日本語版・日本語使用例は、今回の確認範囲では登録していません。SoASや日本独自の主体感尺度とは別尺度です。",
       japaneseEvidence: [],
       validationStudies: [], usagePermission: "unknown",
+      usageEvidence: [],
       itemPublicationStatus: "not-published", items: [],
       notes: "催眠中の主体感変容を測る目的で開発。一般的な主体感尺度SoASとは用途が異なる。",
       recordStatus: "verified-metadata",
@@ -184,6 +190,9 @@ const ATLAS_DATA = {
         { kind: "usage-example", label: "日本語訳・改変版の使用例", title: "SCSQ-VRを用いた研究での日本語訳・改変版ITC-SOPI", year: 2025, url: "https://www.ieice.org/publications/proceedings/bin/pdf_link.php?fname=09_kamada2.pdf&iconf=KICSS&lang=E&number=9&vol=95&year=2025" },
       ],
       validationStudies: [], usagePermission: "unknown",
+      usageEvidence: [
+        { kind: "systematic-review-count", count: 5, label: "レビュー内で5研究が使用", scope: "人間行動を扱う仮想環境研究の系統的レビューに含まれた研究内。レビュー全体の累計利用数ではありません。", checkedAt: "2026-07-13", title: "The Use of Sense of Presence in Studies on Human Behavior in Virtual Environments: A Systematic Review", year: 2023, doi: "10.3390/app132413095", url: "https://doi.org/10.3390/app132413095" },
+      ],
       itemPublicationStatus: "not-published", items: [],
       notes: "インタラクティブ・非インタラクティブ双方のメディアを横断して測定する設計。",
       recordStatus: "verified-metadata",
@@ -210,6 +219,9 @@ const ATLAS_DATA = {
         { kind: "linguistic-validation", label: "言語的妥当性を確認した日本語版", authors: "甘利ほか", year: 2025, title: "言語的妥当性を担保した日本語版 Igroup Presence Questionnaire の作成", doi: "10.7876/jmvr.24.1", url: "https://doi.org/10.7876/jmvr.24.1" },
       ],
       validationStudies: [], usagePermission: "unknown",
+      usageEvidence: [
+        { kind: "systematic-review-count", count: 2, label: "レビュー内で2研究が使用", scope: "人間行動を扱う仮想環境研究の系統的レビューに含まれた研究内。別領域・別期間の利用は含みません。", checkedAt: "2026-07-13", title: "The Use of Sense of Presence in Studies on Human Behavior in Virtual Environments: A Systematic Review", year: 2023, doi: "10.3390/app132413095", url: "https://doi.org/10.3390/app132413095" },
+      ],
       itemPublicationStatus: "not-published", items: [],
       notes: "公式IPQサイトで尺度情報と各言語版が案内されている。日本語版の妥当性検証は未登録。",
       recordStatus: "verified-metadata",
@@ -236,6 +248,7 @@ const ATLAS_DATA = {
         { kind: "original-japanese", label: "日本語で開発・検証された尺度", authors: "浅井・高野・杉森・丹野", year: 2009, title: "自己主体感を測定する尺度の開発と因子構造の探索", doi: "10.4992/jjpsy.80.414", url: "https://doi.org/10.4992/jjpsy.80.414" },
       ],
       validationStudies: [], usagePermission: "unknown",
+      usageEvidence: [],
       itemPublicationStatus: "not-published", items: [],
       notes: "Tapalらの一般的主体感尺度（SoAS）と名称が近いが、別に開発された日本語尺度。",
       recordStatus: "verified-metadata",
@@ -263,6 +276,9 @@ const ATLAS_DATA = {
         { kind: "related-version", label: "改訂版FSS-2の検証済み日本語版", authors: "Kawabata, Mallett, & Jackson", year: 2008, title: "The Flow State Scale-2 and Dispositional Flow Scale-2: Examination of factorial validity and reliability for Japanese adults", doi: "10.1016/j.psychsport.2007.05.005", url: "https://doi.org/10.1016/j.psychsport.2007.05.005" },
       ],
       validationStudies: [], usagePermission: "unknown",
+      usageEvidence: [
+        { kind: "systematic-review-count", count: 13, denominator: 69, label: "レビュー内で13研究が使用", scope: "フローを扱う69研究のレビュー内。FSS-2ではなく原版FSSとして集計された件数。", checkedAt: "2026-07-13", title: "Measuring Flow: Refining Research Protocols That Integrate Physiological and Psychological Approaches", year: 2025, doi: "10.1155/hbe2/6464984", url: "https://doi.org/10.1155/hbe2/6464984" },
+      ],
       itemPublicationStatus: "not-published", items: [],
       notes: "状態としてのフローを多次元で測る原版。",
       recordStatus: "verified-metadata",
@@ -289,6 +305,7 @@ const ATLAS_DATA = {
         { kind: "related-version", label: "長尺版FSS-2の検証済み日本語版", authors: "Kawabata, Mallett, & Jackson", year: 2008, title: "The Flow State Scale-2 and Dispositional Flow Scale-2: Examination of factorial validity and reliability for Japanese adults", doi: "10.1016/j.psychsport.2007.05.005", url: "https://doi.org/10.1016/j.psychsport.2007.05.005" },
       ],
       validationStudies: [], usagePermission: "unknown",
+      usageEvidence: [],
       itemPublicationStatus: "not-published", items: [],
       notes: "36項目版を使えない場合の短縮選択肢。状態版と特性版の短縮尺度が検証された。",
       recordStatus: "verified-metadata",
