@@ -2,7 +2,7 @@
 // DOI、原典、項目数、下位次元は原著論文または公式資料で確認。
 const ATLAS_DATA = {
   meta: {
-    version: "0.9.0",
+    version: "0.10.0",
     status: "initial-real-data",
     updated: "2026-07-13",
     scope: "30概念・40尺度",
@@ -656,6 +656,10 @@ const ATLAS_DATA = {
       applicationEvidence: [
         { label: "日本の小売従業員研究での調整版", itemCounts: [20, 12], evidenceType: "usage-study", summary: "MARKOR原版20項目に対し、日本の小売店頭従業員向け研究では文言を調整した12項目で測定し、探索的因子分析を実施。", title: "市場志向が非正規店頭従業員の行動に与える影響", year: 2015, url: "https://www.bus.nihon-u.ac.jp/wp-content/themes/nichidai/assets/img/unique/laboratory/kiyo/YokoyamaNarimasa32.pdf" },
       ],
+      usageStudies: [
+        { title: "Changing Roles and New Perspectives: Towards Market Orientation in Public Transport", authors: "Sofia Molander", year: 2018, context: "スウェーデンの公共交通", sample: "公共交通当局・運行事業者、2時点計184名", itemCount: 11, responseFormat: "5件法", language: "Swedish", adaptation: "MARKORを情報生成3・情報普及3・反応5項目に調整。公共交通文脈へ翻訳・文言調整。", result: "2011年と2014年の2時点で同じ11項目構成を使用。", doi: "10.1007/s11116-017-9781-3", url: "https://doi.org/10.1007/s11116-017-9781-3" },
+        { title: "市場志向が非正規店頭従業員の行動に与える影響", year: 2015, context: "日本の小売店頭", sample: "非正規店頭従業員（標本詳細は本文参照）", itemCount: 12, responseFormat: "本文参照", language: "Japanese", adaptation: "MARKORを店頭従業員の文脈に合わせて12項目へ調整し、探索的因子分析を実施。", url: "https://www.bus.nihon-u.ac.jp/wp-content/themes/nichidai/assets/img/unique/laboratory/kiyo/YokoyamaNarimasa32.pdf" },
+      ],
       itemPublicationStatus: "not-published", items: [],
       notes: "市場志向にはMKTORなど別系統尺度もあるため、概念定義との適合を確認する。",
       recordStatus: "verified-metadata",
@@ -1145,6 +1149,11 @@ const ATLAS_DATA = {
       applicationEvidence: [
         { label: "原版と日本語の応用研究例", itemCounts: [6, 3], evidenceType: "usage-study", summary: "Davis原版は6項目。日本のモバイルアプリ研究ではTAMを援用し、関連する知覚利便性を3項目で測定しています。これは公式3項目版ではなく、研究文脈に合わせた応用版です。", title: "オムニチャネル・ショッパーによる知覚オムニチャネル統合度がモバイル・アプリケーション受容行動等に与える影響", year: 2022, doi: "10.7222/marketing.2022.015", url: "https://doi.org/10.7222/marketing.2022.015" },
       ],
+      usageStudies: [
+        { title: "A Study on Technology Acceptance of Digital Healthcare among Older Korean Adults Using Extended TAM", authors: "Hoque et al.", year: 2023, context: "デジタルヘルス・ウェアラブル", sample: "韓国の高齢者170名", itemCount: 3, responseFormat: "5件法", language: "Korean", adaptation: "Venkatesh & Davisの項目をウェアラブル文脈へ調整。英語から韓国語へ翻訳・逆翻訳。", result: "負荷量=.896～.904、CR=.926、AVE=.808、α=.881。", doi: "10.3390/admsci13020042", url: "https://doi.org/10.3390/admsci13020042" },
+        { title: "Exploring User Acceptance of Online Virtual Reality Exhibition Technologies: A Case Study of Liangzhu Museum", authors: "Liu et al.", year: 2024, context: "オンラインVR博物館", sample: "中国の一般利用者、有効回答314件", itemCount: 4, responseFormat: "5件法", language: "Chinese", adaptation: "Davisらを基礎に、博物館理解・訪問効率・展示情報・重要性へ文脈調整。", result: "α=.742、CR=.853、AVE=.659。", doi: "10.1371/journal.pone.0308267", url: "https://doi.org/10.1371/journal.pone.0308267" },
+        { title: "オムニチャネル・ショッパーによる知覚オムニチャネル統合度がモバイル・アプリケーション受容行動等に与える影響", year: 2022, context: "日本のモバイルアプリ", sample: "日本のオムニチャネル・ショッパー（詳細は本文参照）", itemCount: 3, responseFormat: "本文参照", language: "Japanese", adaptation: "TAMを援用した知覚利便性3項目。Davisの公式短縮版ではなく文脈調整版。", doi: "10.7222/marketing.2022.015", url: "https://doi.org/10.7222/marketing.2022.015" },
+      ],
       itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-13",
       notes: "同じ原著の知覚容易性尺度と組み合わせてTAMの主要信念を測定する。",
       recordStatus: "verified-metadata",
@@ -1174,6 +1183,11 @@ const ATLAS_DATA = {
       ],
       applicationEvidence: [
         { label: "原版と日本語の応用研究例", itemCounts: [6, 5], evidenceType: "usage-study", summary: "Davis原版は6項目。日本のモバイルアプリ研究では先行研究を援用した知覚利用容易性5項目で測定しています。項目数は研究ごとに異なるため、公式短縮版とは区別します。", title: "オムニチャネル・ショッパーによる知覚オムニチャネル統合度がモバイル・アプリケーション受容行動等に与える影響", year: 2022, doi: "10.7222/marketing.2022.015", url: "https://doi.org/10.7222/marketing.2022.015" },
+      ],
+      usageStudies: [
+        { title: "A Study on Technology Acceptance of Digital Healthcare among Older Korean Adults Using Extended TAM", authors: "Hoque et al.", year: 2023, context: "デジタルヘルス・ウェアラブル", sample: "韓国の高齢者170名", itemCount: 3, responseFormat: "5件法", language: "Korean", adaptation: "Venkatesh & Davisの項目をウェアラブル文脈へ調整。英語から韓国語へ翻訳・逆翻訳。", result: "負荷量=.887～.934、CR=.939、AVE=.838、α=.903。", doi: "10.3390/admsci13020042", url: "https://doi.org/10.3390/admsci13020042" },
+        { title: "Exploring User Acceptance of Online Virtual Reality Exhibition Technologies: A Case Study of Liangzhu Museum", authors: "Liu et al.", year: 2024, context: "オンラインVR博物館", sample: "中国の一般利用者、有効回答314件", itemCount: 3, responseFormat: "5件法", language: "Chinese", adaptation: "学習容易性・習熟容易性・困難の少なさとしてVR展示文脈へ調整。", result: "α=.719、CR=.842、AVE=.640。", doi: "10.1371/journal.pone.0308267", url: "https://doi.org/10.1371/journal.pone.0308267" },
+        { title: "オムニチャネル・ショッパーによる知覚オムニチャネル統合度がモバイル・アプリケーション受容行動等に与える影響", year: 2022, context: "日本のモバイルアプリ", sample: "日本のオムニチャネル・ショッパー（詳細は本文参照）", itemCount: 5, responseFormat: "本文参照", language: "Japanese", adaptation: "先行研究を援用した知覚利用容易性5項目。公式短縮版とは区別。", doi: "10.7222/marketing.2022.015", url: "https://doi.org/10.7222/marketing.2022.015" },
       ],
       itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-13",
       notes: "同じ原著の知覚有用性尺度と組み合わせてTAMの主要信念を測定する。",
@@ -1388,6 +1402,11 @@ const ATLAS_DATA = {
       applicationEvidence: [
         { label: "後続研究で検証された3項目版", itemCounts: [3], evidenceType: "cross-national-validation", summary: "活力・熱意・没頭を各1項目で代表。5か国の大規模データで9項目版との近い関連パターンが確認されています。", title: "An Ultra-Short Measure for Work Engagement: The UWES-3 Validation Across Five Countries", year: 2019, doi: "10.1027/1015-5759/a000430", url: "https://doi.org/10.1027/1015-5759/a000430" },
       ],
+      usageStudies: [
+        { title: "Factors Associated With Work Engagement of Nurses During the Fifth Wave of the COVID-19 Pandemic in Japan", authors: "Muroi et al.", year: 2023, context: "日本の看護職", sample: "千葉・東京の看護師187名", itemCount: 3, responseFormat: "7件法", language: "Japanese", adaptation: "UWES-3で仕事へのエンゲージメントを測定し、JD-Rモデルの関連要因を検討。", result: "COVID-19関連ストレス、所属部署、金銭的報酬等との関連を回帰分析。", doi: "10.2196/45830", url: "https://doi.org/10.2196/45830" },
+        { title: "Validation of the Work Engagement Scale-3, Used in the 5th Korean Working Conditions Survey", authors: "Choi et al.", year: 2020, context: "韓国の全国就業者調査", sample: "第5回韓国労働条件調査50,205名", itemCount: 3, responseFormat: "本文参照", language: "Korean", adaptation: "活力・熱意はUWES-3と同じだが、没頭項目が異なるWES-3。完全に同一の版とはみなさない。", result: "α=.776、CFI=.994、RMSEA=.043。", doi: "10.35371/aoem.2020.32.e27", url: "https://doi.org/10.35371/aoem.2020.32.e27" },
+        { title: "Daily Challenge-Hindrance Stress and Work Engagement in Preschool Teacher: The Role of Affect and Mindfulness", authors: "Zhang et al.", year: 2024, context: "日誌・経験サンプリング", sample: "上海の幼稚園教員220名、5勤務日", itemCount: 3, responseFormat: "5件法", language: "Chinese", adaptation: "UWES-3を毎日の仕事へのエンゲージメントに合わせて使用。", result: "5時点のα=.860～.934（平均.908）。", doi: "10.1186/s12889-024-20255-9", url: "https://doi.org/10.1186/s12889-024-20255-9" },
+      ],
       itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-13",
       notes: "回答負担を最小化したい調査向け。3次元を各1項目で代表するため、次元別の精密な診断にはUWES-9等を検討する。",
       recordStatus: "verified-metadata",
@@ -1417,6 +1436,11 @@ const ATLAS_DATA = {
       ],
       applicationEvidence: [
         { label: "後続研究を統合した3項目版の検証", itemCounts: [3], evidenceType: "meta-analysis", summary: "全般的職務満足を3項目で測る既存下位尺度について、後続研究を統合したメタ分析で妥当性が検討されています。", title: "A Meta-Analytic Examination of the Construct Validity of the Michigan Organizational Assessment Questionnaire Job Satisfaction Subscale", year: 2008, doi: "10.1016/j.jvb.2008.01.004", url: "https://doi.org/10.1016/j.jvb.2008.01.004" },
+      ],
+      usageStudies: [
+        { title: "Relationships Between Work Outcomes, Work Attitudes and Work Environments of Health Support Workers in Ontario Long-Term Care and Home and Community Care Settings", authors: "Berta et al.", year: 2018, context: "カナダの高齢者ケア", sample: "オンタリオ州のヘルスサポートワーカー460名", itemCount: 3, responseFormat: "7件法", language: "English", adaptation: "MOAQ-JSS全3項目を、他の仕事態度・職場環境・成果尺度と同じ調査に組み込んだ。", result: "全尺度でα>.70。職務満足は仕事へのエンゲージメント等と有意に関連。", doi: "10.1186/s12960-018-0277-9", url: "https://doi.org/10.1186/s12960-018-0277-9" },
+        { title: "The Association Between Workplace Ostracism and Knowledge-Sharing Behaviors Among Chinese University Teachers", authors: "Wang et al.", year: 2023, context: "中国の大学教員", sample: "中国の大学教員388名", itemCount: 3, responseFormat: "5件法", language: "Chinese", adaptation: "中国語で検証されたMOAQ-JSSを使用し、3項目平均を算出。", result: "α=.94。4因子測定モデル CFI=.96、RMSEA=.05。", doi: "10.3389/fpsyg.2023.1030043", url: "https://doi.org/10.3389/fpsyg.2023.1030043" },
+        { title: "Exploring Types of Telecommuters: A Latent Class Analysis Approach", authors: "Vanderstukken et al.", year: 2022, context: "テレワークの縦断研究", sample: "テレワーカー（2時点、詳細は本文参照）", itemCount: 3, responseFormat: "5件法", language: "Dutch / study context", adaptation: "MOAQ-JSS 3項目を2時点で使用。", result: "T1 α=.85、T2 α=.88。", doi: "10.1080/1359432X.2021.1952989", url: "https://doi.org/10.1080/1359432X.2021.1952989" },
       ],
       itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-13",
       notes: "職務満足の個別側面ではなく全般的満足を短く測る。原尺度にDOIがないため、DOIリンクは後続のメタ分析検証を登録。",
@@ -1448,6 +1472,10 @@ const ATLAS_DATA = {
       applicationEvidence: [
         { label: "複数標本で開発・検証された4項目版", itemCounts: [4], evidenceType: "scale-development", summary: "4項目で感情的職務満足を測定。複数標本で信頼性・妥当性と集団間の測定不変性が検討されています。", title: "A Brief Index of Affective Job Satisfaction", year: 2012, doi: "10.1177/1059601111434201", url: "https://doi.org/10.1177/1059601111434201" },
       ],
+      usageStudies: [
+        { title: "The Mediating Role of Perceived Emotional Intelligence: Examining the Impact of Affective Job Satisfaction on Organizational Identification Among Chinese Technological Workers", authors: "Cano Ibarra et al.", year: 2024, context: "中国の技術職", sample: "中国の技術職392名", itemCount: 4, responseFormat: "5件法", language: "Chinese", adaptation: "BIAJSを中国語へ逆翻訳し、感情的職務満足として使用。", result: "α=.92、単一次元。", doi: "10.3389/fpsyg.2024.1285853", url: "https://doi.org/10.3389/fpsyg.2024.1285853" },
+        { title: "Validation of the Kazakh Version of the Brief Index of Affective Job Satisfaction in Medical Universities Faculty Staff Sample", authors: "Uristemova et al.", year: 2023, context: "カザフスタンの医科大学", sample: "医科大学教員715名", itemCount: 4, responseFormat: "本文参照", language: "Kazakh", adaptation: "WHOの翻訳・適応手順に沿ってBIAJSをカザフ語化。", result: "項目間相関 r=.616～.716。", doi: "10.23950/jcmk/12928", url: "https://doi.org/10.23950/jcmk/12928" },
+      ],
       itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-13",
       notes: "JSSのような多面的職務満足ではなく、全般的な感情的満足を短く測る。研究目的との概念適合を確認する。",
       recordStatus: "verified-metadata",
@@ -1477,6 +1505,11 @@ const ATLAS_DATA = {
       ],
       applicationEvidence: [
         { label: "総合評価に使える4項目尺度", itemCounts: [4], evidenceType: "scale-development", summary: "ブランド・ロイヤルティ、知覚品質、認知・連想を別々に診断する10項目版に対し、ブランドの総合的付加価値を4項目で測ります。", title: "Developing and Validating a Multidimensional Consumer-Based Brand Equity Scale", year: 2001, doi: "10.1016/S0148-2963(99)00098-3", url: "https://doi.org/10.1016/S0148-2963(99)00098-3" },
+      ],
+      usageStudies: [
+        { title: "Measuring Brand Equity: An Evaluation of a Consumer-Based Brand Equity Scale", authors: "Washburn & Plank", year: 2002, context: "独立追試・別ブランド文脈", sample: "消費者標本（詳細は本文参照）", itemCount: 4, responseFormat: "本文参照", language: "English", adaptation: "Yoo & Donthuの多次元尺度と4項目OBEを別文脈で一部修正して独立評価。", result: "原尺度の頑健性と測定上の改善点を検討。", doi: "10.1080/10696679.2002.11501909", url: "https://doi.org/10.1080/10696679.2002.11501909" },
+        { title: "Marketing Mix Effects on Private Labels Brand Equity", authors: "Abril & Rodriguez-Cánovas", year: 2016, context: "スペインのプライベートブランド", sample: "ヨーグルトのPB購入者450名", itemCount: 4, responseFormat: "7件法", language: "Spanish", adaptation: "Yooらの4項目OBEを、ブランド名によるPB商品の付加価値測定に適用。", result: "全構成概念でα>.70、CR>.60、AVE>.50。", doi: "10.1016/j.redeen.2016.09.003", url: "https://doi.org/10.1016/j.redeen.2016.09.003" },
+        { title: "Testing Cross-Culture Invariance of the Brand Equity Creation Process", authors: "Yoo & Donthu", year: 2002, context: "米国・韓国の文化比較", sample: "米国・韓国の消費者標本（詳細は本文参照）", itemCount: 4, responseFormat: "本文参照", language: "English / Korean", adaptation: "4名の日英・韓英バイリンガルが曖昧さを減らすため一部項目を修正し、文化間不変性を検討。", result: "OBEの信頼性は高く、ブランド・エクイティ形成過程の文化差を検討。", doi: "10.1108/10610420210445505", url: "https://doi.org/10.1108/10610420210445505" },
       ],
       itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-13",
       notes: "同じ原著の10項目多次元尺度とは用途が異なる。総合比較には4項目OBE、次元別診断には多次元尺度を検討する。",
