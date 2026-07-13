@@ -62,10 +62,73 @@ function init() {
   [...new Set(ATLAS_DATA.concepts.map((c) => c.domain))].forEach((d) => $("#domain-filter").insertAdjacentHTML("beforeend", `<option>${esc(d)}</option>`));
   ["query", "domain-filter", "japanese-filter", "permission-filter", "items-filter", "usage-sort"].forEach((id) => $("#" + id).addEventListener(id === "query" ? "input" : "change", renderScales));
   $("#clear-filters").onclick = () => { $("#query").value = ""; $$(".filters select").forEach((x) => (x.value = "")); renderScales(); };
+  $("#export-csv").onclick = exportCsv;
+  $("#export-json").onclick = exportJson;
   $$(".tab").forEach((b) => (b.onclick = () => showView(b.dataset.view)));
   $(".dialog-close").onclick = () => $("#detail-dialog").close();
   $("#detail-dialog").onclick = (e) => { if (e.target === $("#detail-dialog")) $("#detail-dialog").close(); };
   renderScales(); renderConcepts(); renderCompare();
+}
+
+function downloadFile(filename, content, type) {
+  const url = URL.createObjectURL(new Blob([content], { type }));
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = filename;
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 0);
+}
+
+function csvCell(value) {
+  return `"${String(value ?? "").replace(/"/g, '""')}"`;
+}
+
+function exportRows() {
+  return filtered().map((s) => {
+    const c = concepts.get(s.conceptId);
+    return {
+      id: s.id,
+      concept_ja: c.nameJa,
+      concept_en: c.nameEn,
+      domain: c.domain,
+      scale_name: s.name,
+      abbreviation: s.abbreviation,
+      authors: s.authors.join("; "),
+      year: s.year,
+      item_count: s.itemCount,
+      dimensions: s.dimensions.join("; "),
+      response_format: s.responseFormat,
+      japanese_status: labels[s.japaneseVersionStatus] || s.japaneseVersionStatus,
+      usage_study_count: (s.usageEvidence || [])[0]?.count ?? "",
+      source_title: s.sourceTitle,
+      journal: s.journal,
+      doi: s.doi,
+      google_scholar_url: scholarUrl(s),
+      record_status: s.recordStatus,
+    };
+  });
+}
+
+function exportCsv() {
+  const rows = exportRows();
+  if (!rows.length) return alert("出力できる検索結果がありません。");
+  const headers = Object.keys(rows[0]);
+  const csv = [headers.map(csvCell).join(","), ...rows.map((row) => headers.map((key) => csvCell(row[key])).join(","))].join("\r\n");
+  downloadFile(`management-scale-atlas-${new Date().toISOString().slice(0, 10)}.csv`, `\uFEFF${csv}`, "text/csv;charset=utf-8");
+}
+
+function exportJson() {
+  const scales = filtered();
+  if (!scales.length) return alert("出力できる検索結果がありません。");
+  const conceptIds = new Set(scales.map((s) => s.conceptId));
+  const data = {
+    meta: { ...ATLAS_DATA.meta, exportedAt: new Date().toISOString(), exportScope: "current-filtered-results" },
+    concepts: ATLAS_DATA.concepts.filter((c) => conceptIds.has(c.id)),
+    scales,
+  };
+  downloadFile(`management-scale-atlas-${new Date().toISOString().slice(0, 10)}.json`, JSON.stringify(data, null, 2), "application/json;charset=utf-8");
 }
 
 function showView(name) {
