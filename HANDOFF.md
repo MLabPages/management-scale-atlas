@@ -1,7 +1,7 @@
 # 経営学・マーケティング概念・尺度アトラス 開発引継ぎ
 
 最終更新: 2026-07-13  
-対象版: v0.14.0  
+対象版: v0.15.0<br>
 公開URL: https://mlabpages.github.io/management-scale-atlas/  
 リポジトリ: https://github.com/MLabPages/management-scale-atlas
 
@@ -24,7 +24,7 @@
 
 - 30概念
 - 41尺度
-- 個別の尺度使用研究 27件
+- 個別の尺度使用研究 30件
 - 登録版そのものが3・4項目: 6尺度
 - 個別使用研究で3・4項目版を確認済み: 9尺度
 - 日本語情報の内訳
@@ -32,9 +32,9 @@
   - 言語的妥当性確認: 1尺度
   - 日本語使用例: 4尺度
   - 日本語で独自開発: 1尺度
-  - 翻訳・因子構造等の検討: 2尺度
+  - 翻訳・因子構造等の検討: 3尺度
   - 関連版の日本語根拠: 5尺度
-  - 未確認: 19尺度
+  - 未確認: 18尺度
 
 ### 主な機能
 
@@ -57,6 +57,7 @@
 - `styles.css`: 基本レイアウト
 - `source-links.css`: 詳細表示、研究設計、文献導線などの追加スタイル
 - `data.js`: `ATLAS_DATA`本体
+- `verify-data.mjs`: データ参照・形式・重複を検証するNode.jsスクリプト
 - `app.js`: 検索、比較、詳細、研究設計、保存、出力
 - `README.md`: 利用方法と基本的なデータ登録規則
 - `HANDOFF.md`: 本文書
@@ -140,9 +141,9 @@
 
 ## 5. 今後のロードマップ
 
-### P0: データ品質を自動検証する
+### P0: データ品質を自動検証する（v0.15.0で実装済み）
 
-低コストモデルでも安全に更新できるよう、最優先で検証スクリプトを追加する。
+`verify-data.mjs`で、低コストモデルでも安全に更新できるよう次を検証できる。
 
 - 概念IDと尺度`conceptId`の参照整合性
 - IDの重複
@@ -155,7 +156,9 @@
 - `data.js`内のオブジェクトキー重複を検知する仕組み
 - 集計値を出す`node`スクリプト
 
-推奨成果物は`verify-data.mjs`。成功時に概念数、尺度数、使用研究数、短縮版数、日本語区分を表示し、異常時は終了コード1にする。
+成功時には概念数、尺度数、使用研究数、短縮版数、日本語区分を表示し、異常時は終了コード1にする。`node verify-data.mjs --self-test`では検証器の主要な異常検出も確認できる。
+
+検証対象はリポジトリ内の`data.js`に固定する。`data.js`はJavaScriptとして評価するため、未確認の外部ファイルや外部PRを安全に検査する用途には使わない。その運用やCIを導入する場合は、実行を伴わないJavaScriptパーサー方式へ切り替える。
 
 ### P1: 実用性の高い尺度データを拡充する
 
@@ -163,18 +166,17 @@
 
 優先候補:
 
-1. Brand Experience Scale
-2. SERVQUAL
-3. Brand Personality Scale
-4. Consumer Brand Engagement Scale
-5. Brand Trust Scale
-6. Consumer Perceived Value / PERVAL
-7. Entrepreneurial Orientation
-8. Psychological Empowerment Scale
-9. LMX-7
-10. Job Crafting Scale
-11. Maslach Burnout Inventory–General Survey
-12. CETSCALE
+1. SERVQUAL
+2. Brand Personality Scale
+3. Consumer Brand Engagement Scale
+4. Brand Trust Scale
+5. Consumer Perceived Value / PERVAL
+6. Entrepreneurial Orientation
+7. Psychological Empowerment Scale
+8. LMX-7
+9. Job Crafting Scale
+10. Maslach Burnout Inventory–General Survey
+11. CETSCALE
 
 各尺度について、最低2件を目標に異なる文脈の使用研究を登録する。3・4項目版がある場合は優先し、原版と同一か、抜粋か、再検証された短縮版かを区別する。
 
@@ -227,10 +229,10 @@
 
 大きな機能追加から始めず、次の順が安全である。
 
-1. `verify-data.mjs`を作成する。
-2. 現在の30概念・41尺度・27使用研究で検証を通す。
-3. Brand Experience Scaleについて、原版12項目を実際に使った研究と短縮・項目削除版を各1件追加する。
-4. 日本語での使用研究または翻訳根拠を1件探す。
+1. `node verify-data.mjs`で既存データを確認する。
+2. SERVQUALについて、原版利用と短縮・文脈調整版の個別使用研究を各1件以上追加する。
+3. 日本語版の開発・検証、または翻訳・使用根拠を1件確認する。
+4. 原版・短縮版・研究内削除版の区別を明記する。
 5. 構文・データ検証後にコミット・公開する。
 
 一度に多数尺度を追加するより、1～3尺度ずつ根拠を確認して公開する方が誤登録を発見しやすい。
@@ -254,6 +256,7 @@ git diff --stat
 ```powershell
 node --check app.js
 node --check data.js
+node verify-data.mjs
 git diff --check
 ```
 
@@ -290,10 +293,11 @@ git push
 
 - 静的サイトなので、データ量増加に伴い`data.js`が大きくなる。
 - `data.js`はJavaScriptオブジェクトであり、同じオブジェクト内のキー重複が構文エラーにならず、後の値で上書きされる。自動検知が必要。
+- `verify-data.mjs`は管理下の`data.js`を検証するローカル用ツールであり、JavaScript実行を安全に隔離する仕組みではない。取得元を確認していない変更には実行しない。
 - ローカル保存はブラウザの`localStorage`依存で、端末間同期はない。
-- 利用研究27件は全尺度を均等にカバーしていない。
+- 利用研究30件は全尺度を均等にカバーしていない。
 - 利用研究数が未集計の尺度が多い。
-- 日本語情報未確認が19尺度ある。
+- 日本語情報未確認が18尺度ある。
 - 尺度項目本文は未掲載。
 - 公開ページの完全なクリック操作テストは、直近のCodex再起動により未完了。構文、データ整合性、GitHub Pages、公開ファイルのマーカーは確認済み。
 
@@ -313,4 +317,4 @@ git push
 
 ## 11. 次モデルへ渡す短い依頼文
 
-> `C:\myproject\management-scale-atlas`で作業してください。最初に`C:\myproject\AGENTS.md`と`HANDOFF.md`を読み、`git pull`、`git status --short`、`git diff --stat`を実行してください。このスレッドではブラウザを起動しないでください。まず`verify-data.mjs`を実装して現在のデータを検証し、その後Brand Experience Scaleの個別使用研究、特に3・4項目または実用的な短縮・項目削除版と日本語根拠を追加してください。原著の引用数ではなく、尺度を実際に使用した論文だけを`usageStudies`へ登録してください。構文・データ検証、コミット、push、GitHub Pagesの公開ファイル確認まで進めてください。
+> `C:\myproject\management-scale-atlas`で作業してください。最初に`C:\myproject\AGENTS.md`と`HANDOFF.md`を読み、`git pull`、`git status --short`、`git diff --stat`を実行してください。このスレッドではブラウザを起動しないでください。まず`node verify-data.mjs`で既存データを検証し、その後SERVQUALの個別使用研究と日本語根拠を追加してください。原著の引用数ではなく、尺度を実際に使用した論文だけを`usageStudies`へ登録し、原版・短縮版・研究内削除版を区別してください。構文・データ検証後、コミット、push、GitHub Pagesの公開ファイル確認まで進めてください。

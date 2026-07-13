@@ -2,7 +2,7 @@
 // DOI、原典、項目数、下位次元は原著論文または公式資料で確認。
 const ATLAS_DATA = {
   meta: {
-    version: "0.14.0",
+    version: "0.15.0",
     status: "initial-real-data",
     updated: "2026-07-13",
     scope: "30概念・41尺度",
@@ -17,7 +17,7 @@ const ATLAS_DATA = {
       domain: "ブランド・消費者経験",
       relatedConcepts: ["brand-attachment", "brand-personality", "consumer-brand-engagement"],
       parentConcepts: [], childConcepts: [], typicalAntecedents: [], typicalOutcomes: [],
-      references: ["10.1509/jmkg.73.3.52"],
+      references: ["10.1509/jmkg.73.3.052"],
     },
     {
       id: "brand-attachment",
@@ -321,22 +321,36 @@ const ATLAS_DATA = {
       year: 2009,
       sourceTitle: "Brand Experience: What Is It? How Is It Measured? Does It Affect Loyalty?",
       journal: "Journal of Marketing, 73(3), 52–68",
-      doi: "10.1509/jmkg.73.3.52",
+      doi: "10.1509/jmkg.73.3.052",
       itemCount: 12,
       dimensions: ["Sensory", "Affective", "Intellectual", "Behavioral"],
       responseFormat: "7件法",
       reverseItems: [], scoring: "4下位次元。得点化は原典を確認。",
       targetPopulation: ["消費者", "ブランド利用者"],
       language: "English", versionType: "original", parentScaleId: null,
-      japaneseVersionStatus: "unconfirmed",
-      japaneseStatusNote: "Brakus尺度そのものの検証済み日本語版・日本語使用例は、今回の確認範囲では登録していません。",
+      japaneseVersionStatus: "translation-study",
+      japaneseStatusNote: "日本語訳12項目を用いた比較研究は確認していますが、想定した4次元構造は再現されていません。標準化された検証済み日本語版としては扱いません。",
       japaneseEvidence: [
         { kind: "context-reference", label: "日本的ブランド経験尺度開発に向けた概念・尺度検討", title: "「ブランド経験」概念の意義と展開", year: 2016, doi: "10.7222/marketing.2016.029", url: "https://doi.org/10.7222/marketing.2016.029" },
+        { kind: "translation-study", label: "日本語訳12項目の比較・因子構造検討", authors: "國田圭作", title: "ブランド経験尺度の比較検討 : 汎用尺度の次元構造と測定項目", year: 2024, url: "https://kaetsu.repo.nii.ac.jp/records/2000039" },
       ],
       validationStudies: [], usagePermission: "unknown",
       usageEvidence: [],
+      psychometricEvidence: [
+        { label: "日本語訳12項目の比較検討", sample: "日本の10製品カテゴリー、Study 1: 394名、Study 2: 1,131名、統合1,525名", methods: "日本語訳12項目を含む競合尺度比較、探索的因子分析、確認的因子分析、信頼性・収束／弁別妥当性の検討", result: "各因子のαは基準（.70超）を満たした一方、探索的因子分析では想定した4次元構造を再現できなかった。Study 1の4次元CFAはCFI=.98、RMSEA=.061。", url: "https://kaetsu.repo.nii.ac.jp/records/2000039" },
+      ],
+      applicationEvidence: [
+        { label: "研究内の8項目削除版", itemCounts: [12, 8], evidenceType: "within-study-item-deletion", summary: "ポルトガルの通信サービス研究は12項目で実施後、4項目を削除して最終8項目を分析した。独立に再検証された汎用短縮版ではない。", title: "The Effects of Brand Experiences on Quality, Satisfaction and Loyalty", year: 2017, doi: "10.15446/innovar.v27n64.62366", url: "https://doi.org/10.15446/innovar.v27n64.62366" },
+        { label: "中国語11項目の使用例", itemCounts: [12, 11], evidenceType: "contextual-adaptation", summary: "中国の老舗飲食ブランド研究は、中国語への逆翻訳後に11項目を使用した。削除理由は確認した方法節では明示されていないため、汎用短縮版とは扱わない。", title: "A study on China's time-honored catering brands", year: 2021, doi: "10.1016/j.jretconser.2020.102290", url: "https://doi.org/10.1016/j.jretconser.2020.102290" },
+      ],
+      usageStudies: [
+        { title: "The Effects of Brand Experiences on Quality, Satisfaction and Loyalty: An Empirical Study in the Telecommunications Multiple-play Service Market", authors: "Carrizo-Moreira, Freitas-da Silva, & Ferreira-Moutinho", year: 2017, context: "ポルトガルのトリプルプレイ通信サービス", sample: "大都市部の通信サービス利用者690名", itemCount: 8, responseFormat: "7件法", language: "Portuguese", adaptation: "英語版をポルトガル語へ翻訳し、別の研究者が英語へ逆翻訳。12項目で開始後、理論的・統計的検討によりBE9～BE12を除外し、最終8項目を分析。", result: "最終8項目でα=.915、AVE=.576、標準化因子負荷=.641～.853。研究内の項目削除版であり、汎用短縮版としての独立検証は本記録では確認していない。", doi: "10.15446/innovar.v27n64.62366", url: "https://doi.org/10.15446/innovar.v27n64.62366" },
+        { title: "A study on China's time-honored catering brands: Achieving new inheritance of traditional brands", authors: "Zhang, Li, Liu, & Ruan", year: 2021, context: "中国の老舗飲食ブランド11社", sample: "顧客606名", itemCount: 11, responseFormat: "7件法", language: "Chinese", adaptation: "英語版を中国語へ翻訳し、観光マネジメント分野の研究者4名が逆翻訳を実施。感覚2項目、知的・感情的・行動的各3項目の計11項目を使用。削除理由は確認した方法節で明示されていない。", result: "ブランド経験4次元のCFAはCFI=.970、RMSEA=.080。全構成概念の標準化因子負荷は.700超と報告。11項目は研究内の文脈調整版として扱う。", doi: "10.1016/j.jretconser.2020.102290", url: "https://doi.org/10.1016/j.jretconser.2020.102290" },
+        { title: "ブランド経験尺度の比較検討 : 汎用尺度の次元構造と測定項目", authors: "國田圭作", year: 2024, context: "日本の10製品カテゴリーにおけるブランド経験尺度の比較", sample: "Study 1: 394名、Study 2: 1,131名、統合1,525名", itemCount: 12, responseFormat: "5件法", language: "Japanese", adaptation: "田中・三浦の試訳を基礎に、既存の日本語使用項目と海外研究のアレンジ項目を組み合わせた12項目の日本語訳を使用。", result: "各因子のαは.70超。探索的因子分析では想定した4次元を再現できず、Study 1の4次元CFAはCFI=.98、RMSEA=.061。検証済み標準版ではなく翻訳・因子構造検討の根拠として扱う。", url: "https://kaetsu.repo.nii.ac.jp/records/2000039" },
+      ],
       itemPublicationStatus: "not-published", items: [],
-      notes: "日本語での研究・予備的検討はあるが、検証済み日本語版としては未登録。",
+      verifiedAt: "2026-07-13",
+      notes: "原版は4次元12項目。8・11項目の使用例は研究内の項目削除・文脈調整版であり、再検証済みの汎用短縮版とは区別する。日本語訳の比較研究はあるが、想定4次元構造は再現されていない。",
       recordStatus: "verified-metadata",
     },
     {
