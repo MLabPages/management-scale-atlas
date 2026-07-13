@@ -134,6 +134,80 @@
   color: var(--accent);
 }
 
+.research-paths {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: #f2f8f7;
+}
+
+.research-paths div { margin-right: auto; }
+.research-paths strong, .research-paths span { display: block; }
+.research-paths span { color: var(--soft); font-size: 0.74rem; }
+.research-paths button {
+  padding: 7px 10px;
+  border: 1px solid var(--accent2);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--accent);
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.adoption-guide {
+  border: 1px solid #b8d7d0;
+  background: #f6fbfa;
+}
+
+.adoption-guide-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: start;
+}
+
+.adoption-guide-head h3, .adoption-guide-head p { margin: 0; }
+.decision-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin: 12px 0;
+}
+
+.decision-grid > div {
+  padding: 10px;
+  border-radius: 7px;
+  background: #fff;
+}
+
+.decision-grid span, .decision-grid small { display: block; color: var(--soft); }
+.decision-grid span { font-size: 0.72rem; font-weight: 700; }
+.decision-grid strong { display: block; margin: 2px 0; font-size: 0.86rem; }
+.decision-grid small { font-size: 0.72rem; }
+.decision-cautions {
+  padding: 10px 12px;
+  border-left: 3px solid var(--warn);
+  border-radius: 6px;
+  background: #fffaf1;
+}
+.decision-cautions ul { margin: 6px 0 0; padding-left: 20px; }
+.decision-cautions li { margin: 3px 0; font-size: 0.8rem; }
+.decision-alternatives { margin-top: 12px; }
+.decision-alternatives button { margin: 3px 3px 3px 0; }
+.decision-alternatives .compare-mini { color: var(--soft); font-size: 0.74rem; }
+
+@media (max-width: 620px) {
+  .research-paths { align-items: stretch; }
+  .research-paths div { width: 100%; }
+  .research-paths button { flex: 1 1 45%; }
+  .decision-grid { grid-template-columns: 1fr; }
+}
+
 .study-badge {
   background: #e6f4ed;
   color: #216246;
