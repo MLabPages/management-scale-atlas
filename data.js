@@ -2,10 +2,10 @@
 // DOI、原典、項目数、下位次元は原著論文または公式資料で確認。
 const ATLAS_DATA = {
   meta: {
-    version: "0.15.0",
+    version: "0.16.0",
     status: "initial-real-data",
     updated: "2026-07-13",
-    scope: "30概念・41尺度",
+    scope: "30概念・42尺度",
   },
 
   concepts: [
@@ -1354,8 +1354,48 @@ const ATLAS_DATA = {
       psychometricEvidence: [
         { label: "理論レビューと尺度推奨", sample: "LMX研究25年のレビュー", methods: "理論発展、測定法、分析水準の整理", result: "二者関係の質を測る7項目LMX-7を推奨", url: "https://doi.org/10.1016/1048-9843(95)90036-5" },
       ],
+      usageStudies: [
+        { title: "Relationship Between Teams’ Leader–Member Exchange Characteristics and Psychological Outcomes for Nurses and Nurse Managers", authors: "Kawaguchi et al.", year: 2021, context: "日本の大学病院における看護チーム", sample: "2大学病院の看護師586名・看護師長28名（分析対象）", itemCount: 7, responseFormat: "原版に準拠（項目ごとに選択肢表現が異なる）", language: "Japanese", adaptation: "原著者の許可を得て、研究者と日英バイリンガル専門家が翻訳した日本語版を使用。", result: "看護師のLMXとチーム平均LMXは、看護師の肯定的心理状態と正に関連。", doi: "10.1177/23779608211025981", url: "https://doi.org/10.1177/23779608211025981" },
+      ],
       itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-13",
       notes: "多次元LMX尺度（LMX-MDM）などの別尺度と区別する。",
+      recordStatus: "verified-metadata",
+    },
+    {
+      id: "lmx-mdm",
+      name: "Multidimensional Measure of Leader–Member Exchange",
+      abbreviation: "LMX-MDM",
+      conceptId: "leader-member-exchange",
+      authors: ["Robert C. Liden", "John M. Maslyn"],
+      year: 1998,
+      sourceTitle: "Multidimensionality of Leader-Member Exchange: An Empirical Assessment through Scale Development",
+      journal: "Journal of Management, 24(1), 43–72",
+      doi: "10.1016/S0149-2063(99)80053-1",
+      itemCount: 12,
+      dimensions: ["Affect", "Loyalty", "Contribution", "Professional respect"],
+      responseFormat: "7件法",
+      reverseItems: [], scoring: "4下位尺度（各3項目）を平均または合計。総合得点を用いる場合も4次元構造を確認する。",
+      targetPopulation: ["部下", "従業員"],
+      language: "English", versionType: "original", parentScaleId: null,
+      japaneseVersionStatus: "validated",
+      japaneseStatusNote: "スタッフ看護師450名の有効回答を用い、12項目・4次元の日本語版（LMX-MDM-J）の内的整合性、確認的因子分析、外的基準との関連が検証されています。",
+      japaneseEvidence: [
+        { kind: "psychometric-validation", label: "検証済み日本語版（LMX-MDM-J）", authors: "Sasaki et al.", year: 2020, title: "Reliability and Validity of the Multidimensional Measure of Leader-Member Exchange Japanese Version for Staff Nurses", doi: "10.1111/jonm.13074", url: "https://doi.org/10.1111/jonm.13074" },
+      ],
+      validationStudies: [], usagePermission: "unknown", usageEvidence: [],
+      psychometricEvidence: [
+        { label: "原著の尺度開発", sample: "勤労学生302名で項目分析後、2組織の従業員249名で構成概念・基準関連妥当性を検討", methods: "項目分析、構成概念妥当性、基準関連妥当性の検討", result: "Affect、Loyalty、Contribution、Professional respectの4次元を支持", url: "https://doi.org/10.1016/S0149-2063(99)80053-1" },
+        { label: "日本語版の検証", sample: "日本の4病院に勤務するスタッフ看護師870名に配布、有効回答450名", methods: "内的整合性、確認的因子分析、外的基準との関連を検討", result: "総合α=.97、下位次元α=.86–.95、CFI=.981、RMSEA=.076。", url: "https://doi.org/10.1111/jonm.13074" },
+      ],
+      applicationEvidence: [
+        { label: "日本語版の後続使用", itemCounts: [12], evidenceType: "japanese-usage", summary: "看護職以外の日本人ホワイトカラー従業員でも、4次元の高次因子モデルと各下位尺度の信頼性が報告されています。", title: "リーダー―メンバー間関係とコミュニケーションの離職意図抑制メカニズム", year: 2026, doi: "10.20698/comm.54.2_121", url: "https://doi.org/10.20698/comm.54.2_121" },
+      ],
+      usageStudies: [
+        { title: "Development of a Shortened Version of the Nurse Managers’ Empowering Behavioral Scale for Staff Nurses", authors: "Sasaki et al.", year: 2022, context: "日本の病院における看護管理", sample: "10病院のスタッフ看護師1,268名", itemCount: 12, responseFormat: "7件法", language: "Japanese", adaptation: "LMX-MDM-Jを外的基準の一つとして使用。", result: "看護師長のエンパワリング行動短縮尺度の基準関連妥当性を検討する調査に組み込まれた。", doi: "10.3390/healthcare10102112", url: "https://doi.org/10.3390/healthcare10102112" },
+        { title: "リーダー―メンバー間関係とコミュニケーションの離職意図抑制メカニズム", authors: "山口生史", year: 2026, context: "日本の非製造業ホワイトカラー従業員", sample: "400名", itemCount: 12, responseFormat: "7件法", language: "Japanese", adaptation: "LMX-MDM-Jの4次元・各3項目を使用し、看護師長向けの指示文を上司一般に合わせて調整。", result: "4次元の高次因子モデルでCFI=.980、RMSEA=.075。各下位尺度のα=.89–.95。", doi: "10.20698/comm.54.2_121", url: "https://doi.org/10.20698/comm.54.2_121" },
+      ],
+      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-13",
+      notes: "LMX-7とは測定対象が重なるが、関係の質を4側面に分けて確認したい場合に適する。LMX-7との混在比較では版種別と因子構造を明記する。",
       recordStatus: "verified-metadata",
     },
     {
