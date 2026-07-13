@@ -88,3 +88,22 @@
   font-size: 0.74rem;
   font-weight: 700;
 }
+
+.export-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.export-actions .text-button {
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: #fff;
+}
+
+.export-note {
+  margin: -8px 0 18px;
+  color: var(--soft);
+  font-size: 0.78rem;
+}
