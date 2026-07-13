@@ -2,7 +2,7 @@
 // DOI、原典、項目数、下位次元は原著論文または公式資料で確認。
 const ATLAS_DATA = {
   meta: {
-    version: "0.16.0",
+    version: "0.16.1",
     status: "initial-real-data",
     updated: "2026-07-13",
     scope: "30概念・42尺度",
@@ -1419,13 +1419,19 @@ const ATLAS_DATA = {
       japaneseEvidence: [
         { kind: "psychometric-validation", label: "検証済み日本語版（JCS-J）", authors: "Eguchi et al.", year: 2016, title: "Validation of the Japanese version of the job crafting scale", doi: "10.1539/joh.15-0173-OA", url: "https://doi.org/10.1539/joh.15-0173-OA" },
       ],
-      validationStudies: [], usagePermission: "unknown", usageEvidence: [],
+      validationStudies: [], usagePermission: "research-use", usageEvidence: [],
       psychometricEvidence: [
         { label: "原著の尺度開発", sample: "オランダの従業員を対象とする2研究", methods: "因子構造、信頼性、収束・基準関連妥当性、同僚評定との関係", result: "4次元21項目を支持", url: "https://doi.org/10.1016/j.jvb.2011.05.009" },
-        { label: "日本語版の検証", sample: "日本人従業員を対象とするWeb調査", methods: "確認的因子分析、内的整合性、収束・弁別妥当性", result: "JCS-Jを日本の文脈で使用できる尺度として支持", url: "https://doi.org/10.1539/joh.15-0173-OA" },
+        { label: "日本語版の検証", sample: "日本の製造企業の従業員972名を対象とするWeb調査", methods: "翻訳・逆翻訳、探索的・確認的因子分析、内的整合性、構成概念妥当性", result: "妨害的要求度低減を2側面に分ける修正5因子モデルが最適。4下位尺度のα=.76–.90。", url: "https://doi.org/10.1539/joh.15-0173-OA" },
+      ],
+      applicationEvidence: [
+        { label: "公式の日本語尺度配布・利用条件", itemCounts: [21], evidenceType: "official-scale-resource", summary: "日本語版JCSの21項目・4下位尺度と5件法を公開。学術研究目的での利用は無料で、学術研究以外は原著者への連絡が案内されています。", title: "ジョブ・クラフティング（JCS）", year: 2026, doi: "", url: "https://hp3.jp/tool/jcs" },
+      ],
+      usageStudies: [
+        { title: "The Japanese Version of the Occupational Future Time Perspective Scale: A Validation Study", authors: "Mori et al.", year: 2023, context: "日本の幅広い職種の就業者を対象としたWeb調査", sample: "日本の就業者2,046名", itemCount: 21, responseFormat: "5件法（1＝全くない～5＝非常によくある）", language: "Japanese", adaptation: "JCS-Jの21項目を使用し、平均得点を算出。", result: "α=.92。職業未来時間展望の構成概念妥当性を検討するため、学習目標志向・ワークエンゲイジメントとともに使用。", doi: "10.1002/1348-9585.12432", url: "https://doi.org/10.1002/1348-9585.12432" },
       ],
       itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-13",
-      notes: "Wrzesniewski & Dutton系の認知的・関係的クラフティング尺度などとは理論枠組みが異なる。",
+      notes: "Wrzesniewski & Dutton系の認知的・関係的クラフティング尺度などとは理論枠組みが異なる。日本語版の公式配布元は学術研究目的を無料利用としているが、調査票の転載・Web掲載可否は別途確認する。",
       recordStatus: "verified-metadata",
     },
     {
