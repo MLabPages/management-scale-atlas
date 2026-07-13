@@ -68,6 +68,30 @@ function observedItemCounts(s) {
   return [...new Set([...(s.applicationEvidence || []).flatMap((e) => e.itemCounts || []), ...(s.usageStudies || []).map((e) => e.itemCount).filter(Boolean)])].sort((a, b) => a - b);
 }
 
+function shortFormProfile(s) {
+  const isThreeOrFour = (count) => count === 3 || count === 4;
+  const usageCounts = [...new Set([
+    ...(s.usageStudies || []).map((e) => e.itemCount),
+    ...(s.applicationEvidence || []).filter((e) => e.evidenceType === "usage-study").flatMap((e) => e.itemCounts || []),
+  ].filter(isThreeOrFour))].sort((a, b) => a - b);
+  const evidenceCounts = [...new Set((s.applicationEvidence || []).flatMap((e) => e.itemCounts || []).filter(isThreeOrFour))].sort((a, b) => a - b);
+  return { registered: isThreeOrFour(s.itemCount), usageCounts, evidenceCounts };
+}
+
+function shortFormLabel(s) {
+  const profile = shortFormProfile(s);
+  if (profile.registered && profile.usageCounts.length) return `登録尺度が${s.itemCount}項目・使用研究あり`;
+  if (profile.registered) return `登録尺度が${s.itemCount}項目`;
+  if (profile.usageCounts.length) return `使用研究で${profile.usageCounts.join("・")}項目版あり`;
+  if (profile.evidenceCounts.length) return `関連版・比較で${profile.evidenceCounts.join("・")}項目の根拠あり`;
+  return "";
+}
+
+function shortFormScore(s) {
+  const profile = shortFormProfile(s);
+  return (profile.registered ? 10000 : 0) + profile.usageCounts.length * 1000 + profile.evidenceCounts.length * 100 + (s.usageStudies || []).length;
+}
+
 function practiceSummary(s) {
   const counts = observedItemCounts(s);
   if ((s.usageEvidence || []).length) return `${usageSummary(s)}・実使用数の根拠あり`;
@@ -132,7 +156,7 @@ function scaleRelationshipHtml(s) {
 
 function init() {
   [...new Set(ATLAS_DATA.concepts.map((c) => c.domain))].forEach((d) => $("#domain-filter").insertAdjacentHTML("beforeend", `<option>${esc(d)}</option>`));
-  ["query", "domain-filter", "japanese-filter", "practice-filter", "permission-filter", "items-filter", "usage-sort"].forEach((id) => $("#" + id).addEventListener(id === "query" ? "input" : "change", renderScales));
+  ["query", "domain-filter", "japanese-filter", "practice-filter", "short-form-filter", "permission-filter", "items-filter", "usage-sort"].forEach((id) => $("#" + id).addEventListener(id === "query" ? "input" : "change", renderScales));
   $("#clear-filters").onclick = () => { $("#query").value = ""; $$(".filters select").forEach((x) => (x.value = "")); renderScales(); };
   $("#export-csv").onclick = exportCsv;
   $("#export-json").onclick = exportJson;
@@ -233,6 +257,7 @@ function filtered() {
   const jp = $("#japanese-filter").value;
   const practice = $("#practice-filter").value;
   const permission = $("#permission-filter").value;
+  const shortForm = $("#short-form-filter").value;
   const max = Number($("#items-filter").value || Infinity);
   const scales = ATLAS_DATA.scales.filter((s) => {
     const c = concepts.get(s.conceptId);
@@ -241,12 +266,15 @@ function filtered() {
     const japaneseMatch = !jp || (jp === "available" ? s.japaneseVersionStatus !== "unconfirmed" : jp === "verified" ? verifiedJapaneseStatuses.has(s.japaneseVersionStatus) : s.japaneseVersionStatus === jp);
     const permissionMatch = !permission || (permission === "research" ? s.usagePermission === "research-use" : permission === "permission" ? s.usagePermission === "permission-required" : s.usagePermission === permission);
     const practiceMatch = !practice || (practice === "documented" ? (s.applicationEvidence || []).length || (s.usageEvidence || []).length || (s.usageStudies || []).length : practice === "usage-studies" ? (s.usageStudies || []).length : practice === "review" ? (s.usageEvidence || []).length || (s.applicationEvidence || []).some((e) => e.evidenceType?.includes("review") || e.evidenceType === "comparative-validation") : practice === "jp-validated" ? s.japaneseVersionStatus === "validated" : true);
-    return (!q || hay.includes(q)) && (!domain || c.domain === domain) && japaneseMatch && practiceMatch && permissionMatch && s.itemCount <= max;
+    const shortProfile = shortFormProfile(s);
+    const shortFormMatch = !shortForm || (shortForm === "registered" ? shortProfile.registered : shortForm === "usage" ? shortProfile.usageCounts.length : shortProfile.registered || shortProfile.usageCounts.length || shortProfile.evidenceCounts.length);
+    return (!q || hay.includes(q)) && (!domain || c.domain === domain) && japaneseMatch && practiceMatch && permissionMatch && shortFormMatch && s.itemCount <= max;
   });
   if ($("#usage-sort").value === "usage") scales.sort((a, b) => ((b.usageEvidence || [])[0]?.count || -1) - ((a.usageEvidence || [])[0]?.count || -1));
   if ($("#usage-sort").value === "year-new") scales.sort((a, b) => b.year - a.year);
   if ($("#usage-sort").value === "year-old") scales.sort((a, b) => a.year - b.year);
   if ($("#usage-sort").value === "practice") scales.sort((a, b) => practiceScore(b) - practiceScore(a));
+  if ($("#usage-sort").value === "short") scales.sort((a, b) => shortFormScore(b) - shortFormScore(a));
   return scales;
 }
 
@@ -256,7 +284,8 @@ function scaleCard(s) {
   const evidenceCount = (s.japaneseEvidence || []).length;
   const psychometricCount = (s.psychometricEvidence || []).length;
   const usageKnown = (s.usageEvidence || []).length > 0;
-  return `<article class="scale-card"><p class="sub">${esc(c.nameJa)} / ${esc(c.nameEn)}</p><h3>${esc(s.name)}</h3><p class="sub">${esc(s.abbreviation)} ・ ${s.year}年 ・ 書誌確認済み</p><div class="badges"><span class="badge">登録版 ${s.itemCount}項目</span><span class="badge">${esc(labels[s.versionType])}</span><span class="badge">${esc(labels[s.japaneseVersionStatus])}</span><span class="badge warn">${esc(labels[s.usagePermission])}</span>${(s.usageStudies || []).length ? `<span class="badge study-badge">使用先行研究 ${s.usageStudies.length}件</span>` : ""}</div><p class="practice-summary">${esc(practiceSummary(s))}</p><p class="usage-summary ${usageKnown ? "known" : ""}">${esc(usageSummary(s))}${usageKnown ? "（対象レビュー内）" : ""}</p><p class="jp-summary">日本語情報：${esc(labels[s.japaneseVersionStatus])}${evidenceCount ? `（根拠${evidenceCount}件）` : ""}${psychometricCount ? ` ／ 測定情報${psychometricCount}件` : ""}</p>${sourceLinks(s)}<div class="card-actions"><button class="detail-button" data-scale="${s.id}">詳細を見る</button><button class="compare-button ${selected ? "selected" : ""}" data-compare="${s.id}">${selected ? "比較から外す" : "比較に追加"}</button></div></article>`;
+  const shortLabel = shortFormLabel(s);
+  return `<article class="scale-card"><p class="sub">${esc(c.nameJa)} / ${esc(c.nameEn)}</p><h3>${esc(s.name)}</h3><p class="sub">${esc(s.abbreviation)} ・ ${s.year}年 ・ 書誌確認済み</p><div class="badges"><span class="badge">登録版 ${s.itemCount}項目</span><span class="badge">${esc(labels[s.versionType])}</span><span class="badge">${esc(labels[s.japaneseVersionStatus])}</span><span class="badge warn">${esc(labels[s.usagePermission])}</span>${shortLabel ? `<span class="badge short-form-badge">${esc(shortLabel)}</span>` : ""}${(s.usageStudies || []).length ? `<span class="badge study-badge">使用先行研究 ${s.usageStudies.length}件</span>` : ""}</div><p class="practice-summary">${esc(practiceSummary(s))}</p><p class="usage-summary ${usageKnown ? "known" : ""}">${esc(usageSummary(s))}${usageKnown ? "（対象レビュー内）" : ""}</p><p class="jp-summary">日本語情報：${esc(labels[s.japaneseVersionStatus])}${evidenceCount ? `（根拠${evidenceCount}件）` : ""}${psychometricCount ? ` ／ 測定情報${psychometricCount}件` : ""}</p>${sourceLinks(s)}<div class="card-actions"><button class="detail-button" data-scale="${s.id}">詳細を見る</button><button class="compare-button ${selected ? "selected" : ""}" data-compare="${s.id}">${selected ? "比較から外す" : "比較に追加"}</button></div></article>`;
 }
 
 function bindCards() {
@@ -323,9 +352,9 @@ function burdenGuide(scales) {
 function renderShortOptions(scales) {
   const selectedIds = new Set(scales.map((s) => s.id));
   const selectedConceptIds = new Set(scales.map((s) => s.conceptId));
-  const alternatives = ATLAS_DATA.scales.filter((s) => selectedConceptIds.has(s.conceptId) && s.itemCount <= 4 && !selectedIds.has(s.id));
+  const alternatives = ATLAS_DATA.scales.filter((s) => selectedConceptIds.has(s.conceptId) && [3, 4].includes(s.itemCount) && !selectedIds.has(s.id));
   const evidenceHints = scales.map((s) => {
-    const counts = observedItemCounts(s).filter((count) => count <= 4 && count !== s.itemCount);
+    const counts = observedItemCounts(s).filter((count) => [3, 4].includes(count) && count !== s.itemCount);
     return counts.length ? { scale: s, counts } : null;
   }).filter(Boolean);
   const panel = $("#short-option-panel");
@@ -335,7 +364,7 @@ function renderShortOptions(scales) {
     ? `<div><strong>同じ概念に登録済みの3・4項目尺度</strong><div class="short-option-list">${alternatives.map((s) => `<button data-add-alternative="${s.id}">${esc(concepts.get(s.conceptId).nameJa)}：${esc(s.abbreviation)}（${s.itemCount}項目）を追加</button>`).join("")}</div></div>`
     : "";
   const evidenceHtml = evidenceHints.length
-    ? `<div><strong>短い使用版の根拠がある尺度</strong><ul>${evidenceHints.map(({ scale, counts }) => `<li>${esc(scale.abbreviation)}：${counts.join("・")}項目版の根拠あり（尺度詳細で確認）</li>`).join("")}</ul></div>`
+    ? `<div><strong>短い使用版の根拠がある尺度</strong><ul>${evidenceHints.map(({ scale, counts }) => `<li>${esc(scale.abbreviation)}：${counts.join("・")}項目版の根拠あり — ${esc(shortFormLabel(scale))}（尺度詳細で確認）</li>`).join("")}</ul></div>`
     : "";
   panel.innerHTML = `<h3>短縮候補</h3><p>同じ概念でも測定範囲や下位次元が異なるため、項目数だけで置き換えず詳細を確認してください。</p>${alternativeHtml}${evidenceHtml}`;
   $$('[data-add-alternative]').forEach((b) => (b.onclick = () => toggleCompare(b.dataset.addAlternative)));
@@ -409,7 +438,7 @@ function renderDesignBuilder(scales) {
             <textarea data-design-note="${s.id}" rows="2" placeholder="例：回答負荷を抑えるため3項目版を候補にする">${esc(state.notes[s.id] || "")}</textarea>
           </label>
         </div>
-        <p class="design-evidence">使用先行研究 ${(s.usageStudies || []).length}件登録／確認できた使用項目数 ${esc(observedItemCounts(s).join("・") || "未整理")}／${esc(labels[s.japaneseVersionStatus])}</p>
+        <p class="design-evidence">${shortFormLabel(s) ? `${esc(shortFormLabel(s))}／` : ""}使用先行研究 ${(s.usageStudies || []).length}件登録／確認できた使用項目数 ${esc(observedItemCounts(s).join("・") || "未整理")}／${esc(labels[s.japaneseVersionStatus])}</p>
       </article>`).join("")}</div>`;
   $$('[data-design-role]').forEach((select) => (select.onchange = () => {
     state.roles[select.dataset.designRole] = select.value;
