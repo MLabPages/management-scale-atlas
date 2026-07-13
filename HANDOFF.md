@@ -1,7 +1,7 @@
 # 経営学・マーケティング概念・尺度アトラス 開発引継ぎ
 
 最終更新: 2026-07-13  
-対象版: v0.22.0<br>
+対象版: v0.23.0<br>
 公開URL: https://mlabpages.github.io/management-scale-atlas/  
 リポジトリ: https://github.com/MLabPages/management-scale-atlas
 
@@ -52,6 +52,9 @@
 - 選択文献の標本、項目数、回答形式、翻訳・調整、測定結果、DOIを表示
 - 研究設計CSV・JSONと、1文献1行の根拠一覧CSVの出力
 - Google ScholarとDOIへの導線
+- 研究目的別のワンクリック検索と測定スタイル絞り込み
+- 尺度詳細の採用判断ガイド（回答負担、実使用、測定検証、日本語、注意点）
+- 同一概念の代替尺度への移動・比較導線
 
 ### 技術構成
 

@@ -29,12 +29,20 @@
   <main class="container">
     <section id="view-search" class="view active">
       <div class="search-panel">
+        <div class="research-paths" aria-label="研究目的から探す">
+          <div><strong>研究目的から探す</strong><span>条件は後から調整できます</span></div>
+          <button type="button" data-preset="low-burden">複数概念・低負担</button>
+          <button type="button" data-preset="japanese">日本語調査を優先</button>
+          <button type="button" data-preset="practice">使用先行研究を優先</button>
+          <button type="button" data-preset="diagnostic">多次元で詳しく診断</button>
+        </div>
         <label class="search-box"><span>キーワード</span><input id="query" type="search" placeholder="例：ブランド経験、VR、9項目、短縮版"></label>
         <div class="filters">
           <label>研究領域<select id="domain-filter"><option value="">すべて</option></select></label>
           <label>日本語の状況<select id="japanese-filter"><option value="">すべて</option><option value="verified">検証・開発済み</option><option value="available">日本語情報あり</option><option value="unconfirmed">未確認</option></select></label>
           <label>実使用・検証<select id="practice-filter"><option value="">すべて</option><option value="usage-studies">個別の使用先行研究あり</option><option value="documented">実使用版の根拠あり</option><option value="review">レビュー・比較根拠あり</option><option value="jp-validated">日本語で検証済み</option></select></label>
           <label>3・4項目の状況<select id="short-form-filter"><option value="">すべて</option><option value="registered">登録尺度そのものが3・4項目</option><option value="usage">使用研究で3・4項目版あり</option><option value="evidence">関連版・比較を含む根拠あり</option></select></label>
+          <label>測定スタイル<select id="measurement-style-filter"><option value="">すべて</option><option value="global-low">総合評価・低負担</option><option value="multidimensional-low">多次元・低負担</option><option value="multidimensional-deep">多次元・詳細診断</option><option value="unidimensional">単一次元</option></select></label>
           <label>利用条件<select id="permission-filter"><option value="">すべて</option><option value="open">掲載・利用可</option><option value="research">研究利用可</option><option value="permission">申請が必要</option><option value="unknown">未確認</option></select></label>
           <label>登録尺度の最大項目数<select id="items-filter"><option value="">指定なし</option><option value="3">3項目以下</option><option value="4">4項目以下</option><option value="5">5項目以下</option><option value="10">10項目以下</option><option value="20">20項目以下</option></select></label>
           <label>並び順<select id="usage-sort"><option value="">登録順</option><option value="short">3・4項目の使いやすさ順</option><option value="practice">実使用・検証情報が多い順</option><option value="usage">利用研究数が多い順</option><option value="year-new">新しい順</option><option value="year-old">古い順</option></select></label>
