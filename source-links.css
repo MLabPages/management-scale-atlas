@@ -325,6 +325,22 @@
   font: inherit;
 }
 .design-basis span { display: block; margin-top: 4px; font-weight: 400; }
+.design-basis-detail {
+  margin-top: 8px;
+  padding: 10px;
+  border: 1px solid #d3e1de;
+  border-radius: 7px;
+  background: #f8fbfa;
+  color: var(--ink);
+  font-size: 0.74rem;
+}
+.design-basis-detail > div:first-child { display: flex; gap: 8px; align-items: flex-start; }
+.design-basis-detail strong { line-height: 1.45; }
+.design-basis-detail p { margin: 5px 0 0; line-height: 1.45; }
+.design-basis-detail .basis-meta { color: var(--soft); }
+.basis-kind { flex: 0 0 auto; padding: 2px 6px; border-radius: 999px; background: #dceee9; color: #245d53; font-size: 0.66rem; font-weight: 800; }
+.basis-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 7px; }
+.basis-links a { color: var(--accent); font-weight: 700; }
 .design-evidence { margin: 8px 0 0; color: var(--soft); font-size: 0.74rem; }
 
 @media (max-width: 760px) {

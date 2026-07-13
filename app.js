@@ -395,6 +395,22 @@ function selectedBasis(s) {
   };
 }
 
+function basisDetailHtml(s) {
+  const basis = selectedBasis(s);
+  const sourceUrl = basis.url || (basis.doi ? `https://doi.org/${basis.doi}` : "");
+  const scholar = `https://scholar.google.com/scholar?q=${encodeURIComponent(`"${basis.title}" ${basis.authors || ""}`)}`;
+  const meta = [basis.year ? `${basis.year}年` : "", basis.itemCount ? `${basis.itemCount}項目` : "", basis.responseFormat || "", basis.language || ""].filter(Boolean).join(" ・ ");
+  const context = [basis.context, basis.sample].filter(Boolean).join(" ／ ");
+  return `<div class="design-basis-detail">
+    <div><span class="basis-kind">${basis.type === "usage-study" ? "実使用研究" : "原典"}</span><strong>${esc(basis.title)}</strong></div>
+    <p class="basis-meta">${esc(meta)}</p>
+    ${context ? `<p>${esc(context)}</p>` : ""}
+    ${basis.adaptation ? `<p><b>調整：</b>${esc(basis.adaptation)}</p>` : ""}
+    ${basis.result ? `<p><b>測定結果：</b>${esc(basis.result)}</p>` : ""}
+    <div class="basis-links">${sourceUrl ? `<a href="${esc(sourceUrl)}" target="_blank" rel="noopener noreferrer">${basis.doi ? `DOI ${esc(basis.doi)}` : "論文を開く"}</a>` : ""}<a href="${esc(scholar)}" target="_blank" rel="noopener noreferrer">Google Scholar</a></div>
+  </div>`;
+}
+
 function designExportRows(scales) {
   return scales.map((s) => {
     const basis = selectedBasis(s);
@@ -536,6 +552,7 @@ function renderDesignBuilder(scales) {
           </select>
           <span>${(s.usageStudies || []).length ? "実際の使用文脈・項目数を確認したうえで、最も近い研究を選んでください。" : "個別の使用研究は登録準備中です。原典を基準にします。"}</span>
         </label>
+        ${basisDetailHtml(s)}
         <p class="design-evidence">${shortFormLabel(s) ? `${esc(shortFormLabel(s))}／` : ""}使用先行研究 ${(s.usageStudies || []).length}件登録／確認できた使用項目数 ${esc(observedItemCounts(s).join("・") || "未整理")}／${esc(labels[s.japaneseVersionStatus])}</p>
       </article>`).join("")}</div>`;
   $$('[data-design-role]').forEach((select) => (select.onchange = () => {
@@ -550,6 +567,7 @@ function renderDesignBuilder(scales) {
   $$('[data-design-study]').forEach((select) => (select.onchange = () => {
     state.studyChoices[select.dataset.designStudy] = select.value;
     saveDesignState();
+    renderDesignBuilder(scales);
     renderCompareTable(scales);
   }));
   $$('[data-design-detail]').forEach((button) => (button.onclick = () => openScale(button.dataset.designDetail)));

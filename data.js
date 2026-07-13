@@ -2,7 +2,7 @@
 // DOI、原典、項目数、下位次元は原著論文または公式資料で確認。
 const ATLAS_DATA = {
   meta: {
-    version: "0.13.0",
+    version: "0.14.0",
     status: "initial-real-data",
     updated: "2026-07-13",
     scope: "30概念・41尺度",
@@ -1132,6 +1132,13 @@ const ATLAS_DATA = {
         { kind: "psychometric-validation", label: "検証済み日本語版", authors: "Ochiai & Otsuka", year: 2022, title: "Reliability and validity of the Japanese version of the psychological safety scale for workers", doi: "10.2486/indhealth.2021-0130", url: "https://doi.org/10.2486/indhealth.2021-0130" },
       ],
       validationStudies: [], usagePermission: "unknown", usageEvidence: [],
+      usageStudies: [
+        { title: "Psychological Safety in Intensive Care Unit Rounding Teams", authors: "Diabes et al.", year: 2021, context: "米国の集中治療室における多職種回診チーム", sample: "6病院12 ICUの医療従事者270名、延べ553回答", itemCount: 4, responseFormat: "5件法", language: "English", adaptation: "先行尺度の項目をICUの日次チーム文脈へ調整。心理的安全性の不良2項目を除外し、最終4項目で分析。", result: "α=.69。リーダーの包摂性、低い職務負担、チームワーク知覚との関連を報告。", doi: "10.1513/AnnalsATS.202006-753OC", url: "https://doi.org/10.1513/AnnalsATS.202006-753OC" },
+        { title: "The Relationship between Psychological Safety and Management Team Effectiveness: The Mediating Role of Behavioral Integration", authors: "Mogård, Rørstad, & Bang", year: 2023, context: "ノルウェーの経営チーム", sample: "160経営チームのリーダー1,150名", itemCount: 4, responseFormat: "7件法", language: "本文で明示確認できず（ノルウェー調査）", adaptation: "Edmondsonらを基礎にした5項目から、行動統合との交差負荷を示した1項目を除外。", result: "α=.90。心理的安全性とチーム有効性の関係を行動統合が媒介。", doi: "10.3390/ijerph20010406", url: "https://doi.org/10.3390/ijerph20010406" },
+      ],
+      applicationEvidence: [
+        { label: "後続研究で確認された4項目版", itemCounts: [4], evidenceType: "empirical-short-use", summary: "ICU多職種チームとノルウェーの経営チームで、文脈調整または項目削除後の4項目構成が使用されています。原版7項目と同一ではないため、採用時は内容範囲を確認してください。", title: "Four-item applications of team psychological safety", year: 2023, doi: "10.3390/ijerph20010406", url: "https://doi.org/10.3390/ijerph20010406" },
+      ],
       psychometricEvidence: [
         { label: "原著のチーム研究", sample: "製造企業の51チーム", methods: "複数方法による現場研究、チーム学習・成果との関係の検討", result: "心理的安全性が学習行動と関連し、学習行動が成果との関係を媒介", url: "https://doi.org/10.2307/2666999" },
         { label: "日本語版の検証", sample: "日本人労働者287名（1か月後236名）", methods: "内的整合性、ICC、確認的因子分析、関連尺度との相関", result: "α=.91／.88、ICC=.87で、許容可能な信頼性・妥当性を報告", url: "https://doi.org/10.2486/indhealth.2021-0130" },
