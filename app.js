@@ -26,6 +26,7 @@ const evidenceKinds = {
   "context-reference": "関連する日本語文献",
 };
 const verifiedJapaneseStatuses = new Set(["validated", "linguistic-validated", "original-japanese"]);
+const MAX_COMPARE = 8;
 const state = { compare: new Set() };
 const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 const scholarUrl = (s) => `https://scholar.google.com/scholar?q=${encodeURIComponent(`"${s.name}" ${s.authors.join(" ")} ${s.year}`)}`;
@@ -244,9 +245,45 @@ function openConcept(id) {
 
 function toggleCompare(id) {
   if (state.compare.has(id)) state.compare.delete(id);
-  else if (state.compare.size < 4) state.compare.add(id);
-  else return alert("比較できる尺度は最大4件です。");
+  else if (state.compare.size < MAX_COMPARE) state.compare.add(id);
+  else return alert(`比較できる尺度は最大${MAX_COMPARE}件です。`);
   renderScales(); renderCompare();
+}
+
+function burdenGuide(scales) {
+  const items = scales.reduce((sum, s) => sum + s.itemCount, 0);
+  const conceptsCount = new Set(scales.map((s) => s.conceptId)).size;
+  const minutesMin = Math.max(1, Math.ceil(items * 10 / 60));
+  const minutesMax = Math.max(1, Math.ceil(items * 20 / 60));
+  const burden = items <= 20
+    ? { label: "比較的軽い", className: "light" }
+    : items <= 40
+      ? { label: "中程度", className: "medium" }
+      : items <= 60
+        ? { label: "やや大きい", className: "high" }
+        : { label: "大きい", className: "high" };
+  return { items, conceptsCount, minutesMin, minutesMax, ...burden };
+}
+
+function renderShortOptions(scales) {
+  const selectedIds = new Set(scales.map((s) => s.id));
+  const selectedConceptIds = new Set(scales.map((s) => s.conceptId));
+  const alternatives = ATLAS_DATA.scales.filter((s) => selectedConceptIds.has(s.conceptId) && s.itemCount <= 4 && !selectedIds.has(s.id));
+  const evidenceHints = scales.map((s) => {
+    const counts = observedItemCounts(s).filter((count) => count <= 4 && count !== s.itemCount);
+    return counts.length ? { scale: s, counts } : null;
+  }).filter(Boolean);
+  const panel = $("#short-option-panel");
+  panel.hidden = !alternatives.length && !evidenceHints.length;
+  if (panel.hidden) return;
+  const alternativeHtml = alternatives.length
+    ? `<div><strong>同じ概念に登録済みの3・4項目尺度</strong><div class="short-option-list">${alternatives.map((s) => `<button data-add-alternative="${s.id}">${esc(concepts.get(s.conceptId).nameJa)}：${esc(s.abbreviation)}（${s.itemCount}項目）を追加</button>`).join("")}</div></div>`
+    : "";
+  const evidenceHtml = evidenceHints.length
+    ? `<div><strong>短い使用版の根拠がある尺度</strong><ul>${evidenceHints.map(({ scale, counts }) => `<li>${esc(scale.abbreviation)}：${counts.join("・")}項目版の根拠あり（尺度詳細で確認）</li>`).join("")}</ul></div>`
+    : "";
+  panel.innerHTML = `<h3>短縮候補</h3><p>同じ概念でも測定範囲や下位次元が異なるため、項目数だけで置き換えず詳細を確認してください。</p>${alternativeHtml}${evidenceHtml}`;
+  $$('[data-add-alternative]').forEach((b) => (b.onclick = () => toggleCompare(b.dataset.addAlternative)));
 }
 
 function renderCompare() {
@@ -254,7 +291,14 @@ function renderCompare() {
   $("#compare-count").textContent = scales.length;
   $("#compare-empty").hidden = !!scales.length;
   $("#compare-table-wrap").hidden = !scales.length;
-  if (!scales.length) return;
+  $("#compare-summary").hidden = !scales.length;
+  if (!scales.length) {
+    $("#short-option-panel").hidden = true;
+    return;
+  }
+  const guide = burdenGuide(scales);
+  $("#compare-summary").innerHTML = `<div class="burden-metric"><span>選択尺度</span><strong>${scales.length}</strong></div><div class="burden-metric"><span>概念数</span><strong>${guide.conceptsCount}</strong></div><div class="burden-metric"><span>合計項目数</span><strong>${guide.items}</strong></div><div class="burden-metric"><span>概算回答時間</span><strong>${guide.minutesMin}～${guide.minutesMax}分</strong></div><div class="burden-level ${guide.className}"><span>項目数からみた負荷</span><strong>${guide.label}</strong></div><p>回答時間は1項目10～20秒とした単純目安です。教示、属性項目、自由記述、画面操作、対象者や設問の難しさは含みません。</p>`;
+  renderShortOptions(scales);
   const rows = [["概念", (s) => concepts.get(s.conceptId).nameJa], ["実使用・検証", (s) => practiceSummary(s)], ["利用研究数", (s) => usageSummary(s)], ["登録版項目数", (s) => s.itemCount], ["確認できた使用項目数", (s) => observedItemCounts(s).join("・") || "未整理"], ["下位次元", (s) => s.dimensions.join("、")], ["回答件法", (s) => s.responseFormat], ["対象者", (s) => s.targetPopulation.join("、")], ["心理測定情報", (s) => (s.psychometricEvidence || []).length ? "根拠登録あり" : "詳細未登録"], ["日本語の状況", (s) => labels[s.japaneseVersionStatus]], ["利用条件", (s) => labels[s.usagePermission]], ["版", (s) => labels[s.versionType]], ["最終確認日", (s) => s.verifiedAt || ATLAS_DATA.meta.updated]];
   $("#compare-table").innerHTML = `<thead><tr><th>比較項目</th>${scales.map((s) => `<th>${esc(s.name)}<br><button class="text-button" data-remove="${s.id}">外す</button></th>`).join("")}</tr></thead><tbody>${rows.map(([label, value]) => `<tr><th>${label}</th>${scales.map((s) => `<td>${esc(value(s))}</td>`).join("")}</tr>`).join("")}</tbody>`;
   $$("[data-remove]").forEach((b) => (b.onclick = () => toggleCompare(b.dataset.remove)));
