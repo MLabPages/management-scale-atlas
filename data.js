@@ -2,10 +2,10 @@
 // DOI、原典、項目数、下位次元は原著論文または公式資料で確認。
 const ATLAS_DATA = {
   meta: {
-    version: "0.7.0",
+    version: "0.8.0",
     status: "initial-real-data",
     updated: "2026-07-13",
-    scope: "30概念・35尺度",
+    scope: "30概念・36尺度",
   },
 
   concepts: [
@@ -362,6 +362,9 @@ const ATLAS_DATA = {
       usageEvidence: [
         { kind: "systematic-review-count", count: 37, denominator: 139, label: "レビュー内で37研究が使用", scope: "2021年9月までの英語査読誌を対象としたブランド愛着レビュー。尺度を報告した139研究中。", checkedAt: "2026-07-13", title: "Brand attachment: a review and future research", year: 2022, doi: "10.1057/s41262-022-00279-5", url: "https://doi.org/10.1057/s41262-022-00279-5" },
       ],
+      applicationEvidence: [
+        { label: "原著内で比較された版", itemCounts: [8, 4], evidenceType: "scale-development", summary: "原著は8項目版と簡潔な4項目版を比較し、最終的に4項目版を採用。後続レビューでは4項目版の使用が37研究で確認されています。", title: "Brand Attachment and Brand Attitude Strength", year: 2010, doi: "10.1509/jmkg.74.6.1", url: "https://doi.org/10.1509/jmkg.74.6.1" },
+      ],
       itemPublicationStatus: "not-published", items: [],
       notes: "原著では8項目版との比較後、簡潔な4項目版を採用。",
       recordStatus: "verified-metadata",
@@ -650,8 +653,43 @@ const ATLAS_DATA = {
       psychometricEvidence: [
         { label: "原著の尺度開発", sample: "単一回答者調査と複数回答者による追試", methods: "予備調査、因子構造、妥当性の検討", result: "20項目の市場志向尺度を報告", url: "https://doi.org/10.1177/002224379303000406" },
       ],
+      applicationEvidence: [
+        { label: "日本の小売従業員研究での調整版", itemCounts: [20, 12], evidenceType: "usage-study", summary: "MARKOR原版20項目に対し、日本の小売店頭従業員向け研究では文言を調整した12項目で測定し、探索的因子分析を実施。", title: "市場志向が非正規店頭従業員の行動に与える影響", year: 2015, url: "https://www.bus.nihon-u.ac.jp/wp-content/themes/nichidai/assets/img/unique/laboratory/kiyo/YokoyamaNarimasa32.pdf" },
+      ],
       itemPublicationStatus: "not-published", items: [],
       notes: "市場志向にはMKTORなど別系統尺度もあるため、概念定義との適合を確認する。",
+      recordStatus: "verified-metadata",
+    },
+    {
+      id: "mktor",
+      name: "Market Orientation Scale",
+      abbreviation: "MKTOR",
+      conceptId: "market-orientation",
+      authors: ["John C. Narver", "Stanley F. Slater"],
+      year: 1990,
+      sourceTitle: "The Effect of a Market Orientation on Business Profitability",
+      journal: "Journal of Marketing, 54(4), 20–35",
+      doi: "10.1177/002224299005400403",
+      itemCount: 15,
+      dimensions: ["Customer orientation", "Competitor orientation", "Interfunctional coordination"],
+      responseFormat: "7件法",
+      reverseItems: [], scoring: "顧客志向6、競争志向4、部門間調整5項目。3次元の平均から市場志向を捉える。",
+      targetPopulation: ["企業の管理者", "事業単位責任者"],
+      language: "English", versionType: "original", parentScaleId: null,
+      japaneseVersionStatus: "usage-example",
+      japaneseStatusNote: "日本語の市場志向研究でMKTORの全部または一部を援用した使用例がありますが、統一された標準日本語版としては未登録です。",
+      japaneseEvidence: [
+        { kind: "usage-example", label: "日本語研究でのMKTOR援用例", year: 2012, title: "市場志向が創造的ビジネス行動とパフォーマンスに及ぼす影響", url: "https://www.waseda.jp/fcom/soc/assets/uploads/2015/01/wcom433_03.pdf" },
+      ],
+      validationStudies: [], usagePermission: "unknown", usageEvidence: [],
+      psychometricEvidence: [
+        { label: "原著の尺度開発・適用", sample: "140事業単位", methods: "信頼性、因子構造、市場志向と収益性の関係の検討", result: "顧客志向・競争志向・部門間調整の3次元15項目を報告", url: "https://doi.org/10.1177/002224299005400403" },
+      ],
+      applicationEvidence: [
+        { label: "MARKORとは異なる主要測定系統", itemCounts: [15], evidenceType: "scale-development", summary: "市場志向の主要尺度は、行動プロセスを測るMARKOR 20項目と、組織文化的側面を測るMKTOR 15項目に大別されます。項目数だけでなく概念定義で選ぶ必要があります。", title: "The Effect of a Market Orientation on Business Profitability", year: 1990, doi: "10.1177/002224299005400403", url: "https://doi.org/10.1177/002224299005400403" },
+      ],
+      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-13",
+      notes: "『3項目』ではなく、3次元15項目の原版。研究によって各次元から項目を抜粋する場合がある。",
       recordStatus: "verified-metadata",
     },
     {
@@ -1073,6 +1111,10 @@ const ATLAS_DATA = {
         { label: "9項目短縮版の国際検証", sample: "10か国・14,521名", methods: "確認的因子分析、内的整合性、再検査信頼性、バーンアウトとの構造比較", result: "3次元9項目の許容可能な心理測定特性を報告", url: "https://doi.org/10.1177/0013164405282471" },
         { label: "日本語版の検証", sample: "日本の3独立標本・計2,334名", methods: "多母集団確認的因子分析、内的整合性、2か月再検査、構成概念妥当性", result: "1因子構造の不変性、α=.92、再検査信頼性=.66を報告", url: "https://doi.org/10.1111/j.1464-0597.2008.00333.x" },
       ],
+      applicationEvidence: [
+        { label: "レビューで確認された主要版", itemCounts: [17, 15, 9, 6, 3], evidenceType: "systematic-review", summary: "複数言語・地域で17、15、9、6、3項目版が検証・使用され、レビューでは9項目版が中心的な版と評価されています。", title: "Work engagement measures: A systematic literature review", year: 2024, url: "https://revistas.javeriana.edu.co/files-articulos/UPSY/23%282024%29/6972764006/" },
+        { label: "特定領域レビュー内の使用版", itemCounts: [9, 17, 3], evidenceType: "systematic-review-count", summary: "長期ケア施設の看護職研究15件では、UWES-9が10件、UWES-17が3件、UWES-3が1件で使用。", title: "Antecedents and outcomes of work engagement among nursing staff in long-term care facilities", year: 2024, doi: "10.1111/jan.15804", url: "https://doi.org/10.1111/jan.15804" },
+      ],
       itemPublicationStatus: "not-published", items: [],
       notes: "UWES-17、学生版UWES-Sとは区別する。研究利用条件と最新版マニュアルを確認する。",
       recordStatus: "verified-metadata",
@@ -1100,6 +1142,9 @@ const ATLAS_DATA = {
       psychometricEvidence: [
         { label: "原著の尺度開発", sample: "4つの業務用アプリケーションを評価した利用者計152名", methods: "内容妥当性の予備検討、2研究での信頼性・構成概念妥当性検討", result: "知覚有用性6項目の信頼性・妥当性を支持", url: "https://doi.org/10.2307/249008" },
       ],
+      applicationEvidence: [
+        { label: "原版と日本語の応用研究例", itemCounts: [6, 3], evidenceType: "usage-study", summary: "Davis原版は6項目。日本のモバイルアプリ研究ではTAMを援用し、関連する知覚利便性を3項目で測定しています。これは公式3項目版ではなく、研究文脈に合わせた応用版です。", title: "オムニチャネル・ショッパーによる知覚オムニチャネル統合度がモバイル・アプリケーション受容行動等に与える影響", year: 2022, doi: "10.7222/marketing.2022.015", url: "https://doi.org/10.7222/marketing.2022.015" },
+      ],
       itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-13",
       notes: "同じ原著の知覚容易性尺度と組み合わせてTAMの主要信念を測定する。",
       recordStatus: "verified-metadata",
@@ -1126,6 +1171,9 @@ const ATLAS_DATA = {
       validationStudies: [], usagePermission: "unknown", usageEvidence: [],
       psychometricEvidence: [
         { label: "原著の尺度開発", sample: "4つの業務用アプリケーションを評価した利用者計152名", methods: "内容妥当性の予備検討、2研究での信頼性・構成概念妥当性検討", result: "知覚容易性6項目の信頼性・妥当性を支持", url: "https://doi.org/10.2307/249008" },
+      ],
+      applicationEvidence: [
+        { label: "原版と日本語の応用研究例", itemCounts: [6, 5], evidenceType: "usage-study", summary: "Davis原版は6項目。日本のモバイルアプリ研究では先行研究を援用した知覚利用容易性5項目で測定しています。項目数は研究ごとに異なるため、公式短縮版とは区別します。", title: "オムニチャネル・ショッパーによる知覚オムニチャネル統合度がモバイル・アプリケーション受容行動等に与える影響", year: 2022, doi: "10.7222/marketing.2022.015", url: "https://doi.org/10.7222/marketing.2022.015" },
       ],
       itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-13",
       notes: "同じ原著の知覚有用性尺度と組み合わせてTAMの主要信念を測定する。",
@@ -1156,6 +1204,9 @@ const ATLAS_DATA = {
       psychometricEvidence: [
         { label: "原著の尺度開発", sample: "9組織の従業員361名、および私立高校教員71名", methods: "主成分分析、内的整合性、欠勤・交換イデオロギーとの関係", result: "単一次元36項目、α=.97を報告", url: "https://doi.org/10.1037/0021-9010.71.3.500" },
       ],
+      applicationEvidence: [
+        { label: "複数短縮版の比較研究", itemCounts: [36, 16, 8, 3], evidenceType: "comparative-validation", summary: "実際に使用されてきた36・16・8・3項目版を比較し、8または16項目版は原版と同等に有効で、より効率的と報告。", title: "The survey of perceived organisational support: Which measure should we use?", year: 2009, doi: "10.4102/sajip.v35i1.754", url: "https://doi.org/10.4102/sajip.v35i1.754" },
+      ],
       itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-13",
       notes: "16・8・3項目など複数の短縮版があるため、採用した項目集合を明記する。",
       recordStatus: "verified-metadata",
@@ -1184,6 +1235,9 @@ const ATLAS_DATA = {
       validationStudies: [], usagePermission: "unknown", usageEvidence: [],
       psychometricEvidence: [
         { label: "日本語版の開発・検証", sample: "日本人労働者6,220名、2週間後追跡452名", methods: "EFA・CFA、項目反応理論、収束・既知集団妥当性、内的整合性、再検査信頼性", result: "SPA α=.92・ICC=.72、MNA α=.84・ICC=.55。SPAの信頼性・妥当性を支持", url: "https://doi.org/10.1093/joccuh/uiae034" },
+      ],
+      applicationEvidence: [
+        { label: "日本語版として検証された短縮版", itemCounts: [8], evidenceType: "psychometric-validation", summary: "原版SPOSを日本語化し、項目反応理論で8項目を選定。日本人労働者6,220名で検証されています。", title: "Reliability and validity of the Japanese version of the Survey of Perceived Organizational Support", year: 2024, doi: "10.1093/joccuh/uiae034", url: "https://doi.org/10.1093/joccuh/uiae034" },
       ],
       itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-13",
       notes: "原著者の許可を得て作成された版。利用時は論文・補足資料と最新条件を確認する。",
