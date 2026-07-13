@@ -46,6 +46,17 @@
   border-left: 3px solid var(--accent2);
 }
 
+.practice-summary {
+  margin: 10px 0 0;
+  padding: 8px 10px;
+  border-left: 3px solid var(--accent2);
+  border-radius: 6px;
+  background: #f2f8f7;
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
 .usage-count {
   margin: 6px 0;
   color: var(--accent);
