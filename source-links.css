@@ -313,6 +313,18 @@
   font: inherit;
 }
 .design-fields textarea { min-height: 58px; resize: vertical; }
+.design-basis { margin-top: 10px; color: var(--soft); font-size: 0.72rem; font-weight: 700; }
+.design-basis select {
+  width: 100%;
+  margin-top: 4px;
+  border: 1px solid #baccc8;
+  border-radius: 6px;
+  background: #fff;
+  color: var(--ink);
+  padding: 8px;
+  font: inherit;
+}
+.design-basis span { display: block; margin-top: 4px; font-weight: 400; }
 .design-evidence { margin: 8px 0 0; color: var(--soft); font-size: 0.74rem; }
 
 @media (max-width: 760px) {
