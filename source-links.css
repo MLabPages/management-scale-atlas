@@ -134,6 +134,64 @@
   color: var(--accent);
 }
 
+.study-badge {
+  background: #e6f4ed;
+  color: #216246;
+}
+
+.study-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.study-card {
+  padding: 13px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.study-card-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.study-card h4 {
+  margin: 5px 0 2px;
+  color: var(--accent);
+  font-size: 0.9rem;
+}
+
+.study-card dl {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 7px;
+  margin: 10px 0;
+}
+
+.study-card dl div {
+  padding: 7px 9px;
+  border-radius: 6px;
+  background: var(--bg);
+}
+
+.study-card dt {
+  color: var(--soft);
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.study-card dd {
+  margin: 1px 0 0;
+  font-size: 0.78rem;
+}
+
+@media (max-width: 500px) {
+  .study-card dl { grid-template-columns: 1fr; }
+}
+
 .burden-summary {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
