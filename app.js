@@ -11,7 +11,10 @@ const labels = {
   unconfirmed: "日本語版・使用例を未確認",
   open: "掲載・利用可", research: "研究利用可", unknown: "利用条件未確認",
   permission: "申請が必要", "research-use": "研究利用可",
-  "permission-required": "申請が必要", original: "原版", short: "短縮版",
+  "permission-required": "申請が必要", original: "原版", short: "短縮版", translated: "翻訳版",
+};
+const recordStatusLabels = {
+  "verified-metadata": "書誌・基本情報確認済み",
 };
 const evidenceKinds = {
   "psychometric-validation": "信頼性・妥当性の検証",
@@ -56,6 +59,13 @@ function psychometricEvidenceHtml(s) {
   const entries = s.psychometricEvidence || [];
   if (!entries.length) return `<div class="detail-section psychometric-evidence"><h3>信頼性・妥当性</h3><p class="sub">標本・信頼性・妥当性の詳細情報は未登録です。原典を確認してください。</p></div>`;
   return `<div class="detail-section psychometric-evidence"><h3>信頼性・妥当性</h3><ul class="evidence-list">${entries.map((e) => `<li><span class="evidence-kind">${esc(e.label)}</span><strong>${esc(e.result)}</strong><br><span class="sub">標本：${esc(e.sample)}<br>検討：${esc(e.methods)}</span>${e.url ? ` <a href="${esc(e.url)}" target="_blank" rel="noopener noreferrer">根拠を開く ↗</a>` : ""}</li>`).join("")}</ul></div>`;
+}
+
+function scaleRelationshipHtml(s) {
+  const parent = s.parentScaleId ? ATLAS_DATA.scales.find((x) => x.id === s.parentScaleId) : null;
+  const children = ATLAS_DATA.scales.filter((x) => x.parentScaleId === s.id);
+  if (!parent && !children.length) return "";
+  return `<div class="detail-section"><h3>版・派生関係</h3>${parent ? `<p>基になった尺度：<button class="text-button" data-related-scale="${esc(parent.id)}">${esc(parent.name)}（${parent.itemCount}項目）</button></p>` : ""}${children.length ? `<p>派生版：${children.map((x) => `<button class="text-button" data-related-scale="${esc(x.id)}">${esc(x.name)}（${x.itemCount}項目）</button>`).join(" ")}</p>` : ""}</div>`;
 }
 
 function init() {
@@ -107,6 +117,7 @@ function exportRows() {
       doi: s.doi,
       google_scholar_url: scholarUrl(s),
       record_status: s.recordStatus,
+      verified_at: s.verifiedAt || ATLAS_DATA.meta.updated,
     };
   });
 }
@@ -185,8 +196,9 @@ function renderConcepts() {
 function openScale(id) {
   const s = ATLAS_DATA.scales.find((x) => x.id === id);
   const c = concepts.get(s.conceptId);
-  $("#detail-body").innerHTML = `<p class="sub">尺度詳細・書誌確認済み</p><h2 class="detail-title">${esc(s.name)}</h2><p>${esc(c.nameJa)} / ${esc(c.nameEn)}</p><div class="sample-notice"><strong>確認範囲：</strong>原典、DOI、項目数、下位次元を確認しています。日本語情報・利用実績・心理測定情報は、根拠の強さと確認範囲を区別して表示します。</div><div class="detail-section detail-grid"><div><strong>略称</strong>${esc(s.abbreviation)}</div><div><strong>開発年</strong>${s.year}</div><div><strong>項目数</strong>${s.itemCount}</div><div><strong>回答形式</strong>${esc(s.responseFormat)}</div><div><strong>下位次元</strong>${esc(s.dimensions.join("、"))}</div><div><strong>対象者</strong>${esc(s.targetPopulation.join("、"))}</div><div><strong>日本語の状況</strong>${esc(labels[s.japaneseVersionStatus])}</div><div><strong>利用条件</strong>${esc(labels[s.usagePermission])}</div></div>${usageEvidenceHtml(s)}${psychometricEvidenceHtml(s)}${japaneseEvidenceHtml(s)}<div class="detail-section"><h3>原典・文献情報</h3><p><strong>${esc(s.sourceTitle || "原典タイトル未登録")}</strong><br><span class="sub">${esc(s.authors.join("、"))}（${s.year}）${s.journal ? `・${esc(s.journal)}` : ""}</span></p>${sourceLinks(s)}</div><div class="detail-section"><h3>尺度項目</h3><p>掲載していません。利用条件と原典を確認してください。</p>${s.notes ? `<p class="sub">${esc(s.notes)}</p>` : ""}</div>`;
+  $("#detail-body").innerHTML = `<p class="sub">尺度詳細・${esc(recordStatusLabels[s.recordStatus] || s.recordStatus)}</p><h2 class="detail-title">${esc(s.name)}</h2><p>${esc(c.nameJa)} / ${esc(c.nameEn)}</p><div class="sample-notice"><strong>確認範囲：</strong>原典、DOI、項目数、下位次元を確認しています。日本語情報・利用実績・心理測定情報は、根拠の強さと確認範囲を区別して表示します。<br><span class="sub">最終確認日：${esc(s.verifiedAt || ATLAS_DATA.meta.updated)}</span></div><div class="detail-section detail-grid"><div><strong>略称</strong>${esc(s.abbreviation)}</div><div><strong>開発年</strong>${s.year}</div><div><strong>項目数</strong>${s.itemCount}</div><div><strong>回答形式</strong>${esc(s.responseFormat)}</div><div><strong>下位次元</strong>${esc(s.dimensions.join("、"))}</div><div><strong>対象者</strong>${esc(s.targetPopulation.join("、"))}</div><div><strong>日本語の状況</strong>${esc(labels[s.japaneseVersionStatus])}</div><div><strong>利用条件</strong>${esc(labels[s.usagePermission])}</div></div>${scaleRelationshipHtml(s)}${usageEvidenceHtml(s)}${psychometricEvidenceHtml(s)}${japaneseEvidenceHtml(s)}<div class="detail-section"><h3>原典・文献情報</h3><p><strong>${esc(s.sourceTitle || "原典タイトル未登録")}</strong><br><span class="sub">${esc(s.authors.join("、"))}（${s.year}）${s.journal ? `・${esc(s.journal)}` : ""}</span></p>${sourceLinks(s)}</div><div class="detail-section"><h3>尺度項目</h3><p>掲載していません。利用条件と原典を確認してください。</p>${s.notes ? `<p class="sub">${esc(s.notes)}</p>` : ""}</div>`;
   $("#detail-dialog").showModal();
+  $$('[data-related-scale]').forEach((b) => (b.onclick = () => openScale(b.dataset.relatedScale)));
 }
 
 function openConcept(id) {
@@ -210,7 +222,7 @@ function renderCompare() {
   $("#compare-empty").hidden = !!scales.length;
   $("#compare-table-wrap").hidden = !scales.length;
   if (!scales.length) return;
-  const rows = [["概念", (s) => concepts.get(s.conceptId).nameJa], ["利用研究数", (s) => usageSummary(s)], ["項目数", (s) => s.itemCount], ["下位次元", (s) => s.dimensions.join("、")], ["回答件法", (s) => s.responseFormat], ["対象者", (s) => s.targetPopulation.join("、")], ["心理測定情報", (s) => (s.psychometricEvidence || []).length ? "根拠登録あり" : "詳細未登録"], ["日本語の状況", (s) => labels[s.japaneseVersionStatus]], ["利用条件", (s) => labels[s.usagePermission]], ["版", (s) => labels[s.versionType]]];
+  const rows = [["概念", (s) => concepts.get(s.conceptId).nameJa], ["利用研究数", (s) => usageSummary(s)], ["項目数", (s) => s.itemCount], ["下位次元", (s) => s.dimensions.join("、")], ["回答件法", (s) => s.responseFormat], ["対象者", (s) => s.targetPopulation.join("、")], ["心理測定情報", (s) => (s.psychometricEvidence || []).length ? "根拠登録あり" : "詳細未登録"], ["日本語の状況", (s) => labels[s.japaneseVersionStatus]], ["利用条件", (s) => labels[s.usagePermission]], ["版", (s) => labels[s.versionType]], ["最終確認日", (s) => s.verifiedAt || ATLAS_DATA.meta.updated]];
   $("#compare-table").innerHTML = `<thead><tr><th>比較項目</th>${scales.map((s) => `<th>${esc(s.name)}<br><button class="text-button" data-remove="${s.id}">外す</button></th>`).join("")}</tr></thead><tbody>${rows.map(([label, value]) => `<tr><th>${label}</th>${scales.map((s) => `<td>${esc(value(s))}</td>`).join("")}</tr>`).join("")}</tbody>`;
   $$("[data-remove]").forEach((b) => (b.onclick = () => toggleCompare(b.dataset.remove)));
 }
