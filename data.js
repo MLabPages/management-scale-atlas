@@ -2,10 +2,10 @@
 // DOI、原典、項目数、下位次元は原著論文または公式資料で確認。
 const ATLAS_DATA = {
   meta: {
-    version: "0.19.0",
+    version: "0.20.0",
     status: "initial-real-data",
     updated: "2026-07-13",
-    scope: "34概念・50尺度",
+    scope: "34概念・51尺度",
   },
 
   concepts: [
@@ -999,15 +999,57 @@ const ATLAS_DATA = {
       reverseItems: [], scoring: "3次元10項目。ソーシャルメディア文脈で開発された点に注意。",
       targetPopulation: ["消費者", "ソーシャルメディア上のブランド利用者"],
       language: "English", versionType: "original", parentScaleId: null,
-      japaneseVersionStatus: "unconfirmed",
-      japaneseStatusNote: "日本語での使用研究・翻訳例は今後の確認対象です。標準化された日本語版としては未登録です。",
-      japaneseEvidence: [],
+      japaneseVersionStatus: "related-version",
+      japaneseStatusNote: "原版10項目そのものの標準化された日本語版は未登録です。日本ではHollebeekらを含む複数の先行尺度を基に、認知・感情・行動の12項目を構成した研究がありますが、原版の翻訳版とは区別します。",
+      japaneseEvidence: [
+        { kind: "related-version", label: "複数のCBE尺度を基に構成した日本語12項目版", authors: "髙橋広行", year: 2022, title: "購買履歴データを含めたカスタマー・ブランド・エンゲージメントの包括モデル", url: "https://doi.org/10.7222/marketingreview.2022.007" },
+      ],
       validationStudies: [], usagePermission: "unknown", usageEvidence: [],
       psychometricEvidence: [
         { label: "原著の尺度開発", sample: "3つのソーシャルメディア文脈", methods: "探索的・確認的因子分析、競合モデル、法則的ネットワークの検証", result: "3次元10項目の尺度を報告", url: "https://doi.org/10.1016/j.intmar.2013.12.002" },
       ],
-      itemPublicationStatus: "not-published", items: [],
-      notes: "一般的な顧客エンゲージメント尺度とは対象・文脈が異なる。",
+      applicationEvidence: [
+        { label: "3次元を各3・4・3項目で測定", itemCounts: [10, 3, 4], evidenceType: "scale-development", summary: "認知処理3項目、感情4項目、活性化3項目で構成されます。次元別には短いものの、単独次元だけを使うとCBE全体ではなくなるため、研究モデル上の定義を明示してください。", title: "Consumer Brand Engagement in Social Media", year: 2014, doi: "10.1016/j.intmar.2013.12.002", url: "https://doi.org/10.1016/j.intmar.2013.12.002" },
+        { label: "日本語の12項目・3次元関連版", itemCounts: [12, 5, 4, 3], evidenceType: "multi-source-contextual-measure", summary: "日本の服飾雑貨SPAブランド研究は、複数の先行研究を基に認知5項目、感情4項目、行動3項目を使用しました。Hollebeekらの10項目原版の翻訳・短縮版ではありません。", title: "購買履歴データを含めたカスタマー・ブランド・エンゲージメントの包括モデル", year: 2022, doi: "10.7222/marketingreview.2022.007", url: "https://doi.org/10.7222/marketingreview.2022.007" },
+      ],
+      usageStudies: [
+        { title: "Customer Engagement and the Relationship Between Involvement, Engagement, Self-Brand Connection and Brand Usage Intent", authors: "Harrigan, Evers, Miles, & Daly", year: 2018, context: "観光ブランドのソーシャルメディア", sample: "2時点調査の両方に回答した195名", itemCount: 10, responseFormat: "原論文を確認", language: "English", adaptation: "Hollebeekらの10項目CBE尺度を観光ソーシャルメディア文脈で使用し、3因子構造を再検証。", result: "10項目が想定された認知・感情・行動の3因子に負荷し、十分な内的一貫性と観光文脈での適合を報告。", doi: "10.1016/j.jbusres.2017.11.046", url: "https://doi.org/10.1016/j.jbusres.2017.11.046" },
+      ],
+      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-13",
+      notes: "一般的な顧客エンゲージメント尺度とは対象・文脈が異なる。原版はソーシャルメディア文脈で開発され、日本語12項目関連版はブランド使用・購買を含む文脈で構成されている。",
+      recordStatus: "verified-metadata",
+    },
+    {
+      id: "japanese-customer-brand-engagement-takahashi-12",
+      name: "カスタマー・ブランド・エンゲージメント尺度（髙橋）",
+      abbreviation: "日本語CBE 12",
+      conceptId: "consumer-brand-engagement",
+      authors: ["髙橋広行"],
+      year: 2022,
+      sourceTitle: "購買履歴データを含めたカスタマー・ブランド・エンゲージメントの包括モデル",
+      journal: "マーケティングレビュー, 3(1), 53–61",
+      doi: "10.7222/marketingreview.2022.007",
+      itemCount: 12,
+      dimensions: ["認知的エンゲージメント（5項目）", "感情的エンゲージメント（4項目）", "行動的エンゲージメント（3項目）"],
+      responseFormat: "原論文を確認",
+      reverseItems: [], scoring: "認知5・感情4・行動3項目。3次元を分けて測定する。",
+      targetPopulation: ["日本のブランド利用者", "小売・SPAブランドの顧客"],
+      language: "Japanese", versionType: "original", parentScaleId: null,
+      japaneseVersionStatus: "related-version",
+      japaneseStatusNote: "日本語で構成・検証された12項目の関連尺度です。Hollebeekらの原版だけでなく複数のCBE研究を基に作成されているため、原版10項目の日本語訳とは扱いません。",
+      japaneseEvidence: [
+        { kind: "related-version", label: "日本語12項目・3次元の測定モデル", authors: "髙橋広行", year: 2022, title: "購買履歴データを含めたカスタマー・ブランド・エンゲージメントの包括モデル", url: "https://doi.org/10.7222/marketingreview.2022.007" },
+      ],
+      validationStudies: [], usagePermission: "unknown", usageEvidence: [],
+      psychometricEvidence: [
+        { label: "日本の小売顧客における3次元モデル", sample: "服飾雑貨SPAブランドの購入・認知者867名（全員女性）", methods: "探索的因子分析、確認的因子分析、CR・AVE・弁別妥当性、購買履歴との統合分析", result: "測定モデルはCFI=.946、SRMR=.051、RMSEA=.085。認知CR=.936・AVE=.747、感情CR=.912・AVE=.759、行動CR=.904・AVE=.758で、弁別妥当性も確認", url: "https://doi.org/10.7222/marketingreview.2022.007" },
+      ],
+      applicationEvidence: [
+        { label: "次元別に3～5項目で測る日本語版", itemCounts: [12, 5, 4, 3], evidenceType: "multi-source-contextual-measure", summary: "認知5、感情4、行動3項目で、ブランドとの心理的関与と実際の使用行動を同時に扱えます。行動次元はブランド使用頻度に近い内容を含むため、SNS上の活性化を測るHollebeek原版との概念差に注意してください。", title: "購買履歴データを含めたカスタマー・ブランド・エンゲージメントの包括モデル", year: 2022, doi: "10.7222/marketingreview.2022.007", url: "https://doi.org/10.7222/marketingreview.2022.007" },
+      ],
+      usageStudies: [],
+      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-13",
+      notes: "原論文には日本語項目表がありますが、本サイトへの転載許諾は未確認のため本文は収録しません。DOIリンクから無料のHTML・PDFを確認できます。",
       recordStatus: "verified-metadata",
     },
     {
