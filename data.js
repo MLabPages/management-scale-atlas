@@ -2,10 +2,10 @@
 // DOI、原典、項目数、下位次元は原著論文または公式資料で確認。
 const ATLAS_DATA = {
   meta: {
-    version: "0.26.0",
+    version: "0.27.0",
     status: "initial-real-data",
     updated: "2026-07-13",
-    scope: "34概念・54尺度",
+    scope: "34概念・56尺度",
   },
 
   concepts: [
@@ -785,8 +785,83 @@ const ATLAS_DATA = {
       psychometricEvidence: [
         { label: "原著の尺度開発", sample: "複数ブランド・製品カテゴリ", methods: "因子分析、信頼性・妥当性・一般化可能性の検討", result: "5次元42特性の尺度を報告", url: "https://doi.org/10.1177/002224379703400304" },
       ],
-      itemPublicationStatus: "not-published", items: [],
-      notes: "文化によって次元構造が変わり得るため、国際比較では文化別研究も確認する。",
+      applicationEvidence: [
+        { label: "レストラン9ブランドで原版42項目を直接使用", itemCounts: [42], evidenceType: "direct-use", summary: "クイックサービス、カジュアル、アップスケールの各3店について、Aaker原版の42特性をそのまま評価した。", title: "The Brand-Personality Scale: An Application for Restaurants", year: 1999, doi: "10.1177/001088049904000319", url: "https://doi.org/10.1177/001088049904000319" },
+        { label: "日本文化向け36項目版は別尺度", itemCounts: [42, 36], evidenceType: "cultural-reconstruction", summary: "日本で生成した属性を含む100属性から5次元・12ファセット・36項目を構成した関連版。原版42項目の翻訳・短縮版ではない。", title: "Consumption Symbols as Carriers of Culture: A Study of Japanese and Spanish Brand Personality Constructs", year: 2001, doi: "10.1037/0022-3514.81.3.492", url: "https://doi.org/10.1037/0022-3514.81.3.492" },
+      ],
+      usageStudies: [
+        { title: "The Brand-Personality Scale: An Application for Restaurants", authors: "Siguaw, Mattila, & Austin", year: 1999, context: "米国のクイックサービス、カジュアル、アップスケール各3店、計9レストラン", sample: "Cornell大学ホテル経営学部の学生247名", itemCount: 42, responseFormat: "原論文参照", language: "English", adaptation: "Aaker原版の5次元42特性を直接使用し、9レストランを評価。", result: "業態間・ブランド間の人格知覚を比較。アップスケール店は相対的にSophistication、カジュアル店はSincerityが高く知覚された。", doi: "10.1177/001088049904000319", url: "https://doi.org/10.1177/001088049904000319" },
+      ],
+      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-14",
+      notes: "文化によって次元構造が変わり得るため、国際比較では文化別研究も確認する。日本文化向け36項目版とGeuensらの12項目版は、原版42項目の単純な短縮版ではなく独立した尺度として登録。",
+      recordStatus: "verified-metadata",
+    },
+    {
+      id: "japanese-brand-personality-36",
+      name: "Japanese Brand Personality Scale",
+      abbreviation: "Japanese BPS",
+      conceptId: "brand-personality",
+      authors: ["Jennifer L. Aaker", "Verónica Benet-Martínez", "Jordi Garolera"],
+      year: 2001,
+      sourceTitle: "Consumption Symbols as Carriers of Culture: A Study of Japanese and Spanish Brand Personality Constructs",
+      journal: "Journal of Personality and Social Psychology, 81(3), 492–508",
+      doi: "10.1037/0022-3514.81.3.492",
+      itemCount: 36,
+      dimensions: ["Excitement", "Competence", "Peacefulness", "Sincerity", "Sophistication"],
+      responseFormat: "5件法（そのブランドをどの程度よく表すか）",
+      reverseItems: [], scoring: "5次元・12ファセット。各ファセットを3項目で測定し、次元別に集計する。詳細は原典を確認。",
+      targetPopulation: ["日本の消費者", "日本市場のブランド評価者"],
+      language: "Japanese", versionType: "original", parentScaleId: null,
+      japaneseVersionStatus: "original-japanese",
+      japaneseStatusNote: "日本の消費者から生成した属性を含む100属性から開発された、日本文化向けの5次元36項目尺度です。Aaker 42項目原版の翻訳版ではありません。",
+      japaneseEvidence: [
+        { kind: "original-japanese", label: "日本文化向けに開発・検証された36項目版", authors: "Aaker, Benet-Martínez, & Garolera", year: 2001, title: "Consumption Symbols as Carriers of Culture: A Study of Japanese and Spanish Brand Personality Constructs", doi: "10.1037/0022-3514.81.3.492", url: "https://doi.org/10.1037/0022-3514.81.3.492" },
+      ],
+      validationStudies: [], usagePermission: "unknown", usageEvidence: [],
+      psychometricEvidence: [
+        { label: "日本文化向け尺度の開発", sample: "日本の人口構成を反映した全国郵送パネル1,495名、25ブランド", methods: "自由連想と既存研究から100属性を選定し、主成分分析、ファセット分析、再検査信頼性を検討", result: "5次元・12ファセット・36項目。項目―合計相関=.80～.94、次元別α=.80～.90、8週間の再検査相関=.81～.88。", url: "https://doi.org/10.1037/0022-3514.81.3.492" },
+        { label: "米国構造との比較", sample: "日本人参加者（Study 2）", methods: "米国42マーカーと日本36マーカーの重複を除いた70属性で構造を比較", result: "Sincerity、Excitement、Competence、Sophisticationは日米で共有され、Peacefulnessは日本、Ruggednessは米国に固有と報告。", url: "https://doi.org/10.1037/0022-3514.81.3.492" },
+      ],
+      applicationEvidence: [
+        { label: "各ファセット3項目で内容を保持", itemCounts: [36, 3], evidenceType: "scale-development", summary: "12ファセットを各3項目で測る構成。総項目数は36のため、複数概念調査では回答負担に注意し、任意ファセットの抜粋は別途検証する。", title: "Consumption Symbols as Carriers of Culture: A Study of Japanese and Spanish Brand Personality Constructs", year: 2001, doi: "10.1037/0022-3514.81.3.492", url: "https://doi.org/10.1037/0022-3514.81.3.492" },
+      ],
+      usageStudies: [],
+      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-14",
+      notes: "日本語原版として登録するが、Aaker 42項目版の翻訳・短縮版ではなく、文化固有属性を含む独立した再構成尺度。",
+      recordStatus: "verified-metadata",
+    },
+    {
+      id: "geuens-brand-personality-12",
+      name: "New Brand Personality Measure",
+      abbreviation: "BP 12",
+      conceptId: "brand-personality",
+      authors: ["Maggie Geuens", "Bert Weijters", "Kristof De Wulf"],
+      year: 2009,
+      sourceTitle: "A New Measure of Brand Personality",
+      journal: "International Journal of Research in Marketing, 26(2), 97–107",
+      doi: "10.1016/j.ijresmar.2008.12.002",
+      itemCount: 12,
+      dimensions: ["Responsibility", "Activity", "Aggressiveness", "Simplicity", "Emotionality"],
+      responseFormat: "7件法（そのブランドをどの程度よく表すか）",
+      reverseItems: [], scoring: "ResponsibilityとActivityは各3項目、Aggressiveness、Simplicity、Emotionalityは各2項目。次元別に集計する。",
+      targetPopulation: ["消費者", "ブランド評価者", "異なる製品カテゴリの比較"],
+      language: "English", versionType: "original", parentScaleId: null,
+      japaneseVersionStatus: "unconfirmed",
+      japaneseStatusNote: "この12項目版について、標準化された日本語版または明確な日本語使用研究は今回未登録です。",
+      japaneseEvidence: [],
+      validationStudies: [], usagePermission: "unknown", usageEvidence: [],
+      psychometricEvidence: [
+        { label: "12項目・5次元尺度の開発", sample: "ベルギーの回答者12,789名、193ブランド", methods: "専門家選定、ブランド間・カテゴリ間・回答者間の確認的因子分析、再検査信頼性", result: "12項目・5次元を同定し、ブランド間・カテゴリ内外・個人レベルでの信頼性と妥当性を支持。", url: "https://doi.org/10.1016/j.ijresmar.2008.12.002" },
+        { label: "交差文化検証", sample: "米国およびフランス、ドイツ、イタリア等の欧州9か国", methods: "国別確認的因子分析、測定不変性、一般化可能性理論", result: "米国と欧州9か国で交差文化的妥当性を検討。国別の複合信頼性は大半の次元・国で基準を満たした。", url: "https://doi.org/10.1016/j.ijresmar.2008.12.002" },
+      ],
+      applicationEvidence: [
+        { label: "5次元を各2～3項目で測る低負担版", itemCounts: [12, 3, 2], evidenceType: "scale-development", summary: "総合3・4項目版ではないが、42項目原版より大幅に短く、5次元を残したまま複数概念調査へ組み込みやすい。Aaker原版の項目削除版ではなく、定義と項目生成を改めた独立尺度。", title: "A New Measure of Brand Personality", year: 2009, doi: "10.1016/j.ijresmar.2008.12.002", url: "https://doi.org/10.1016/j.ijresmar.2008.12.002" },
+      ],
+      usageStudies: [
+        { title: "Self-Brand Personality Differences and Attitudes towards Electric Cars", authors: "Moons & De Pelsmacker", year: 2015, context: "ベルギーの自動車4ブランドと電気自動車へのブランド拡張", sample: "代表性を調整した運転免許保有者2標本、120名と480名、計600名", itemCount: 12, responseFormat: "5件法", language: "Unspecified", adaptation: "Geuensらの12項目・5次元を、ブランドと回答者本人の双方に適用して次元別の差を算出。確認した方法節では調査言語の明記を確認できなかった。", result: "各次元α=.79～.91。電気自動車拡張後は、ブランドを自己よりResponsibilityが高いと知覚することがブランド評価の重要な説明要因になった。", doi: "10.3390/su70912322", url: "https://doi.org/10.3390/su70912322" },
+      ],
+      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-14",
+      notes: "Aaker 42項目原版の短縮版ではなく、ブランドに適用可能な人間の性格特性に構成概念を限定して新規開発された12項目尺度。",
       recordStatus: "verified-metadata",
     },
     {
