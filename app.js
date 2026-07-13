@@ -132,6 +132,22 @@ function sourceLinks(s) {
   return `<div class="source-links"><a href="${scholarUrl(s)}" target="_blank" rel="noopener noreferrer">Google Scholar ↗</a>${s.doi ? `<a href="${doiUrl(s)}" target="_blank" rel="noopener noreferrer">DOI ↗</a>` : "<span>DOI未登録</span>"}${originalLink}</div>`;
 }
 
+function scaleItemsHtml(s) {
+  const items = s.items || [];
+  if (items.length) {
+    return `<div class="detail-section"><h3>尺度項目 <span class="badge">${items.length}項目</span></h3><ol class="evidence-list">${items.map((item) => {
+      const text = typeof item === "string" ? item : item.text;
+      const dimension = typeof item === "object" ? item.dimension : "";
+      return `<li>${dimension ? `<span class="evidence-kind">${esc(dimension)}</span>` : ""}${esc(text)}</li>`;
+    }).join("")}</ol>${s.notes ? `<p class="sub">${esc(s.notes)}</p>` : ""}</div>`;
+  }
+  if (s.itemPublicationStatus === "source-open") {
+    const url = s.sourceUrl || (s.doi ? doiUrl(s) : scholarUrl(s));
+    return `<div class="detail-section"><h3>尺度項目</h3><p><span class="badge">原著で公開</span></p><p>項目本文は原著・公式資料から確認できます。本サイトに翻訳版を掲載していない場合、独自翻訳を検証済み日本語版として扱わないでください。</p><p><a href="${esc(url)}" target="_blank" rel="noopener noreferrer">項目が掲載された原文を開く ↗</a></p>${s.notes ? `<p class="sub">${esc(s.notes)}</p>` : ""}</div>`;
+  }
+  return `<div class="detail-section"><h3>尺度項目</h3><p>掲載していません。利用条件と原典を確認してください。</p>${s.notes ? `<p class="sub">${esc(s.notes)}</p>` : ""}</div>`;
+}
+
 function japaneseEvidenceHtml(s) {
   const entries = s.japaneseEvidence || [];
   const status = labels[s.japaneseVersionStatus] || "未分類";
@@ -447,7 +463,7 @@ function renderCoverage() {
 function openScale(id) {
   const s = ATLAS_DATA.scales.find((x) => x.id === id);
   const c = concepts.get(s.conceptId);
-  $("#detail-body").innerHTML = `<p class="sub">尺度詳細・${esc(recordStatusLabels[s.recordStatus] || s.recordStatus)}</p><h2 class="detail-title">${esc(s.name)}</h2><p>${esc(c.nameJa)} / ${esc(c.nameEn)}</p><div class="sample-notice"><strong>確認範囲：</strong>原典、DOI、登録版の項目数、下位次元を確認しています。実使用版、日本語情報、利用研究数、心理測定情報は根拠の強さを区別します。<br><span class="sub">最終確認日：${esc(s.verifiedAt || ATLAS_DATA.meta.updated)}</span></div><div class="detail-section detail-grid"><div><strong>略称</strong>${esc(s.abbreviation)}</div><div><strong>開発年</strong>${s.year}</div><div><strong>登録版項目数</strong>${s.itemCount}</div><div><strong>測定スタイル</strong>${esc(measurementStyle(s))}</div><div><strong>回答形式</strong>${esc(s.responseFormat)}</div><div><strong>下位次元</strong>${esc(s.dimensions.join("、"))}</div><div><strong>対象者</strong>${esc(s.targetPopulation.join("、"))}</div><div><strong>日本語の状況</strong>${esc(labels[s.japaneseVersionStatus])}</div><div><strong>利用条件</strong>${esc(labels[s.usagePermission])}</div></div>${scaleRelationshipHtml(s)}${usageStudiesHtml(s)}${applicationEvidenceHtml(s)}${usageEvidenceHtml(s)}${psychometricEvidenceHtml(s)}${japaneseEvidenceHtml(s)}<div class="detail-section"><h3>原典・文献情報</h3><p><strong>${esc(s.sourceTitle || "原典タイトル未登録")}</strong><br><span class="sub">${esc(s.authors.join("、"))}（${s.year}）${s.journal ? `・${esc(s.journal)}` : ""}</span></p>${sourceLinks(s)}</div><div class="detail-section"><h3>尺度項目</h3><p>掲載していません。利用条件と原典を確認してください。</p>${s.notes ? `<p class="sub">${esc(s.notes)}</p>` : ""}</div>`;
+  $("#detail-body").innerHTML = `<p class="sub">尺度詳細・${esc(recordStatusLabels[s.recordStatus] || s.recordStatus)}</p><h2 class="detail-title">${esc(s.name)}</h2><p>${esc(c.nameJa)} / ${esc(c.nameEn)}</p><div class="sample-notice"><strong>確認範囲：</strong>原典、DOI、登録版の項目数、下位次元を確認しています。実使用版、日本語情報、利用研究数、心理測定情報は根拠の強さを区別します。<br><span class="sub">最終確認日：${esc(s.verifiedAt || ATLAS_DATA.meta.updated)}</span></div><div class="detail-section detail-grid"><div><strong>略称</strong>${esc(s.abbreviation)}</div><div><strong>開発年</strong>${s.year}</div><div><strong>登録版項目数</strong>${s.itemCount}</div><div><strong>測定スタイル</strong>${esc(measurementStyle(s))}</div><div><strong>回答形式</strong>${esc(s.responseFormat)}</div><div><strong>下位次元</strong>${esc(s.dimensions.join("、"))}</div><div><strong>対象者</strong>${esc(s.targetPopulation.join("、"))}</div><div><strong>日本語の状況</strong>${esc(labels[s.japaneseVersionStatus])}</div><div><strong>利用条件</strong>${esc(labels[s.usagePermission])}</div></div>${scaleRelationshipHtml(s)}${usageStudiesHtml(s)}${applicationEvidenceHtml(s)}${usageEvidenceHtml(s)}${psychometricEvidenceHtml(s)}${japaneseEvidenceHtml(s)}<div class="detail-section"><h3>原典・文献情報</h3><p><strong>${esc(s.sourceTitle || "原典タイトル未登録")}</strong><br><span class="sub">${esc(s.authors.join("、"))}（${s.year}）${s.journal ? `・${esc(s.journal)}` : ""}</span></p>${sourceLinks(s)}</div>${scaleItemsHtml(s)}`;
   $("#detail-body .sample-notice").insertAdjacentHTML("afterend", adoptionGuideHtml(s));
   $("#detail-dialog").showModal();
   bindUsageStudyFilters();

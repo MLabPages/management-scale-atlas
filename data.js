@@ -2,10 +2,10 @@
 // DOI、原典、項目数、下位次元は原著論文または公式資料で確認。
 const ATLAS_DATA = {
   meta: {
-    version: "0.27.0",
+    version: "0.28.0",
     status: "initial-real-data",
-    updated: "2026-07-13",
-    scope: "34概念・56尺度",
+    updated: "2026-07-14",
+    scope: "34概念・57尺度",
   },
 
   concepts: [
@@ -1098,12 +1098,14 @@ const ATLAS_DATA = {
       applicationEvidence: [
         { label: "3次元を各3・4・3項目で測定", itemCounts: [10, 3, 4], evidenceType: "scale-development", summary: "認知処理3項目、感情4項目、活性化3項目で構成されます。次元別には短いものの、単独次元だけを使うとCBE全体ではなくなるため、研究モデル上の定義を明示してください。", title: "Consumer Brand Engagement in Social Media", year: 2014, doi: "10.1016/j.intmar.2013.12.002", url: "https://doi.org/10.1016/j.intmar.2013.12.002" },
         { label: "日本語の12項目・3次元関連版", itemCounts: [12, 5, 4, 3], evidenceType: "multi-source-contextual-measure", summary: "日本の服飾雑貨SPAブランド研究は、複数の先行研究を基に認知5項目、感情4項目、行動3項目を使用しました。Hollebeekらの10項目原版の翻訳・短縮版ではありません。", title: "購買履歴データを含めたカスタマー・ブランド・エンゲージメントの包括モデル", year: 2022, doi: "10.7222/marketingreview.2022.007", url: "https://doi.org/10.7222/marketingreview.2022.007" },
+        { label: "SNS外向けの独立した6項目版", itemCounts: [10, 6, 2], evidenceType: "alternative-scale", summary: "Razmusの6項目版は認知・感情・行動を各2項目で測る。Hollebeek原版の項目削除版ではなく、質的調査から項目を新規生成した別尺度。", title: "Consumer Brand Engagement Beyond the “Likes”", year: 2021, doi: "10.3389/fpsyg.2021.692000", url: "https://doi.org/10.3389/fpsyg.2021.692000" },
       ],
       usageStudies: [
         { title: "Customer Engagement and the Relationship Between Involvement, Engagement, Self-Brand Connection and Brand Usage Intent", authors: "Harrigan, Evers, Miles, & Daly", year: 2018, context: "観光ブランドのソーシャルメディア", sample: "2時点調査の両方に回答した195名", itemCount: 10, responseFormat: "原論文を確認", language: "English", adaptation: "Hollebeekらの10項目CBE尺度を観光ソーシャルメディア文脈で使用し、3因子構造を再検証。", result: "10項目が想定された認知・感情・行動の3因子に負荷し、十分な内的一貫性と観光文脈での適合を報告。", doi: "10.1016/j.jbusres.2017.11.046", url: "https://doi.org/10.1016/j.jbusres.2017.11.046" },
+        { title: "Investigating the Antecedents of Customer Brand Engagement and Consumer-Based Brand Equity in Social Media", authors: "Algharabat, Rana, Alalwan, Baabdullah, & Gupta", year: 2020, context: "ヨルダンの携帯電話サービス3社のFacebookページ", sample: "各社Facebookページを追跡する非学生の消費者500名", itemCount: 10, responseFormat: "5件法", language: "Arabic", adaptation: "Hollebeekらの認知3・感情4・活性化3項目をFacebookページ向けに調整し、英語からアラビア語へ逆翻訳。", result: "CRは認知=.85、感情=.92、活性化=.87。因子負荷=.79～.89、測定モデルCFI=.962、RMSEA=.045。活性化のみブランド・ロイヤルティへ有意な正の影響を示した。", doi: "10.1016/j.jretconser.2019.01.016", url: "https://doi.org/10.1016/j.jretconser.2019.01.016" },
       ],
       itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-13",
-      notes: "一般的な顧客エンゲージメント尺度とは対象・文脈が異なる。原版はソーシャルメディア文脈で開発され、日本語12項目関連版はブランド使用・購買を含む文脈で構成されている。",
+      notes: "一般的な顧客エンゲージメント尺度とは対象・文脈が異なる。原版はソーシャルメディア文脈で開発され、日本語12項目関連版はブランド使用・購買を含む文脈で構成されている。SNS外で短く測る場合は、独立開発されたRazmusの6項目版も比較する。",
       recordStatus: "verified-metadata",
     },
     {
@@ -1137,6 +1139,41 @@ const ATLAS_DATA = {
       usageStudies: [],
       itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-13",
       notes: "原論文には日本語項目表がありますが、本サイトへの転載許諾は未確認のため本文は収録しません。DOIリンクから無料のHTML・PDFを確認できます。",
+      recordStatus: "verified-metadata",
+    },
+    {
+      id: "consumer-brand-engagement-beyond-likes-6",
+      name: "Consumer Brand Engagement Beyond the Likes Scale",
+      abbreviation: "CBE-BL 6",
+      conceptId: "consumer-brand-engagement",
+      authors: ["Wiktor Razmus"],
+      year: 2021,
+      sourceTitle: "Consumer Brand Engagement Beyond the “Likes”",
+      journal: "Frontiers in Psychology, 12, 692000",
+      doi: "10.3389/fpsyg.2021.692000",
+      sourceUrl: "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2021.692000/full",
+      itemCount: 6,
+      dimensions: ["Cognitive（2項目）", "Emotional（2項目）", "Behavioral（2項目）"],
+      responseFormat: "5件法（1=まったくそう思わない、5=非常にそう思う）",
+      reverseItems: [], scoring: "3下位次元を各2項目で測定し、上位のCBE得点は6項目の平均で算出。",
+      targetPopulation: ["お気に入りのブランドを持つ消費者", "SNS外の製品・ブランド利用者"],
+      language: "Polish", versionType: "original", parentScaleId: null,
+      japaneseVersionStatus: "unconfirmed",
+      japaneseStatusNote: "この6項目版の検証済み日本語版または日本語使用研究は今回未登録です。原著の英語表示項目を独自翻訳して使う場合は翻訳検証が必要です。",
+      japaneseEvidence: [],
+      validationStudies: [], usagePermission: "open", usageEvidence: [],
+      psychometricEvidence: [
+        { label: "6項目への精選と法則的妥当性", sample: "質的面接30名、尺度精選417名", methods: "ポーランド語の面接から21項目を生成し、項目分析、階層的CFA、収束・弁別・法則的妥当性を検討", result: "各次元2項目の6項目版でCFI=.991、RMSEA=.045、SRMR=.019、α=.81。CBEはロイヤルティ意向、満足、知覚価値と正に関連。", url: "https://doi.org/10.3389/fpsyg.2021.692000" },
+        { label: "独立標本での因子構造と再検査信頼性", sample: "因子構造339名、2週間の再検査151名", methods: "二次因子CFA、内的一貫性、級内相関による再検査信頼性", result: "CFI=.993、RMSEA=.040、SRMR=.023、α=.83。再検査ICCは女性=.85、男性=.86。", url: "https://doi.org/10.3389/fpsyg.2021.692000" },
+        { label: "待機行動を用いた実験的検証", sample: "お気に入りのスマートフォンブランドを持つ98名", methods: "新製品までの待機期間を1か月・6か月で操作し、購入待機意向との関係を検討", result: "6項目版のα=.72。高CBE群では待機期間が長くなっても待機意向の低下が相対的に小さい結果を報告。", url: "https://doi.org/10.3389/fpsyg.2021.692000" },
+      ],
+      applicationEvidence: [
+        { label: "3次元を各2項目で残す6項目版", itemCounts: [6, 2], evidenceType: "scale-development", summary: "認知・感情・行動を各2項目で保持し、SNS上の操作に限定せず、日常のブランド関係を短く測る。Hollebeek 10項目原版の短縮版ではない。", title: "Consumer Brand Engagement Beyond the “Likes”", year: 2021, doi: "10.3389/fpsyg.2021.692000", url: "https://doi.org/10.3389/fpsyg.2021.692000" },
+        { label: "原著で項目本文を公開", itemCounts: [6], evidenceType: "open-items", summary: "原著Table 2に6項目が掲載され、論文はCC BYで公開。日本語訳の妥当性は未検証のため、原文とライセンスを確認して利用する。", title: "Consumer Brand Engagement Beyond the “Likes”", year: 2021, doi: "10.3389/fpsyg.2021.692000", url: "https://doi.org/10.3389/fpsyg.2021.692000" },
+      ],
+      usageStudies: [],
+      itemPublicationStatus: "source-open", items: [], verifiedAt: "2026-07-14",
+      notes: "原著はCC BYで、Table 2から英語表示の6項目を確認できる。本サイトには未検証の日本語訳を尺度項目として掲載せず、原文への直リンクを提供する。",
       recordStatus: "verified-metadata",
     },
     {
