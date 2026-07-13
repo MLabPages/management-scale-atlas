@@ -22,6 +22,7 @@
     <div class="container tab-inner">
       <button class="tab active" data-view="search">尺度を探す</button>
       <button class="tab" data-view="concepts">概念一覧</button>
+      <button class="tab" data-view="coverage">収録状況</button>
       <button class="tab" data-view="compare">研究設計 <span id="compare-count">0</span></button>
     </div>
   </nav>
@@ -58,6 +59,17 @@
     <section id="view-concepts" class="view">
       <div class="result-head"><h2>概念一覧</h2><p>概念を選ぶと定義と関連尺度を確認できます。</p></div>
       <div id="concept-list" class="concept-grid"></div>
+    </section>
+
+    <section id="view-coverage" class="view">
+      <div class="result-head"><div><h2>情報充実度マップ</h2><p>概念ごとに、何が登録済みで何が未整備かを確認できます。</p></div></div>
+      <p class="method-note"><strong>点数やランキングではありません：</strong>尺度数、短い候補、個別使用研究、日本語情報、測定検証、利用条件、項目本文を別々に表示します。「0件」は研究や日本語版が存在しないという意味ではなく、このデータベースで未登録であることを示します。</p>
+      <div id="coverage-summary" class="coverage-summary"></div>
+      <div class="coverage-controls">
+        <label>研究領域<select id="coverage-domain"><option value="">すべて</option></select></label>
+        <label>未整備箇所から探す<select id="coverage-gap"><option value="">すべて表示</option><option value="usage">個別使用研究が未登録</option><option value="japanese">日本語情報が未登録</option><option value="psychometric">測定検証情報が未登録</option><option value="permission">利用条件が未確認</option><option value="items">項目本文が未掲載</option></select></label>
+      </div>
+      <div class="table-wrap coverage-table-wrap"><table id="coverage-table"></table></div>
     </section>
 
     <section id="view-compare" class="view">

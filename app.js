@@ -231,16 +231,22 @@ function applyResearchPreset(name) {
 }
 
 function init() {
-  [...new Set(ATLAS_DATA.concepts.map((c) => c.domain))].forEach((d) => $("#domain-filter").insertAdjacentHTML("beforeend", `<option>${esc(d)}</option>`));
+  const domains = [...new Set(ATLAS_DATA.concepts.map((c) => c.domain))];
+  domains.forEach((d) => {
+    $("#domain-filter").insertAdjacentHTML("beforeend", `<option>${esc(d)}</option>`);
+    $("#coverage-domain").insertAdjacentHTML("beforeend", `<option>${esc(d)}</option>`);
+  });
   ["query", "domain-filter", "japanese-filter", "practice-filter", "short-form-filter", "measurement-style-filter", "permission-filter", "items-filter", "usage-sort"].forEach((id) => $("#" + id).addEventListener(id === "query" ? "input" : "change", renderScales));
   $("#clear-filters").onclick = () => { $("#query").value = ""; $$(".filters select").forEach((x) => (x.value = "")); renderScales(); };
   $$('[data-preset]').forEach((button) => (button.onclick = () => applyResearchPreset(button.dataset.preset)));
   $("#export-csv").onclick = exportCsv;
   $("#export-json").onclick = exportJson;
+  $("#coverage-domain").onchange = renderCoverage;
+  $("#coverage-gap").onchange = renderCoverage;
   $$(".tab").forEach((b) => (b.onclick = () => showView(b.dataset.view)));
   $(".dialog-close").onclick = () => $("#detail-dialog").close();
   $("#detail-dialog").onclick = (e) => { if (e.target === $("#detail-dialog")) $("#detail-dialog").close(); };
-  renderScales(); renderConcepts(); renderCompare();
+  renderScales(); renderConcepts(); renderCoverage(); renderCompare();
 }
 
 function downloadFile(filename, content, type) {
@@ -382,6 +388,60 @@ function renderScales() {
 function renderConcepts() {
   $("#concept-list").innerHTML = ATLAS_DATA.concepts.map((c) => `<article class="concept-card" data-concept="${c.id}"><span class="badge">${esc(c.domain)}</span><h3>${esc(c.nameJa)}</h3><p class="sub">${esc(c.nameEn)}</p><p>${esc(c.definitionJa)}</p><p>${ATLAS_DATA.scales.filter((s) => s.conceptId === c.id).length}尺度</p></article>`).join("");
   $$("[data-concept]").forEach((x) => (x.onclick = () => openConcept(x.dataset.concept)));
+}
+
+function coverageRecord(c) {
+  const scales = ATLAS_DATA.scales.filter((s) => s.conceptId === c.id);
+  const short = scales.filter((s) => {
+    const profile = shortFormProfile(s);
+    return profile.registered || profile.usageCounts.length || profile.evidenceCounts.length;
+  }).length;
+  const usageScales = scales.filter((s) => (s.usageStudies || []).length).length;
+  const usageStudies = scales.reduce((sum, s) => sum + (s.usageStudies || []).length, 0);
+  const japanese = scales.filter((s) => s.japaneseVersionStatus !== "unconfirmed").length;
+  const psychometric = scales.filter((s) => (s.psychometricEvidence || []).length).length;
+  const permission = scales.filter((s) => s.usagePermission !== "unknown").length;
+  const publishedItems = scales.filter((s) => (s.items || []).length > 0 && s.itemPublicationStatus !== "not-published").length;
+  return { concept: c, scales, short, usageScales, usageStudies, japanese, psychometric, permission, publishedItems };
+}
+
+function coverageCell(count, total, detail = "") {
+  const className = total === 0 || count === 0 ? "gap" : count === total ? "ready" : "partial";
+  return `<span class="coverage-cell ${className}"><strong>${count}／${total}尺度</strong>${detail ? `<small>${esc(detail)}</small>` : ""}</span>`;
+}
+
+function renderCoverage() {
+  const allScales = ATLAS_DATA.scales;
+  const withShort = allScales.filter((s) => { const p = shortFormProfile(s); return p.registered || p.usageCounts.length || p.evidenceCounts.length; }).length;
+  const withUsage = allScales.filter((s) => (s.usageStudies || []).length).length;
+  const withJapanese = allScales.filter((s) => s.japaneseVersionStatus !== "unconfirmed").length;
+  const withPsychometric = allScales.filter((s) => (s.psychometricEvidence || []).length).length;
+  const knownPermission = allScales.filter((s) => s.usagePermission !== "unknown").length;
+  const withItems = allScales.filter((s) => (s.items || []).length > 0 && s.itemPublicationStatus !== "not-published").length;
+  $("#coverage-summary").innerHTML = [
+    ["3・4項目候補の根拠", withShort], ["個別使用研究あり", withUsage], ["日本語情報あり", withJapanese],
+    ["測定検証情報あり", withPsychometric], ["利用条件を登録", knownPermission], ["項目本文を掲載", withItems],
+  ].map(([label, count]) => `<div><span>${label}</span><strong>${count}<small>／${allScales.length}尺度</small></strong></div>`).join("");
+  const domain = $("#coverage-domain").value;
+  const gap = $("#coverage-gap").value;
+  const rows = ATLAS_DATA.concepts.map(coverageRecord).filter((row) => {
+    if (domain && row.concept.domain !== domain) return false;
+    if (gap === "usage" && row.usageScales !== 0) return false;
+    if (gap === "japanese" && row.japanese !== 0) return false;
+    if (gap === "psychometric" && row.psychometric !== 0) return false;
+    if (gap === "permission" && row.permission === row.scales.length) return false;
+    if (gap === "items" && row.publishedItems === row.scales.length) return false;
+    return true;
+  });
+  $("#coverage-table").innerHTML = `<thead><tr><th>概念</th><th>尺度数</th><th>3・4項目候補</th><th>個別使用研究</th><th>日本語情報</th><th>測定検証</th><th>利用条件</th><th>項目本文</th></tr></thead><tbody>${rows.map((row) => `<tr><th><span class="coverage-domain">${esc(row.concept.domain)}</span><button type="button" class="text-button coverage-concept" data-coverage-concept="${esc(row.concept.id)}">${esc(row.concept.nameJa)}</button></th><td><strong>${row.scales.length}</strong>尺度</td><td>${coverageCell(row.short, row.scales.length)}</td><td>${coverageCell(row.usageScales, row.scales.length, `${row.usageStudies}研究`)}</td><td>${coverageCell(row.japanese, row.scales.length)}</td><td>${coverageCell(row.psychometric, row.scales.length)}</td><td>${coverageCell(row.permission, row.scales.length)}</td><td>${coverageCell(row.publishedItems, row.scales.length)}</td></tr>`).join("") || `<tr><td colspan="8">条件に合う概念がありません。</td></tr>`}</tbody>`;
+  $$('[data-coverage-concept]').forEach((button) => (button.onclick = () => {
+    const c = concepts.get(button.dataset.coverageConcept);
+    $("#query").value = c.nameJa;
+    $$(".filters select").forEach((x) => (x.value = ""));
+    renderScales();
+    showView("search");
+    $("#result-count").scrollIntoView({ behavior: "smooth", block: "center" });
+  }));
 }
 
 function openScale(id) {
