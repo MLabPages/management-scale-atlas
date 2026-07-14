@@ -2,9 +2,9 @@
 // DOI、原典、項目数、下位次元は原著論文または公式資料で確認。
 const ATLAS_DATA = {
   meta: {
-    version: "0.28.0",
+    version: "0.29.0",
     status: "initial-real-data",
-    updated: "2026-07-14",
+    updated: "2026-07-15",
     scope: "34概念・57尺度",
   },
 
@@ -1291,6 +1291,7 @@ const ATLAS_DATA = {
       sourceTitle: "Development and Validation of a Brand Trust Scale",
       journal: "International Journal of Market Research, 45(1), 35–53",
       doi: "10.1177/147078530304500103",
+      sourceUrl: "https://doi.org/10.1177/147078530304500103",
       itemCount: 8,
       dimensions: ["Brand reliability", "Brand intentions"],
       responseFormat: "7件法",
@@ -1298,14 +1299,24 @@ const ATLAS_DATA = {
       targetPopulation: ["消費者", "ブランド利用者"],
       language: "English", versionType: "original", parentScaleId: null,
       japaneseVersionStatus: "unconfirmed",
-      japaneseStatusNote: "日本語での使用研究は今後の確認対象です。標準化された日本語版としては未登録です。",
+      japaneseStatusNote: "2026年7月15日時点で、8項目BTSを日本語で使用・翻訳検証した一次資料は未登録です。4項目版の日本語使用例と混同しないでください。",
       japaneseEvidence: [],
       validationStudies: [], usagePermission: "unknown", usageEvidence: [],
       psychometricEvidence: [
-        { label: "原著の尺度開発", sample: "消費者を対象とした多段階研究", methods: "項目精選、多次元構造、信頼性・妥当性の心理測定検査", result: "Brand reliabilityとBrand intentionsからなる尺度を報告", url: "https://doi.org/10.1177/147078530304500103" },
+        { label: "原著の尺度開発", sample: "デオドラント・ブランド利用者293名", methods: "電話調査、項目精選、探索的・確認的因子分析、収束・弁別・構成概念妥当性", result: "Brand reliabilityとBrand intentionsを各4項目で測る2次元8項目版を開発。各次元の合成信頼性は推奨水準を上回り、AVEも.50を超えた。", url: "https://doi.org/10.1177/147078530304500103" },
+        { label: "製品カテゴリー間の測定不変性", sample: "シャンプー利用者140名、ビール利用者140名の無作為標本", methods: "カテゴリー別CFAと多母集団共分散構造分析", result: "2次元構造の一貫性と妥当性に加え、異なる製品カテゴリーで尺度を同様に解釈できる測定不変性を支持。", url: "https://doi.org/10.1108/03090560410529222" },
+      ],
+      applicationEvidence: [
+        { label: "信頼性と善意的意図を各4項目で診断", itemCounts: [8, 4], evidenceType: "scale-development", summary: "期待どおりに機能するかというBrand reliabilityと、問題発生時に消費者利益へ配慮するかというBrand intentionsを分ける。単一得点だけでなく次元別の原因診断に向く。", title: "Development and Validation of a Brand Trust Scale", year: 2003, doi: "10.1177/147078530304500103", url: "https://doi.org/10.1177/147078530304500103" },
+        { label: "単一次元4項目版とは別尺度", itemCounts: [8, 4], evidenceType: "alternative-scale", summary: "Chaudhuri & Holbrookの4項目版を延長した尺度ではない。回答負担を優先するなら4項目版、問題発生時の意図まで分けたいならBTS 8項目版を比較する。", title: "The Chain of Effects from Brand Trust and Brand Affect to Brand Performance", year: 2001, doi: "10.1509/jmkg.65.2.81.18255", url: "https://doi.org/10.1509/jmkg.65.2.81.18255" },
+      ],
+      usageStudies: [
+        { title: "Brand Trust: An Australian Replication of a Two-Factor Structure", authors: "Rosenberger III", year: 2009, context: "オーストラリアのシャンプー・ブランド", sample: "マーケティング専攻の大学生154名", itemCount: 8, responseFormat: "5件法", language: "English", adaptation: "Delgado-Ballesterらの8項目を、最もよく使うシャンプー・ブランドについて回答する形で使用。", result: "Brand reliability α=.89、Brand intentions α=.85。2因子相関モデルが代替モデルより良好で、CFI=.95、NFI=.93、TLI=.93、RMSEA=.106。満足・ロイヤルティとの理論的関係も概ね再現。", url: "https://www.researchgate.net/publication/260268176_Brand_Trust_An_Australian_Replication_of_a_Two-Factor_Structure" },
+        { title: "Brand Relationships and Risk: Influence of Risk Avoidance and Gender on Brand Consumption", authors: "Lee, Workman, & Jung", year: 2016, context: "米国大学生が挙げたお気に入りのファッション・ブランド75種", sample: "米国の大学生221名", itemCount: 8, responseFormat: "7件法", language: "English", adaptation: "BTS 8項目を使用し、研究内では項目を合計してブランド信頼得点を算出。", result: "研究内の尺度信頼性はα=.88～.92の範囲。ブランド信頼はリスク回避と正に相関し、性別差は確認されなかった。", doi: "10.1186/s40852-016-0041-0", url: "https://doi.org/10.1186/s40852-016-0041-0" },
       ],
       itemPublicationStatus: "not-published", items: [],
-      notes: "一般的な対人信頼尺度ではなく、消費者―ブランド関係に特化した尺度。",
+      verifiedAt: "2026-07-15",
+      notes: "一般的な対人信頼尺度ではなく、消費者―ブランド関係に特化した尺度。4項目版より回答負担は増えるが、機能的な信頼性と問題発生時のブランド意図を分けて検討できる。",
       recordStatus: "verified-metadata",
     },
     {
