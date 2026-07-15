@@ -2,7 +2,7 @@
 // DOI、原典、項目数、下位次元は原著論文または公式資料で確認。
 const ATLAS_DATA = {
   meta: {
-    version: "0.33.0",
+    version: "0.34.0",
     status: "initial-real-data",
     updated: "2026-07-16",
     scope: "50概念・75尺度",
@@ -1400,6 +1400,7 @@ const ATLAS_DATA = {
       ],
       usageStudies: [
         { title: "Chinese Consumers' Brand Loyalty for Consumer Products: Importance of Brand Personality as Major Antecedent of Brand Loyalty", authors: "Kim & Zhao", year: 2014, context: "中国のアパレル・携帯電話ブランド", sample: "上海の消費者805名", itemCount: 3, responseFormat: "5件法", language: "Chinese", adaptation: "Chaudhuri & Holbrookの3項目を含む英語質問票を中国語へ翻訳し、中国人学生による事前テスト後に表現を修正。", result: "ブランド感情3項目のα=.79。ブランド信頼よりブランド・ロイヤルティへの強い関係を報告。", url: "https://ejournal.usm.my/aamj/article/download/aamj_vol19-no-1-2014_1/pdf/1705" },
+        { title: "How Older Consumers’ Perceived Ethicality Influences Brand Loyalty", authors: "Eryandra, Sjabadhyni, & Mustika", year: 2018, context: "インドネシアの高齢消費者によるボトル水ブランド評価", sample: "高齢者コミュニティの消費者331名", itemCount: 3, responseFormat: "7件法", language: "Bahasa Indonesia", adaptation: "Chaudhuri & Holbrookの3項目をインドネシア語へ翻訳し、予備調査で信頼性・妥当性と読みやすさを確認。", result: "α=.91。ブランド感情は知覚された企業倫理性とブランド・ロイヤルティの関係を部分媒介した。", doi: "10.1177/2158244018778105", url: "https://doi.org/10.1177/2158244018778105" },
       ],
       itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-13",
       notes: "ブランド経験尺度のAffective下位次元とは別概念・別項目集合。刺激に対する経験内容より、ブランドがもたらす肯定的感情を短く測る。",
@@ -1511,6 +1512,7 @@ const ATLAS_DATA = {
       ],
       usageStudies: [
         { title: "Drivers and Consequences of Citizen Satisfaction: An Application of the American Customer Satisfaction Index Model to New York City", authors: "Van Ryzin et al.", year: 2004, context: "ニューヨーク市の公共サービス", sample: "2000年・2001年の住民電話調査、計1,504名", itemCount: 3, responseFormat: "ACSI方式", language: "English", adaptation: "ACSIモデルを地方政府サービスに適用し、総合満足を3指標で測定。", result: "学校、警察、道路、地下鉄などの知覚品質と市民満足の関係を検討。", doi: "10.1111/j.1540-6210.2004.00377.x", url: "https://doi.org/10.1111/j.1540-6210.2004.00377.x" },
+        { title: "Customer Satisfaction, Competition, and Firm Performance: An Empirical Investigation", authors: "Simon & Gómez", year: 2014, context: "米国の企業・ブランドを横断する顧客満足と競争・売上のパネル分析", sample: "ACSIの190ブランド・34産業、1994～2003年の1,368ブランド年観測", itemCount: 3, responseFormat: "10段階をブランド別0～100指数へ集約", language: "English", adaptation: "ACSIの総合満足、期待との差、理想との比較の3指標をブランド年単位へ集約して使用。", result: "自社顧客満足と競合顧客満足が、自社の満足および売上とどう関係するかを複数産業で検証。", doi: "10.1002/mde.2629", url: "https://doi.org/10.1002/mde.2629" },
       ],
       itemPublicationStatus: "not-published", items: [],
       notes: "一般的な3項目満足尺度としてではなく、ACSI因果モデルの一部として利用する。",
@@ -2480,7 +2482,8 @@ const ATLAS_DATA = {
         { label: "総合ブランド・ラブを6項目で測定", itemCounts: [6, 13, 26], evidenceType: "validated-short-form", summary: "複数概念調査でブランド・ラブ全体を予測変数・結果変数として使う場合に向く。下位要素別の診断には26項目版を使う。", title: "Brand Love: Development and Validation of a Practical Scale", year: 2017, doi: "10.1007/s11002-016-9406-1", url: "https://doi.org/10.1007/s11002-016-9406-1" },
       ],
       usageStudies: [
-        { title: "Identifying a Suitable Short Form to Assess Brand Love", authors: "Cleary, Robertson, & Wann", year: 2025, context: "豪州のAppleおよびUniqloブランド評価", sample: "地域住民312名、大学生338名", itemCount: 6, responseFormat: "7件法", language: "English", adaptation: "Bagozziらの6項目正式短縮版をAppleとUniqloへ適用し、26・13項目版と比較。", result: "各版は高い信頼性を示し、ブランド感情、ロイヤルティ、品質、肯定的WOM、所有製品数等と正に関連。6項目の当初CFAモデルは修正なしでは不十分だった点も報告。", doi: "10.1007/s11002-025-09767-5", url: "https://doi.org/10.1007/s11002-025-09767-5" },
+        { title: "Identifying a Suitable Short Form to Assess Brand Love", authors: "Green & Elphinstone", year: 2025, context: "豪州のAppleおよびUniqloブランド評価", sample: "地域住民312名、大学生338名", itemCount: 6, responseFormat: "7件法", language: "English", adaptation: "Bagozziらの6項目正式短縮版をAppleとUniqloへ適用し、26・13項目版と比較。", result: "各版は高い信頼性を示し、ブランド感情、ロイヤルティ、品質、肯定的WOM、所有製品数等と正に関連。6項目の当初CFAモデルは修正なしでは不十分だった点も報告。", doi: "10.1007/s11002-025-09767-5", url: "https://doi.org/10.1007/s11002-025-09767-5" },
+        { title: "Nature of Brand Love: Examining Its Variable Effect on Engagement and Well-Being", authors: "Junaid, Hussain, Basit, & Hou", year: 2020, context: "スマートフォン利用者のブランド・ラブ、顧客エンゲージメント、消費者ウェルビーイング", sample: "スマートフォン利用者392名", itemCount: 6, responseFormat: "構造化質問紙（項目別アンカーは原文確認）", language: "English", adaptation: "Bagozziらの6項目版を、対人愛由来の別概念化と比較するブランド・ラブ指標として使用。", result: "Bagozziらの不完全な双方向関係としてのブランド・ラブを含む3概念化を比較。ブランド・ラブは顧客エンゲージメント各次元と有意に関連し、ウェルビーイングへ間接効果を示した。", doi: "10.1057/s41262-019-00179-1", url: "https://doi.org/10.1057/s41262-019-00179-1" },
       ],
       itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-15",
       notes: "3・4項目への追加短縮も検討されたが、内容妥当性と信頼性の低下に対して時間節約が小さいため、追試研究は6項目版を推奨した。",
@@ -2621,6 +2624,7 @@ const ATLAS_DATA = {
       ],
       usageStudies: [
         { title: "The Role of Habit in Post-Adoption Switching of Personal Information Technologies: An Empirical Investigation", authors: "Ye & Potter", year: 2011, context: "Webブラウザから代替ブラウザへの切替", sample: "米国大学生の有効回答414名、2時点調査", itemCount: 3, responseFormat: "7件法の両極尺度", language: "English", adaptation: "Bansalらの3項目を、2か月以内に主要ブラウザから代替ブラウザへ切り替える確率へ適用。", result: "モデルは切替意向の分散55%、実際の利用比率変化の23%を説明。習慣は切替意向と意向―行動関係に影響した。", doi: "10.17705/1CAIS.02835", url: "https://doi.org/10.17705/1CAIS.02835" },
+        { title: "The Conceptual Domain of Service Loyalty: How Many Dimensions?", authors: "Jones & Taylor", year: 2007, context: "医療、美容、修理、金融等のサービス・ロイヤルティ", sample: "成人サービス顧客307名（回収348名から対象外41名を除外）", itemCount: 3, responseFormat: "5件法の両極尺度", language: "English", adaptation: "Bansal & Taylor系のunlikely–likely、improbable–probable、no chance–certainの3項目を、多業種のサービス提供者からの切替意向へ使用。", result: "α=.926、合成信頼性=.953、AVE=.87。切替意向は再購買意向・排他的購買意向とともに行動的サービス・ロイヤルティを構成した。", doi: "10.1108/08876040710726284", url: "https://doi.org/10.1108/08876040710726284" },
       ],
       itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-15",
       notes: "スイッチング・コストや代替魅力度は先行要因であり、SI-3そのものとは別尺度。実際の切替行動を測る場合は追跡データを併用する。",
