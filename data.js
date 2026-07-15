@@ -2,7 +2,7 @@
 // DOI、原典、項目数、下位次元は原著論文または公式資料で確認。
 const ATLAS_DATA = {
   meta: {
-    version: "0.31.0",
+    version: "0.32.0",
     status: "initial-real-data",
     updated: "2026-07-16",
     scope: "50概念・75尺度",
@@ -2654,6 +2654,7 @@ const ATLAS_DATA = {
       ],
       usageStudies: [
         { title: "Consumers’ Relationships with Brands and Brand Communities – The Multifaceted Roles of Identification and Satisfaction", authors: "Popp & Woratschek", year: 2017, context: "オンライン・ブランドコミュニティ", sample: "ブランドコミュニティ会員1,797名", itemCount: 3, responseFormat: "7件法", language: "German / study context", adaptation: "ブランドとコミュニティそれぞれに対する肯定的WOMを3項目で測定。", result: "ブランド同一視・満足・ロイヤルティとWOMの対象別関係を構造モデルで検討。", doi: "10.1016/j.jretconser.2016.11.006", url: "https://doi.org/10.1016/j.jretconser.2016.11.006" },
+        { title: "Why Recommend a Brand Face-to-Face but Not on Facebook? How Word-of-Mouth on Online Social Sites Differs from Traditional Word-of-Mouth", authors: "Eisingerich, Chun, Liu, Jia, & Bell", year: 2015, context: "対面WOMとSNS上WOMの比較実験", sample: "Study 1: 118名（ほか追試を含む）", itemCount: 3, responseFormat: "尺度得点（原論文参照）", language: "English", adaptation: "Zeithamlらの3項目を、対面での推奨意図とSNSでの推奨意図へそれぞれ適用。", result: "Study 1で対面WOM α=.90、SNS上WOM α=.89。SNS上WOMの低さを知覚社会的リスクが媒介した。", doi: "10.1016/j.jcps.2014.05.004", url: "https://doi.org/10.1016/j.jcps.2014.05.004" },
       ],
       itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-16",
       notes: "原著の行動意図バッテリー全13項目ではなく、肯定的WOMに相当する3項目を使う下位尺度。",
@@ -2687,6 +2688,7 @@ const ATLAS_DATA = {
       ],
       usageStudies: [
         { title: "Consumers’ Relationships with Brands and Brand Communities – The Multifaceted Roles of Identification and Satisfaction", authors: "Popp & Woratschek", year: 2017, context: "オンライン・ブランドコミュニティ", sample: "ブランドコミュニティ会員1,797名", itemCount: 5, responseFormat: "7件法", language: "German / study context", adaptation: "Stokburger-Sauerらの5項目をブランド同一視へ適用。", result: "ブランド同一視が満足、ロイヤルティ、肯定的WOMへ果たす役割を対象別に検討。", doi: "10.1016/j.jretconser.2016.11.006", url: "https://doi.org/10.1016/j.jretconser.2016.11.006" },
+        { title: "Predicting Smartphone Brand Loyalty: Consumer Value and Consumer-Brand Identification Perspectives", authors: "Yeh, Wang, & Yieh", year: 2016, context: "台湾のスマートフォン・ブランド", sample: "スマートフォン利用者157名", itemCount: 5, responseFormat: "質問紙（原論文参照）", language: "Chinese / Taiwan study context", adaptation: "Stokburger-SauerらのCBI尺度をスマートフォン・ブランド同一視へ適用。", result: "ブランド同一視はブランド・ロイヤルティを正に予測し、その関係は年齢により弱まることを報告。", doi: "10.1016/j.ijinfomgt.2015.11.013", url: "https://doi.org/10.1016/j.ijinfomgt.2015.11.013" },
       ],
       itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-16",
       notes: "ブランド愛着・ブランドラブ・自己とブランドの結びつきと関連するが、中心はブランドとの一体感・帰属感。",
@@ -2718,7 +2720,10 @@ const ATLAS_DATA = {
       applicationEvidence: [
         { label: "ブランドの総合評価を5項目で測定", itemCounts: [5], evidenceType: "scale-development", summary: "感情の強度ではなく、悪い‐良い等の全般的評価を測る。購買意向PI-5と同じ研究で比較検証されている。", title: "Measuring Attitude toward the Brand and Purchase Intentions", year: 2004, doi: "10.1080/10641734.2004.10505164", url: "https://doi.org/10.1080/10641734.2004.10505164" },
       ],
-      usageStudies: [],
+      usageStudies: [
+        { title: "Can Social Media Influencer (SMI) Power Influence Consumer Brand Attitudes? The Mediating Role of Perceived SMI Credibility", authors: "Nafees, Cook, Nikolov, & Stoddard", year: 2021, context: "Instagramのソーシャルメディア・インフルエンサー", sample: "米国Instagram利用者231名", itemCount: 5, responseFormat: "7件法の両極尺度", language: "English", adaptation: "Spears & Singhのブランド態度5項目を使用。", result: "合成信頼性=.87。インフルエンサーの専門力・参照力とブランド態度の関係を知覚信頼性が媒介。", doi: "10.1016/j.digbus.2021.100008", url: "https://doi.org/10.1016/j.digbus.2021.100008" },
+        { title: "Do Visual and Haptic Cues Affect Taste?", authors: "Chen, Chen, Hou, & Fang", year: 2019, context: "飲料容器の触覚と日本語・中国語パッケージ表記の実験", sample: "Study 1: 75名、Study 2: 153名", itemCount: 5, responseFormat: "7件法", language: "Chinese / Taiwan study context", adaptation: "Spears & Singhのブランド態度5項目を触覚・視覚刺激後の評価へ使用。", result: "触覚・視覚手がかりが品質評価、ブランド態度、購買意向へ与える影響を2研究で検討。", doi: "10.7903/cmr.18814", url: "https://doi.org/10.7903/cmr.18814" },
+      ],
       itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-16",
       notes: "ブランド感情、広告態度、購買意向を同一概念として扱わない。",
       recordStatus: "verified-metadata",
@@ -2749,7 +2754,10 @@ const ATLAS_DATA = {
       applicationEvidence: [
         { label: "全体リスクを3項目で測る後続適用", itemCounts: [3, 18], evidenceType: "research-application", summary: "低負担で全体的な危険性を測る場合に使われる。金銭・性能等の原因診断が必要なら多次元項目を選ぶ。", title: "Perceived Risk: Further Considerations for the Marketing Discipline", year: 1993, doi: "10.1108/03090569310026637", url: "https://doi.org/10.1108/03090569310026637" },
       ],
-      usageStudies: [],
+      usageStudies: [
+        { title: "Assessing Perceived Risk and Perceived Value in the Hotel Industry: An Integrated Approach", authors: "Küpeli & Özer", year: 2020, context: "トルコの5つ星ホテル利用", sample: "ホテル宿泊者747名（予備調査122名）", itemCount: 3, responseFormat: "質問紙（原論文参照）", language: "Turkish", adaptation: "Stone & Grønhaugに基づく全体リスク3項目と、6次元の多次元リスク尺度を併用して比較。", result: "全体尺度と多次元尺度を同一研究で比較し、多次元リスクの方が知覚価値への負の影響を強く示した。", doi: "10.1080/13032917.2020.1711785", url: "https://doi.org/10.1080/13032917.2020.1711785" },
+        { title: "Internal Factors Predisposing the Consumer to Be a Multichannel Shopper", authors: "Pascual Marimón, Mollá, & Frasquet", year: 2015, context: "オンライン購買とマルチチャネル利用", sample: "スペインのオンライン調査266名", itemCount: 3, responseFormat: "7件法", language: "Spanish study context", adaptation: "Stone & Grønhaugに基づく心理的リスク・全体リスク各3項目を、多次元の上位構成として適用。", result: "全体リスク項目を含む知覚リスクモデルでCR=.945、α=.934、AVE=.570を報告。単純なOPR-3単独得点とは区別が必要。", doi: "10.7200/esicm.152.0463.3i", url: "https://doi.org/10.7200/esicm.152.0463.3i" },
+      ],
       itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-16",
       notes: "3項目版は全体リスクの簡潔な後続適用。Stone & Grønhaugの6次元を各3項目で診断する多次元構成と同一ではない。",
       recordStatus: "verified-metadata",
@@ -2815,6 +2823,7 @@ const ATLAS_DATA = {
       ],
       usageStudies: [
         { title: "Interactions and Consequences of Inertia and Switching Costs", authors: "Lee & Neale", year: 2012, context: "携帯電話サービス", sample: "モール・インターセプト調査518名", itemCount: 3, responseFormat: "7件法", language: "English", adaptation: "Jonesらを基に時間・努力・金銭の切替負担3項目へ適用。", result: "切替コストと慣性・満足の組合せによって継続と肯定的・否定的WOMの関係が異なることを報告。", doi: "10.1108/08876041211245281", url: "https://doi.org/10.1108/08876041211245281" },
+        { title: "The Enhanced Loyalty Drivers of Customers Acquired through Referral Reward Programs", authors: "Ramaseshan, Wirtz, & Georgi", year: 2017, context: "銀行の紹介報酬プログラムと顧客ロイヤルティ", sample: "質問紙と銀行CRMを結合した470名", itemCount: 2, responseFormat: "7件法", language: "English", adaptation: "Jonesらの切替コスト尺度から努力と不確実性の2項目を使用。3項目版をさらに短縮した適用として明示。", result: "α=.77。紹介獲得顧客では、切替コストから態度的ロイヤルティへの関係が他経路獲得顧客より弱かった。", doi: "10.1108/JOSM-07-2016-0190", url: "https://doi.org/10.1108/JOSM-07-2016-0190" },
       ],
       itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-16",
       notes: "スイッチング意向SI-3とは別概念。コストが高くても、満足による継続と拘束による継続は区別する。",
@@ -2848,6 +2857,7 @@ const ATLAS_DATA = {
       ],
       usageStudies: [
         { title: "Understanding Purchase Intention of Fair Trade Handicrafts through the Lens of Geographical Indication and Fair Trade Knowledge in a Brand Equity Model", authors: "Lee & Zhao", year: 2024, context: "米国女性を対象としたフェアトレード手工芸品の仮想ブランド実験", sample: "有効回答206名", itemCount: 3, responseFormat: "7件法", language: "English", adaptation: "Netemeyerらの4項目から価格差率の自由回答項目を除いた3項目を使用。", result: "知覚品質・認知・連想・独自性等と価格プレミアム意思・購買意図を同一モデルで検討。", doi: "10.3390/su16010049", url: "https://doi.org/10.3390/su16010049" },
+        { title: "Do Blue Flag Promotions Influence Tourists’ Willingness to Pay a Price Premium for Coastal Destinations?", authors: "Can, Ekinci, & Dilek-Fidler", year: 2023, context: "海岸観光地のエコラベル広告実験", sample: "Study 1: 152名、Study 2: 160名", itemCount: 3, responseFormat: "7件法", language: "English", adaptation: "Netemeyerらの価格プレミアム意思から3項目を観光地ブランドへ適用。", result: "Study 1でα=.89。Blue Flag表示が自己一致・目的地ブランド同一視や知覚品質を介して価格プレミアム意思を高めた。", doi: "10.1016/j.tourman.2023.104767", url: "https://doi.org/10.1016/j.tourman.2023.104767" },
       ],
       itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-16",
       notes: "仮想的な追加支払意思であり、実際の支払額・選択実験・オークションWTPとは測定方法が異なる。",
@@ -2879,7 +2889,9 @@ const ATLAS_DATA = {
       applicationEvidence: [
         { label: "継続・再利用を4項目で測定", itemCounts: [4, 3], evidenceType: "scale-application", summary: "既存顧客の再選択を測る。初回購買意図や態度的ロイヤルティと重なる項目を使う場合は構成概念の弁別を確認する。", title: "Customer Repurchase Intention", year: 2003, doi: "10.1108/03090560310495456", url: "https://doi.org/10.1108/03090560310495456" },
       ],
-      usageStudies: [],
+      usageStudies: [
+        { title: "A Brand Preference and Repurchase Intention Model: The Role of Consumer Experience", authors: "Ebrahim, Ghoneim, Irani, & Fan", year: 2016, context: "エジプトの携帯電話ブランド経験", sample: "携帯電話利用者325名（予備調査53名）", itemCount: 3, responseFormat: "5件法", language: "Arabic / Egypt study context", adaptation: "Hellierらの再購買意図尺度を3項目へ短縮し、同一ブランドの携帯電話再購入へ適用。", result: "再購買意図の信頼性=.77。ブランド経験・知識から選好を経て再購買意図へ至るモデルを検討。", doi: "10.1080/0267257X.2016.1150322", url: "https://doi.org/10.1080/0267257X.2016.1150322" },
+      ],
       itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-16",
       notes: "スイッチしない意向を含む適用もあるため、ブランド・ロイヤルティやスイッチング意向との項目内容重複を確認する。",
       recordStatus: "verified-metadata",
@@ -2912,6 +2924,7 @@ const ATLAS_DATA = {
       ],
       usageStudies: [
         { title: "Ad Skepticism: The Consequences of Disbelief", authors: "Obermiller, Spangenberg, & MacLachlan", year: 2005, context: "情報訴求・感情訴求を含む広告反応3研究", sample: "3つの消費者研究（詳細は本文参照）", itemCount: 9, responseFormat: "7件法", language: "English", adaptation: "SKEP-9を広告態度、注意、回避、情報源依存等と関連づけて使用。", result: "懐疑が高い消費者ほど広告を好まず、依存・注意が低く、感情訴求へ相対的に好意的に反応。", doi: "10.1080/00913367.2005.10639199", url: "https://doi.org/10.1080/00913367.2005.10639199" },
+        { title: "Development of the Persuasion Knowledge Scales of Sponsored Content (PKS-SC)", authors: "Boerman, van Reijmersdal, Rozendaal, & Dima", year: 2018, context: "ゲーム・テレビ・ブログのスポンサーコンテンツ", sample: "Wave 1: 614名、5週後のWave 2: 293名（ほか予備調査）", itemCount: 9, responseFormat: "尺度得点（原論文参照）", language: "English", adaptation: "PKS-SCの収束・弁別検討用に、Obermiller & Spangenbergの広告一般への懐疑9項目を併用。", result: "広告一般への懐疑を、スポンサーコンテンツ固有の懐疑・適切性等と区別しながら妥当性検討に使用。", doi: "10.1080/02650487.2018.1470485", url: "https://doi.org/10.1080/02650487.2018.1470485" },
       ],
       itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-16",
       notes: "特定広告の説得知識、広告回避、シニシズムとは区別する。",
@@ -2934,16 +2947,22 @@ const ATLAS_DATA = {
       reverseItems: [], scoring: "9項目の総合得点を主に使用。3次元別得点は項目数が少ないため慎重に扱う。",
       targetPopulation: ["一般消費者", "青年・成人"],
       language: "English", versionType: "validated-short-form", parentScaleId: null,
-      japaneseVersionStatus: "unconfirmed",
-      japaneseStatusNote: "日本語の物質主義研究はありますが、RichinsのMVS-9について標準化された検証済み日本語版は今回未登録です。",
-      japaneseEvidence: [], validationStudies: [], usagePermission: "unknown", usageEvidence: [],
+      japaneseVersionStatus: "related-version",
+      japaneseStatusNote: "MVS-9そのものの標準化された検証済み日本語版は未登録です。一方、Richins（2004）の関連するMVS-6は日本語研究で使われており、日本語適用例と日米比較での使用を確認しています。9項目版と6項目版を同一版として扱わないでください。",
+      japaneseEvidence: [
+        { kind: "related-version", label: "MVS-6日本語適用例", authors: "増井啓太・下司忠大・澤田匡人・小塩真司", year: 2018, title: "日本語版強欲傾向尺度の作成", doi: "10.4992/jjpsy.88.16240", url: "https://doi.org/10.4992/jjpsy.88.16240" },
+        { kind: "related-version", label: "MVS-6の日米消費者比較での使用", authors: "西尾チヅル・石田実", year: 2026, title: "サステナビリティ価値観とエコロジー行動―日米消費者の比較分析―", doi: "10.7222/marketing.2026.023", url: "https://doi.org/10.7222/marketing.2026.023" },
+      ], validationStudies: [], usagePermission: "unknown", usageEvidence: [],
       psychometricEvidence: [
         { label: "蓄積研究と15データセットによる短縮版開発", sample: "既刊研究レビューとMVSを含む15の生データセット", methods: "原尺度の測定特性再検討、15項目改訂版と9・6・3項目候補の比較", result: "総合的な物質主義測定では9項目版が許容できる心理測定特性を持つと結論。6・3項目版はさらなる負担削減と測定精度のトレードオフが大きい。", url: "https://doi.org/10.1086/383436" },
       ],
       applicationEvidence: [
         { label: "正式に比較された9・6・3項目候補", itemCounts: [9, 6, 3, 15], evidenceType: "validated-short-form", summary: "一般的な物質主義の低負担測定には9項目版が支持された。3項目版を使う場合は信頼性と内容範囲の低下を明記する。", title: "The Material Values Scale", year: 2004, doi: "10.1086/383436", url: "https://doi.org/10.1086/383436" },
       ],
-      usageStudies: [],
+      usageStudies: [
+        { title: "日本語版強欲傾向尺度の作成", authors: "増井・下司・澤田・小塩", year: 2018, context: "日本語版強欲傾向尺度の併存的妥当性検討", sample: "日本の大学生856名（関連尺度の相関分析854名）", itemCount: 6, responseFormat: "4件法", language: "Japanese", adaptation: "呉・寺島によるRichins（2004）MVS-6の日本語訳を使用。登録対象MVS-9とは関連短縮版。", result: "強欲傾向と物質主義の有意な正の関連を確認し、J-DGSの併存的妥当性検討に利用。", doi: "10.4992/jjpsy.88.16240", url: "https://doi.org/10.4992/jjpsy.88.16240" },
+        { title: "Sustainability Values and Ecological Behavior: A Comparative Analysis of Japanese and U.S. Consumers", authors: "Nishio & Ishida", year: 2026, context: "エコロジー行動とシェアリングの日米比較", sample: "日本1,883名、米国2,002名", itemCount: 6, responseFormat: "5件法", language: "Japanese / English", adaptation: "Richins（2004）のMVS-6を日米オンライン調査へ適用。登録対象MVS-9とは関連短縮版。", result: "多母集団CFAを含む分析で日米間の尺度等価性を検討し、シェアリング行動は両国ともエコロジー価値観よりマテリアリズムに強く動機づけられると報告。", doi: "10.7222/marketing.2026.023", url: "https://doi.org/10.7222/marketing.2026.023" },
+      ],
       itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-16",
       notes: "回答負担だけで3項目を選ばず、中心性・成功・幸福の内容範囲を維持したい場合はMVS-9を優先する。",
       recordStatus: "verified-metadata",
@@ -2979,6 +2998,8 @@ const ATLAS_DATA = {
       ],
       usageStudies: [
         { title: "A Test of the Relationship Between Buying Impulsiveness and Impulse Purchases: Adapting Rook and Fisher’s Scale to the Algerian Cultural", authors: "Bessouh, Mir, & Iznasni", year: 2015, context: "アルジェリアの衝動購買者", sample: "衝動購買者385名", itemCount: 9, responseFormat: "Likert法", language: "French / Arabic study context", adaptation: "Rook & Fisherの9項目尺度を文化文脈へ適応。", result: "衝動性が高い消費者ほど衝動購買を行いやすい関係を報告。", doi: "10.31686/ijier.vol3.iss5.361", url: "https://doi.org/10.31686/ijier.vol3.iss5.361" },
+        { title: "社会的自己制御とBIS/BAS・Effortful Controlによる問題行動の弁別的予測性", authors: "原田・吉澤・吉田", year: 2010, context: "問題行動と自己制御関連特性の日本語調査", sample: "日本語調査（標本詳細は本文参照）", itemCount: 9, responseFormat: "5件法", language: "Japanese", adaptation: "Rook & FisherのBIS-9を日本語訳して使用し、著者が全9項目と教示を公開。", result: "衝動購買傾向を含む自己制御関連尺度と問題行動の弁別的予測を検討。", doi: "10.2132/personality.19.76", url: "https://doi.org/10.2132/personality.19.76" },
+        { title: "日本語版強欲傾向尺度の作成", authors: "増井・下司・澤田・小塩", year: 2018, context: "日本語版強欲傾向尺度の併存的妥当性検討", sample: "日本の大学生856名（関連尺度の相関分析854名）", itemCount: 9, responseFormat: "5件法", language: "Japanese", adaptation: "原田らによるRook & Fisher BIS-9の日本語訳を使用。", result: "強欲傾向と衝動的購買行動の有意な正の関連を確認。", doi: "10.4992/jjpsy.88.16240", url: "https://doi.org/10.4992/jjpsy.88.16240" },
       ],
       itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-16",
       notes: "心理尺度のBarratt Impulsiveness ScaleもBISと略されるため、引用・調査票ではBuying Impulsiveness Scaleと明記する。",
