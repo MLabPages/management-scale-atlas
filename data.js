@@ -2,10 +2,10 @@
 // DOI、原典、項目数、下位次元は原著論文または公式資料で確認。
 const ATLAS_DATA = {
   meta: {
-    version: "0.36.0",
+    version: "0.37.0",
     status: "initial-real-data",
     updated: "2026-07-19",
-    scope: "50概念・76尺度",
+    scope: "50概念・77尺度",
   },
 
   concepts: [
@@ -1528,6 +1528,7 @@ const ATLAS_DATA = {
       sourceTitle: "Developing and Validating a Multidimensional Consumer-Based Brand Equity Scale",
       journal: "Journal of Business Research, 52(1), 1–14",
       doi: "10.1016/S0148-2963(99)00098-3",
+      sourceUrl: "https://sites.hofstra.edu/boonghee-yoo/yoo-and-donthus-brand-equity-scale/",
       itemCount: 10,
       dimensions: ["Brand loyalty", "Perceived quality", "Brand awareness / associations"],
       responseFormat: "5件法",
@@ -1541,8 +1542,55 @@ const ATLAS_DATA = {
       psychometricEvidence: [
         { label: "多国間の尺度開発", sample: "複数文化・複数ブランドの消費者標本", methods: "多母集団分析、因子構造、交差文化的不変性、複合信頼性", result: "3次元10項目、複合信頼性 .82–.88を報告", url: "https://doi.org/10.1016/S0148-2963(99)00098-3" },
       ],
-      itemPublicationStatus: "not-published", items: [],
-      notes: "企業財務ベースのブランド価値ではなく、個人消費者レベルの認知・行動を測る。",
+      applicationEvidence: [
+        { label: "原著者公式ページで10項目と得点化を公開", itemCounts: [10], evidenceType: "official-scale-resource", summary: "ブランド・ロイヤルティ、知覚品質、ブランド認知／連想を測る10項目と得点化が原著者ページで公開されています。", title: "Yoo and Donthu’s (2001) Brand Equity Scale", year: 2026, doi: "10.1016/S0148-2963(99)00098-3", url: "https://sites.hofstra.edu/boonghee-yoo/yoo-and-donthus-brand-equity-scale/" },
+        { label: "総合ブランド・エクイティ4項目との使い分け", itemCounts: [10, 4], evidenceType: "alternative-scale", summary: "MBEは3次元の内訳を診断し、OBE-4は同等属性の競合より対象ブランドを選ぶ追加価値を総合評価します。OBE-4はMBEの単純な4項目短縮版ではありません。", title: "Developing and Validating a Multidimensional Consumer-Based Brand Equity Scale", year: 2001, doi: "10.1016/S0148-2963(99)00098-3", url: "https://doi.org/10.1016/S0148-2963(99)00098-3" },
+      ],
+      usageStudies: [
+        { title: "Consumer-Based Brand Equity: Comparisons among Americans and South Koreans in the USA and South Koreans in Korea", authors: "Jung & Sung", year: 2008, context: "Polo・Gap・Levi’sの米韓比較", sample: "大学生300名（韓国在住韓国人100、米国在住韓国人100、米国人100）", itemCount: 9, responseFormat: "5件法", language: "English / Korean", adaptation: "英語版を韓国語へ翻訳し、別のバイリンガル研究者が逆翻訳。MBE 10項目から、選定した有名ブランドには不適切と判断した想起困難1項目を除外。", result: "知覚品質と認知／連想は米国人学生で韓国人2群より高く、ブランド・エクイティから購買意向への関係も比較した。", doi: "10.1108/13612020810857925", url: "https://doi.org/10.1108/13612020810857925" },
+        { title: "Exploring the Consumer-Based Brand Equity Relations on Croatian Youth Fashion Market", authors: "Širola", year: 2021, context: "クロアチアの若年ファッション市場", sample: "30歳未満の大学生等167名", itemCount: 10, responseFormat: "7件法", language: "Croatian", adaptation: "Yoo & DonthuのMBE 10項目をクロアチア語へ翻訳・適応し、認知と連想を別因子として分析。", result: "MBE全体のα=.90。ブランド・ロイヤルティ、知覚品質、認知、連想とOBEの関係を検討。", doi: "10.31784/zvr.9.1.10", url: "https://doi.org/10.31784/zvr.9.1.10" },
+      ],
+      itemPublicationStatus: "source-open", items: [], verifiedAt: "2026-07-19",
+      notes: "企業財務ベースのブランド価値ではなく、個人消費者レベルの認知・行動を測る。原著者公式ページから英語項目を確認できる。",
+      recordStatus: "verified-metadata",
+    },
+    {
+      id: "overall-brand-equity-yoo-donthu-4",
+      name: "Overall Brand Equity Scale – 4 item",
+      abbreviation: "OBE-4",
+      conceptId: "consumer-based-brand-equity",
+      authors: ["Boonghee Yoo", "Naveen Donthu"],
+      year: 2001,
+      sourceTitle: "Developing and Validating a Multidimensional Consumer-Based Brand Equity Scale",
+      journal: "Journal of Business Research, 52(1), 1–14",
+      doi: "10.1016/S0148-2963(99)00098-3",
+      sourceUrl: "https://sites.hofstra.edu/boonghee-yoo/yoo-and-donthus-brand-equity-scale/",
+      itemCount: 4,
+      dimensions: ["Overall brand equity"],
+      responseFormat: "原著は5件法",
+      reverseItems: [], scoring: "4項目の平均。競合ブランドの属性が同等でも対象ブランドを選ぶ追加価値を高得点として測る。",
+      targetPopulation: ["特定ブランドを評価できる消費者", "競合ブランドとの比較が可能な消費者"],
+      language: "English / Korean", versionType: "original", parentScaleId: null,
+      japaneseVersionStatus: "unconfirmed",
+      japaneseStatusNote: "OBE-4そのものを日本語で翻訳・心理測定学的検証した根拠は今回未登録です。4項目が近似した反実仮想表現を用いるため、独自翻訳時は回答者が競合比較を理解できるか認知面接等で確認してください。",
+      japaneseEvidence: [],
+      validationStudies: [], usagePermission: "unknown", usageEvidence: [],
+      psychometricEvidence: [
+        { label: "米韓3群・3製品カテゴリーでの4項目尺度開発", sample: "韓国人633名、韓国系米国人320名、米国人577名（計1,530名）", methods: "運動靴、カメラ用フィルム、テレビを用いた個人・多母集団・統合分析とMBEとの収束妥当性検討", result: "10項目MBEとは別に、総合ブランド・エクイティを測る単一次元4項目を開発。MBEとの収束妥当性を支持。", url: "https://doi.org/10.1016/S0148-2963(99)00098-3" },
+        { label: "イベント前後の反復測定", sample: "7イベントの前後に回答した354名", methods: "前後それぞれの4項目OBE、ブランド経験、ブランド態度をEFA・CFA・媒介分析で検討", result: "前後OBEの項目負荷量>.73、全尺度α>.81、4因子CFAでCFI=.99、RMSEA=.073。", url: "https://doi.org/10.2501/IJA-32-2-255-280" },
+      ],
+      applicationEvidence: [
+        { label: "総合ブランド・エクイティを4項目で測定", itemCounts: [4], evidenceType: "scale-development", summary: "同等属性の競合があっても対象ブランドを選ぶ価値を4つの反実仮想比較で測定します。ブランド・ロイヤルティ単独ではなく、ブランド名が生む追加価値の総合指標です。", title: "Developing and Validating a Multidimensional Consumer-Based Brand Equity Scale", year: 2001, doi: "10.1016/S0148-2963(99)00098-3", url: "https://doi.org/10.1016/S0148-2963(99)00098-3" },
+        { label: "原著者公式ページで4項目本文と平均得点を公開", itemCounts: [4], evidenceType: "official-scale-resource", summary: "原著者ページでOBE 4項目と『4項目の平均』という得点化を確認できます。利用・転載条件は別途確認してください。", title: "Yoo and Donthu’s (2001) Brand Equity Scale", year: 2026, doi: "10.1016/S0148-2963(99)00098-3", url: "https://sites.hofstra.edu/boonghee-yoo/yoo-and-donthus-brand-equity-scale/" },
+        { label: "MBE-10との目的別選択", itemCounts: [4, 10], evidenceType: "alternative-scale", summary: "回答負担と総合効果を重視する場合はOBE-4、ロイヤルティ・品質・認知／連想の改善箇所を診断する場合はMBE-10を選びます。", title: "Developing and Validating a Multidimensional Consumer-Based Brand Equity Scale", year: 2001, doi: "10.1016/S0148-2963(99)00098-3", url: "https://doi.org/10.1016/S0148-2963(99)00098-3" },
+      ],
+      usageStudies: [
+        { title: "Consumer-Based Brand Equity: Comparisons among Americans and South Koreans in the USA and South Koreans in Korea", authors: "Jung & Sung", year: 2008, context: "Polo・Gap・Levi’sの米韓比較", sample: "大学生300名（韓国在住韓国人100、米国在住韓国人100、米国人100）", itemCount: 4, responseFormat: "5件法", language: "English / Korean", adaptation: "英語質問票を韓国語へ翻訳し、別のバイリンガル研究者が逆翻訳。3ブランドそれぞれについてOBE 4項目を使用。", result: "MBEとOBEを併用し、文化集団間のブランド・エクイティと購買意向を比較。", doi: "10.1108/13612020810857925", url: "https://doi.org/10.1108/13612020810857925" },
+        { title: "The Impact of Event Marketing on Brand Equity: The Mediating Roles of Brand Experience and Brand Attitude", authors: "Zarantonello & Schmitt", year: 2013, context: "展示会・街頭イベント・ポップアップ・協賛イベントの前後比較", sample: "事前808名、事前事後を対応できた354名", itemCount: 4, responseFormat: "7件法", language: "English / European field study context", adaptation: "短い現場調査に適する尺度としてOBE-4を選び、イベント前と1～2週間後に同じ4項目を測定。", result: "前後OBEの項目負荷量>.73、全尺度α>.81。イベント参加後のブランド・エクイティ向上をブランド経験が媒介。", doi: "10.2501/IJA-32-2-255-280", url: "https://doi.org/10.2501/IJA-32-2-255-280" },
+        { title: "Exploring the Consumer-Based Brand Equity Relations on Croatian Youth Fashion Market", authors: "Širola", year: 2021, context: "クロアチアの若年ファッション市場", sample: "30歳未満の大学生等167名", itemCount: 4, responseFormat: "7件法", language: "Croatian", adaptation: "OBE-4をクロアチア語へ翻訳・適応し、回答者が最も好む衣料・靴ブランドを評価。", result: "α=.84。ブランド認知・連想・知覚品質・ロイヤルティとOBEの関係を検討。", doi: "10.31784/zvr.9.1.10", url: "https://doi.org/10.31784/zvr.9.1.10" },
+      ],
+      itemPublicationStatus: "source-open", items: [], verifiedAt: "2026-07-19",
+      notes: "4項目はMBE-10から4項目を抜き出した短縮版ではなく、同じ原著内で収束妥当性確認用に開発された総合尺度。項目本文は原著者公式ページで確認できる。",
       recordStatus: "verified-metadata",
     },
     {
