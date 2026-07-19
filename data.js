@@ -2,10 +2,10 @@
 // DOI、原典、項目数、下位次元は原著論文または公式資料で確認。
 const ATLAS_DATA = {
   meta: {
-    version: "0.38.0",
+    version: "0.39.0",
     status: "initial-real-data",
     updated: "2026-07-19",
-    scope: "51概念・79尺度",
+    scope: "51概念・80尺度",
   },
 
   concepts: [
@@ -2915,6 +2915,41 @@ const ATLAS_DATA = {
       ],
       itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-16",
       notes: "ブランド感情、広告態度、購買意向を同一概念として扱わない。",
+      recordStatus: "verified-metadata",
+    },
+    {
+      id: "multidimensional-perceived-risk-stone-gronhaug-18",
+      name: "Multidimensional Perceived Risk Scale",
+      abbreviation: "MPR-18",
+      conceptId: "perceived-risk",
+      authors: ["Robert N. Stone", "Kjell Grønhaug"],
+      year: 1993,
+      sourceTitle: "Perceived Risk: Further Considerations for the Marketing Discipline",
+      journal: "European Journal of Marketing, 27(3), 39–50",
+      doi: "10.1108/03090569310026637",
+      sourceUrl: "https://doi.org/10.1108/03090569310026637",
+      itemCount: 18,
+      dimensions: ["Financial risk", "Performance risk", "Time risk", "Physical risk", "Social risk", "Psychological risk"],
+      responseFormat: "7件法",
+      reverseItems: [], scoring: "6種類のリスクを各3項目で算出する。原因診断を目的とするため、18項目の単純平均だけで結論を出さず、次元別得点と全体リスクとの関係を検討する。",
+      targetPopulation: ["製品・サービスの購買を評価する消費者", "リスク低減策を次元別に検討する研究"],
+      language: "English", versionType: "original-multidimensional", parentScaleId: null,
+      japaneseVersionStatus: "unconfirmed",
+      japaneseStatusNote: "6次元18項目版の検証済み標準日本語版・明確な日本語使用例は今回未登録です。次元名だけを日本語化して尺度全体の妥当性が確認済みとは扱わないでください。",
+      japaneseEvidence: [], validationStudies: [], usagePermission: "unknown", usageEvidence: [],
+      psychometricEvidence: [
+        { label: "6次元による全体リスクの説明", sample: "パーソナルコンピュータの購買を想定した消費者調査", methods: "金銭・性能・時間・身体・社会・心理リスクと全体リスクの構造関係を検証", result: "6次元は全体リスクの88.8%前後を説明し、他の次元が心理的リスクを介して全体リスクへつながる簡潔な構造を支持。", url: "https://doi.org/10.1108/03090569310026637" },
+      ],
+      applicationEvidence: [
+        { label: "原因を6種類に分ける18項目版", itemCounts: [18, 3], evidenceType: "scale-development", summary: "何のリスクが購買を妨げるかを特定できる。全体的な危険性だけを低負担で測るOPR-3とは役割が異なる。", title: "Perceived Risk: Further Considerations for the Marketing Discipline", year: 1993, doi: "10.1108/03090569310026637", url: "https://doi.org/10.1108/03090569310026637" },
+        { label: "文脈に応じた次元選択は版の変更", itemCounts: [20, 10], evidenceType: "research-application", summary: "ホテルでは金融次元を5項目にした20項目、個人年金では全体・金融・性能だけの10項目が使われた。回答負荷を減らせるが、原版18項目と同一版ではない。", title: "What Matters for Pension Planning in Turkey", year: 2022, doi: "10.1108/IJSE-03-2021-0140", url: "https://doi.org/10.1108/IJSE-03-2021-0140" },
+      ],
+      usageStudies: [
+        { title: "Assessing Perceived Risk and Perceived Value in the Hotel Industry: An Integrated Approach", authors: "Şen Küpeli & Özer", year: 2020, context: "トルコの5つ星ホテルにおける知覚リスク・価値・満足・行動意図", sample: "ホテル宿泊者747名、予備調査122名", itemCount: 20, responseFormat: "5件法", language: "Turkish / English", adaptation: "Stone & Grønhaugの6次元をホテルサービスへ翻訳・文脈調整し、金融リスクをFuchs & Reichelにより5項目へ拡張。専門家確認と専門翻訳を実施。", result: "各次元α=.83～.95、知覚リスクCFAはχ²/df=3.74。多次元測定は全体3項目より知覚価値への負の影響を強く捉えた。", doi: "10.1080/13032917.2020.1711785", url: "https://doi.org/10.1080/13032917.2020.1711785" },
+        { title: "What Matters for Pension Planning in Turkey: Financial Literacy or Perceived Consumer Risks?", authors: "Türkmen & Kılıç", year: 2022, context: "トルコの勤労者による個人年金制度への加入", sample: "18歳以上の勤労者651名", itemCount: 10, responseFormat: "質問紙（原文参照）", language: "Turkish", adaptation: "Stone & Grønhaugから全体リスク3項目、金融リスク4項目、性能リスク3項目だけを選び、トルコ語へ翻訳。関連性の低い4次元を回答負荷のため除外。", result: "EFAで3因子が分散の93.026%を説明、KMO=.922。知覚リスクは個人年金保有状況によって有意に異なった。", doi: "10.1108/IJSE-03-2021-0140", url: "https://doi.org/10.1108/IJSE-03-2021-0140" },
+      ],
+      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-19",
+      notes: "全体リスク3項目を含める場合、測定全体は21項目になる。MPR-18は6種類の原因を測る18項目部分として登録し、全体尺度OPR-3を別レコードにしている。プライバシーリスクは原版6次元に含まれない。",
       recordStatus: "verified-metadata",
     },
     {
