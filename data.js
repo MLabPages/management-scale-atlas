@@ -1,10 +1,10 @@
-// 初期実データ版（2026-07-16確認）。尺度項目本文は収録しない。
+// 初期実データ版（2026-07-19確認）。尺度項目本文は収録しない。
 // DOI、原典、項目数、下位次元は原著論文または公式資料で確認。
 const ATLAS_DATA = {
   meta: {
-    version: "0.34.0",
+    version: "0.35.0",
     status: "initial-real-data",
-    updated: "2026-07-16",
+    updated: "2026-07-19",
     scope: "50概念・75尺度",
   },
 
@@ -2243,6 +2243,14 @@ const ATLAS_DATA = {
         { label: "原著の尺度開発", sample: "複数の製品領域を扱う6研究", methods: "信頼性、収束・弁別・予測妥当性、領域間での適用可能性の検討", result: "領域固有の革新性を測る単一次元6項目を支持", url: "https://doi.org/10.1177/009207039101900306" },
         { label: "追試による検証", sample: "経営学専攻学生247名", methods: "単一次元性、黙従反応、法則的・基準関連妥当性", result: "単一次元性と複数の妥当性証拠を報告", url: "https://doi.org/10.1177/0013164493053004023" },
       ],
+      applicationEvidence: [
+        { label: "観光サービスへの異文化適用", itemCounts: [6], evidenceType: "cross-cultural-application", summary: "有形製品向けに開発されたDSIを休暇旅行へ適用し、旅行関与・知識・オピニオンリーダーシップ・情報探索・旅行頻度との正の関連を確認。", title: "Identifying the vacation travel innovator", year: 1998, doi: "10.1177/135676679800400402", url: "https://doi.org/10.1177/135676679800400402" },
+        { label: "ポルトガル語6項目適応版", itemCounts: [6], evidenceType: "language-validation", summary: "大学生向けに意味内容を検討し、否定項目を肯定表現へ変更したポルトガル語適応版。原版と同一表現ではないため、翻訳・適応版として区別する。", title: "Consumer innovativeness scale: Adaptation and validation with undergraduate students", year: 2022, doi: "10.4067/S0718-27242022000200003", url: "https://doi.org/10.4067/S0718-27242022000200003" },
+      ],
+      usageStudies: [
+        { title: "Identifying the vacation travel innovator", authors: "Goldsmith & Litvin", year: 1998, context: "シンガポールの休暇旅行サービス", sample: "旅行展示会の来場消費者184名", itemCount: 6, responseFormat: "本文参照", language: "English / Singapore study context", adaptation: "DSI 6項目を、新しい旅行商品を早期採用する傾向の測定へ適用。", result: "旅行関与、旅行知識、旅行先のオピニオンリーダーシップ、情報探索、旅行頻度、年間旅行回数と正に関連。", doi: "10.1177/135676679800400402", url: "https://doi.org/10.1177/135676679800400402" },
+        { title: "Consumer innovativeness scale: Adaptation and validation with undergraduate students", authors: "Gabriel & Moretti", year: 2022, context: "ブラジルの大学生を対象とした技術的新奇性", sample: "大学生318名", itemCount: 6, responseFormat: "5件法", language: "Portuguese", adaptation: "内容・表面的・意味的妥当性を検討し、原版の否定3項目を含む表現から、6項目すべてを肯定表現に変更。", result: "1因子、α=.841、順序α=.910、CR=.881、AVE=.552。原版と同一項目表現ではないポルトガル語適応版。", doi: "10.4067/S0718-27242022000200003", url: "https://doi.org/10.4067/S0718-27242022000200003" },
+      ],
       itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-13",
       notes: "一般的な個人革新性ではなく、音楽・衣料・技術など指定した領域内での早期採用傾向を測る。",
       recordStatus: "verified-metadata",
@@ -2520,6 +2528,7 @@ const ATLAS_DATA = {
       ],
       usageStudies: [
         { title: "擬人化が自己とブランドの結びつきに及ぼす影響―自尊感情に着目した考察―", authors: "芳賀英明・熊野みき", year: 2020, context: "日本の大学生による仮想靴ブランド広告の評価", sample: "有効回答196名", itemCount: 7, responseFormat: "7件法", language: "Japanese", adaptation: "Escalas & Bettmanの自己とブランドの結びつき7項目を日本語で使用。", result: "α=.95。擬人化と自尊感情の交互作用を検討し、低自尊感情群では擬人化条件で結びつきが高まった。", doi: "10.32299/jsmdreview.4.2_49", url: "https://doi.org/10.32299/jsmdreview.4.2_49" },
+        { title: "The Effect of Self–Brand Connection and Self-Construal on Brand Lovers’ Word of Mouth (WOM)", authors: "Kwon & Mattila", year: 2015, context: "米国・韓国のホスピタリティ・ブランド愛好者", sample: "コーヒーショップ、レストラン、航空、ホテルのブランド愛好者121名", itemCount: 7, responseFormat: "7件法", language: "English / Korean study context", adaptation: "Escalas & BettmanのSBC 7項目を、回答者が愛好するホスピタリティ・ブランドへ適用。", result: "α=.92、CR=.97。自己ブランド結合から肯定的WOMへの関係は、相互協調的自己観より独立的自己観で強かった。", doi: "10.1177/1938965514566071", url: "https://doi.org/10.1177/1938965514566071" },
       ],
       itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-15",
       notes: "ブランド愛着・ブランド・ラブと関連するが、中心はブランドが自己概念の一部になっているかである。",
@@ -2587,9 +2596,12 @@ const ATLAS_DATA = {
       ],
       applicationEvidence: [
         { label: "購買可能性を5つの両極尺度で測定", itemCounts: [5, 3], evidenceType: "scale-development", summary: "単一の『買いたい』質問より測定誤差を抑えやすい。後続研究では3項目へ削減される例もあるが、正式原版は5項目。", title: "Measuring Attitude toward the Brand and Purchase Intentions", year: 2004, doi: "10.1080/10641734.2004.10505164", url: "https://doi.org/10.1080/10641734.2004.10505164" },
+        { label: "後続研究内の3項目抜粋版", itemCounts: [3, 5], evidenceType: "study-specific-reduction", summary: "購入可能性・購入関心・購入意図を表す3組を原版から選んだ低負担運用。正式短縮版ではなく、採用する3項目と内容範囲を研究ごとに明記する。", title: "Morality rules: Understanding the role of prior reputation in consequences of scansis", year: 2022, doi: "10.1016/j.pubrev.2022.102147", url: "https://doi.org/10.1016/j.pubrev.2022.102147" },
       ],
       usageStudies: [
         { title: "Examining the Impact of Issue Salience, Issue Proximity, Situational Motivation, and Communicative Behaviors on Environmental CSR Outcomes", authors: "Kim et al.", year: 2022, context: "企業の環境CSRブログを用いた米国オンライン実験", sample: "操作確認の有効回答426～434名", itemCount: 5, responseFormat: "7件法の両極尺度", language: "English", adaptation: "Spears & Singhの購買意向5項目をCSRメッセージ後のブランド反応へ適用。", result: "購買意向5項目のα=.96。WOM意向等とともに環境CSRコミュニケーションの結果を測定。", doi: "10.3390/su14052763", url: "https://doi.org/10.3390/su14052763" },
+        { title: "Validating Cross-Modal Measures for Comparative Research: Message Veracity, Novelty, and Memorability", authors: "Jensen et al.", year: 2023, context: "物語型・論証型広告の比較（Intel／Ancestry.com）", sample: "米国成人105名および322名", itemCount: 5, responseFormat: "7件法の両極尺度", language: "English", adaptation: "Spears & Singhの5項目を、広告視聴後に対象ブランドの商品を将来購入する意向へ適用。", result: "Intel標本でα=.96、Ancestry.com標本でα=.98。異なるブランドと広告様式で同じ5項目を使用。", doi: "10.1002/mar.21910", url: "https://doi.org/10.1002/mar.21910" },
+        { title: "Morality rules: Understanding the role of prior reputation in consequences of scansis", authors: "Wei & Diddi", year: 2022, context: "企業の事前評判と道徳的スキャンダルを操作したオンライン実験", sample: "成人293名", itemCount: 3, responseFormat: "7件法の両極尺度", language: "English", adaptation: "Spears & Singhの5項目から、購入可能性・購入関心・購入意図を表す3組を使用。正式短縮版ではなく研究内抜粋版。", result: "3項目のα=.96。良い評判の企業でも道徳的問題後に強い反発が生じることを示した。", doi: "10.1016/j.pubrev.2022.102147", url: "https://doi.org/10.1016/j.pubrev.2022.102147" },
       ],
       itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-15",
       notes: "購買意向は行動の代理指標であり、実購買率とは一致しない可能性がある。可能なら行動ログや追跡購買も併用する。",
