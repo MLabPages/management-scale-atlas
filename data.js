@@ -2,10 +2,10 @@
 // DOI、原典、項目数、下位次元は原著論文または公式資料で確認。
 const ATLAS_DATA = {
   meta: {
-    version: "0.35.0",
+    version: "0.36.0",
     status: "initial-real-data",
     updated: "2026-07-19",
-    scope: "50概念・75尺度",
+    scope: "50概念・76尺度",
   },
 
   concepts: [
@@ -1840,15 +1840,64 @@ const ATLAS_DATA = {
       reverseItems: [], scoring: "単一次元17項目。短縮版と区別する。",
       targetPopulation: ["消費者"],
       language: "English", versionType: "original", parentScaleId: null,
-      japaneseVersionStatus: "unconfirmed",
-      japaneseStatusNote: "CETSCALEの日本語使用研究は存在し得ますが、翻訳手続や心理測定学的検証を確認できる根拠を今回まだ登録していません。",
-      japaneseEvidence: [],
+      japaneseVersionStatus: "validated",
+      japaneseStatusNote: "Netemeyerら（1991）が日本の大学生76名を含む4か国で17項目版を検証し、日本標本でα=.91を報告しています。具体的な日本語項目表現は本サイトに未収録のため、使用時は原論文・調査票を確認してください。",
+      japaneseEvidence: [
+        { kind: "psychometric-validation", label: "日本を含む4か国での17項目版検証", authors: "Netemeyer, Durvasula, & Lichtenstein", year: 1991, title: "A Cross-National Assessment of the Reliability and Validity of the CETSCALE", doi: "10.1177/002224379102800306", url: "https://doi.org/10.1177/002224379102800306" },
+      ],
       validationStudies: [], usagePermission: "unknown", usageEvidence: [],
       psychometricEvidence: [
         { label: "原著の尺度開発", sample: "米国で実施した4つの研究", methods: "信頼性、収束・弁別妥当性、法則的妥当性の検討", result: "17項目尺度の信頼性と複数の妥当性証拠を報告", url: "https://doi.org/10.1177/002224378702400304" },
+        { label: "日本を含む4か国での交差文化検証", sample: "米国71名、フランス70名、日本76名、西ドイツ73名", methods: "17項目版の信頼性、心理測定特性、法則的妥当性を国別に検討", result: "4か国で信頼性を支持。日本標本のα=.91。", url: "https://doi.org/10.1177/002224379102800306" },
       ],
-      itemPublicationStatus: "not-published", items: [],
+      applicationEvidence: [
+        { label: "17項目原版の4か国検証", itemCounts: [17], evidenceType: "cross-national-validation", summary: "米国だけで開発された原版をフランス・日本・西ドイツへ拡張し、国際比較での信頼性と妥当性を検討。", title: "A Cross-National Assessment of the Reliability and Validity of the CETSCALE", year: 1991, doi: "10.1177/002224379102800306", url: "https://doi.org/10.1177/002224379102800306" },
+        { label: "後続の正式な6項目版", itemCounts: [17, 6], evidenceType: "validated-short-form", summary: "Kleinら（2006）が17項目原版から6項目を選び、中国・ロシアと4か国既存データを含む8標本で検証。別レコードのCETSCALE-6として登録。", title: "Extending the construct of consumer ethnocentrism: When foreign products are preferred", year: 2006, doi: "10.1108/02651330610670460", url: "https://doi.org/10.1108/02651330610670460" },
+      ],
+      usageStudies: [
+        { title: "A Cross-National Assessment of the Reliability and Validity of the CETSCALE", authors: "Netemeyer, Durvasula, & Lichtenstein", year: 1991, context: "米国・フランス・日本・西ドイツの交差文化比較", sample: "大学生290名（米国71、フランス70、日本76、西ドイツ73）", itemCount: 17, responseFormat: "7件法", language: "English / French / Japanese / German study context", adaptation: "CETSCALE 17項目を4か国で使用し、心理測定特性と法則的妥当性を比較。", result: "4か国で信頼性を支持し、αは米国=.95、フランス=.92、日本=.91、西ドイツ=.94。", doi: "10.1177/002224379102800306", url: "https://doi.org/10.1177/002224379102800306" },
+      ],
+      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-19",
       notes: "6項目・10項目などの短縮版、各国語版とは項目数と検証根拠を分けて扱う。",
+      recordStatus: "verified-metadata",
+    },
+    {
+      id: "cetscale-klein-6",
+      name: "Consumer Ethnocentric Tendencies Scale – 6 item",
+      abbreviation: "CETSCALE-6",
+      conceptId: "consumer-ethnocentrism",
+      authors: ["Jill Gabrielle Klein", "Richard Ettenson", "Balaji C. Krishnan"],
+      year: 2006,
+      sourceTitle: "Extending the Construct of Consumer Ethnocentrism: When Foreign Products Are Preferred",
+      journal: "International Marketing Review, 23(3), 304–321",
+      doi: "10.1108/02651330610670460",
+      sourceUrl: "https://doi.org/10.1108/02651330610670460",
+      itemCount: 6,
+      dimensions: ["Consumer ethnocentrism"],
+      responseFormat: "原論文・適用研究を確認",
+      reverseItems: [], scoring: "17項目原版の項目2・4・7・11・13・17に対応する6項目を合計または平均。採用言語の得点化を確認する。",
+      targetPopulation: ["消費者", "国産品・輸入品を選択できる消費者"],
+      language: "English / Chinese / Russian and reanalyzed country versions", versionType: "short", parentScaleId: "cetscale",
+      japaneseVersionStatus: "validated",
+      japaneseStatusNote: "Kleinら（2006）はNetemeyerらの日本標本を含む4か国データを6項目で再分析し、中国・ロシアの新規標本と合わせて検証しています。ただし、日本で6項目版を新たに収集した独立検証ではありません。",
+      japaneseEvidence: [
+        { kind: "psychometric-validation", label: "日本データを含む6項目版の再分析", authors: "Klein, Ettenson, & Krishnan", year: 2006, title: "Extending the Construct of Consumer Ethnocentrism: When Foreign Products Are Preferred", doi: "10.1108/02651330610670460", url: "https://doi.org/10.1108/02651330610670460" },
+      ],
+      validationStudies: [], usagePermission: "unknown", usageEvidence: [],
+      psychometricEvidence: [
+        { label: "6か国8標本での6項目版検証", sample: "中国・ロシアの学生／非学生標本と、米国・フランス・日本・西ドイツの既存データを含む8標本", methods: "項目精選、因子構造、信頼性、交差文化的一貫性、既存4か国データの再分析", result: "移行経済と先進国を含む6か国8標本で、単一次元の簡潔な6項目版を支持。", url: "https://doi.org/10.1108/02651330610670460" },
+        { label: "ニュージーランド・シンガポールでの再検証", sample: "ニュージーランド127名、シンガポール145名", methods: "17項目を収集し、Kleinらの6項目モデルを国別CFAで比較", result: "両国で単一次元モデルと高い合成信頼性を支持。", url: "https://www.businessperspectives.org/images/pdf/applications/publishing/templates/article/assets/5619/im_en_2014_01_Durvasula.pdf" },
+      ],
+      applicationEvidence: [
+        { label: "17項目から検証された6項目短縮版", itemCounts: [17, 6], evidenceType: "validated-short-form", summary: "単なる任意削除ではなく、中国・ロシアで開発し、米国・フランス・日本・西ドイツの既存データで再検証した低負担版。", title: "Extending the Construct of Consumer Ethnocentrism", year: 2006, doi: "10.1108/02651330610670460", url: "https://doi.org/10.1108/02651330610670460" },
+        { label: "独立2か国標本での6項目モデル追試", itemCounts: [6, 10, 17], evidenceType: "cross-national-validation", summary: "ニュージーランドとシンガポールで17項目を収集し、6項目・10項目・17項目モデルを比較。6項目版も両国で支持された。", title: "Probing the etic vs. emic nature of consumer ethnocentrism", year: 2014, doi: "", url: "https://epublications.marquette.edu/market_fac/146/" },
+      ],
+      usageStudies: [
+        { title: "Extending the Construct of Consumer Ethnocentrism: When Foreign Products Are Preferred", authors: "Klein, Ettenson, & Krishnan", year: 2006, context: "中国・ロシアと先進4か国の消費者エスノセントリズム", sample: "中国・ロシアの学生／非学生4標本と、米国・フランス・日本・西ドイツの4標本（計8標本）", itemCount: 6, responseFormat: "原論文を確認", language: "Chinese / Russian / four reanalyzed country versions", adaptation: "17項目原版から項目2・4・7・11・13・17を選定した6項目短縮版を開発・検証。", result: "移行経済と先進国を含む6か国8標本で一貫した支持を報告。", doi: "10.1108/02651330610670460", url: "https://doi.org/10.1108/02651330610670460" },
+        { title: "Probing the etic vs. emic nature of consumer ethnocentrism: Cross-national evidence", authors: "Durvasula & Lysonski", year: 2014, context: "ニュージーランドとシンガポールの若年消費者比較", sample: "ニュージーランド127名、シンガポール145名", itemCount: 6, responseFormat: "7件法", language: "English", adaptation: "17項目全体を収集したうえで、Kleinらの6項目版を抽出し、10項目版・17項目版とCFAで比較。", result: "6項目版の単一次元性と高い合成信頼性を両国で支持。", url: "https://epublications.marquette.edu/market_fac/146/" },
+      ],
+      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-19",
+      notes: "17項目原版から検証手続を経て作られた短縮版。国や製品カテゴリーに応じて『国内』『外国』の意味が変わるため、翻訳だけでなく政策・市場文脈も確認する。",
       recordStatus: "verified-metadata",
     },
     {
