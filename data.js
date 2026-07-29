@@ -2,10 +2,10 @@
 // DOI、原典、項目数、下位次元は原著論文または公式資料で確認。
 const ATLAS_DATA = {
   meta: {
-    version: "0.40.0",
+    version: "0.41.0",
     status: "initial-real-data",
-    updated: "2026-07-19",
-    scope: "55概念・85尺度",
+    updated: "2026-07-29",
+    scope: "55概念・86尺度",
   },
 
   concepts: [
@@ -3289,17 +3289,21 @@ const ATLAS_DATA = {
       reverseItems: [], scoring: "道具的触覚欲求6項目と、自己目的的触覚欲求6項目を別々に平均する。総合得点を使う場合も、研究目的に照らして2次元性を確認する。",
       targetPopulation: ["製品を評価する消費者", "店舗・オンライン購買の消費者"],
       language: "English", versionType: "original", parentScaleId: null,
-      japaneseVersionStatus: "unconfirmed",
-      japaneseStatusNote: "NFT-12の検証済み標準日本語版・明確な日本語使用例は今回未登録です。触覚的な身体反応の日本語尺度を、この個人差尺度の日本語版として扱わないでください。",
-      japaneseEvidence: [], validationStudies: [], usagePermission: "unknown", usageEvidence: [],
+      japaneseVersionStatus: "linguistic-validated",
+      japaneseStatusNote: "石井・朴・外川（2017）がNFT-12を複数翻訳者による並行翻訳、比較検討、再翻訳を経て日本語化し、4実験で使用しています。標準化された日本語版開発論文ではありませんが、翻訳手続と複数文脈での信頼性が確認できるため、言語的妥当性確認として登録します。",
+      japaneseEvidence: [
+        { kind: "linguistic-validated", label: "並行翻訳・再翻訳を伴う日本語12項目使用", authors: "石井裕明・朴宰佑・外川拓", year: 2017, title: "重さは評価を高めるのか？―接触欲求と視覚的表現による調整効果の検討―", doi: "10.11194/acs.24.1_1", url: "https://doi.org/10.11194/acs.24.1_1" },
+      ], validationStudies: [], usagePermission: "unknown", usageEvidence: [],
       psychometricEvidence: [
         { label: "2次元12項目尺度の開発", sample: "消費者・学生を対象とする複数の尺度開発研究", methods: "項目生成、探索的・確認的因子分析、触覚情報利用との関係および実験的検証", result: "触覚を製品評価の手段として求める道具的次元と、触る行為自体を楽しむ自己目的的次元を各6項目で区別。両次元が触覚情報処理の個人差を説明することを報告。", url: "https://doi.org/10.1086/378619" },
       ],
       applicationEvidence: [
         { label: "触覚の機能を分ける12項目版", itemCounts: [12, 6], evidenceType: "scale-development", summary: "製品情報を得るために触るか、触る行為そのものを好むかを区別できる。仮説が一方だけを対象にする場合は対応する6項目下位尺度を用いるが、総合的な触覚欲求へ一般化しない。", title: "Individual Differences in Haptic Information Processing", year: 2003, doi: "10.1086/378619", url: "https://doi.org/10.1086/378619" },
       ],
-      usageStudies: [],
-      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-28",
+      usageStudies: [
+        { title: "重さは評価を高めるのか？―接触欲求と視覚的表現による調整効果の検討―", authors: "石井・朴・外川", year: 2017, context: "タブレット、飲料、ホテル広告、栄養ドリンク広告における重さと製品評価の4実験", sample: "実験1の分析58名、実験3は50名、実験4の分析91名（ほか実験2・予備調査を含む）", itemCount: 12, responseFormat: "7件法", language: "Japanese", adaptation: "Peck & ChildersのNFT-12を複数翻訳者が並行翻訳し、訳文の比較検討と再翻訳を実施。4実験で同じ日本語12項目を使用。", result: "NFT-12は実験1でα=.87、実験3・4でα=.89。高NFT群では重さが知覚品質や広告評価を高める条件を複数製品文脈で確認。", doi: "10.11194/acs.24.1_1", url: "https://doi.org/10.11194/acs.24.1_1" },
+      ],
+      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-29",
       notes: "触覚可能性の操作や、刺激による一時的な身体反応を測る尺度ではない。製品・サービスの触覚情報を求める安定的な個人差に使う。",
       recordStatus: "verified-metadata",
     },
@@ -3320,17 +3324,21 @@ const ATLAS_DATA = {
       reverseItems: [], scoring: "創造的選択による非同調11項目、非人気選択による非同調11項目、類似回避9項目を次元別に算出する。31項目の単純短縮では3次元の内容範囲を損なうため注意する。",
       targetPopulation: ["一般消費者", "独自性や差異化を消費で表現する消費者"],
       language: "English", versionType: "original", parentScaleId: null,
-      japaneseVersionStatus: "unconfirmed",
-      japaneseStatusNote: "CNFU-31の検証済み標準日本語版・明確な日本語使用例は今回未登録です。消費者革新性やブランド・パーソナリティの日本語尺度を代替の日本語版として扱わないでください。",
-      japaneseEvidence: [], validationStudies: [], usagePermission: "unknown", usageEvidence: [],
+      japaneseVersionStatus: "related-version",
+      japaneseStatusNote: "中川（2024）がCNFUの類似回避次元に基づく5項目を日本語へ翻訳・逆翻訳し、Airbnb利用者293名で使用しています。3次元31項目版全体の日本語版ではなく、類似回避だけを測る関連版として登録します。",
+      japaneseEvidence: [
+        { kind: "related-version", label: "類似回避5項目の日本語翻訳・逆翻訳使用", authors: "中川正悦郎", year: 2024, title: "Effects of Consumers’ Perceived Variety and Perceived Uniqueness of Airbnb Accommodations on their Loyalty to the Platform: Moderating Role of Consumers’ Need for Uniqueness", url: "https://www.seijo.ac.jp/education/faeco/academic-journals/jtmo420000001iji-att/245-2nakagawa.pdf" },
+      ], validationStudies: [], usagePermission: "unknown", usageEvidence: [],
       psychometricEvidence: [
         { label: "3次元31項目尺度の開発・妥当化", sample: "学生および一般消費者を含む複数標本", methods: "質的項目生成、探索的・確認的因子分析、収束・弁別・基準関連妥当性の検討", result: "独自性追求を創造的選択、非人気選択、他者との類似回避という異なる消費行動として区別し、31項目の3次元尺度を提示。", url: "https://doi.org/10.1086/321947" },
       ],
       applicationEvidence: [
         { label: "独自性追求の行動様式を詳しく診断", itemCounts: [31, 11, 9], evidenceType: "scale-development", summary: "独自性欲求の強さだけでなく、どのような非同調・類似回避を行うかを区別したいときに向く。複数概念調査で低負担を優先する場合は、正式短縮版CNFU-S-12を比較する。", title: "Consumers' Need for Uniqueness", year: 2001, doi: "10.1086/321947", url: "https://doi.org/10.1086/321947" },
       ],
-      usageStudies: [],
-      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-28",
+      usageStudies: [
+        { title: "Effects of Consumers’ Perceived Variety and Perceived Uniqueness of Airbnb Accommodations on their Loyalty to the Platform: Moderating Role of Consumers’ Need for Uniqueness", authors: "Nakagawa", year: 2024, context: "日本のAirbnb利用者における宿泊施設の多様性・独自性とプラットフォーム・ロイヤルティ", sample: "過去3年以内に国内旅行でAirbnbを利用した日本の消費者293名", itemCount: 5, responseFormat: "7件法", language: "Japanese", adaptation: "TianらとAbosagらを基に類似回避次元だけを5項目へ適応。著者が日本語訳し、バイリンガル翻訳者が英語へ逆翻訳。CNFU-31全体ではない。", result: "α=.945、CR=.946、AVE=.777。測定モデルはCFI=.981、RMSEA=.060。独自性欲求がAirbnbの多様性・独自性から楽しさ・ロイヤルティへの関係を調整。", url: "https://www.seijo.ac.jp/education/faeco/academic-journals/jtmo420000001iji-att/245-2nakagawa.pdf" },
+      ],
+      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-29",
       notes: "新奇性を好む消費者革新性とは関連するが、中心は他者との差異を消費で表現する動機である。正式12項目短縮版は別レコード。",
       recordStatus: "verified-metadata",
     },
@@ -3390,6 +3398,7 @@ const ATLAS_DATA = {
       ],
       applicationEvidence: [
         { label: "買物経験の快楽と有用性を分ける", itemCounts: [15, 11, 4], evidenceType: "scale-development", summary: "製品の品質や価格対価値ではなく、買物プロセスから得た経験価値を測る。功利的4項目だけを使う場合は、快楽的価値を測っていないことを明示する。", title: "Work and/or Fun", year: 1994, doi: "10.1086/209376", url: "https://doi.org/10.1086/209376" },
+        { label: "190研究のメタ分析で成果変数との関連を整理", itemCounts: [15], evidenceType: "meta-analysis", summary: "1995～2014年の190研究を統合し、快楽的・功利的買物価値はいずれも満足、購買意図、ロイヤルティ等と正に関連した。ただし尺度そのものを使った全世界の累計件数ではない。", title: "A Meta-Analytic Review of Hedonic and Utilitarian Shopping Values", year: 2018, doi: "10.1108/JCM-08-2016-1914", url: "https://doi.org/10.1108/JCM-08-2016-1914" },
       ],
       usageStudies: [
         { title: "Still Work and/or Fun? Corroboration of the Hedonic and Utilitarian Shopping Value Scale", authors: "Picot-Coupey, Krey, Huré, & Ackermann", year: 2021, context: "小売買物文脈における快楽的・功利的買物価値尺度の再検証", sample: "複数の小売買物文脈を用いた消費者標本（標本詳細は原文参照）", itemCount: 15, responseFormat: "原文参照", language: "French / English study context", adaptation: "Babinらの快楽的・功利的買物価値尺度を再検討し、小売文脈での項目構造と尺度運用を検証。", result: "買物価値を快楽的・功利的に区別する測定の有用性を再検討し、文脈を踏まえた尺度運用の必要性を報告。", doi: "10.1016/j.jbusres.2019.12.018", url: "https://doi.org/10.1016/j.jbusres.2019.12.018" },
@@ -3420,13 +3429,46 @@ const ATLAS_DATA = {
       japaneseEvidence: [], validationStudies: [], usagePermission: "unknown", usageEvidence: [],
       psychometricEvidence: [
         { label: "3次元10項目・二次因子モデルの開発", sample: "インターネット利用者を対象とする複数の調査標本", methods: "項目生成、探索的・確認的因子分析、二次因子モデル、信頼性・収束・弁別・名目法則的妥当性の検討", result: "個人情報の収集、利用者によるコントロール、企業による情報取扱いの認識を区別する10項目尺度を提示し、プライバシー懸念から信頼・行動意図への因果モデルを検討。", url: "https://doi.org/10.1287/isre.1040.0032" },
+        { label: "独立3標本によるIUIPC-10の再検討", sample: "相互に独立した3標本、計1,031名", methods: "確認的因子分析、次元性、構成概念妥当性、信頼性の再評価", result: "3次元性は確認した一方、ControlとAwarenessの単一次元性、IUIPC-10の構成概念妥当性・信頼性に弱点を報告。8項目再指定版を提示。", url: "https://doi.org/10.2478/popets-2021-0026" },
       ],
       applicationEvidence: [
         { label: "プライバシー懸念の内容を3側面で測定", itemCounts: [10], evidenceType: "scale-development", summary: "情報がどれだけ集められるかへの懸念、本人が制御できるという認識、取扱方針を知っているという認識を分けて測る。知覚リスク全般や特定企業への信頼とは置き換えない。", title: "Internet Users' Information Privacy Concerns (IUIPC)", year: 2004, doi: "10.1287/isre.1040.0032", url: "https://doi.org/10.1287/isre.1040.0032" },
+        { label: "原版10項目と再指定8項目を比較", itemCounts: [10, 8, 4, 2], evidenceType: "replication-and-respecification", summary: "後続検証ではIUIPC-8の適合・妥当性・信頼性がIUIPC-10より良好だった。原版を慣例だけで選ばず、短縮版の内容範囲の狭まりも含めて比較する。", title: "Validity and Reliability of the Scale Internet Users’ Information Privacy Concerns", year: 2021, doi: "10.2478/popets-2021-0026", url: "https://doi.org/10.2478/popets-2021-0026" },
       ],
       usageStudies: [],
       itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-28",
       notes: "プライバシー懸念を単一の不安として扱うのではなく、収集・制御・認識のどこに問題があるかを分けて検討したいデジタル消費者研究に向く。",
+      recordStatus: "verified-metadata",
+    },
+    {
+      id: "internet-users-information-privacy-concerns-gross-8",
+      name: "Internet Users' Information Privacy Concerns Scale – Respecified 8-item Form",
+      abbreviation: "IUIPC-8",
+      conceptId: "internet-privacy-concerns",
+      authors: ["Thomas Groß"],
+      year: 2021,
+      sourceTitle: "Validity and Reliability of the Scale Internet Users’ Information Privacy Concerns (IUIPC)",
+      journal: "Proceedings on Privacy Enhancing Technologies, 2021(2), 235–258",
+      doi: "10.2478/popets-2021-0026",
+      sourceUrl: "https://doi.org/10.2478/popets-2021-0026",
+      itemCount: 8,
+      dimensions: ["Collection", "Control", "Awareness"],
+      responseFormat: "7件法",
+      reverseItems: [], scoring: "Collection 4項目、Control 2項目、Awareness 2項目を3次元モデルとして扱う。ControlとAwarenessは2指標のみのため、各下位尺度を単独の独立尺度として使わない。",
+      targetPopulation: ["インターネット利用者", "オンラインで個人情報を提供する消費者"],
+      language: "English", versionType: "respecified-short-form", parentScaleId: "internet-users-information-privacy-concerns-malhotra-10",
+      japaneseVersionStatus: "unconfirmed",
+      japaneseStatusNote: "IUIPC-8の検証済み標準日本語版・明確な日本語使用例は今回未登録です。IUIPC-10の独自日本語訳から2項目を削るだけでは、IUIPC-8の日本語版検証にはなりません。",
+      japaneseEvidence: [], validationStudies: [], usagePermission: "unknown", usageEvidence: [],
+      psychometricEvidence: [
+        { label: "独立3標本による8項目再指定と検証", sample: "相互に独立した3標本、計1,031名", methods: "IUIPC-10のCFA、因子分析、8項目再指定、独立検証標本での構成概念妥当性・信頼性比較", result: "IUIPC-8はIUIPC-10より統計的に有意に良いモデルを示し、構成概念妥当性と信頼性でも上回った。3次元構造を維持。", url: "https://doi.org/10.2478/popets-2021-0026" },
+      ],
+      applicationEvidence: [
+        { label: "10項目原版を再指定した8項目版", itemCounts: [8, 10, 4, 2], evidenceType: "replication-and-respecification", summary: "回答負荷と測定特性の点で有力な選択肢。ただしControl・Awarenessは各2項目となり内容範囲が狭く、単独下位尺度としてはモデル同定上の制約がある。", title: "Validity and Reliability of the Scale Internet Users’ Information Privacy Concerns", year: 2021, doi: "10.2478/popets-2021-0026", url: "https://doi.org/10.2478/popets-2021-0026" },
+      ],
+      usageStudies: [],
+      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-29",
+      notes: "原版IUIPC-10より短く測定特性が改善された再指定版。ただし2項目下位尺度を単独利用する用途には向かず、3次元全体で使用する。",
       recordStatus: "verified-metadata",
     },
   ],
