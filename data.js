@@ -2,7 +2,7 @@
 // DOI、原典、項目数、下位次元は原著論文または公式資料で確認。
 const ATLAS_DATA = {
   meta: {
-    version: "0.43.0",
+    version: "0.44.0",
     status: "initial-real-data",
     updated: "2026-07-30",
     scope: "63概念・95尺度",
@@ -3701,7 +3701,9 @@ const ATLAS_DATA = {
       applicationEvidence: [
         { label: "真正性を4側面で診断する15項目版", itemCounts: [15, 4], evidenceType: "scale-development", summary: "ブランドの歴史的一貫性、約束の実行、価値原則、自己表現上の意味を分けたい研究に向く。ブランド信頼・信憑性だけを測る尺度とは置き換えない。", title: "Brand Authenticity: An Integrative Framework and Measurement Scale", year: 2015, doi: "10.1016/j.jcps.2014.11.006", url: "https://doi.org/10.1016/j.jcps.2014.11.006" },
       ],
-      usageStudies: [],
+      usageStudies: [
+        { title: "Engaging Customers through Brand Authenticity Perceptions: The Moderating Role of Self-Congruence", authors: "Kumar & Kaushik", year: 2022, context: "インドのブランド利用者における真正性、ブランド・エンゲージメント、利用意図、価格プレミアム支払意思", sample: "主にインドの学生を含むブランド利用者380名", itemCount: 15, responseFormat: "原論文参照", language: "English", adaptation: "Morhartらの4次元15項目PBA尺度を使用。", result: "継続性、信頼性、誠実性がブランド・エンゲージメントへ正の影響を示し、エンゲージメントは利用意図と価格プレミアム支払意思へ影響。測定項目を含む構成概念のαは.785～.917。", doi: "10.1016/j.jbusres.2021.08.065", url: "https://doi.org/10.1016/j.jbusres.2021.08.065" },
+      ],
       itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-30",
       notes: "企業側が真正性を主張しているかではなく、消費者がブランドをどう知覚するかを測る。4次元を保持した短縮版の根拠は別途確認が必要。",
       recordStatus: "verified-metadata",
@@ -3732,7 +3734,9 @@ const ATLAS_DATA = {
       applicationEvidence: [
         { label: "人間らしさを外見以外も含めて12項目で診断", itemCounts: [12, 4], evidenceType: "scale-development", summary: "顔や身体に似ているかだけでなく、道徳性・思考・感情まで含む。広告刺激の操作チェック用1～2項目とは区別して使う。", title: "Seeing Brands as Humans", year: 2020, doi: "10.1016/j.ijresmar.2020.02.007", url: "https://doi.org/10.1016/j.ijresmar.2020.02.007" },
       ],
-      usageStudies: [],
+      usageStudies: [
+        { title: "Does Brand Anthropomorphism and Brand Intimacy Matter to Assess Consumers’ Engagement Successfully?", authors: "Dan & Trong", year: 2023, context: "ベトナム・ホーチミン市におけるSamsungブランドの擬人化、親密性、ブランド・エンゲージメント", sample: "オンライン調査の有効回答357名", itemCount: 12, responseFormat: "原論文参照", language: "Vietnamese", adaptation: "GolossenkoらのBASC-12の4次元を翻案して使用。分析では外見、認知経験、意識的感情の3成分が残り、道徳性は同じ構造を再現しなかった。", result: "ブランド擬人化は親密性とブランド・エンゲージメントへ直接影響し、親密性の媒介も確認。原版4次元がそのまま再現されなかったため、文化・ブランド別の構造確認が必要。", doi: "10.1080/23311975.2023.2249897", url: "https://doi.org/10.1080/23311975.2023.2249897" },
+      ],
       itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-30",
       notes: "ブランドの性格イメージだけを測る尺度ではない。ブランドが人間のような主体として知覚される程度を4側面で測る。",
       recordStatus: "verified-metadata",
@@ -3763,7 +3767,9 @@ const ATLAS_DATA = {
       applicationEvidence: [
         { label: "着想と消費行動意欲を各5項目で分離", itemCounts: [10, 5], evidenceType: "scale-development", summary: "広告や店舗体験が面白かったかだけでなく、新しい着想が実際の探索・購買意欲へ移ったかを検証できる。片方だけ使う場合は顧客インスピレーション全体と呼ばない。", title: "Customer Inspiration", year: 2017, doi: "10.1509/jm.15.0007", url: "https://doi.org/10.1509/jm.15.0007" },
       ],
-      usageStudies: [],
+      usageStudies: [
+        { title: "The Dataset for Validation of Customer Inspiration Construct in Malaysian Context", authors: "Ghouri, Kin, Yunus, & Akhtar", year: 2019, context: "マレーシアの自動車産業ミレニアル顧客とスマートフォン産業Generation Z顧客", sample: "2研究・有効回答計400名", itemCount: 10, responseFormat: "原論文参照", language: "English", adaptation: "BöttgerらのInspired-by 5項目とInspired-to 5項目を発展途上国の2産業文脈で使用。", result: "2データセットで顧客インスピレーションの測定を検証し、市場志向の下位構成概念と顧客ロイヤルティの関係を顧客インスピレーションが媒介。", doi: "10.1016/j.dib.2019.104131", url: "https://doi.org/10.1016/j.dib.2019.104131" },
+      ],
       itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-30",
       notes: "一時的な状態尺度であり、個人の安定的な創造性傾向ではない。刺激提示後の着想と行動意欲を時間的に対応させる。",
       recordStatus: "verified-metadata",
