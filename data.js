@@ -2,10 +2,10 @@
 // DOI、原典、項目数、下位次元は原著論文または公式資料で確認。
 const ATLAS_DATA = {
   meta: {
-    version: "0.46.0",
+    version: "0.47.0",
     status: "initial-real-data",
     updated: "2026-08-10",
-    scope: "63概念・95尺度",
+    scope: "63概念・96尺度",
   },
 
   concepts: [
@@ -57,7 +57,16 @@ const ATLAS_DATA = {
       domain: "身体性・没入・主体感",
       relatedConcepts: ["presence", "flow"],
       parentConcepts: [], childConcepts: [], typicalAntecedents: [], typicalOutcomes: [],
-      references: ["10.3389/fpsyg.2017.01552", "10.1016/j.concog.2013.04.003"],
+      decisionGuide: {
+        question: "どの主体感を測りたいですか？",
+        choices: [
+          { label: "VR内のアバターや仮想身体を、自分の動きで制御している感覚", scaleId: "virtual-embodiment-questionnaire-agency", recommendation: "4項目の第一候補", reason: "VR体験の直後に測る公式4項目のAgency下位尺度。アバターの動き・身体追跡・視覚運動同期を操作する研究向け。" },
+          { label: "日常的に、自分が心身や周囲を制御していると感じる傾向", scaleId: "sense-of-agency-scale", recommendation: "日本語で一般成人を調べる候補", reason: "J-SoASとして日本語版の検証根拠がある13項目尺度。特定のVR体験の直後の変化を主に測る用途には広すぎる。" },
+          { label: "催眠などで、行為が自分の意図から生じないと感じる変容", scaleId: "sense-of-agency-rating-scale", recommendation: "特定用途", reason: "催眠中の不随意感・努力不要感を測る10項目尺度。VRの操作主体感の代わりには使わない。" },
+        ],
+        caution: "アバター身体を用いない画面操作・乗り物操作では、VEQの4項目をそのまま採用できるとは限りません。操作対象と質問文の一致、翻訳、因子構造を事前に確認してください。",
+      },
+      references: ["10.3389/fpsyg.2017.01552", "10.1016/j.concog.2013.04.003", "10.1109/TVCG.2020.3023603"],
     },
     {
       id: "presence",
@@ -878,6 +887,42 @@ const ATLAS_DATA = {
       usageEvidence: [],
       itemPublicationStatus: "not-published", items: [],
       notes: "特定課題ではなく、文脈横断的・一般的な主体感の信念を測定。原著はオープンアクセス。",
+      recordStatus: "verified-metadata",
+    },
+    {
+      id: "virtual-embodiment-questionnaire-agency",
+      name: "Virtual Embodiment Questionnaire – Control / Agency Subscale",
+      abbreviation: "VEQ-AG",
+      conceptId: "sense-of-agency",
+      authors: ["Daniel Roth", "Marc Erich Latoschik"],
+      year: 2020,
+      sourceTitle: "Construction of the Virtual Embodiment Questionnaire (VEQ)",
+      journal: "IEEE Transactions on Visualization and Computer Graphics, 26(12), 3546–3556",
+      doi: "10.1109/TVCG.2020.3023603",
+      sourceUrl: "https://doi.org/10.1109/TVCG.2020.3023603",
+      itemCount: 4,
+      dimensions: ["Control / Agency over a virtual body"],
+      responseFormat: "7件法（0–6件法も使用可）",
+      reverseItems: [], scoring: "公式VEQのControl / Agency 4項目を平均する。仮想身体の動きが自分の動き・制御・原因として感じられ、同期している感覚を測る。",
+      targetPopulation: ["VR利用者", "アバターを操作する参加者"],
+      language: "English", versionType: "subscale", parentScaleId: null,
+      japaneseVersionStatus: "unconfirmed",
+      japaneseStatusNote: "VEQのAgency 4項目について、検証済みの日本語版は今回の確認範囲では登録していません。日本語で使う場合は、単なる直訳ではなく、VR内の仮想身体・動作同期を指す表現として予備検討してください。",
+      japaneseEvidence: [],
+      validationStudies: [], usagePermission: "unknown", usageEvidence: [],
+      psychometricEvidence: [
+        { label: "VEQの構成・妥当性検証", sample: "3実験の計196名、追試22名", methods: "アバターへの没入度・個別化・行動的リアリズムを操作した確認的因子分析と追試", result: "所有感、主体感、身体図式の変化からなる各4項目・全12項目のVEQを支持", url: "https://doi.org/10.1109/TVCG.2020.3023603" },
+      ],
+      applicationEvidence: [
+        { label: "VR直後の主体感を公式4項目で測定", itemCounts: [4], evidenceType: "official-subscale", summary: "VEQは所有感・主体感・身体図式変化を各4項目で測る12項目尺度であり、主体感はControl / Agency下位尺度として独立に平均できる。仮想身体の操作経験直後に使う。", title: "Virtual Embodiment Questionnaire – English", year: 2020, doi: "10.1109/TVCG.2020.3023603", url: "https://rothnroll.de/download/VEQ-Questionnaire-enUS4.pdf" },
+      ],
+      usageStudies: [
+        { title: "Are Embodied Avatars Harmful to our Self-Experience? The Impact of Virtual Embodiment on Body Awareness", authors: "Fiedler et al.", year: 2023, context: "仮想身体化・鏡視・身体意識", sample: "ドイツの大学関係者40名", itemCount: 4, responseFormat: "7件法（体験中は各次元の代表1項目も反復測定）", language: "English / German study context", adaptation: "VR体験後にVEQの主体感下位尺度を使用し、体験中には因子負荷の高い代表項目を用いた。", result: "仮想身体の動きが自分の動きと感じられる主体感を、所有感・身体図式変化と区別して評価。", doi: "10.1145/3544548.3580918", url: "https://doi.org/10.1145/3544548.3580918" },
+        { title: "The Influence of Perspective on VR Job Interview Training", authors: "Ueda, Fujimoto, Sawabe, Kanbara, & Kato", year: 2024, context: "VR面接訓練における一人称・三人称視点と身体化", sample: "日本の大学院生22名、8回のVR面接訓練", itemCount: 4, responseFormat: "7件法", language: "Japanese study context", adaptation: "各VR訓練の直後にVEQの主体感4項目を平均し、仮想身体の所有感と併せて評価。", result: "視点条件ごとのVR訓練で、主体感を反復測定する指標として利用。", doi: "10.3389/frvir.2024.1506070", url: "https://doi.org/10.3389/frvir.2024.1506070" },
+        { title: "Haptics-mediated Virtual Embodiment: Impact of a Wearable Avatar-controlling System with Kinesthetic Gloves on Embodiment in VR", authors: "Li, Bujić, Buruk, Bampouni, Järvelä, & Hamari", year: 2024, context: "全身アバターの自己接触と運動覚フィードバック", sample: "VR利用者32名", itemCount: 4, responseFormat: "7件法", language: "English", adaptation: "全身アバターを操作した後、VEQの3次元を各4項目で測定し、Agency下位尺度は平均得点を用いた。", result: "Agencyの内的一貫性はω=.804。運動覚フィードバックの有無によるAgency差は有意ではなかったことも報告。", doi: "10.3389/frvir.2024.1439724", url: "https://doi.org/10.3389/frvir.2024.1439724" },
+      ],
+      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-08-10",
+      notes: "一般的な主体感の短縮版ではなく、仮想身体に対する状態的な操作主体感を測る公式下位尺度。アバターを伴わない操作体験へ無検証で転用しない。",
       recordStatus: "verified-metadata",
     },
     {
