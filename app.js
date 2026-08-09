@@ -255,6 +255,11 @@ function init() {
   ["query", "domain-filter", "japanese-filter", "practice-filter", "short-form-filter", "measurement-style-filter", "permission-filter", "items-filter", "usage-sort"].forEach((id) => $("#" + id).addEventListener(id === "query" ? "input" : "change", renderScales));
   $("#clear-filters").onclick = () => { $("#query").value = ""; $$(".filters select").forEach((x) => (x.value = "")); renderScales(); };
   $$('[data-preset]').forEach((button) => (button.onclick = () => applyResearchPreset(button.dataset.preset)));
+  $$('[data-guide-view]').forEach((button) => (button.onclick = () => {
+    const view = button.dataset.guideView;
+    showView(view);
+    $(`#view-${view}`).scrollIntoView({ behavior: "smooth", block: "start" });
+  }));
   $("#export-csv").onclick = exportCsv;
   $("#export-json").onclick = exportJson;
   $("#coverage-domain").onchange = renderCoverage;

@@ -2,7 +2,7 @@
 // DOI、原典、項目数、下位次元は原著論文または公式資料で確認。
 const ATLAS_DATA = {
   meta: {
-    version: "0.45.0",
+    version: "0.46.0",
     status: "initial-real-data",
     updated: "2026-08-10",
     scope: "63概念・95尺度",
@@ -1329,6 +1329,10 @@ const ATLAS_DATA = {
       psychometricEvidence: [
         { label: "原著でのモデル検証", sample: "男子宗教系大学の卒業生297名", methods: "組織的・個人的先行要因と行動的結果との関連を検討", result: "6項目尺度を用いた組織同一視モデルを検証", url: "https://doi.org/10.1002/job.4030130202" },
       ],
+      usageStudies: [
+        { title: "Re-examine the Influence of Organizational Identification on Unethical Pro-supervisor Behavior", authors: "Sun, Shi, & Wang", year: 2022, context: "組織同一視、従業員の義務感、上司利益のための非倫理的行動の関係", sample: "中国のフルタイム従業員578名・3時点（各2週間間隔）質問紙調査", itemCount: 6, responseFormat: "原文の回答件法を確認", language: "Chinese", adaptation: "Mael & Ashforthの6項目尺度を中国語へ翻訳・逆翻訳して使用。", result: "組織同一視は、義務感を介して組織を害する上司利益行動を抑制する関係を支持。尺度のα=.83。", doi: "10.3389/fpsyg.2022.1060032", url: "https://doi.org/10.3389/fpsyg.2022.1060032" },
+        { title: "Exploring the Impact of Leadership Styles, Ethical Behavior, and Organizational Identification on Workers’ Well-Being", authors: "Gianni Onesti", year: 2023, context: "ポストCOVID期のイタリア企業におけるリーダーシップ、倫理風土、組織同一視と従業員ウェルビーイング", sample: "イタリアの中・大規模企業2社の従業員390名", itemCount: 6, responseFormat: "6件法", language: "Italian", adaptation: "Mael & Ashforthの原版6項目を組織文脈向けにイタリア語適応して使用。", result: "組織同一視は従業員の一般的ウェルビーイングと正に関連。", doi: "10.3390/admsci13060149", url: "https://doi.org/10.3390/admsci13060149" },
+      ],
       itemPublicationStatus: "not-published", items: [],
       notes: "組織コミットメントや情緒的愛着とは概念範囲が異なる。",
       recordStatus: "verified-metadata",
@@ -1805,6 +1809,10 @@ const ATLAS_DATA = {
       psychometricEvidence: [
         { label: "原著の尺度開発", sample: "相補的な2標本", methods: "二次確認的因子分析、収束・弁別妥当性、構造方程式による法則的ネットワーク", result: "4次元12項目の構成概念妥当性を支持", url: "https://doi.org/10.5465/256865" },
         { label: "日本語版の検証", sample: "7病院・3介護老人保健施設の看護職865名", methods: "内的整合性、探索的・確認的因子分析、収束的妥当性", result: "α=.82–.90、修正4因子モデル RMSEA=.08、CFI=.96、TLI=.94", url: "https://doi.org/10.19012/janap.23.1_50" },
+      ],
+      usageStudies: [
+        { title: "Structural Empowerment, Psychological Empowerment, and Work Engagement: A Cross-country Study", authors: "Monje Amor, Xanthopoulou, Calvo, & Abeal Vázquez", year: 2021, context: "構造的エンパワーメント、心理的エンパワーメント、ワーク・エンゲイジメント、業績・離職意図", sample: "スペインのサービス業従業員515名、英国のサービス業従業員518名", itemCount: 11, responseFormat: "原文の回答件法を確認", language: "Spanish / English", adaptation: "Spreitzerの12項目尺度とスペイン語適応版を使用。自己決定の1項目は両標本で因子負荷が不十分なため分析から除外。", result: "心理的エンパワーメントは構造的エンパワーメントとワーク・エンゲイジメントの正の関係を部分媒介し、両国で概ね同じ構造を支持。", doi: "10.1016/j.emj.2021.01.005", url: "https://doi.org/10.1016/j.emj.2021.01.005" },
+        { title: "Psychological Empowerment and Job Performance: Examining Serial Mediation Effects of Self-Efficacy and Affective Commitment", authors: "Ochoa Pacheco, Coello-Montecel, & Tello", year: 2023, context: "心理的エンパワーメントから職務遂行への自己効力感・情緒的コミットメントを介した関係", sample: "従業員357名", itemCount: 12, responseFormat: "原文の回答件法を確認", language: "Spanish", adaptation: "Spreitzerの12項目尺度のスペイン語版を使用。", result: "心理的エンパワーメントから職務遂行への、自己効力感と情緒的コミットメントによる連鎖媒介を支持。", doi: "10.3390/admsci13030076", url: "https://doi.org/10.3390/admsci13030076" },
       ],
       itemPublicationStatus: "not-published", items: [],
       notes: "患者エンパワーメントなど別概念のPESとは区別する。日本語版の利用には開発者条件を確認。",
