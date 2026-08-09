@@ -201,6 +201,12 @@
 .decision-alternatives button { margin: 3px 3px 3px 0; }
 .decision-alternatives .compare-mini { color: var(--soft); font-size: 0.74rem; }
 
+.concept-decision-list { display: grid; gap: 8px; margin: 12px 0; }
+.concept-decision-list article { padding: 11px; border: 1px solid #cfe0dc; border-radius: 8px; background: #fff; }
+.concept-decision-list strong { display: block; margin-top: 4px; color: var(--accent); font-size: 0.88rem; }
+.concept-decision-list p { margin: 4px 0; color: var(--soft); font-size: 0.8rem; line-height: 1.55; }
+.concept-decision-guide .decision-cautions p { margin: 5px 0 0; font-size: 0.8rem; }
+
 @media (max-width: 620px) {
   .research-paths { align-items: stretch; }
   .research-paths div { width: 100%; }

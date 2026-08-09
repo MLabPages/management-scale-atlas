@@ -11,7 +11,7 @@ const labels = {
   unconfirmed: "日本語版・使用例を未確認",
   open: "掲載・利用可", research: "研究利用可", unknown: "利用条件未確認",
   permission: "申請が必要", "research-use": "研究利用可",
-  "permission-required": "申請が必要", original: "原版", short: "短縮版", translated: "翻訳版",
+  "permission-required": "申請が必要", original: "原版", short: "短縮版", translated: "翻訳版", subscale: "公式下位尺度",
 };
 const recordStatusLabels = {
   "verified-metadata": "書誌・基本情報確認済み",
@@ -480,7 +480,8 @@ function openScale(id) {
 function openConcept(id) {
   const c = concepts.get(id);
   const related = c.relatedConcepts.map((x) => concepts.get(x)?.nameJa).filter(Boolean);
-  $("#detail-body").innerHTML = `<p class="sub">概念詳細・書誌確認済み</p><h2 class="detail-title">${esc(c.nameJa)}</h2><p class="sub">${esc(c.nameEn)}</p><div class="detail-section"><h3>定義</h3><p>${esc(c.definitionJa)}</p></div><div class="detail-section"><h3>関連概念</h3><p>${esc(related.join("、") || "未登録")}</p></div><div class="detail-section"><h3>関連尺度</h3>${ATLAS_DATA.scales.filter((s) => s.conceptId === id).map((s) => `<p><button class="text-button" data-modal-scale="${s.id}">${esc(s.name)}（${s.itemCount}項目）</button></p>`).join("")}</div>`;
+  const guide = c.decisionGuide ? `<div class="detail-section concept-decision-guide"><h3>${esc(c.decisionGuide.question)}</h3><p class="sub">目的と測定場面から候補を選び、尺度詳細で使用研究・日本語情報・利用条件を確認します。</p><div class="concept-decision-list">${c.decisionGuide.choices.map((choice) => { const s = ATLAS_DATA.scales.find((x) => x.id === choice.scaleId); return s ? `<article><span class="badge">${esc(choice.recommendation)}</span><strong>${esc(choice.label)}</strong><p>${esc(choice.reason)}</p><button class="text-button" data-modal-scale="${s.id}">${esc(s.name)}（${s.itemCount}項目）を確認 →</button></article>` : ""; }).join("")}</div><div class="decision-cautions"><strong>使い分けの注意</strong><p>${esc(c.decisionGuide.caution)}</p></div></div>` : "";
+  $("#detail-body").innerHTML = `<p class="sub">概念詳細・書誌確認済み</p><h2 class="detail-title">${esc(c.nameJa)}</h2><p class="sub">${esc(c.nameEn)}</p><div class="detail-section"><h3>定義</h3><p>${esc(c.definitionJa)}</p></div>${guide}<div class="detail-section"><h3>関連概念</h3><p>${esc(related.join("、") || "未登録")}</p></div><div class="detail-section"><h3>関連尺度</h3>${ATLAS_DATA.scales.filter((s) => s.conceptId === id).map((s) => `<p><button class="text-button" data-modal-scale="${s.id}">${esc(s.name)}（${s.itemCount}項目）</button></p>`).join("")}</div>`;
   $("#detail-dialog").showModal();
   $$("[data-modal-scale]").forEach((b) => (b.onclick = () => openScale(b.dataset.modalScale)));
 }
