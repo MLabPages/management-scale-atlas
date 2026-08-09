@@ -1,10 +1,10 @@
-// 初期実データ版（2026-07-19確認）。尺度項目本文は収録しない。
+// 初期実データ版（2026-08-10確認）。尺度項目本文は収録しない。
 // DOI、原典、項目数、下位次元は原著論文または公式資料で確認。
 const ATLAS_DATA = {
   meta: {
-    version: "0.44.0",
+    version: "0.45.0",
     status: "initial-real-data",
-    updated: "2026-07-30",
+    updated: "2026-08-10",
     scope: "63概念・95尺度",
   },
 
@@ -2412,8 +2412,9 @@ const ATLAS_DATA = {
       ],
       usageStudies: [
         { title: "The Japanese Version of the Occupational Future Time Perspective Scale: A Validation Study", authors: "Mori et al.", year: 2023, context: "日本の幅広い職種の就業者を対象としたWeb調査", sample: "日本の就業者2,046名", itemCount: 21, responseFormat: "5件法（1＝全くない～5＝非常によくある）", language: "Japanese", adaptation: "JCS-Jの21項目を使用し、平均得点を算出。", result: "α=.92。職業未来時間展望の構成概念妥当性を検討するため、学習目標志向・ワークエンゲイジメントとともに使用。", doi: "10.1002/1348-9585.12432", url: "https://doi.org/10.1002/1348-9585.12432" },
+        { title: "Turkish Version of Job Crafting Scale (JCS): The Validity and Reliability Study", authors: "Akın, Sarıçam, Kaya, & Demir", year: 2014, context: "トルコの教員を対象としたJCSの翻訳・心理測定学的検証", sample: "イスタンブールおよびサカリヤの教員364名", itemCount: 21, responseFormat: "原論文参照", language: "Turkish", adaptation: "Timsらの4次元21項目JCSをトルコ語へ翻訳して使用。", result: "4因子モデルはCFI=.95、RMSEA=.049。下位尺度のαは.72～.90で、21項目トルコ語版の妥当性・信頼性を支持。", doi: "", url: "https://dergipark.org.tr/en/pub/ijers/article/105664" },
       ],
-      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-13",
+      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-08-10",
       notes: "Wrzesniewski & Dutton系の認知的・関係的クラフティング尺度などとは理論枠組みが異なる。日本語版の公式配布元は学術研究目的を無料利用としているが、調査票の転載・Web掲載可否は別途確認する。",
       recordStatus: "verified-metadata",
     },
@@ -3382,8 +3383,9 @@ const ATLAS_DATA = {
       ],
       usageStudies: [
         { title: "重さは評価を高めるのか？―接触欲求と視覚的表現による調整効果の検討―", authors: "石井・朴・外川", year: 2017, context: "タブレット、飲料、ホテル広告、栄養ドリンク広告における重さと製品評価の4実験", sample: "実験1の分析58名、実験3は50名、実験4の分析91名（ほか実験2・予備調査を含む）", itemCount: 12, responseFormat: "7件法", language: "Japanese", adaptation: "Peck & ChildersのNFT-12を複数翻訳者が並行翻訳し、訳文の比較検討と再翻訳を実施。4実験で同じ日本語12項目を使用。", result: "NFT-12は実験1でα=.87、実験3・4でα=.89。高NFT群では重さが知覚品質や広告評価を高める条件を複数製品文脈で確認。", doi: "10.11194/acs.24.1_1", url: "https://doi.org/10.11194/acs.24.1_1" },
+        { title: "Does Imagination Compensate for the Need for Touch in 360-Virtual Shopping?", authors: "Ruusunen, Hallikainen, & Laukkanen", year: 2023, context: "家具の360度バーチャル店舗におけるテレプレゼンス、触覚欲求、想像力、店舗態度", sample: "独立調査会社が募集した消費者900名", itemCount: 12, responseFormat: "−3＝全く同意しない～3＝強く同意する", language: "English", adaptation: "Peck & ChildersのNFT-12を、道具的・自己目的的触覚欲求の各6項目として使用。", result: "CFAで測定モデルの適合と収束・弁別妥当性を確認。自己目的的触覚欲求はテレプレゼンスからバーチャル店舗態度への効果を弱め、想像力による補償は道具的触覚欲求で確認。", doi: "10.1016/j.ijinfomgt.2023.102622", url: "https://doi.org/10.1016/j.ijinfomgt.2023.102622" },
       ],
-      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-29",
+      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-08-10",
       notes: "触覚可能性の操作や、刺激による一時的な身体反応を測る尺度ではない。製品・サービスの触覚情報を求める安定的な個人差に使う。",
       recordStatus: "verified-metadata",
     },
@@ -3577,8 +3579,10 @@ const ATLAS_DATA = {
       applicationEvidence: [
         { label: "ブランド情報の信頼性と専門性を6項目で総合評価", itemCounts: [6], evidenceType: "scale-application", summary: "ブランド信頼だけでなく、約束を実現できる専門性も含めて購買考慮・選択を説明したい研究に向く。信頼だけを測りたい場合はBrand Trust尺度も比較する。", title: "Brand Credibility, Brand Consideration, and Choice", year: 2004, doi: "10.1086/383434", url: "https://doi.org/10.1086/383434" },
       ],
-      usageStudies: [],
-      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-30",
+      usageStudies: [
+        { title: "Brand Relationships and Risk: Influence of Risk Avoidance and Gender on Brand Consumption", authors: "Lee, Workman, & Jung", year: 2016, context: "米国の大学生が挙げた好きなファッションブランドに対する信憑性、信頼、ロイヤルティとリスク回避", sample: "米国の大学生221名", itemCount: 6, responseFormat: "7件法（1＝強く同意しない～7＝強く同意する）", language: "English", adaptation: "Erdem & Swaitのブランド信憑性6項目を使用し、項目を合計して尺度得点を算出。", result: "各尺度のαは.88～.92。リスク回避とブランド信憑性には正の相関があり、高リスク回避群の信憑性得点が高かった。", doi: "10.1186/s40852-016-0041-0", url: "https://doi.org/10.1186/s40852-016-0041-0" },
+      ],
+      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-08-10",
       notes: "ブランド信頼と関連するが、ブランドが発する情報の信頼性と、約束を実現する専門性を併せて扱う。項目本文は利用条件を確認して原典から取得する。",
       recordStatus: "verified-metadata",
     },
@@ -3703,8 +3707,9 @@ const ATLAS_DATA = {
       ],
       usageStudies: [
         { title: "Engaging Customers through Brand Authenticity Perceptions: The Moderating Role of Self-Congruence", authors: "Kumar & Kaushik", year: 2022, context: "インドのブランド利用者における真正性、ブランド・エンゲージメント、利用意図、価格プレミアム支払意思", sample: "主にインドの学生を含むブランド利用者380名", itemCount: 15, responseFormat: "原論文参照", language: "English", adaptation: "Morhartらの4次元15項目PBA尺度を使用。", result: "継続性、信頼性、誠実性がブランド・エンゲージメントへ正の影響を示し、エンゲージメントは利用意図と価格プレミアム支払意思へ影響。測定項目を含む構成概念のαは.785～.917。", doi: "10.1016/j.jbusres.2021.08.065", url: "https://doi.org/10.1016/j.jbusres.2021.08.065" },
+        { title: "The Brand Authenticity Effect: Situational and Individual-Level Moderators", authors: "Guèvremont & Grohmann", year: 2016, context: "架空スポーツ衣料ブランドの広告における真正性操作と情緒的ブランド愛着", sample: "北米の大学生50名によるオンライン事前実験（本実験は成人消費者114名ほか）", itemCount: 15, responseFormat: "原論文参照", language: "English", adaptation: "Morhartらの継続性・信頼性・誠実性・象徴性を捉えるPBA-15を、広告操作の事前確認に使用。", result: "高真正性広告は低真正性広告より4次元すべてのPBA得点が高く、後続実験で社会的排除や自己真正性を含むブランド愛着効果を検討。", doi: "10.1108/EJM-12-2014-0746", url: "https://doi.org/10.1108/EJM-12-2014-0746" },
       ],
-      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-30",
+      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-08-10",
       notes: "企業側が真正性を主張しているかではなく、消費者がブランドをどう知覚するかを測る。4次元を保持した短縮版の根拠は別途確認が必要。",
       recordStatus: "verified-metadata",
     },
@@ -3736,8 +3741,9 @@ const ATLAS_DATA = {
       ],
       usageStudies: [
         { title: "Does Brand Anthropomorphism and Brand Intimacy Matter to Assess Consumers’ Engagement Successfully?", authors: "Dan & Trong", year: 2023, context: "ベトナム・ホーチミン市におけるSamsungブランドの擬人化、親密性、ブランド・エンゲージメント", sample: "オンライン調査の有効回答357名", itemCount: 12, responseFormat: "原論文参照", language: "Vietnamese", adaptation: "GolossenkoらのBASC-12の4次元を翻案して使用。分析では外見、認知経験、意識的感情の3成分が残り、道徳性は同じ構造を再現しなかった。", result: "ブランド擬人化は親密性とブランド・エンゲージメントへ直接影響し、親密性の媒介も確認。原版4次元がそのまま再現されなかったため、文化・ブランド別の構造確認が必要。", doi: "10.1080/23311975.2023.2249897", url: "https://doi.org/10.1080/23311975.2023.2249897" },
+        { title: "Virtually Human: Anthropomorphism in Virtual Influencer Marketing", authors: "Dabiran, Farivar, Wang, & Grant", year: 2024, context: "バーチャル・インフルエンサーの擬人化、信憑性、疑似社会的関係、購買意図", sample: "オンライン調査の有効回答430名", itemCount: 14, responseFormat: "7件法", language: "English", adaptation: "Golossenkoらの4次元を、外見3・道徳性3・認知経験4・意識的感情4項目の計14項目へ拡張してバーチャル・インフルエンサーに適用。BASC-12と同一項目構成ではない。", result: "道徳性と認知経験は信憑性と疑似社会的関係へ、外見は疑似社会的関係へ正の影響。意識的感情の効果は有意ではなかった。", doi: "10.1016/j.jretconser.2024.103797", url: "https://doi.org/10.1016/j.jretconser.2024.103797" },
       ],
-      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-30",
+      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-08-10",
       notes: "ブランドの性格イメージだけを測る尺度ではない。ブランドが人間のような主体として知覚される程度を4側面で測る。",
       recordStatus: "verified-metadata",
     },
@@ -3769,8 +3775,9 @@ const ATLAS_DATA = {
       ],
       usageStudies: [
         { title: "The Dataset for Validation of Customer Inspiration Construct in Malaysian Context", authors: "Ghouri, Kin, Yunus, & Akhtar", year: 2019, context: "マレーシアの自動車産業ミレニアル顧客とスマートフォン産業Generation Z顧客", sample: "2研究・有効回答計400名", itemCount: 10, responseFormat: "原論文参照", language: "English", adaptation: "BöttgerらのInspired-by 5項目とInspired-to 5項目を発展途上国の2産業文脈で使用。", result: "2データセットで顧客インスピレーションの測定を検証し、市場志向の下位構成概念と顧客ロイヤルティの関係を顧客インスピレーションが媒介。", doi: "10.1016/j.dib.2019.104131", url: "https://doi.org/10.1016/j.dib.2019.104131" },
+        { title: "Which Type of Tourism Short Video Content Inspires Potential Tourists to Travel", authors: "Wu & Ding", year: 2023, context: "中国の観光ショート動画の情報訴求・感情訴求と旅行意図", sample: "実験2の大学生216名（実験3は3大学の学部生236名）", itemCount: 10, responseFormat: "7件法", language: "Chinese", adaptation: "BöttgerらのInspired-by 5項目・Inspired-to 5項目を中国語へ翻訳し、観光ショート動画視聴後の状態測定へ適用。", result: "両下位尺度のαは実験2で.859/.928、実験3で.829/.902。感情訴求動画がInspired-byからInspired-toを経て旅行意図へ至る連鎖媒介を示した。", doi: "10.3389/fpsyg.2023.1086516", url: "https://doi.org/10.3389/fpsyg.2023.1086516" },
       ],
-      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-30",
+      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-08-10",
       notes: "一時的な状態尺度であり、個人の安定的な創造性傾向ではない。刺激提示後の着想と行動意欲を時間的に対応させる。",
       recordStatus: "verified-metadata",
     },
