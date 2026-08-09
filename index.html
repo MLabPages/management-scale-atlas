@@ -14,7 +14,7 @@
       <p class="eyebrow">MANAGEMENT &amp; MARKETING SCALE ATLAS</p>
       <h1>経営学・マーケティング<br>概念・尺度アトラス</h1>
       <p class="hero-copy">測りたい概念から、尺度の特徴・実際の利用研究数・日本語での利用状況・利用条件を比較できます。</p>
-      <div class="sample-notice"><strong>初期実データ版</strong> 63概念・95尺度・個別使用研究114件。原版だけでなく、実際の研究で使われた項目数・短縮版・日本語版・反復検証の根拠を区別して表示します。</div>
+      <div class="sample-notice"><strong>初期実データ版</strong> 63概念・95尺度・個別使用研究118件。原版だけでなく、実際の研究で使われた項目数・短縮版・日本語版・反復検証の根拠を区別して表示します。</div>
     </div>
   </header>
 
@@ -37,6 +37,15 @@
           <button type="button" data-preset="practice">使用先行研究を優先</button>
           <button type="button" data-preset="diagnostic">多次元で詳しく診断</button>
         </div>
+        <section class="explore-guide" aria-labelledby="explore-guide-title">
+          <div><strong id="explore-guide-title">迷ったら、ここから押してください</strong><span>押すと何が見られるかを先に示します</span></div>
+          <div class="explore-guide-actions">
+            <button type="button" data-preset="practice"><strong>先行研究から絞る</strong><span>実際の使用研究が登録済みの尺度だけを表示</span></button>
+            <button type="button" data-guide-view="concepts"><strong>概念から広げる</strong><span>定義と関連する尺度の候補を一覧で見る</span></button>
+            <button type="button" data-guide-view="coverage"><strong>情報の揃い方を見る</strong><span>使用研究・日本語情報などの収録状況を眺める</span></button>
+          </div>
+          <p><strong>候補が見つかったら：</strong>「詳細を見る」で根拠を確認し、「比較に追加」→上の「研究設計」で項目数・使用例・利用条件を横並びにできます。</p>
+        </section>
         <label class="search-box"><span>キーワード</span><input id="query" type="search" placeholder="例：ブランド経験、VR、9項目、短縮版"></label>
         <div class="filters">
           <label>研究領域<select id="domain-filter"><option value="">すべて</option></select></label>
@@ -77,7 +86,7 @@
       <div id="compare-summary" class="burden-summary" hidden></div>
       <div id="short-option-panel" class="short-option-panel" hidden></div>
       <div id="design-builder" class="design-builder" hidden></div>
-      <div id="compare-empty" class="empty-state">比較する尺度がまだ選ばれていません。</div>
+      <div id="compare-empty" class="empty-state"><strong>比較する尺度がまだ選ばれていません。</strong><br>尺度一覧で「詳細を見る」→「比較に追加」を押すと、ここで項目数・使用研究・日本語情報・利用条件を横並びにできます。<br><button type="button" class="text-button" data-guide-view="search">尺度を探すへ戻る</button></div>
       <div id="compare-table-wrap" class="table-wrap" hidden><table id="compare-table"></table></div>
     </section>
   </main>
