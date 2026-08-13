@@ -14,13 +14,14 @@
       <p class="eyebrow">MANAGEMENT &amp; MARKETING SCALE ATLAS</p>
       <h1>経営学・マーケティング<br>概念・尺度アトラス</h1>
       <p class="hero-copy">測りたい概念から、尺度の特徴・実際の利用研究数・日本語での利用状況・利用条件を比較できます。</p>
-      <div class="sample-notice"><strong>初期実データ版</strong> 63概念・96尺度・個別使用研究121件。原版だけでなく、実際の研究で使われた項目数・短縮版・日本語版・反復検証の根拠を区別して表示します。</div>
+      <div class="sample-notice"><strong id="atlas-version">実データ版</strong> <span id="atlas-counts">収録件数を読み込み中</span>。原版だけでなく、実際の研究で使われた項目数・短縮版・日本語版・反復検証の根拠を区別して表示します。</div>
     </div>
   </header>
 
   <nav class="tabs" aria-label="メイン画面">
     <div class="container tab-inner">
       <button class="tab active" data-view="search">尺度を探す</button>
+      <button class="tab" data-view="planner">設計アシスタント</button>
       <button class="tab" data-view="concepts">概念一覧</button>
       <button class="tab" data-view="coverage">収録状況</button>
       <button class="tab" data-view="compare">研究設計 <span id="compare-count">0</span></button>
@@ -65,8 +66,35 @@
       <div id="scale-list" class="card-grid"></div>
     </section>
 
+    <section id="view-planner" class="view">
+      <div class="result-head"><div><p class="eyebrow">SURVEY PLANNER</p><h2>複数概念の調査を組み立てる</h2><p>測りたい概念と優先条件を選ぶと、登録済み尺度から候補を比較して研究設計へ追加できます。</p></div></div>
+      <div class="planner-layout">
+        <form id="planner-form" class="planner-panel">
+          <div class="planner-step"><span>1</span><div><strong>測りたい概念</strong><small>最大8概念。検索して追加できます。</small></div></div>
+          <label class="search-box"><span>概念を検索</span><input id="planner-concept-query" type="search" placeholder="例：ブランド信頼、顧客満足、購買意向"></label>
+          <div id="planner-concept-options" class="planner-concept-options"></div>
+          <div id="planner-selected-concepts" class="planner-selected-concepts" aria-live="polite"></div>
+          <div class="planner-step"><span>2</span><div><strong>今回の優先条件</strong><small>候補の並び順と注意表示に使います。</small></div></div>
+          <div class="planner-priorities">
+            <label><input type="radio" name="planner-priority" value="balanced" checked> 根拠と負担のバランス</label>
+            <label><input type="radio" name="planner-priority" value="burden"> 回答負担を最優先</label>
+            <label><input type="radio" name="planner-priority" value="japanese"> 日本語の根拠を最優先</label>
+            <label><input type="radio" name="planner-priority" value="practice"> 使用先行研究を最優先</label>
+          </div>
+          <label class="planner-limit">尺度項目の目安上限<select id="planner-item-limit"><option value="30">30項目</option><option value="45" selected>45項目</option><option value="60">60項目</option><option value="80">80項目</option></select></label>
+          <div class="planner-actions"><button id="planner-build" type="submit" class="primary-action">候補を作る</button><button id="planner-clear" type="button" class="secondary-action">選択をクリア</button></div>
+        </form>
+        <div class="planner-results-panel">
+          <div id="planner-empty" class="empty-state compact"><strong>概念を選ぶと、ここに尺度候補が表示されます。</strong><br>自動候補は採用の確定ではありません。原典・対象・因子構造・翻訳を確認してください。</div>
+          <div id="planner-results" hidden></div>
+        </div>
+      </div>
+    </section>
+
     <section id="view-concepts" class="view">
       <div class="result-head"><h2>概念一覧</h2><p>概念を選ぶと定義と関連尺度を確認できます。</p></div>
+      <div class="concept-controls"><label class="search-box"><span>概念名・定義を検索</span><input id="concept-query" type="search" placeholder="例：ロイヤルティ、身体、組織"></label><label>研究領域<select id="concept-domain"><option value="">すべて</option></select></label><label>尺度選択ガイド<select id="concept-guide-filter"><option value="">すべて</option><option value="available">目的別ガイドあり</option><option value="multiple">複数尺度あり</option></select></label></div>
+      <p id="concept-result-count" class="sub"></p>
       <div id="concept-list" class="concept-grid"></div>
     </section>
 
@@ -92,7 +120,7 @@
   </main>
 
   <dialog id="detail-dialog"><button class="dialog-close" aria-label="閉じる">×</button><div id="detail-body"></div></dialog>
-  <footer><div class="container">Management and Marketing Scale Atlas — Prototype</div></footer>
+  <footer><div class="container">Management and Marketing Scale Atlas — <span id="footer-version"></span></div></footer>
   <script src="data.js"></script><script src="app.js"></script>
 </body>
 </html>
