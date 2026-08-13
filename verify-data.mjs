@@ -217,6 +217,34 @@ function validateAtlas(atlas, duplicateErrors = []) {
     }
   }
 
+  for (const [index, concept] of atlas.concepts.entries()) {
+    const guide = concept?.decisionGuide;
+    if (guide === undefined) continue;
+    const guidePath = `concepts[${index}].decisionGuide`;
+    if (!guide || typeof guide !== "object" || Array.isArray(guide)) {
+      errors.push(`${guidePath}: オブジェクトで指定してください。`);
+      continue;
+    }
+    if (!isNonEmptyText(guide.question)) errors.push(`${guidePath}.question: 空でない質問文が必要です。`);
+    if (!isNonEmptyText(guide.caution)) errors.push(`${guidePath}.caution: 空でない注意文が必要です。`);
+    if (!Array.isArray(guide.choices) || guide.choices.length === 0) {
+      errors.push(`${guidePath}.choices: 1件以上の選択肢が必要です。`);
+      continue;
+    }
+    const choiceScaleIds = new Set();
+    for (const [choiceIndex, choice] of guide.choices.entries()) {
+      const choicePath = `${guidePath}.choices[${choiceIndex}]`;
+      for (const field of ["label", "scaleId", "recommendation", "reason"]) {
+        if (!isNonEmptyText(choice?.[field])) errors.push(`${choicePath}.${field}: 空でない値が必要です。`);
+      }
+      if (isNonEmptyText(choice?.scaleId) && !scaleIds.has(choice.scaleId)) errors.push(`${choicePath}.scaleId: 尺度ID「${choice.scaleId}」が存在しません。`);
+      const targetScale = atlas.scales.find((scale) => scale.id === choice?.scaleId);
+      if (targetScale && targetScale.conceptId !== concept.id) errors.push(`${choicePath}.scaleId: 尺度「${choice.scaleId}」は概念「${concept.id}」に属していません。`);
+      if (choiceScaleIds.has(choice?.scaleId)) errors.push(`${choicePath}.scaleId: 同じ判断ガイド内で尺度IDが重複しています。`);
+      if (isNonEmptyText(choice?.scaleId)) choiceScaleIds.add(choice.scaleId);
+    }
+  }
+
   addUrlAndDoiErrors(atlas, "ATLAS_DATA", errors);
   const statusCounts = Object.fromEntries([...JAPANESE_STATUSES].map((status) => [JAPANESE_STATUS_LABELS[status], atlas.scales.filter((scale) => scale.japaneseVersionStatus === status).length]));
   return {
@@ -227,6 +255,7 @@ function validateAtlas(atlas, duplicateErrors = []) {
       usageStudyCount: atlas.scales.reduce((count, scale) => count + (scale.usageStudies?.length ?? 0), 0),
       registeredShortScaleCount: atlas.scales.filter((scale) => [3, 4].includes(scale.itemCount)).length,
       usageShortScaleCount: atlas.scales.filter((scale) => scale.usageStudies?.some((study) => [3, 4].includes(study.itemCount))).length,
+      decisionGuideCount: atlas.concepts.filter((concept) => concept.decisionGuide).length,
       statusCounts,
     },
   };
@@ -248,7 +277,7 @@ function runSelfTest() {
     throw new Error("自己テスト失敗: ネストした重複キーを正しく検出できません。");
   }
   const invalidAtlas = {
-    concepts: [{ id: "duplicate" }, { id: "duplicate" }],
+    concepts: [{ id: "duplicate", decisionGuide: { question: "", caution: "", choices: [{ label: "", scaleId: "missing-guide-scale", recommendation: "", reason: "" }] } }, { id: "duplicate" }],
     scales: [{
       id: "duplicate-scale", conceptId: "missing-concept", parentScaleId: "missing-scale", itemCount: 0, japaneseVersionStatus: "invalid-status",
       usageStudies: [
@@ -258,7 +287,7 @@ function runSelfTest() {
     }],
   };
   const errors = validateAtlas(invalidAtlas).errors;
-  for (const expected of ["重複", "存在しません", "正の整数", "許容されない", "DOI", "有効なURL"]) {
+  for (const expected of ["重複", "存在しません", "正の整数", "許容されない", "DOI", "有効なURL", "decisionGuide", "質問文"]) {
     if (!errors.some((error) => error.includes(expected))) throw new Error(`自己テスト失敗: 「${expected}」に関するエラーを検出できません。`);
   }
   console.log("自己テスト: ルート・ネストした重複キー、ID・参照・形式エラーを検出できました。");
@@ -270,6 +299,7 @@ function printSummary(summary) {
   console.log(`個別の尺度使用研究数: ${summary.usageStudyCount}`);
   console.log(`登録版そのものが3・4項目: ${summary.registeredShortScaleCount}`);
   console.log(`個別使用研究で3・4項目版を確認済み: ${summary.usageShortScaleCount}`);
+  console.log(`目的別の尺度選択ガイド: ${summary.decisionGuideCount}概念`);
   console.log("日本語情報:");
   for (const [label, count] of Object.entries(summary.statusCounts)) console.log(`  ${label}: ${count}`);
 }

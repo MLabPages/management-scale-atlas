@@ -2,9 +2,9 @@
 // DOI、原典、項目数、下位次元は原著論文または公式資料で確認。
 const ATLAS_DATA = {
   meta: {
-    version: "0.47.0",
+    version: "0.50.0",
     status: "initial-real-data",
-    updated: "2026-08-10",
+    updated: "2026-08-13",
     scope: "63概念・96尺度",
   },
 
@@ -17,6 +17,13 @@ const ATLAS_DATA = {
       domain: "ブランド・消費者経験",
       relatedConcepts: ["customer-experience", "consumer-bodily-response", "brand-affect", "brand-loyalty", "brand-attachment", "brand-personality", "consumer-brand-engagement"],
       parentConcepts: [], childConcepts: [], typicalAntecedents: [], typicalOutcomes: [],
+      decisionGuide: {
+        question: "何についての経験を測りたいですか？",
+        choices: [
+          { label: "特定ブランドとの接触で生じる感覚・感情・認知・行動反応", scaleId: "brand-experience-scale", recommendation: "ブランド刺激への標準候補", reason: "4次元12項目でブランド経験を診断する原版。店舗全体や企業との長期的関係ではなく、ブランド刺激への反応に合わせる。" },
+        ],
+        caution: "顧客接点全体の経験を測るEXQやオムニチャネルCX尺度、身体反応だけを測る尺度とは対象範囲が異なります。研究対象がブランド刺激か、ジャーニー全体かを先に決めてください。",
+      },
       references: ["10.1509/jmkg.73.3.052"],
     },
     {
@@ -27,6 +34,14 @@ const ATLAS_DATA = {
       domain: "ブランド・消費者経験",
       relatedConcepts: ["brand-experience", "consumer-bodily-response", "service-quality", "customer-satisfaction", "brand-loyalty"],
       parentConcepts: [], childConcepts: [], typicalAntecedents: [], typicalOutcomes: ["customer-satisfaction", "brand-loyalty"],
+      decisionGuide: {
+        question: "どの顧客経験を診断したいですか？",
+        choices: [
+          { label: "サービス利用を通じた経験を、成果・安心・瞬間・製品経験で捉える", scaleId: "exq-19", recommendation: "サービス経験を詳しく診断", reason: "4次元19項目のEXQ。特定接点だけでなく、サービス経験を関係的・総合的に診断する用途に向く。" },
+          { label: "複数チャネルをまたぐ経験を、感情・認知・身体・関係・感覚・象徴で捉える", scaleId: "customer-experience-scale-gahler-18", recommendation: "オムニチャネル向け", reason: "6次元を各3項目で測る18項目尺度。チャネル横断の経験構造を保ちながら、各次元の診断ができる。" },
+        ],
+        caution: "ブランド刺激への反応だけならBrand Experience Scaleの方が対象と合います。調査対象の期間、接点数、ブランド単位かサービス・ジャーニー単位かを明記してください。",
+      },
       references: ["10.1108/09564231211208952", "10.1177/10946705221126590"],
     },
     {
@@ -116,6 +131,15 @@ const ATLAS_DATA = {
       domain: "戦略・組織能力",
       relatedConcepts: ["entrepreneurial-orientation"],
       parentConcepts: [], childConcepts: [], typicalAntecedents: [], typicalOutcomes: [],
+      decisionGuide: {
+        question: "市場志向を、どの立場と詳しさで測りますか？",
+        choices: [
+          { label: "市場情報の生成・部門間共有・反応という組織行動を詳しく測る", scaleId: "markor", recommendation: "情報処理行動を診断", reason: "3側面20項目。市場情報をどう扱う組織かを詳しく診断したい場合に向く。" },
+          { label: "顧客志向・競争志向・部門間調整という組織文化を測る", scaleId: "mktor", recommendation: "文化・価値観として測定", reason: "3側面15項目。市場志向を組織文化として捉える研究に向く。後続の精選版は原版と区別する。" },
+          { label: "複数概念の組織調査で、主要内容を保ちながら負担を下げる", scaleId: "mortn-market-orientation-scale", recommendation: "10項目の低負担候補", reason: "市場志向の主要側面を10項目で測る短縮候補。原版MARKOR・MKTORとの構成概念差を確認して使う。" },
+        ],
+        caution: "MARKORとMKTORは同じ項目群の長短違いではなく、市場志向を行動と文化のどちらから捉えるかが異なります。項目数だけで選ばないでください。",
+      },
       references: ["10.1177/002224379303000406"],
     },
     {
@@ -146,6 +170,15 @@ const ATLAS_DATA = {
       domain: "ブランド・消費者経験",
       relatedConcepts: ["brand-experience", "brand-attachment"],
       parentConcepts: [], childConcepts: [], typicalAntecedents: [], typicalOutcomes: [],
+      decisionGuide: {
+        question: "どの接点でのブランド・エンゲージメントを測りますか？",
+        choices: [
+          { label: "SNS上のブランドとの認知・感情・行動的な関与", scaleId: "consumer-brand-engagement-scale", recommendation: "SNS研究の標準候補", reason: "SNS文脈で開発された3次元10項目尺度。Facebook等での使用研究と異言語適用を登録。" },
+          { label: "SNS外も含む一般的なブランド関与を、認知・感情・行動で低負担に測る", scaleId: "consumer-brand-engagement-beyond-likes-6", recommendation: "6項目の一般文脈候補", reason: "各次元2項目の6項目版。SNS原版からの項目削除ではなく、SNS外を想定して新規開発された尺度。" },
+          { label: "日本語で、ブランドとの関わりを12項目で調べる", scaleId: "japanese-customer-brand-engagement-takahashi-12", recommendation: "日本語の関連版", reason: "日本語研究で開発・使用された12項目版。Hollebeek原版の標準日本語版とは扱わない。" },
+        ],
+        caution: "同じCBEという名称でも、SNS内の相互作用、一般的なブランド関与、日本語で再構成された版では対象範囲が異なります。接点と構成概念を揃えてください。",
+      },
       references: ["10.1016/j.intmar.2013.12.002"],
     },
     {
@@ -156,6 +189,14 @@ const ATLAS_DATA = {
       domain: "ブランド・消費者経験",
       relatedConcepts: ["brand-affect", "brand-loyalty", "brand-attachment", "consumer-based-brand-equity"],
       parentConcepts: [], childConcepts: [], typicalAntecedents: ["brand-experience"], typicalOutcomes: ["brand-loyalty"],
+      decisionGuide: {
+        question: "ブランド信頼を、短く総合評価しますか、それとも二側面で診断しますか？",
+        choices: [
+          { label: "複数概念調査で、ブランドを信頼できる程度を短く測る", scaleId: "brand-trust-chaudhuri-holbrook-4", recommendation: "4項目の低負担候補", reason: "単一次元4項目で、日本語の双方向翻訳を伴う使用例も登録。媒介変数として組み込みやすい。" },
+          { label: "約束を守る信頼性と、問題時に消費者利益を守る意図を分ける", scaleId: "brand-trust-scale-delgado-ballester", recommendation: "2次元を診断", reason: "Brand reliabilityとBrand intentionsを各4項目で測る8項目尺度。信頼のどこが形成されているかを分けたい研究に向く。" },
+        ],
+        caution: "4項目版とBTS 8項目版は単純な原版・短縮版の関係ではありません。信頼を総合得点で使うか、信頼性と善意的意図を分けるかで選んでください。",
+      },
       references: ["10.1177/147078530304500103", "10.1509/jmkg.65.2.81.18255"],
     },
     {
@@ -236,6 +277,16 @@ const ATLAS_DATA = {
       domain: "サービス・顧客関係",
       relatedConcepts: ["customer-satisfaction", "service-quality"],
       parentConcepts: [], childConcepts: [], typicalAntecedents: [], typicalOutcomes: [],
+      decisionGuide: {
+        question: "知覚価値を総合評価しますか、それとも価値の種類を診断しますか？",
+        choices: [
+          { label: "品質・価格・感情・社会価値を詳しく診断する", scaleId: "perval", recommendation: "4次元の原版", reason: "19項目PERVAL。価値のどの側面が結果を生むかを検証したい場合に向く。" },
+          { label: "4次元を保ちながら回答負担を下げる", scaleId: "perval-short-8", recommendation: "8項目の正式短縮候補", reason: "4次元を各2項目で保持する再検証版。複数概念調査で次元を残したい場合の候補。" },
+          { label: "便益と犠牲を含む総合的な価値を短く測る", scaleId: "overall-relational-perceived-value-4", recommendation: "4項目の総合評価", reason: "関係的交換における総合価値4項目。PERVALを単純に4項目へ短縮した尺度ではない。" },
+          { label: "日本語で顧客価値の内容を幅広く診断する", scaleId: "japanese-customer-value-scale-takahashi-26", recommendation: "日本語で独自開発", reason: "日本の顧客文脈から開発された6次元26項目。低負担より文化・内容適合を優先する場合に向く。" },
+        ],
+        caution: "総合価値4項目とPERVAL短縮版は、同じ尺度の長短違いではありません。総合得点が必要か、価値の下位次元が必要かを先に決めてください。",
+      },
       references: ["10.1016/S0022-4359(01)00041-0"],
     },
     {
@@ -456,6 +507,14 @@ const ATLAS_DATA = {
       domain: "消費者意思決定",
       relatedConcepts: ["purchase-intention", "perceived-value", "consumer-involvement", "brand-trust"],
       parentConcepts: [], childConcepts: [], typicalAntecedents: ["consumer-involvement", "brand-trust"], typicalOutcomes: ["purchase-intention", "switching-intention"],
+      decisionGuide: {
+        question: "リスクの総量を短く測りますか、種類ごとに診断しますか？",
+        choices: [
+          { label: "購買の不確実性と損失可能性を、全体として短く測る", scaleId: "overall-perceived-risk-stone-gronhaug-3", recommendation: "3項目の低負担候補", reason: "全体知覚リスクを3項目で測る適用版。目的変数・媒介変数を多数含む調査に組み込みやすい。" },
+          { label: "金銭・性能・時間・身体・社会・心理リスクを各3項目で診断する", scaleId: "multidimensional-perceived-risk-stone-gronhaug-18", recommendation: "6次元の詳細診断", reason: "6種類18項目。どのリスクを介入で下げるべきかを区別したい研究に向く。" },
+        ],
+        caution: "全体リスク3項目で個別リスクの種類は診断できません。後続研究が一部次元だけを選んだ版も、原版18項目と同一版として一般化しないでください。",
+      },
       references: ["10.1108/03090569310026637"],
     },
     {
