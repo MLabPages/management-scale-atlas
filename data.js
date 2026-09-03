@@ -2,9 +2,9 @@
 // DOI、原典、項目数、下位次元は原著論文または公式資料で確認。
 const ATLAS_DATA = {
   meta: {
-    version: "0.50.0",
+    version: "0.50.1",
     status: "initial-real-data",
-    updated: "2026-08-13",
+    updated: "2026-09-04",
     scope: "63概念・96尺度",
   },
 
@@ -904,7 +904,7 @@ const ATLAS_DATA = {
       targetPopulation: ["消費者", "ブランド利用者"],
       language: "English", versionType: "original", parentScaleId: null,
       japaneseVersionStatus: "unconfirmed",
-      japaneseStatusNote: "Parkらの4項目版そのものの日本語版・日本語使用例は、今回の確認範囲では登録していません。",
+      japaneseStatusNote: "2026年9月4日時点で、Parkら（2010）の原版4項目（自己結合＋顕著性）を日本語で使用した根拠は未登録です。久保田のBR尺度、菅野の独自愛着項目、Thomsonのemotional attachmentと同一視しないでください。",
       japaneseEvidence: [],
       validationStudies: [], usagePermission: "unknown",
       usageEvidence: [
@@ -917,7 +917,7 @@ const ATLAS_DATA = {
       applicationEvidence: [
         { label: "原著内で比較された版", itemCounts: [8, 4], evidenceType: "scale-development", summary: "原著は8項目版と簡潔な4項目版を比較し、最終的に4項目版を採用。後続レビューでは4項目版の使用が37研究で確認されています。", title: "Brand Attachment and Brand Attitude Strength", year: 2010, doi: "10.1509/jmkg.74.6.1", url: "https://doi.org/10.1509/jmkg.74.6.1" },
       ],
-      itemPublicationStatus: "not-published", items: [],
+      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-09-04",
       notes: "原著では8項目版との比較後、簡潔な4項目版を採用。",
       recordStatus: "verified-metadata",
     },
@@ -1569,8 +1569,10 @@ const ATLAS_DATA = {
         { label: "3次元を各2項目で残す6項目版", itemCounts: [6, 2], evidenceType: "scale-development", summary: "認知・感情・行動を各2項目で保持し、SNS上の操作に限定せず、日常のブランド関係を短く測る。Hollebeek 10項目原版の短縮版ではない。", title: "Consumer Brand Engagement Beyond the “Likes”", year: 2021, doi: "10.3389/fpsyg.2021.692000", url: "https://doi.org/10.3389/fpsyg.2021.692000" },
         { label: "原著で項目本文を公開", itemCounts: [6], evidenceType: "open-items", summary: "原著Table 2に6項目が掲載され、論文はCC BYで公開。日本語訳の妥当性は未検証のため、原文とライセンスを確認して利用する。", title: "Consumer Brand Engagement Beyond the “Likes”", year: 2021, doi: "10.3389/fpsyg.2021.692000", url: "https://doi.org/10.3389/fpsyg.2021.692000" },
       ],
-      usageStudies: [],
-      itemPublicationStatus: "source-open", items: [], verifiedAt: "2026-07-14",
+      usageStudies: [
+        { title: "Understanding self-esteem in the consumer journey: A model of purchase self-esteem antecedents", authors: "Razmus & Laguna", year: 2024, context: "ポーランドにおける非日常的購買の縦断研究（衣料、携帯電話、履物など）", sample: "購買約1週間前111名、購買約1週間後99名（T1: 女性64名、年齢20～54歳）", itemCount: 6, responseFormat: "5件法", language: "ポーランドの研究。論文はRazmus（2021）の英語項目例を提示", adaptation: "予定／購入ブランドについてRazmus（2021）のConsumer Brand Engagement Scale 6項目を使用。HollebeekのSNS向け10項目でもBESCでもない。", result: "αはT1=.85、T2=.90。CBEは真正の誇りと関連し、自尊感情への間接効果を報告。", doi: "10.1007/s12144-024-06604-2", url: "https://doi.org/10.1007/s12144-024-06604-2" },
+      ],
+      itemPublicationStatus: "source-open", items: [], verifiedAt: "2026-09-04",
       notes: "原著はCC BYで、Table 2から英語表示の6項目を確認できる。本サイトには未検証の日本語訳を尺度項目として掲載せず、原文への直リンクを提供する。",
       recordStatus: "verified-metadata",
     },
@@ -1627,7 +1629,7 @@ const ATLAS_DATA = {
       targetPopulation: ["消費者", "ブランド利用者"],
       language: "English", versionType: "original", parentScaleId: null,
       japaneseVersionStatus: "unconfirmed",
-      japaneseStatusNote: "Brand Affect 3項目そのものを日本語で使用・検証した根拠は今回未登録です。ブランド経験の感情的次元やブランド態度と混同しないでください。",
+      japaneseStatusNote: "2026年9月4日時点で、feel good / happy / pleasure の原版3項目そのものを日本語で検証・使用した根拠は未登録です。杉谷のaspiration／愛着尺度やブランド経験のAffective次元と混同しないでください。Chaudhuriの書籍日本語訳は使用研究ではありません。",
       japaneseEvidence: [],
       validationStudies: [], usagePermission: "unknown", usageEvidence: [],
       psychometricEvidence: [
@@ -1640,7 +1642,7 @@ const ATLAS_DATA = {
         { title: "Chinese Consumers' Brand Loyalty for Consumer Products: Importance of Brand Personality as Major Antecedent of Brand Loyalty", authors: "Kim & Zhao", year: 2014, context: "中国のアパレル・携帯電話ブランド", sample: "上海の消費者805名", itemCount: 3, responseFormat: "5件法", language: "Chinese", adaptation: "Chaudhuri & Holbrookの3項目を含む英語質問票を中国語へ翻訳し、中国人学生による事前テスト後に表現を修正。", result: "ブランド感情3項目のα=.79。ブランド信頼よりブランド・ロイヤルティへの強い関係を報告。", url: "https://ejournal.usm.my/aamj/article/download/aamj_vol19-no-1-2014_1/pdf/1705" },
         { title: "How Older Consumers’ Perceived Ethicality Influences Brand Loyalty", authors: "Eryandra, Sjabadhyni, & Mustika", year: 2018, context: "インドネシアの高齢消費者によるボトル水ブランド評価", sample: "高齢者コミュニティの消費者331名", itemCount: 3, responseFormat: "7件法", language: "Bahasa Indonesia", adaptation: "Chaudhuri & Holbrookの3項目をインドネシア語へ翻訳し、予備調査で信頼性・妥当性と読みやすさを確認。", result: "α=.91。ブランド感情は知覚された企業倫理性とブランド・ロイヤルティの関係を部分媒介した。", doi: "10.1177/2158244018778105", url: "https://doi.org/10.1177/2158244018778105" },
       ],
-      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-13",
+      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-09-04",
       notes: "ブランド経験尺度のAffective下位次元とは別概念・別項目集合。刺激に対する経験内容より、ブランドがもたらす肯定的感情を短く測る。",
       recordStatus: "verified-metadata",
     },
