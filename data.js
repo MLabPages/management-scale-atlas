@@ -2,7 +2,7 @@
 // DOI、原典、項目数、下位次元は原著論文または公式資料で確認。
 const ATLAS_DATA = {
   meta: {
-    version: "0.52.0",
+    version: "0.53.0",
     status: "initial-real-data",
     updated: "2026-09-04",
     scope: "63概念・97尺度",
@@ -2049,8 +2049,11 @@ const ATLAS_DATA = {
       applicationEvidence: [
         { label: "4次元を合計8項目で残す最小版", itemCounts: [19, 8, 2], evidenceType: "validated-short-form", summary: "品質・感情・価格・社会価値を各2項目で測るため、回答負担を大きく減らせます。一方、2項目因子は欠測・低負荷・翻訳ずれに弱く、12項目版より推定の余裕が小さい点に注意が必要です。", title: "Replicating, Validating, and Reducing the Length of the Consumer Perceived Value Scale", year: 2014, doi: "10.1016/j.jbusres.2013.05.012", url: "https://doi.org/10.1016/j.jbusres.2013.05.012" },
       ],
-      usageStudies: [],
-      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-13",
+      usageStudies: [
+        { title: "Attitude towards Counterfeit of Luxury Brands: A Research on Consumers in Turkey", authors: "Toklu & Baran", year: 2017, context: "トルコ消費者の偽造ラグジュアリーブランド態度と知覚価値", sample: "トルコ東部黒海地域など207名（対面・便宜標本）", itemCount: 8, responseFormat: "5件法", language: "Turkish", adaptation: "Walsh et al.（2014）のPERVAL-Short 8項目（quality/emotional/price/social×2）を使用。分析では8指標の単一次元PVとして扱った点を明記。12項目版・19項目版ではない。", result: "α=.883、CR=.905、AVE=.546。偽造品態度・購入意思と関連。", doi: "10.6007/IJARBSS/v7-i11/3503", url: "https://doi.org/10.6007/IJARBSS/v7-i11/3503" },
+        { title: "Perceived Value and Customer Adoption of Electric and Hybrid Vehicles", authors: "Higueras-Castillo, Molinillo, Coca-Stefaniak, & Liébana-Cabanillas", year: 2019, context: "スペインにおける電動・ハイブリッド車の採用と知覚価値", sample: "オンライン調査404名", itemCount: 8, responseFormat: "7件法", language: "Spanish", adaptation: "Walsh（2014）PERVAL短縮の4次元×各2項目。品質・感情・価格・社会を別一次元として測定。総合4項目版や12項目版、高橋26項目とは別。", result: "各次元CR=.836–.916、AVE=.719–.845。態度・採用意図と関連。", doi: "10.3390/su11184956", url: "https://doi.org/10.3390/su11184956" },
+      ],
+      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-09-04",
       notes: "低負担を最優先する場合の候補。各次元3項目を確保できるなら12項目版の方が欠測や翻訳調整に対して扱いやすい。",
       recordStatus: "verified-metadata",
     },
@@ -3756,7 +3759,7 @@ const ATLAS_DATA = {
       targetPopulation: ["一般消費者", "地位表示価値のある製品・ブランドを評価する消費者"],
       language: "English", versionType: "original", parentScaleId: null,
       japaneseVersionStatus: "unconfirmed",
-      japaneseStatusNote: "SCS-5の検証済み標準日本語版・明確な日本語使用例は今回未登録です。社会的地位や物質主義の日本語尺度を代用しないでください。",
+      japaneseStatusNote: "SCS-5の検証済み標準日本語版・明確な日本語使用例は今回未登録です。本回の確認でもEastman SCS-5の日本語版妥当性検証は見つかりませんでした。社会的地位や物質主義の日本語尺度を代用しないでください。",
       japaneseEvidence: [], validationStudies: [], usagePermission: "unknown", usageEvidence: [],
       psychometricEvidence: [
         { label: "6研究による単一次元短尺度の開発・妥当化", sample: "複数の消費者標本を用いた6研究", methods: "尺度開発、信頼性・妥当性検証、社会階層および物質主義との弁別検討", result: "短く信頼性・妥当性のある単一次元尺度を提示し、社会階層や物質主義とは異なる消費動機であることを示した。", url: "https://doi.org/10.1080/10696679.1999.11501839" },
@@ -3764,8 +3767,11 @@ const ATLAS_DATA = {
       applicationEvidence: [
         { label: "地位表示のための消費動機を5項目で測定", itemCounts: [5], evidenceType: "scale-development", summary: "高価格品の購買頻度や所得ではなく、製品・ブランドを通じて地位を示そうとする傾向を低負担で測りたい場合に向く。", title: "Status Consumption in Consumer Behavior", year: 1999, doi: "10.1080/10696679.1999.11501839", url: "https://doi.org/10.1080/10696679.1999.11501839" },
       ],
-      usageStudies: [],
-      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-30",
+      usageStudies: [
+        { title: "Adaptação e validação da escala de consumo de status (SCS) para uso no contexto brasileiro", authors: "Strehlau & Aranha", year: 2004, context: "ブラジル向けSCS適応・妥当性検討", sample: "サンパウロの経営学部大学生 約385名", itemCount: 5, responseFormat: "7件法", language: "Portuguese", adaptation: "Eastman et al.（1999）SCS-5のポルトガル語適応（SCS-Brasil）。逆転1項目「O status que um produto me dá é irrelevante」。", result: "単一次元、α=.81。Eastman原版のα≈.83と比較。", url: "https://revista.fumec.br/index.php/facesp/article/view/28" },
+        { title: "Antecedents and consequences of status consumption among urban Vietnamese consumers", authors: "Mai & Tambyah", year: 2011, context: "都市ベトナム消費者のステータス消費の先行・結果要因", sample: "ハノイ・ホーチミンの都市中間層534名", itemCount: 5, responseFormat: "リッカート（多項目電池）", language: "Vietnamese（付録に英語項目）", adaptation: "Eastman et al.（1999）5項目を採用。逆転「The status of a product is irrelevant to me」。", result: "CFAで単一構成として用い、SEMの内生変数（R²_SC=.70）。各尺度α>.70。", doi: "10.15388/omee.2011.2.1.14291", url: "https://doi.org/10.15388/omee.2011.2.1.14291" },
+      ],
+      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-09-04",
       notes: "所得、社会階層、顕示的消費の実行回数ではなく、地位を示す製品を消費しようとする動機を測る。",
       recordStatus: "verified-metadata",
     },
@@ -3829,8 +3835,10 @@ const ATLAS_DATA = {
       applicationEvidence: [
         { label: "国・地域文化の象徴性を3項目で測定", itemCounts: [3], evidenceType: "scale-development", summary: "グローバル・ブランドかローカル・ブランドかを排他的に分類せず、対象ブランドが特定文化の象徴として知覚される程度を独立して測れる。", title: "How Perceived Brand Globalness Creates Brand Value", year: 2003, doi: "10.1057/palgrave.jibs.8400002", url: "https://doi.org/10.1057/palgrave.jibs.8400002" },
       ],
-      usageStudies: [],
-      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-30",
+      usageStudies: [
+        { title: "The Effects of Perceived Brand Globalness and Perceived Brand Localness in China: Empirical Evidence on Western, Asian, and Domestic Retailers", authors: "Swoboda, Pennemann, & Taube", year: 2012, context: "中国の小売ブランドにおけるPBL（ローカル象徴性）と店舗パトロネージ", sample: "中国消費者1,188名、36の欧米・アジア・中国本土小売ブランド", itemCount: 3, responseFormat: "7件法（リッカート）", language: "Chinese", adaptation: "Steenkamp, Batra, & Alden（2003）のローカル文化象徴3項目をセマンティック・ディファレンシャルからリッカートへ調整。国名プレースホルダは中国。同一論文のPBG側は別尺度（既登録）であり、本記録はBLI/PBL側のみ。", result: "PBLは機能的・心理的価値を介して小売パトロネージを高める。国内小売はローカル象徴性の便益が大きい。", doi: "10.1509/jim.12.0105", url: "https://doi.org/10.1509/jim.12.0105" },
+      ],
+      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-09-04",
       notes: "PBG-3の逆転尺度ではない。世界的に認知されながら特定文化の象徴でもあるブランドを表現できるため、必要に応じてPBG-3と併用する。",
       recordStatus: "verified-metadata",
     },
