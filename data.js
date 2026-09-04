@@ -2,10 +2,10 @@
 // DOI、原典、項目数、下位次元は原著論文または公式資料で確認。
 const ATLAS_DATA = {
   meta: {
-    version: "0.50.1",
+    version: "0.50.2",
     status: "initial-real-data",
     updated: "2026-09-04",
-    scope: "63概念・96尺度",
+    scope: "63概念・97尺度",
   },
 
   concepts: [
@@ -2766,8 +2766,10 @@ const ATLAS_DATA = {
       applicationEvidence: [
         { label: "肯定感情と情熱を直接測る10項目版", itemCounts: [10], evidenceType: "scale-development", summary: "満足しているブランドへの肯定評価、幸福感、情熱、愛着を単一次元で測る。Bagozziらの階層的な26・13・6項目版とは別の項目集合。", title: "Some Antecedents and Outcomes of Brand Love", year: 2006, doi: "10.1007/s11002-006-4219-2", url: "https://doi.org/10.1007/s11002-006-4219-2" },
       ],
-      usageStudies: [],
-      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-15",
+      usageStudies: [
+        { title: "Customer Connections: A Cross-Cultural Investigation of Brand Experience and Brand Love in the Retail Landscape", authors: "Leite, Rodrigues, & Lopes", year: 2024, context: "小売（LIDL）におけるブランド経験とブランド・ラブのポルトガル／チェコ比較", sample: "LIDL顧客3,103名（ポルトガル1,362名、チェコ1,741名）", itemCount: 10, responseFormat: "7件法", language: "Portuguese / Czech", adaptation: "Carroll & Ahuvia（2006）の単一次元10項目版を英語からポルトガル語・チェコ語へ翻訳・逆翻訳。項目4・7は逆転。原版5件法に対し本調査は7件法。Bagozziらの多次元版ではない。", result: "全体でα=.914、CR=.936、AVE=.606。単一次元10項目として使用。", doi: "10.3390/admsci14010011", url: "https://doi.org/10.3390/admsci14010011" },
+      ],
+      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-09-04",
       notes: "単純な好意や満足ではなく、情熱的な感情結合を測る。短さを優先する場合は、構成内容の異なるBagozziらの正式6項目版も比較する。",
       recordStatus: "verified-metadata",
     },
@@ -3410,10 +3412,11 @@ const ATLAS_DATA = {
       targetPopulation: ["一般消費者", "青年・成人"],
       language: "English", versionType: "validated-short-form", parentScaleId: null,
       japaneseVersionStatus: "related-version",
-      japaneseStatusNote: "MVS-9そのものの標準化された検証済み日本語版は未登録です。一方、Richins（2004）の関連するMVS-6は日本語研究で使われており、日本語適用例と日米比較での使用を確認しています。9項目版と6項目版を同一版として扱わないでください。",
+      japaneseStatusNote: "MVS-9そのものの標準化された検証済み日本語版は未登録です。一方、Richins（2004）の関連するMVS-6は日本語研究で使われており、日本語適用例と日米比較での使用を確認しています。またOhno, Lee & Maeno（2022）のJ-MVS-P6は、Richins項目を日本語化したうえで日本標本のEFA/CFAにより肯定項目6項目・2因子（項目1,5,12,15,17,18）とした別の検証済み短縮版であり、MVS-9の翻訳版ではありません。詳細はj-mvs-p6-ohno-6を参照してください。9項目版・MVS-6・J-MVS-P6を同一版として扱わないでください。",
       japaneseEvidence: [
         { kind: "related-version", label: "MVS-6日本語適用例", authors: "増井啓太・下司忠大・澤田匡人・小塩真司", year: 2018, title: "日本語版強欲傾向尺度の作成", doi: "10.4992/jjpsy.88.16240", url: "https://doi.org/10.4992/jjpsy.88.16240" },
         { kind: "related-version", label: "MVS-6の日米消費者比較での使用", authors: "西尾チヅル・石田実", year: 2026, title: "サステナビリティ価値観とエコロジー行動―日米消費者の比較分析―", doi: "10.7222/marketing.2026.023", url: "https://doi.org/10.7222/marketing.2026.023" },
+        { kind: "related-version", label: "J-MVS-P6（別の日本語検証済み短縮版）", authors: "Ohno, Lee, & Maeno", year: 2022, title: "The Japanese version of the Material Values Scale: construct assessment and relationship with age, personality, and subjective well-being", doi: "10.1186/s40359-022-00889-3", url: "https://doi.org/10.1186/s40359-022-00889-3" },
       ], validationStudies: [], usagePermission: "unknown", usageEvidence: [],
       psychometricEvidence: [
         { label: "蓄積研究と15データセットによる短縮版開発", sample: "既刊研究レビューとMVSを含む15の生データセット", methods: "原尺度の測定特性再検討、15項目改訂版と9・6・3項目候補の比較", result: "総合的な物質主義測定では9項目版が許容できる心理測定特性を持つと結論。6・3項目版はさらなる負担削減と測定精度のトレードオフが大きい。", url: "https://doi.org/10.1086/383436" },
@@ -3426,7 +3429,42 @@ const ATLAS_DATA = {
         { title: "Sustainability Values and Ecological Behavior: A Comparative Analysis of Japanese and U.S. Consumers", authors: "Nishio & Ishida", year: 2026, context: "エコロジー行動とシェアリングの日米比較", sample: "日本1,883名、米国2,002名", itemCount: 6, responseFormat: "5件法", language: "Japanese / English", adaptation: "Richins（2004）のMVS-6を日米オンライン調査へ適用。登録対象MVS-9とは関連短縮版。", result: "多母集団CFAを含む分析で日米間の尺度等価性を検討し、シェアリング行動は両国ともエコロジー価値観よりマテリアリズムに強く動機づけられると報告。", doi: "10.7222/marketing.2026.023", url: "https://doi.org/10.7222/marketing.2026.023" },
       ],
       itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-16",
-      notes: "回答負担だけで3項目を選ばず、中心性・成功・幸福の内容範囲を維持したい場合はMVS-9を優先する。",
+      notes: "回答負担だけで3項目を選ばず、中心性・成功・幸福の内容範囲を維持したい場合はMVS-9を優先する。J-MVS-P6は別レコード。",
+      recordStatus: "verified-metadata",
+    },
+    {
+      id: "j-mvs-p6-ohno-6",
+      name: "Japanese Material Values Scale – Positive-worded 6-item form",
+      abbreviation: "J-MVS-P6",
+      conceptId: "materialism",
+      authors: ["Hiroshi Ohno", "Kyung-Tae Lee", "Takashi Maeno"],
+      year: 2022,
+      sourceTitle: "The Japanese version of the Material Values Scale: construct assessment and relationship with age, personality, and subjective well-being",
+      journal: "BMC Psychology, 10, 200",
+      doi: "10.1186/s40359-022-00889-3",
+      sourceUrl: "https://lab.sdm.keio.ac.jp/maenolab/J-MVS-P6.htm",
+      itemCount: 6,
+      dimensions: ["Success/Centrality", "Happiness"],
+      responseFormat: "5件法",
+      reverseItems: [], scoring: "高得点ほど物質主義が高い。Success/Centrality（Richins項目1,5,12）と Happiness（15,17,18）の2因子。Richinsの3因子MVSとは構造が異なる。",
+      targetPopulation: ["日本の成人消費者"],
+      language: "Japanese", versionType: "validated-short-form", parentScaleId: null,
+      japaneseVersionStatus: "validated",
+      japaneseStatusNote: "日本語版物質主義尺度（J-MVS-P6）。RichinsのMVS項目を日本語へバックトランスレーションしたうえで、日本標本のEFA/CFAにより肯定項目のみ6項目・2因子のJ-MVS-P6を提案した検証済み日本語短縮版。MVS-9の翻訳版ではない。MVS-6（Richins 2004）とも項目構成・因子が異なる。著者はJ-MVS-A6よりJ-MVS-P6を推奨。",
+      japaneseEvidence: [
+        { kind: "psychometric-validation", label: "検証済み日本語短縮版（J-MVS-P6）", authors: "Ohno, Lee, & Maeno", year: 2022, title: "The Japanese version of the Material Values Scale: construct assessment and relationship with age, personality, and subjective well-being", doi: "10.1186/s40359-022-00889-3", url: "https://doi.org/10.1186/s40359-022-00889-3" },
+      ],
+      validationStudies: [], usagePermission: "open", usageEvidence: [],
+      psychometricEvidence: [
+        { label: "日本オンライン標本でのEFA/CFAと併存的妥当性", sample: "日本のオンライン調査500名（20–69歳、年齢帯・性別割付）", methods: "18項目J-MVSから肯定項目プールをEFA/CFA。Model 11（J-MVS-P6）。年齢・性格・主観的ウェルビーイングとの関連。", result: "2因子（φ=.55）。CFI=.986, TLI=.974, SRMR=.035, RMSEA=.055。全体α=.776。Success/Centrality CR=.700 AVE=.448、Happiness CR≈.80 AVE=.575。年齢と負相関、INCOM能力と正相関、SHS/SWLS等と負相関。著者は日本向け物質主義尺度としてJ-MVS-P6を提案。", url: "https://doi.org/10.1186/s40359-022-00889-3" },
+      ],
+      applicationEvidence: [
+        { label: "肯定項目6項目・2因子の日本語短縮版", itemCounts: [6, 9, 18], evidenceType: "validated-short-form", summary: "RichinsのMVS項目を日本語化し、日本標本で肯定項目のみ6項目・2因子（Success/CentralityとHappiness）を提案した版。MVS-9の翻訳でもMVS-6でもない。", title: "The Japanese version of the Material Values Scale", year: 2022, doi: "10.1186/s40359-022-00889-3", url: "https://doi.org/10.1186/s40359-022-00889-3" },
+        { label: "原著と研究室ページで項目を公開", itemCounts: [6], evidenceType: "open-items", summary: "原著はCC BY 4.0。本サイトには項目本文を転載せず、慶應前野研究室の掲載ページへリンクする。", title: "J-MVS-P6 item page", year: 2022, doi: "10.1186/s40359-022-00889-3", url: "https://lab.sdm.keio.ac.jp/maenolab/J-MVS-P6.htm" },
+      ],
+      usageStudies: [],
+      itemPublicationStatus: "source-open", items: [], verifiedAt: "2026-09-04",
+      notes: "原著はCC BY 4.0。項目本文は本サイトに転載せず、慶應前野研究室の掲載ページへリンクする（Additional file 2にもJ-MVS全文あり）。MVS-9やMVS-6の代替ラベルとして扱わない。成功／中心性が1因子に統合されている点に注意。",
       recordStatus: "verified-metadata",
     },
     {
@@ -3757,8 +3795,11 @@ const ATLAS_DATA = {
       applicationEvidence: [
         { label: "グローバルな市場到達の知覚を3項目で測定", itemCounts: [3, 2], evidenceType: "scale-development", summary: "原著Study 1では3項目、Study 2では2項目が用いられた。低負担の3項目版として登録するが、どちらを採用したかを研究報告に明記する。", title: "How Perceived Brand Globalness Creates Brand Value", year: 2003, doi: "10.1057/palgrave.jibs.8400002", url: "https://doi.org/10.1057/palgrave.jibs.8400002" },
       ],
-      usageStudies: [],
-      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-30",
+      usageStudies: [
+        { title: "Which cues cause consumers to perceive brands as more global? A conjoint analysis", authors: "De Meulenaer, Dens, & De Pelsmacker", year: 2015, context: "広告・ブランディング手がかりが知覚ブランド・グローバル性に与える相対的重要性（コンジョイント）", sample: "オランダの消費者200名（チョコレート／パソコン各100名）", itemCount: 3, responseFormat: "11件法（セマンティック・ディファレンシャル）", language: "Dutch（オランダでの調査。現地語で実施）", adaptation: "Steenkamp, Batra, & Alden（2003）の3項目を使用。コンジョイント刺激数に合わせ回答カテゴリを11件法へ拡張（α=.904）。", result: "広告コピーがPBGの最大手がかり（相対重要度約40%）。α=.904。", doi: "10.1108/IMR-04-2014-0144", url: "https://doi.org/10.1108/IMR-04-2014-0144" },
+        { title: "The Effects of Perceived Brand Globalness and Perceived Brand Localness in China: Empirical Evidence on Western, Asian, and Domestic Retailers", authors: "Swoboda, Pennemann, & Taube", year: 2012, context: "中国小売ブランドのPBG／PBLと来店パトロネージ", sample: "中国消費者1,188名、36の欧米・アジア・中国本土小売ブランド", itemCount: 3, responseFormat: "7件法（リッカート）", language: "Chinese", adaptation: "Steenkamp, Batra, & Alden（2003）由来の3項目を、セマンティック・ディファレンシャルからリッカート評価へ文言調整して使用。PBLも各3項目。", result: "PBGとPBLが機能的・心理的価値を介して小売パトロネージに影響。小売起源・消費者アイデンティティで経路が変化。", doi: "10.1509/jim.12.0105", url: "https://doi.org/10.1509/jim.12.0105" },
+      ],
+      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-09-04",
       notes: "実際の海外売上・進出国数ではなく消費者の知覚を測る。ブランドのローカル象徴性とは反対極として処理せず、必要なら両方を測る。",
       recordStatus: "verified-metadata",
     },
