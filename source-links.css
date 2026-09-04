@@ -201,6 +201,90 @@
 .decision-alternatives button { margin: 3px 3px 3px 0; }
 .decision-alternatives .compare-mini { color: var(--soft); font-size: 0.74rem; }
 
+.adoption-relation {
+  margin: 10px 0 0;
+  padding: 8px 10px;
+  border-left: 3px solid var(--accent2);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.scale-relationship .relationship-diff {
+  margin: 0 0 8px;
+  padding: 8px 10px;
+  border-left: 3px solid var(--accent2);
+  border-radius: 6px;
+  background: #f2f8f7;
+  color: var(--accent);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.relationship-table-wrap { margin-top: 10px; }
+.relationship-table { min-width: 640px; }
+.relationship-table th,
+.relationship-table td {
+  padding: 7px 8px;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.78rem;
+  vertical-align: top;
+}
+.relationship-table thead th {
+  background: var(--bg);
+  color: var(--soft);
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+.relationship-table tbody th { width: 4.5em; color: var(--soft); font-weight: 700; }
+.relationship-table .is-current { background: #f2f8f7; }
+.relationship-table .text-button { font-weight: 700; }
+
+.relationship-cards { display: none; }
+.relationship-card {
+  padding: 11px;
+  border: 1px solid #cfe0dc;
+  border-radius: 8px;
+  background: #fff;
+}
+.relationship-card.is-current { background: #f2f8f7; }
+.relationship-card-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+.relationship-card dl {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 7px;
+  margin: 0;
+}
+.relationship-card dl div {
+  padding: 7px 9px;
+  border-radius: 6px;
+  background: var(--bg);
+}
+.relationship-card.is-current dl div { background: #fff; }
+.relationship-card dt {
+  color: var(--soft);
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+.relationship-card dd {
+  margin: 1px 0 0;
+  font-size: 0.78rem;
+}
+
+@media (max-width: 620px) {
+  .relationship-table-wrap { display: none; }
+  .relationship-cards { display: grid; gap: 8px; margin-top: 10px; }
+  .relationship-card dl { grid-template-columns: 1fr; }
+}
+
 .concept-decision-list { display: grid; gap: 8px; margin: 12px 0; }
 .concept-decision-list article { padding: 11px; border: 1px solid #cfe0dc; border-radius: 8px; background: #fff; }
 .concept-decision-list strong { display: block; margin-top: 4px; color: var(--accent); font-size: 0.88rem; }
