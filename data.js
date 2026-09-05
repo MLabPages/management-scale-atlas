@@ -2,9 +2,9 @@
 // DOI、原典、項目数、下位次元は原著論文または公式資料で確認。
 const ATLAS_DATA = {
   meta: {
-    version: "0.53.0",
+    version: "0.54.0",
     status: "initial-real-data",
-    updated: "2026-09-04",
+    updated: "2026-09-05",
     scope: "63概念・97尺度",
   },
 
@@ -3084,8 +3084,9 @@ const ATLAS_DATA = {
       ],
       usageStudies: [
         { title: "Customer Engagement and eWOM in Tourism", authors: "Kanje, Charles, Tumsifu, Mossberg, & Andersson", year: 2020, context: "旅行前・旅行中に観光SNSを利用したタンザニア旅行者", sample: "主要3空港で出国時に調査した旅行者278名", itemCount: 9, responseFormat: "7件法", language: "English", adaptation: "Chu & Kimの探索・発信・転送を各3項目で観光地と旅行SNSの文脈へ調整。", result: "各3項目のα=.83、.87、.93。CFAはCFI=.982、TLI=.986、RMSEA=.051で、3行動を区別して顧客エンゲージメントとの関係を検討。", doi: "10.1108/JHTI-04-2019-0074", url: "https://doi.org/10.1108/JHTI-04-2019-0074" },
+        { title: "The Impacts of Attitudes and Engagement on Electronic Word of Mouth (eWOM) of Mobile Sensor Computing Applications", authors: "Zhao, Liu, Lai, Zhang, & Zhang", year: 2016, context: "WeChat公式アカウント文脈におけるSNS eWOM（意見探索・発信・転送）", sample: "マカオ科技大学の大学生313名", itemCount: 9, responseFormat: "5件法（1＝強く反対～5＝強く賛成）", language: "Chinese / English report", adaptation: "Chu & Kim（2011）の探索・発信・転送各3項目をWeChat文言へ調整。3下位尺度すべて使用。Goyette e-WOM-9や対面PWOM-3ではない。", result: "OS α=.764、OG α=.741、OP α=.716。態度・エンゲージメントとの関係を検討。", doi: "10.3390/s16030391", url: "https://doi.org/10.3390/s16030391" },
       ],
-      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-19",
+      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-09-05",
       notes: "対面での好意的推奨意図PWOM-3とは異なり、SNS上の探索・発信・転送という行動類型を測る。各3項目下位尺度だけを使う場合は、測っていないeWOM行動へ結論を一般化しない。",
       recordStatus: "verified-metadata",
     },
@@ -3465,8 +3466,10 @@ const ATLAS_DATA = {
         { label: "肯定項目6項目・2因子の日本語短縮版", itemCounts: [6, 9, 18], evidenceType: "validated-short-form", summary: "RichinsのMVS項目を日本語化し、日本標本で肯定項目のみ6項目・2因子（Success/CentralityとHappiness）を提案した版。MVS-9の翻訳でもMVS-6でもない。", title: "The Japanese version of the Material Values Scale", year: 2022, doi: "10.1186/s40359-022-00889-3", url: "https://doi.org/10.1186/s40359-022-00889-3" },
         { label: "原著と研究室ページで項目を公開", itemCounts: [6], evidenceType: "open-items", summary: "原著はCC BY 4.0。本サイトには項目本文を転載せず、慶應前野研究室の掲載ページへリンクする。", title: "J-MVS-P6 item page", year: 2022, doi: "10.1186/s40359-022-00889-3", url: "https://lab.sdm.keio.ac.jp/maenolab/J-MVS-P6.htm" },
       ],
-      usageStudies: [],
-      itemPublicationStatus: "source-open", items: [], verifiedAt: "2026-09-04",
+      usageStudies: [
+        { title: "Feelings of Personal Relative Deprivation and Subjective Well-Being in Japan", authors: "Ohno, Lee, & Maeno", year: 2023, context: "日本のオンライン調査で個人的相対的剥奪・社会比較・物質主義・主観的ウェルビーイングの関係を検討", sample: "日本の成人500名（20–69歳、年齢帯・性別割付；MyVoiceパネル）", itemCount: 6, responseFormat: "5件法", language: "Japanese", adaptation: "公開済みJ-MVS-P6をそのまま使用（6項目）。MVS-9/MVS-6/J-MVS-18ではない。分析データはOhno et al. 2022の開発論文と同一調査・別焦点である点を明記。", result: "α=.776、M=2.80。PRDと物質主義の相関 r=.451。能力比較SCO→PRD→物質主義の部分媒介を報告。", doi: "10.3390/bs13020158", url: "https://doi.org/10.3390/bs13020158" },
+      ],
+      itemPublicationStatus: "source-open", items: [], verifiedAt: "2026-09-05",
       notes: "原著はCC BY 4.0。項目本文は本サイトに転載せず、慶應前野研究室の掲載ページへリンクする（Additional file 2にもJ-MVS全文あり）。MVS-9やMVS-6の代替ラベルとして扱わない。成功／中心性が1因子に統合されている点に注意。",
       recordStatus: "verified-metadata",
     },
@@ -3736,8 +3739,9 @@ const ATLAS_DATA = {
       ],
       usageStudies: [
         { title: "Brand Relationships and Risk: Influence of Risk Avoidance and Gender on Brand Consumption", authors: "Lee, Workman, & Jung", year: 2016, context: "米国の大学生が挙げた好きなファッションブランドに対する信憑性、信頼、ロイヤルティとリスク回避", sample: "米国の大学生221名", itemCount: 6, responseFormat: "7件法（1＝強く同意しない～7＝強く同意する）", language: "English", adaptation: "Erdem & Swaitのブランド信憑性6項目を使用し、項目を合計して尺度得点を算出。", result: "各尺度のαは.88～.92。リスク回避とブランド信憑性には正の相関があり、高リスク回避群の信憑性得点が高かった。", doi: "10.1186/s40852-016-0041-0", url: "https://doi.org/10.1186/s40852-016-0041-0" },
+        { title: "Shaping customer brand loyalty during the pandemic: The role of brand credibility, value congruence, experience, identification, and engagement", authors: "Rather, Hollebeek, Vo-Thanh, Ramkissoon, Leppiman, & Smith", year: 2022, context: "COVID期インドの観光デスティネーション・ブランドにおける信憑性→同一視→ロイヤルティ", sample: "観光客420名", itemCount: 6, responseFormat: "7件法", language: "English", adaptation: "Erdem & Swait（2004）のブランド信憑性6項目を観光ブランド文言で使用。Table 2に6項目。魅力性を加えた拡張版・7項目版・ブランド信頼4項目・BTS-8ではない。", result: "α=.93、CR=.91、AVE=.64。ブランド同一視へβ=.54。高エンゲージメント群で効果がより強い。", doi: "10.1002/cb.2070", url: "https://doi.org/10.1002/cb.2070" },
       ],
-      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-08-10",
+      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-09-05",
       notes: "ブランド信頼と関連するが、ブランドが発する情報の信頼性と、約束を実現する専門性を併せて扱う。項目本文は利用条件を確認して原典から取得する。",
       recordStatus: "verified-metadata",
     },
