@@ -2,9 +2,9 @@
 // DOI、原典、項目数、下位次元は原著論文または公式資料で確認。
 const ATLAS_DATA = {
   meta: {
-    version: "0.54.0",
+    version: "0.55.0",
     status: "initial-real-data",
-    updated: "2026-09-05",
+    updated: "2026-09-06",
     scope: "63概念・97尺度",
   },
 
@@ -2771,8 +2771,9 @@ const ATLAS_DATA = {
       ],
       usageStudies: [
         { title: "Customer Connections: A Cross-Cultural Investigation of Brand Experience and Brand Love in the Retail Landscape", authors: "Leite, Rodrigues, & Lopes", year: 2024, context: "小売（LIDL）におけるブランド経験とブランド・ラブのポルトガル／チェコ比較", sample: "LIDL顧客3,103名（ポルトガル1,362名、チェコ1,741名）", itemCount: 10, responseFormat: "7件法", language: "Portuguese / Czech", adaptation: "Carroll & Ahuvia（2006）の単一次元10項目版を英語からポルトガル語・チェコ語へ翻訳・逆翻訳。項目4・7は逆転。原版5件法に対し本調査は7件法。Bagozziらの多次元版ではない。", result: "全体でα=.914、CR=.936、AVE=.606。単一次元10項目として使用。", doi: "10.3390/admsci14010011", url: "https://doi.org/10.3390/admsci14010011" },
+        { title: "The Importance of Social Identification through Digital Marketing to Cultivate Emotional Attachment towards the Brand: Evidence from the Real Madrid, F.C.", authors: "Baena", year: 2023, context: "レアル・マドリード・ファンにおけるデジタル・マーケティングとブランド感情的愛着（ブランド・ラブ）", sample: "自己申告のレアル・マドリード・ファン368名（オンライン、2020年9–12月）", itemCount: 10, responseFormat: "5件法", language: "English / Spanish survey context", adaptation: "Carroll & Ahuvia（2006）の単一次元10項目を「brand」→「club」に文言置換のみ。Table 2に逆転2項目を含む全10項目。Bagozzi BLSや項目削除版ではない。", result: "Attachment 1–10としてα=.979、AVE=.591、CR=.787。SEMの感情的愛着従属変数として使用。", doi: "10.54663/2182-9306.2023.sn13.56-76", url: "https://doi.org/10.54663/2182-9306.2023.sn13.56-76" },
       ],
-      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-09-04",
+      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-09-06",
       notes: "単純な好意や満足ではなく、情熱的な感情結合を測る。短さを優先する場合は、構成内容の異なるBagozziらの正式6項目版も比較する。",
       recordStatus: "verified-metadata",
     },
@@ -3608,8 +3609,11 @@ const ATLAS_DATA = {
       applicationEvidence: [
         { label: "各次元4項目を維持する正式短縮版", itemCounts: [12, 4, 31], evidenceType: "validated-short-form", summary: "独自性欲求の3側面を残しながら回答負荷を抑えられる。原版31項目より短いが、各次元4項目の平均だけを総合的な独自性欲求と解釈する場合は構造確認が必要。", title: "Consumers' Need for Uniqueness: Short-Form Scale Development and Cross-Cultural Validation", year: 2008, doi: "10.1108/02651330810851872", url: "https://doi.org/10.1108/02651330810851872" },
       ],
-      usageStudies: [],
-      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-28",
+      usageStudies: [
+        { title: "Reliability and Validity of the Turkish Version of Short Form Consumer Need for Uniqueness Scale", authors: "Arslan, Yilmaz, Aykac, & Ozsoy", year: 2023, context: "トルコ語へのCNFU-S短尺適応と妥当性・信頼性検証", sample: "トルコ一般消費者742名（オンライン・割当；15–65歳）", itemCount: 12, responseFormat: "5件法", language: "Turkish", adaptation: "Ruvio et al.（2008）CNFU-Sの12項目（創造的選択・非人気選択・類似回避各4）をBeaton手続きでトルコ語翻訳。Table 1に12項目。Tian-31抜粋ではない。", result: "全体α=.89。3因子CFA: CFI=.963, RMSEA=.07。市場マベン・地位消費と正の相関。", doi: "10.21272/mmi.2023.2-04", url: "https://doi.org/10.21272/mmi.2023.2-04" },
+        { title: "Does Consumer Need for Uniqueness Influence Travel Decision-Making?", authors: "Dey, Mathew, & Srivastava", year: 2021, context: "インド人観光客のCNFUと旅行意思決定（目的地・活動選好）", sample: "インド各地の観光客288名", itemCount: 12, responseFormat: "5件法", language: "English", adaptation: "Ruvio et al.（2008）の12項目parsimonious版を旅行・目的地文言へ調整。研究内削除の記載なし。", result: "CFA・SEMで信頼性.79–.93、AVE>0.5。高CNFUはユニークな目的地・活動選好と関連。", doi: "10.37741/t.69.2.3", url: "https://doi.org/10.37741/t.69.2.3" },
+      ],
+      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-09-06",
       notes: "CNFU-31を研究内で12項目に削った版ではない。3次元の構成内容を各4項目で保持して再検証された正式短縮版。",
       recordStatus: "verified-metadata",
     },
@@ -3841,8 +3845,9 @@ const ATLAS_DATA = {
       ],
       usageStudies: [
         { title: "The Effects of Perceived Brand Globalness and Perceived Brand Localness in China: Empirical Evidence on Western, Asian, and Domestic Retailers", authors: "Swoboda, Pennemann, & Taube", year: 2012, context: "中国の小売ブランドにおけるPBL（ローカル象徴性）と店舗パトロネージ", sample: "中国消費者1,188名、36の欧米・アジア・中国本土小売ブランド", itemCount: 3, responseFormat: "7件法（リッカート）", language: "Chinese", adaptation: "Steenkamp, Batra, & Alden（2003）のローカル文化象徴3項目をセマンティック・ディファレンシャルからリッカートへ調整。国名プレースホルダは中国。同一論文のPBG側は別尺度（既登録）であり、本記録はBLI/PBL側のみ。", result: "PBLは機能的・心理的価値を介して小売パトロネージを高める。国内小売はローカル象徴性の便益が大きい。", doi: "10.1509/jim.12.0105", url: "https://doi.org/10.1509/jim.12.0105" },
+        { title: "An Extended Model of Preference Formation between Global and Local Brands: The Roles of Identity Expressiveness, Trust, and Affect", authors: "Xie, Batra, & Peng", year: 2015, context: "中国消費者の電子製品ブランドにおけるPBL経路（アイデンティティ表現性・信頼・感情を介した行動意図）", sample: "北京の主要駅で実施した中国消費者調査、最終N=287、電子製品ブランド（グローバル・国内、自己指名）", itemCount: 3, responseFormat: "7件法（セマンティック・ディファレンシャル）", language: "Chinese", adaptation: "Steenkamp, Batra, & Alden（2003）のローカル文化象徴3項目をセマンティック項目として採用。Table 1で文言確認（associate…Chinese / represents what China is all about / good symbol of China；原版の very good を good に短縮）。国名プレースホルダは中国。同一論文のPBG側は別尺度。第3項目のCFA負荷が弱い点に注意。", result: "PBLのα=.79。CFA負荷 .92/.94/.40。PBLは主にブランド・アイデンティティ表現性を介して行動意図に寄与。", doi: "10.1509/jim.14.0009", url: "https://doi.org/10.1509/jim.14.0009" },
       ],
-      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-09-04",
+      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-09-06",
       notes: "PBG-3の逆転尺度ではない。世界的に認知されながら特定文化の象徴でもあるブランドを表現できるため、必要に応じてPBG-3と併用する。",
       recordStatus: "verified-metadata",
     },
