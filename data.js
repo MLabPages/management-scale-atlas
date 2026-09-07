@@ -2,9 +2,9 @@
 // DOI、原典、項目数、下位次元は原著論文または公式資料で確認。
 const ATLAS_DATA = {
   meta: {
-    version: "0.55.0",
+    version: "0.56.0",
     status: "initial-real-data",
-    updated: "2026-09-06",
+    updated: "2026-09-07",
     scope: "63概念・97尺度",
   },
 
@@ -781,8 +781,9 @@ const ATLAS_DATA = {
       ],
       usageStudies: [
         { title: "Towards a Better Measure of Customer Experience", authors: "Klaus & Maklan", year: 2013, context: "英国の住宅ローン、給油所、リテール銀行、高級品の4サービス", sample: "各文脈200名、計800名", itemCount: 19, responseFormat: "7件法", language: "English", adaptation: "2012年EXQの19項目・4次元を4サービス文脈に適用し、多群比較後に統合分析。", result: "CFI=.96、IFI=.96、RMSEA=.06、EXQのCR=.93。EXQは満足、ロイヤルティ、口コミに有意な影響を示し、満足よりロイヤルティ・推奨をよく説明。", doi: "10.2501/IJMR-2013-021", url: "https://doi.org/10.2501/IJMR-2013-021" },
+        { title: "Customer Experience in Sports Centres: Adaptation and Validation of a Measurement Scale", authors: "García-Pascual, Parra-Camacho, & Martínez Rico", year: 2023, context: "スペインの民間スポーツセンター（CDM）における顧客経験の測定適応", sample: "利用者413名（回収442から不完全29を除外）", itemCount: 19, responseFormat: "5件法", language: "Spanish / Spanish study context", adaptation: "Klaus & Maklan（2012）EXQの19項目・4次元（peace of mind 6、moments of truth 5、outcome focus 4、product experience 4）をスポーツ施設文言へ調整して投与。原版はしばしば7件法だが本調査は5件法。CFA後にproduct experienceを除外し分析は15項目・3次元。研究内削除／文脈適応であり、正式短縮版ではない。Klaus（2014）26項目改訂版ではない。", result: "投与時は4因子19項目。最終モデルはPEA/MOM/OUTの3因子（CFI=.93、RMSEA=.070）。α=.86～.88、CR=.87～.89、AVE=.54～.68。満足・将来意図と正の関連。", doi: "10.3390/su15075954", url: "https://doi.org/10.3390/su15075954" },
       ],
-      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-13",
+      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-09-07",
       notes: "サービス品質や顧客満足そのものではなく、サービスを通じた経験品質を測る。2014年の25項目改訂版や2021年の再検討研究と項目集合を混同しない。",
       recordStatus: "verified-metadata",
     },
@@ -1253,8 +1254,9 @@ const ATLAS_DATA = {
       ],
       usageStudies: [
         { title: "Self-Brand Personality Differences and Attitudes towards Electric Cars", authors: "Moons & De Pelsmacker", year: 2015, context: "ベルギーの自動車4ブランドと電気自動車へのブランド拡張", sample: "代表性を調整した運転免許保有者2標本、120名と480名、計600名", itemCount: 12, responseFormat: "5件法", language: "Unspecified", adaptation: "Geuensらの12項目・5次元を、ブランドと回答者本人の双方に適用して次元別の差を算出。確認した方法節では調査言語の明記を確認できなかった。", result: "各次元α=.79～.91。電気自動車拡張後は、ブランドを自己よりResponsibilityが高いと知覚することがブランド評価の重要な説明要因になった。", doi: "10.3390/su70912322", url: "https://doi.org/10.3390/su70912322" },
+        { title: "Unlocking the potential of branding in social marketing services: utilising brand personality and brand personality appeal", authors: "Gordon, Zainuddin, & Magee", year: 2016, context: "豪州クイーンズランドの社会的マーケティング（乳がん検診）と商業サービス（銀行）におけるブランド・パーソナリティ", sample: "50–69歳女性395名（BreastScreen Queensland 250名、Commonwealth Bank 145名）", itemCount: 12, responseFormat: "7件法", language: "English", adaptation: "Geuens et al.（2009）の12項目・5次元（Responsibility, Activity, Aggressiveness, Simplicity, Emotionality）を明示使用。Appendixに12項目。CFAでordinaryとromanticを低負荷により除外し分析は残り項目。Aaker 42や日本版36ではない。投与は12項目。", result: "5次元をモデル化。Responsibility α=.88、Activity α=.91、Aggressiveness α=.67。複数媒介SEMでBPA等との関係を検討。ResponsibilityとActivityが態度・行動意図と有意な直接・間接関係。EmotionalityとSimplicityは非有意。", doi: "10.1108/JSM-02-2015-0105", url: "https://doi.org/10.1108/JSM-02-2015-0105" },
       ],
-      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-14",
+      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-09-07",
       notes: "Aaker 42項目原版の短縮版ではなく、ブランドに適用可能な人間の性格特性に構成概念を限定して新規開発された12項目尺度。",
       recordStatus: "verified-metadata",
     },
@@ -3668,9 +3670,11 @@ const ATLAS_DATA = {
       reverseItems: [], scoring: "収集、コントロール、認識の下位次元を算出し、必要に応じて二次因子として情報プライバシー懸念を扱う。下位次元の単純な合計だけで具体的な懸念内容を失わないようにする。",
       targetPopulation: ["インターネット利用者", "オンラインで個人情報を提供する消費者"],
       language: "English", versionType: "original", parentScaleId: null,
-      japaneseVersionStatus: "unconfirmed",
-      japaneseStatusNote: "IUIPC-10の検証済み標準日本語版・明確な日本語使用例は今回未登録です。一般的なオンライン不安や知覚リスクの日本語尺度を、この3次元尺度の日本語版として扱わないでください。",
-      japaneseEvidence: [], validationStudies: [], usagePermission: "unknown", usageEvidence: [],
+      japaneseVersionStatus: "usage-example",
+      japaneseStatusNote: "Papeら（2020）が日本のオンライン調査9,287名にMalhotraらのIUIPC-10を日本語で投与した概念的追試があります。Open Materialsに日本語調査票が公開されています。ただし検証済みの標準日本語版ではなく、日本語使用例として扱います。Hong & ThongのIPCやIUIPC-8、CFIP単独ではありません。",
+      japaneseEvidence: [
+        { kind: "usage-example", label: "日本のオンライン調査におけるIUIPC-10の概念的追試", authors: "Pape, Ivan, Harborth, Nakamura, Kiyomoto, Takasaki, & Rannenberg", year: 2020, title: "Re-Evaluating Internet Users’ Information Privacy Concerns: The Case in Japan", doi: "10.17705/1atrr.00061", url: "https://doi.org/10.17705/1atrr.00061" },
+      ], validationStudies: [], usagePermission: "unknown", usageEvidence: [],
       psychometricEvidence: [
         { label: "3次元10項目・二次因子モデルの開発", sample: "インターネット利用者を対象とする複数の調査標本", methods: "項目生成、探索的・確認的因子分析、二次因子モデル、信頼性・収束・弁別・名目法則的妥当性の検討", result: "個人情報の収集、利用者によるコントロール、企業による情報取扱いの認識を区別する10項目尺度を提示し、プライバシー懸念から信頼・行動意図への因果モデルを検討。", url: "https://doi.org/10.1287/isre.1040.0032" },
         { label: "独立3標本によるIUIPC-10の再検討", sample: "相互に独立した3標本、計1,031名", methods: "確認的因子分析、次元性、構成概念妥当性、信頼性の再評価", result: "3次元性は確認した一方、ControlとAwarenessの単一次元性、IUIPC-10の構成概念妥当性・信頼性に弱点を報告。8項目再指定版を提示。", url: "https://doi.org/10.2478/popets-2021-0026" },
@@ -3679,8 +3683,10 @@ const ATLAS_DATA = {
         { label: "プライバシー懸念の内容を3側面で測定", itemCounts: [10], evidenceType: "scale-development", summary: "情報がどれだけ集められるかへの懸念、本人が制御できるという認識、取扱方針を知っているという認識を分けて測る。知覚リスク全般や特定企業への信頼とは置き換えない。", title: "Internet Users' Information Privacy Concerns (IUIPC)", year: 2004, doi: "10.1287/isre.1040.0032", url: "https://doi.org/10.1287/isre.1040.0032" },
         { label: "原版10項目と再指定8項目を比較", itemCounts: [10, 8, 4, 2], evidenceType: "replication-and-respecification", summary: "後続検証ではIUIPC-8の適合・妥当性・信頼性がIUIPC-10より良好だった。原版を慣例だけで選ばず、短縮版の内容範囲の狭まりも含めて比較する。", title: "Validity and Reliability of the Scale Internet Users’ Information Privacy Concerns", year: 2021, doi: "10.2478/popets-2021-0026", url: "https://doi.org/10.2478/popets-2021-0026" },
       ],
-      usageStudies: [],
-      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-28",
+      usageStudies: [
+        { title: "Re-Evaluating Internet Users’ Information Privacy Concerns: The Case in Japan", authors: "Pape, Ivan, Harborth, Nakamura, Kiyomoto, Takasaki, & Rannenberg", year: 2020, context: "日本のインターネット利用者におけるMalhotraらIUIPC因果モデルの概念的追試（PLS）", sample: "日本のオンライン調査回答者9,287名", itemCount: 10, responseFormat: "7件法", language: "Japanese", adaptation: "Malhotra et al.（2004）IUIPC-10をそのまま使用（Awareness 3・Collection 4・Control 3）。付録に英語項目。日本語版調査票はOpen Materialsで公開。Hong & Thong IPC・IUIPC-8・CFIP単独ではない。従属変数は原著の情報開示意図ではなく自作のwillingness to share 3項目。", result: "二次因子IUIPCは信頼・妥当（Awareness α=.906、Collection α=.888、Control α=.792）。構造パスは5本中3本支持。IUIPC→信頼および信頼→リスクは実質無視し得る。性別のみIUIPCに有意差。", doi: "10.17705/1atrr.00061", url: "https://doi.org/10.17705/1atrr.00061" },
+      ],
+      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-09-07",
       notes: "プライバシー懸念を単一の不安として扱うのではなく、収集・制御・認識のどこに問題があるかを分けて検討したいデジタル消費者研究に向く。",
       recordStatus: "verified-metadata",
     },
