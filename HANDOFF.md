@@ -1,7 +1,7 @@
 # 経営学・マーケティング概念・尺度アトラス 開発引継ぎ
 
-最終更新: 2026-09-07<br>
-対象版: v0.56.0<br>
+最終更新: 2026-09-10<br>
+対象版: v0.57.0<br>
 公開URL: https://mlabpages.github.io/management-scale-atlas/  
 リポジトリ: https://github.com/MLabPages/management-scale-atlas
 
@@ -24,7 +24,7 @@
 
 - 63概念
 - 97尺度
-- 個別の尺度使用研究 140件
+- 個別の尺度使用研究 143件
 - 登録版そのものが3・4項目: 22尺度
 - 個別使用研究で3・4項目版を確認済み: 25尺度
 - 日本語情報の内訳
@@ -47,6 +47,8 @@ SERVQUALには、Cronin & Taylor（1992）による同じ22属性のSERVPERFと�
 Consumer Brand Engagementでは、HollebeekらのSNS向け10項目原版に、アラビア語へ逆翻訳してヨルダンのFacebook利用者500名へ適用した研究を追加した。さらに、Razmus（2021）がポーランド語の質的調査から新規開発したSNS外向け6項目版を独立登録した。6項目版は認知・感情・行動を各2項目で保持し、417名で精選、339名で因子構造、151名で再検査信頼性、98名で実験的妥当性を検討している。Hollebeek原版の研究内削除版ではない。原著がCC BYで項目を公開している尺度には、詳細画面から項目掲載ページへ移動できる表示も追加した。
 
 Brand Trustでは、単一次元4項目版と、Brand reliability・Brand intentionsを各4項目で測るBTS 8項目版を別尺度として比較できるようにした。BTSにはシャンプー・ビール各140名での製品カテゴリー間測定不変性、オーストラリアのシャンプー利用者154名による2因子追試、米国大学生221名・75ファッションブランドでの使用研究を追加した。8項目BTSの日本語使用・翻訳検証は確認できず、4項目版の日本語双方向翻訳例を転用しないよう明記した。
+
+v0.57.0では、Gahler CX Scale 18・IUIPC-8・CBE 6項目版へ確認済みの個別使用研究を各1件追加した。Gahler CX Scale 18にはGao & Jiang（2025）の中国オムニチャネル小売研究を初の使用研究として登録し、6次元各3項目の18項目をフル使用し、プレースホルダを experience partner から this firm へ文脈調整したことを明記した。Gahler開発論文は使用研究に含めず、EXQ・Rahman OCX・Kuehnl旅程設計尺度としては扱わない（後者は同論文の別構成）。IUIPC-8にはYang, West, Thiruvathukal, Klingensmith & Fawaz（2022）のビデオ会議ミュートボタン研究を初の使用研究として登録した。Groß（2021）のIUIPC-8を明示使用し、Malhotra IUIPC-10・CFIP・Hong & Thong IPCではない。Groß 2021開発論文とGroß 2023は加えていない。CBE 6項目版にはRazmus & Fortuna（2022）のラグジュアリー・ロゴ実験を2件目として追加し、認知・感情・行動各2項目の6項目をCalvin Klein文言で用いた例として、Hollebeek SNS 10・BESC・髙橋日本語12と区別した。Razmus & Laguna（2024）は再登録せず、Razmus（2021）開発論文は使用研究に含めていない。日本語状況は3尺度とも未確認のままである。個別使用研究は143件、登録尺度は97件のままである。
 
 v0.56.0では、EXQ 19・Geuensブランド・パーソナリティ12・IUIPC-10へ確認済みの個別使用研究を各1件追加した。EXQ 19にはGarcía-Pascual, Parra-Camacho & Martínez Rico（2023）のスペイン民間スポーツセンター研究を2件目として登録し、Klaus & Maklan（2012）の19項目・4次元をスポーツ施設文言へ調整して投与したこと、およびCFA後にproduct experienceを除外した15項目・3次元が研究内削除／文脈適応であり正式短縮版ではないことを明記した。Imhof & Klausは加えず、Klaus & Maklan（2013）は再登録していない。Geuens 12にはGordon, Zainuddin & Magee（2016）の豪州クイーンズランド研究を2件目として追加し、12項目投与とordinary・romanticの分析除外を記録した。Moons & De Pelsmacker（2015）は再登録せず、Roy & Banerjee（2020）も加えていない。IUIPC-10にはPapeら（2020）の日本オンライン調査9,287名による概念的追試を初の使用研究として登録した。Malhotraらの10項目をそのまま用い、従属変数は自作のwillingness to share 3項目である。Hong & Thong IPC・IUIPC-8・CFIP単独としては扱わない。IUIPC-10の日本語状況は検証済み標準版ではなく日本語使用例とする。EXQとGeuens 12の日本語状況は未確認のままである。個別使用研究は140件、登録尺度は97件のままである。
 
