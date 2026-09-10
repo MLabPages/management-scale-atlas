@@ -2,9 +2,9 @@
 // DOI、原典、項目数、下位次元は原著論文または公式資料で確認。
 const ATLAS_DATA = {
   meta: {
-    version: "0.56.0",
+    version: "0.57.0",
     status: "initial-real-data",
-    updated: "2026-09-07",
+    updated: "2026-09-10",
     scope: "63概念・97尺度",
   },
 
@@ -814,8 +814,10 @@ const ATLAS_DATA = {
       applicationEvidence: [
         { label: "各次元3項目で内容範囲を保持", itemCounts: [18, 3], evidenceType: "scale-development", summary: "感情・認知・身体・関係・感覚・象徴の6次元を各3項目で測るため、総項目数は18ですが次元別の診断性と回答負荷の均衡を狙った構成です。", title: "Customer Experience: Conceptualization, Measurement, and Application in Omnichannel Environments", year: 2023, doi: "10.1177/10946705221126590", url: "https://doi.org/10.1177/10946705221126590" },
       ],
-      usageStudies: [],
-      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-13",
+      usageStudies: [
+        { title: "Enhancing Omnichannel Customer Experience: From a Customer Journey Design Perspective", authors: "Gao & Jiang", year: 2025, context: "中国のオムニチャネル小売における顧客経験と価値共創行動", sample: "オムニチャネル顧客775名（オンライン調査）", itemCount: 18, responseFormat: "7件法", language: "Chinese", adaptation: "Gahler et al.（2023）のCX尺度18項目（affective/cognitive/physical/relational/sensorial/symbolic×各3）をフル使用。プレースホルダを experience partner → this firm に文脈調整のみ。次元抜粋なし。EXQ・Rahman OCX・Kuehnl旅程設計尺度ではない（後者は別構成として同論文で使用）。", result: "PLS-SEM。6次元をオムニチャネルCXとして測定。価値共創行動との関係を検討（sensorial以外が有意と報告）。", doi: "10.3390/jtaer20040277", url: "https://doi.org/10.3390/jtaer20040277" },
+      ],
+      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-09-10",
       notes: "ブランド単位の長期的なブランド経験ではなく、特定タッチポイントでの顧客反応を測る。6次元すべてを含む18項目版として検証されている。",
       recordStatus: "verified-metadata",
     },
@@ -1573,8 +1575,9 @@ const ATLAS_DATA = {
       ],
       usageStudies: [
         { title: "Understanding self-esteem in the consumer journey: A model of purchase self-esteem antecedents", authors: "Razmus & Laguna", year: 2024, context: "ポーランドにおける非日常的購買の縦断研究（衣料、携帯電話、履物など）", sample: "購買約1週間前111名、購買約1週間後99名（T1: 女性64名、年齢20～54歳）", itemCount: 6, responseFormat: "5件法", language: "ポーランドの研究。論文はRazmus（2021）の英語項目例を提示", adaptation: "予定／購入ブランドについてRazmus（2021）のConsumer Brand Engagement Scale 6項目を使用。HollebeekのSNS向け10項目でもBESCでもない。", result: "αはT1=.85、T2=.90。CBEは真正の誇りと関連し、自尊感情への間接効果を報告。", doi: "10.1007/s12144-024-06604-2", url: "https://doi.org/10.1007/s12144-024-06604-2" },
+        { title: "Someone like me: The role of consumer brand engagement and social identification in the perception of luxury brand users", authors: "Razmus & Fortuna", year: 2022, context: "ラグジュアリー・ロゴとCBEがブランド利用者の知覚（地位・知性・魅力）に与える実験", sample: "2実験・計約432名", itemCount: 6, responseFormat: "5件法", language: "English / Polish research context", adaptation: "Razmus（2021）CBE Scaleの6項目（認知・感情・行動×各2）を明示使用。Table 1にCalvin Klein文言の6項目。Hollebeek SNS 10・BESC・髙橋日本語12ではない。", result: "Study1 α=.81/.86、Study2 α=.92。CBEがラグジュアリー・ロゴ効果を調整。Study2では社会的同一視を介した調整媒介。", doi: "10.1002/cb.2071", url: "https://doi.org/10.1002/cb.2071" },
       ],
-      itemPublicationStatus: "source-open", items: [], verifiedAt: "2026-09-04",
+      itemPublicationStatus: "source-open", items: [], verifiedAt: "2026-09-10",
       notes: "原著はCC BYで、Table 2から英語表示の6項目を確認できる。本サイトには未検証の日本語訳を尺度項目として掲載せず、原文への直リンクを提供する。",
       recordStatus: "verified-metadata",
     },
@@ -3716,8 +3719,10 @@ const ATLAS_DATA = {
       applicationEvidence: [
         { label: "10項目原版を再指定した8項目版", itemCounts: [8, 10, 4, 2], evidenceType: "replication-and-respecification", summary: "回答負荷と測定特性の点で有力な選択肢。ただしControl・Awarenessは各2項目となり内容範囲が狭く、単独下位尺度としてはモデル同定上の制約がある。", title: "Validity and Reliability of the Scale Internet Users’ Information Privacy Concerns", year: 2021, doi: "10.2478/popets-2021-0026", url: "https://doi.org/10.2478/popets-2021-0026" },
       ],
-      usageStudies: [],
-      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-29",
+      usageStudies: [
+        { title: "Are You Really Muted?: A Privacy Analysis of Mute Buttons in Video Conferencing Apps", authors: "Yang, West, Thiruvathukal, Klingensmith, & Fawaz", year: 2022, context: "ビデオ会議アプリのミュートボタンに関するプライバシー懸念・利用者調査", sample: "Prolific回答者223名", itemCount: 8, responseFormat: "7件法", language: "English", adaptation: "Groß（2021）のIUIPC-8を明示使用（「refined version of IUIPC-8 from Groß」）。Malhotra IUIPC-10・CFIP・Hong & Thong IPCではない。", result: "Cronbach α=.7915。プライバシー関連分析の個人差尺度として使用。", doi: "10.56553/popets-2022-0077", url: "https://doi.org/10.56553/popets-2022-0077" },
+      ],
+      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-09-10",
       notes: "原版IUIPC-10より短く測定特性が改善された再指定版。ただし2項目下位尺度を単独利用する用途には向かず、3次元全体で使用する。",
       recordStatus: "verified-metadata",
     },
