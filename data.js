@@ -2,9 +2,9 @@
 // DOI、原典、項目数、下位次元は原著論文または公式資料で確認。
 const ATLAS_DATA = {
   meta: {
-    version: "0.57.0",
+    version: "0.58.0",
     status: "initial-real-data",
-    updated: "2026-09-10",
+    updated: "2026-09-11",
     scope: "63概念・97尺度",
   },
 
@@ -2120,7 +2120,10 @@ const ATLAS_DATA = {
       psychometricEvidence: [
         { label: "原著の尺度開発", sample: "4つの研究による消費者標本", methods: "尺度精製、因子構造、収束・弁別・予測妥当性の検討", result: "3次元14項目と上位因子を支持", url: "https://doi.org/10.1016/j.jbusres.2013.06.001" },
       ],
-      itemPublicationStatus: "not-published", items: [],
+      usageStudies: [
+        { title: "La autenticidad de la marca, su efecto en la imagen y reputación de marca de productos cerveceros en México", authors: "Echeverría-Ríos, Medina-Quintero, & Abrego-Almazán", year: 2021, context: "メキシコ北東部のビールブランド真正性→感情的ブランドイメージ・評判（PLS-SEM）", sample: "ビール消費者200名（都合標本；男性136・女性64；嗜好ブランドTecate/XX/Bud Light/Corona等）", itemCount: 14, responseFormat: "5件法", language: "Spanish", adaptation: "Napoli et al.（2014）CBBAの3次元（quality commitment 6・heritage 5・sincerity 3＝14項目）をスペイン語質問票で使用。Morhart PBA-15ではない。誠実性項目にBruhn et al.（2012）も併記。", result: "品質コミットメントと誠実性はイメージ・評判に正の効果。heritage経路は非支持。CC α=.848、HE α=.879、SD α=.809。", doi: "10.18046/j.estger.2021.160.3966", url: "https://doi.org/10.18046/j.estger.2021.160.3966" },
+      ],
+      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-09-11",
       notes: "著者機関の公開記録ではAll rights reserved・書面許可必要とされるため、項目本文は掲載しない。",
       recordStatus: "verified-metadata",
     },
@@ -3057,8 +3060,9 @@ const ATLAS_DATA = {
       ],
       usageStudies: [
         { title: "Evaluación de los efectos de la confianza del consumidor sobre el boca-oído electrónico (e-WoM) en tiendas de comercio electrónico en Colombia", authors: "Hernández-Diaz", year: 2023, context: "コロンビアの電子商取引店舗に対する信頼とeWOM", sample: "オンライン購買経験者を対象とした調査（標本詳細は原文参照）", itemCount: 19, responseFormat: "7件法", language: "Spanish", adaptation: "Goyetteらの4次元をスペイン語へ翻訳・電子商取引文脈に適応し、内容妥当性を専門家が確認。原版9項目と同一項目集合ではなく、19項目の拡張適用。", result: "19項目のeWOM尺度と12項目の信頼尺度を用い、翻訳・文脈適応後の内容妥当性を確認。", doi: "10.15446/innovar.v33n87.105513", url: "https://doi.org/10.15446/innovar.v33n87.105513" },
+        { title: "Effect of Word-of-Mouth Dimensions on Brand Loyalty: A case of mobile money services in Tanzania", authors: "Matonya, Jaensson, & Ngaruko", year: 2020, context: "タンザニアのモバイルマネー・サービスにおけるeWOM次元とブランド・ロイヤルティ", sample: "MSME所有者・職員の有効回答約299名（Sumbawanga & Mpanda）", itemCount: 9, responseFormat: "原文参照", language: "English", adaptation: "Goyette et al.（2010）の9項目・4次元（intensity 3・positive valence 2・negative valence 2・content 2）をブランド／モバイルマネー文言へ適応。Hernández-Diazの19項目拡張ではない。Chu & Kim SNS eWOM-9やPWOM-3ではない。", result: "EFA/CFA/SEM。正の極性・強度・内容がロイヤルティに有意な正の効果；負の極性は非支持／負方向。", url: "https://www.ajol.info/index.php/pajbm/article/view/254324" },
       ],
-      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-19",
+      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-09-11",
       notes: "尺度名にe-WOMを含むが、SNSでの情報探索・発信・転送を測るChu & Kimの尺度とは構成内容が異なる。後続19項目版は原版9項目と同一版として扱わない。",
       recordStatus: "verified-metadata",
     },
@@ -3639,9 +3643,11 @@ const ATLAS_DATA = {
       reverseItems: [2, 3, 4, 5], scoring: "快楽的価値11項目と功利的価値4項目を別々に平均する。逆転項目は原典の方向へ統一し、快楽的・功利的価値を相殺した単一得点にはしない。",
       targetPopulation: ["店舗・オンラインで買物をした消費者", "小売サービスの顧客"],
       language: "English", versionType: "original", parentScaleId: null,
-      japaneseVersionStatus: "unconfirmed",
-      japaneseStatusNote: "HSV/USV-15の検証済み標準日本語版・明確な日本語使用例は今回未登録です。製品の知覚価値尺度PERVALを、この買物経験の尺度の日本語版として扱わないでください。",
-      japaneseEvidence: [], validationStudies: [], usagePermission: "unknown", usageEvidence: [],
+      japaneseVersionStatus: "related-version",
+      japaneseStatusNote: "大久保ら（2018）はBabin・Childers・Arnold & Reynoldsを参考にした独自の日本語買物意識尺度であり、Babin 15項目と同一ではありません。EFA後の最終項目は9項目です。2021年のSCS（DOI 10.14966/jssp.2023）はさらに別の日本語尺度です。検証済みの日本語Babin 15としては扱わず、PERVALを代用しないでください。",
+      japaneseEvidence: [
+        { kind: "related-version", label: "買物意識の2次元モデル（Babin等を参考にした独自項目）", authors: "大久保・下田・鷹阪・山田", year: 2018, title: "買物意識の2次元モデルについての検討", doi: "10.14966/jssp.1704", url: "https://doi.org/10.14966/jssp.1704" },
+      ], validationStudies: [], usagePermission: "unknown", usageEvidence: [],
       psychometricEvidence: [
         { label: "快楽的・功利的買物価値の15項目尺度", sample: "小売買物経験を報告した消費者を対象とする複数研究", methods: "項目精選、因子分析、信頼性・収束・弁別・基準関連妥当性の検討", result: "買物の楽しさ・没入等の快楽的価値と、必要な目的を効率的に達成した功利的価値を区別する2次元15項目尺度を提示。", url: "https://doi.org/10.1086/209376" },
       ],
@@ -3652,7 +3658,7 @@ const ATLAS_DATA = {
       usageStudies: [
         { title: "Still Work and/or Fun? Corroboration of the Hedonic and Utilitarian Shopping Value Scale", authors: "Picot-Coupey, Krey, Huré, & Ackermann", year: 2021, context: "小売買物文脈における快楽的・功利的買物価値尺度の再検証", sample: "複数の小売買物文脈を用いた消費者標本（標本詳細は原文参照）", itemCount: 15, responseFormat: "原文参照", language: "French / English study context", adaptation: "Babinらの快楽的・功利的買物価値尺度を再検討し、小売文脈での項目構造と尺度運用を検証。", result: "買物価値を快楽的・功利的に区別する測定の有用性を再検討し、文脈を踏まえた尺度運用の必要性を報告。", doi: "10.1016/j.jbusres.2019.12.018", url: "https://doi.org/10.1016/j.jbusres.2019.12.018" },
       ],
-      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-28",
+      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-09-11",
       notes: "快楽的価値11項目と功利的価値4項目は用途が異なる。複数概念調査で功利性だけを測る場合は低負担だが、買物経験全体を測定したことにはならない。",
       recordStatus: "verified-metadata",
     },
