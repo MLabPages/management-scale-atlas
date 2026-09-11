@@ -2,7 +2,7 @@
 // DOI、原典、項目数、下位次元は原著論文または公式資料で確認。
 const ATLAS_DATA = {
   meta: {
-    version: "0.58.0",
+    version: "0.59.0",
     status: "initial-real-data",
     updated: "2026-09-11",
     scope: "63概念・97尺度",
@@ -1461,15 +1461,20 @@ const ATLAS_DATA = {
       reverseItems: [], scoring: "3次元9項目。単一次元集約か多次元扱いかは研究目的に合わせて確認。",
       targetPopulation: ["企業経営者", "中小企業管理者"],
       language: "English", versionType: "original", parentScaleId: null,
-      japaneseVersionStatus: "unconfirmed",
-      japaneseStatusNote: "日本語での使用研究は想定されますが、原版9項目の翻訳・検証根拠を今回の登録範囲では確認していません。",
-      japaneseEvidence: [],
+      japaneseVersionStatus: "usage-example",
+      japaneseStatusNote: "原版9項目の独立した日本語版妥当性検証は未確認。日本の中小企業調査でCovin and Slevin（1989）の9項目（7段階の対項目）を翻訳使用した例がある。大学生向けBolton IEOの日本語使用とは区別する。",
+      japaneseEvidence: [
+        { kind: "usage-example", label: "日本の製造業中小企業でCovin–Slevin 9項目（7段階対項目）を使用", authors: "西平守秀・名取隆", year: 2015, title: "起業家的指向性と中小企業の医工連携参加", doi: "10.24717/jasve.25.0_61", url: "https://doi.org/10.24717/jasve.25.0_61" },
+      ],
       validationStudies: [], usagePermission: "unknown", usageEvidence: [],
       psychometricEvidence: [
         { label: "原著での適用", sample: "小規模製造企業161社", methods: "環境、構造、戦略姿勢、競争戦術、業績との関連を検討", result: "起業家的戦略姿勢と環境適合を検証", url: "https://doi.org/10.1002/smj.4250100107" },
       ],
-      itemPublicationStatus: "not-published", items: [],
-      notes: "Miller/Covin–Slevin系の9項目尺度。Lumpkin–Dessの5次元概念化とは区別する。",
+      usageStudies: [
+        { title: "A Study on the Effects of Entrepreneurial Orientation and Learning Orientation on Financial Performance: Focusing on Mediating Effects of Market Orientation", authors: "Cho & Lee", year: 2020, context: "韓国の成長志向起業家（エンジェル投資・成長支援コンサルを求める創業者）", sample: "有効回答174名の韓国起業家", itemCount: 9, responseFormat: "5件法（原版の7段階両極尺度からの改変）", language: "Korean", adaptation: "Covin and Slevin（1989）の企業レベルEO 9項目（革新性・先駆性・リスクテイク各3）を使用。EFAで革新性3＋先駆性3がinnovative-proactiveness 1因子に合流し、リスクテイク3項目と分けて分析した研究内因子構造であり、原版3次元をそのまま保持したわけではない。Lumpkin–Dess 5次元・Bolton IEO・Covin et al. 2020個人EOではない。", result: "innovative-proactiveness α=.804、risk-taking α=.761。革新・先駆は財務業績に有意、リスクテイクは非有意。顧客志向が革新・先駆と業績の関係を完全媒介。", doi: "10.3390/su12114594", url: "https://doi.org/10.3390/su12114594" },
+      ],
+      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-09-11",
+      notes: "Miller/Covin–Slevin系の9項目尺度。Lumpkin–Dessの5次元、Bolton IEO、Covin et al. 2020個人EO、Hansenの6項目精選版とは区別する。",
       recordStatus: "verified-metadata",
     },
     {
@@ -1957,8 +1962,11 @@ const ATLAS_DATA = {
       applicationEvidence: [
         { label: "日本語の3次元選択・文脈調整例", evidenceType: "construct-selection-and-contextual-adaptation", summary: "日本の市民マラソン参加者研究は、Sweeney & Soutar（2001）等を参考に機能的・感情的・社会的価値を5件法で測定した。複数の出典から項目を選び、低負荷項目を除外しているため、PERVAL 19項目の日本語版や汎用短縮版とは扱わない。", title: "ブランド・コミットメントに及ぼす消費価値の交互作用効果", year: 2021, doi: "10.7222/marketing.2021.026", url: "https://doi.org/10.7222/marketing.2021.026" },
       ],
-      itemPublicationStatus: "not-published", items: [],
-      notes: "サービス向けに開発された別の知覚価値尺度や短縮・改変版と区別する。",
+      usageStudies: [
+        { title: "Perceived value and consumer loyalty of healthy products in the Peruvian market, Lima 2021", authors: "Cisneros-Sandoval, Sandoval-Castro, García-Salirrosas, Flores-González, & Millones-Liza", year: 2021, context: "ペルー・リマの健康食品ブランドUNIÓNの知覚価値とロイヤルティ（NPS）", sample: "UNIÓN消費者417名（非確率オンライン；女性約61%）", itemCount: 19, responseFormat: "5件法", language: "Spanish", adaptation: "Sweeney & Soutar（2001）PERVAL原版19項目（品質・感情・価格・社会）をスペイン語化しブランド文言へ適応。件法は原版7件から5件へ変更。項目削除なし。Walsh短縮・Sirdeshmukh総合4・高橋26ではない。", result: "知覚価値全体 α=.929。知覚価値とロイヤルティ Spearman ρ=.537 (p<.001)。", url: "https://www.abacademies.org/articles/Perceived-value-and-consumer-loyalty-of-healthy-products-in-the-Peruvian-market-Lima2021-1532-5806-24-S5-341.pdf" },
+      ],
+      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-09-11",
+      notes: "サービス向けに開発された別の知覚価値尺度や短縮・改変版と区別する。Gallarzaらの19→17項目削除、Walsh短縮、Sirdeshmukh総合4項目、高橋26項目とは同一版ではない。",
       recordStatus: "verified-metadata",
     },
     {
@@ -2299,8 +2307,12 @@ const ATLAS_DATA = {
         { label: "レビューで確認された主要版", itemCounts: [17, 15, 9, 6, 3], evidenceType: "systematic-review", summary: "複数言語・地域で17、15、9、6、3項目版が検証・使用され、レビューでは9項目版が中心的な版と評価されています。", title: "Work engagement measures: A systematic literature review", year: 2024, url: "https://revistas.javeriana.edu.co/files-articulos/UPSY/23%282024%29/6972764006/" },
         { label: "特定領域レビュー内の使用版", itemCounts: [9, 17, 3], evidenceType: "systematic-review-count", summary: "長期ケア施設の看護職研究15件では、UWES-9が10件、UWES-17が3件、UWES-3が1件で使用。", title: "Antecedents and outcomes of work engagement among nursing staff in long-term care facilities", year: 2024, doi: "10.1111/jan.15804", url: "https://doi.org/10.1111/jan.15804" },
       ],
-      itemPublicationStatus: "not-published", items: [],
-      notes: "UWES-17、学生版UWES-Sとは区別する。研究利用条件と最新版マニュアルを確認する。",
+      usageStudies: [
+        { title: "Role of Supervisor Consultation Toward Work Engagement: A Prospective Cohort Study", authors: "Adi, Nagata, Odagami, Nagata, & Mori", year: 2024, context: "日本の就業者コホート（上司相談とワーク・エンゲージメント）", sample: "日本の就業者14,026名（1年追跡；自営業・家族従事・役員除外後）", itemCount: 9, responseFormat: "7件法（0＝全くない～6＝いつも）；合計0–54", language: "Japanese", adaptation: "Shimazu et al.（2008）の日本語版UWES-9をアウトカム尺度として使用（検証目的ではない）。UWES-17／学生版ではない。", result: "上司相談はWEと正の関連（調整後 β=3.474, p<.001；知覚的上司支援追加後も β=1.315, p<.001）。", doi: "10.1016/j.shaw.2024.02.003", url: "https://doi.org/10.1016/j.shaw.2024.02.003" },
+        { title: "The impact of negative and positive affectivity on the relationship between work-related psychological factors and work engagement in Japanese workers: a comparison of psychological distress", authors: "Fukuzaki & Iwata", year: 2023, context: "日本の正規フルタイム就業者（感情特性・仕事の要求度／資源とWE）", sample: "日本人正規フルタイム就業者1,000名（オンライン）", itemCount: 9, responseFormat: "7件法（0＝全くない～6＝いつも）", language: "Japanese", adaptation: "Shimazu et al.（2008）の日本語版UWES（活力・熱意・没頭各3項目）をWE測定に使用。尺度開発が主目的ではない。", result: "WEについて職業要因 ΔR²=.24、感情要因 ΔR²=.17；α=.96。", doi: "10.1186/s40359-023-01250-y", url: "https://doi.org/10.1186/s40359-023-01250-y" },
+      ],
+      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-09-11",
+      notes: "UWES-17、学生版UWES-Sとは区別する。Shimazu et al.（2008）は日本語版検証根拠であり、個別使用研究には含めない。研究利用条件と最新版マニュアルを確認する。",
       recordStatus: "verified-metadata",
     },
     {
