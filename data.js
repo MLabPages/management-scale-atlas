@@ -2,9 +2,9 @@
 // DOI、原典、項目数、下位次元は原著論文または公式資料で確認。
 const ATLAS_DATA = {
   meta: {
-    version: "0.59.0",
+    version: "0.60.0",
     status: "initial-real-data",
-    updated: "2026-09-11",
+    updated: "2026-09-12",
     scope: "63概念・97尺度",
   },
 
@@ -2933,8 +2933,9 @@ const ATLAS_DATA = {
       ],
       usageStudies: [
         { title: "Application of the Personal Involvement Inventory in Marketing", authors: "Flynn & Goldsmith", year: 1993, context: "旅行サービスとファッション衣料", sample: "旅行サービス185名、ファッション衣料の成人女性135名", itemCount: 10, responseFormat: "本文参照", language: "English", adaptation: "改訂10項目PIIを2つのマーケティング対象へ適用し、関与の高い消費者の識別に使用。", result: "旅行サービスと衣料という異なる対象で、10項目PIIの実務的なセグメンテーション利用を例示。", doi: "10.1002/mar.4220100409", url: "https://doi.org/10.1002/mar.4220100409" },
+        { title: "Exploring the Information Source Preferences Among Canadian Adult Golf League Members", authors: "Davies & Gray", year: 2016, context: "カナダの成人レクリエーショナル・ゴルフ・リーグ会員のオンライン調査。認知・感情的関与と購買前情報源選好の関係", sample: "カナダの成人ゴルフ・リーグ会員419名（平均年齢62歳；主にサスカチュワン・BC；50歳以上・長期プレーヤーが多い）", itemCount: 10, responseFormat: "7段階セマンティック・ディファレンシャル（両極形容詞；感情5＋認知5）；三分位で高・中・低関与", language: "English", adaptation: "Zaichkowsky (1994) の改訂10項目PII（RPII）をゴルフ・リーグを態度対象として適用。翻訳なし。認知・感情下位尺度（α=.90 / .89）。原版PII-20ではない。", result: "認知・感情関与レベル間で情報源選好に有意差なし。全体としてPersonal・SocialがWeb・Publicより好まれた。性別（女性）がPublic情報源利用を予測（関与ではない）。", doi: "10.17161/jas.v2i2.5711", url: "https://journals.ku.edu/jams/article/view/5711" },
       ],
-      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-15",
+      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-09-12",
       notes: "原版20項目を単に任意削除した版ではなく、Zaichkowsky自身が削減・改訂した10項目版。",
       recordStatus: "verified-metadata",
     },
