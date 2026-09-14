@@ -2,9 +2,9 @@
 // DOI、原典、項目数、下位次元は原著論文または公式資料で確認。
 const ATLAS_DATA = {
   meta: {
-    version: "0.60.0",
+    version: "0.61.0",
     status: "initial-real-data",
-    updated: "2026-09-12",
+    updated: "2026-09-14",
     scope: "63概念・97尺度",
   },
 
@@ -2445,7 +2445,10 @@ const ATLAS_DATA = {
       applicationEvidence: [
         { label: "日本語版として検証された短縮版", itemCounts: [8], evidenceType: "psychometric-validation", summary: "原版SPOSを日本語化し、項目反応理論で8項目を選定。日本人労働者6,220名で検証されています。", title: "Reliability and validity of the Japanese version of the Survey of Perceived Organizational Support", year: 2024, doi: "10.1093/joccuh/uiae034", url: "https://doi.org/10.1093/joccuh/uiae034" },
       ],
-      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-13",
+      usageStudies: [
+        { title: "Occupational health staff’s involvement contributes to supervisor’s perceived organizational support in Japanese workforce: a prospective cohort study", authors: "Mori, Nagata, Odagami, Adi, & Mori", year: 2024, context: "日本の上司コホート（産業保健スタッフの関与と上司のPOS；W2S-Ohpm II）", sample: "産業保健スタッフがいる職場の上司541名（最終分析；ベースライン管理職から追跡・除外後）", itemCount: 8, responseFormat: "7件法（0＝強く不同意～6＝強く同意）；逆転項目あり；合計0–48", language: "Japanese", adaptation: "Odagami et al.（2024, uiae034）の検証済みSPOS-JからIRT選定の有効8項目（原版項目3,7,9,10,17,21,23,25）をアウトカムとして使用。SPA-4のみ／英語SPOS-8・36ではない。尺度開発が主目的ではない。", result: "産業保健スタッフによる研修は追跡時POS上昇と有意関連（Model3 B=2.300, P<.001）；個別指導も有意（B=1.344, P=.033）。小規模職場で顕著。α=.89（ベースライン）/.88（追跡）。", doi: "10.1093/joccuh/uiae035", url: "https://doi.org/10.1093/joccuh/uiae035" },
+      ],
+      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-09-14",
       notes: "原著者の許可を得て作成された版。利用時は論文・補足資料と最新条件を確認する。",
       recordStatus: "verified-metadata",
     },
@@ -2476,8 +2479,9 @@ const ATLAS_DATA = {
       ],
       usageStudies: [
         { title: "Relationship Between Teams’ Leader–Member Exchange Characteristics and Psychological Outcomes for Nurses and Nurse Managers", authors: "Kawaguchi et al.", year: 2021, context: "日本の大学病院における看護チーム", sample: "2大学病院の看護師586名・看護師長28名（分析対象）", itemCount: 7, responseFormat: "原版に準拠（項目ごとに選択肢表現が異なる）", language: "Japanese", adaptation: "原著者の許可を得て、研究者と日英バイリンガル専門家が翻訳した日本語版を使用。", result: "看護師のLMXとチーム平均LMXは、看護師の肯定的心理状態と正に関連。", doi: "10.1177/23779608211025981", url: "https://doi.org/10.1177/23779608211025981" },
+        { title: "Effect of Leader–Member Exchange on Proactive Employee Behavior and Employee Performance: The Moderating Role of Innovative Climate", authors: "Latifoglu, Imamoglu, Ince, & Turkcan", year: 2023, context: "トルコ（Gebze・Istanbul）の多業種民間企業従業員", sample: "便利標本で配布400・回収280・有効266名（金融/銀行・情報・建設・サービス・化学・医療・自動車・教育など）", itemCount: 7, responseFormat: "5件法（全くそう思わない～強くそう思う；原版の項目別アンカーではなく全変数共通の同意尺度）", language: "Turkish study context（調査言語・翻訳手続は本文に明示なし；付録項目は英語）", adaptation: "Graen & Uhl-Bien（1995）の7項目LMX-7を部下評定で使用。単一次元版。翻訳・逆翻訳の記載なし。原版の項目別選択肢ではなく統一5件法へ揃えて測定。LMX-MDMではない。", result: "LMXのα=.90、AVE=.57、CR=.90。LMXは従業員パフォーマンス（標準化β=.164）およびプロアクティブ行動（標準化β=.467）と正の関連。プロアクティブ行動が媒介し、革新的風土がLMX→プロアクティブ行動を正に調整。", doi: "10.3390/su152014670", url: "https://doi.org/10.3390/su152014670" },
       ],
-      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-13",
+      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-09-14",
       notes: "多次元LMX尺度（LMX-MDM）などの別尺度と区別する。",
       recordStatus: "verified-metadata",
     },
