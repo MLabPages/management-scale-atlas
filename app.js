@@ -399,7 +399,12 @@ function init() {
     $(`#view-${view}`).scrollIntoView({ behavior: "smooth", block: "start" });
   }));
   const filterDisclosure = document.querySelector(".filter-disclosure");
-  if (filterDisclosure && matchMedia("(max-width: 640px)").matches) filterDisclosure.open = false;
+  if (filterDisclosure) {
+    const compact = matchMedia("(max-width: 640px)");
+    const collapseIfCompact = () => { if (compact.matches) filterDisclosure.open = false; };
+    collapseIfCompact();
+    compact.addEventListener("change", collapseIfCompact);
+  }
   $("#export-csv").onclick = exportCsv;
   $("#export-json").onclick = exportJson;
   $("#coverage-domain").onchange = renderCoverage;
