@@ -20,6 +20,11 @@
   color: var(--accent);
 }
 
+.source-links a:hover {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+}
+
 .source-links span {
   color: var(--soft);
   background: var(--bg);
@@ -109,54 +114,34 @@
 .export-actions .text-button {
   padding: 8px 12px;
   border: 1px solid var(--border);
-  border-radius: 6px;
+  border-radius: 8px;
   background: #fff;
 }
 
+.export-actions .text-button:hover {
+  background: var(--accent-soft);
+  text-decoration: none;
+}
+
 .export-note {
-  margin: -8px 0 18px;
+  margin: 0 0 16px;
   color: var(--soft);
   font-size: 0.78rem;
 }
 
 .method-note {
-  margin: -8px 0 18px;
+  margin: 0 0 14px;
   padding: 10px 12px;
   border-left: 3px solid var(--accent2);
-  border-radius: 6px;
-  background: #f2f8f7;
+  border-radius: 8px;
+  background: #f4f8f8;
   color: var(--soft);
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   line-height: 1.65;
 }
 
 .method-note strong {
   color: var(--accent);
-}
-
-.research-paths {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 14px;
-  padding: 12px;
-  border: 1px solid var(--border);
-  border-radius: 9px;
-  background: #f2f8f7;
-}
-
-.research-paths div { margin-right: auto; }
-.research-paths strong, .research-paths span { display: block; }
-.research-paths span { color: var(--soft); font-size: 0.74rem; }
-.research-paths button {
-  padding: 7px 10px;
-  border: 1px solid var(--accent2);
-  border-radius: 999px;
-  background: #fff;
-  color: var(--accent);
-  cursor: pointer;
-  font-weight: 700;
 }
 
 .adoption-guide {
@@ -292,9 +277,6 @@
 .concept-decision-guide .decision-cautions p { margin: 5px 0 0; font-size: 0.8rem; }
 
 @media (max-width: 620px) {
-  .research-paths { align-items: stretch; }
-  .research-paths div { width: 100%; }
-  .research-paths button { flex: 1 1 45%; }
   .decision-grid { grid-template-columns: 1fr; }
 }
 

@@ -398,6 +398,13 @@ function init() {
     showView(view);
     $(`#view-${view}`).scrollIntoView({ behavior: "smooth", block: "start" });
   }));
+  const filterDisclosure = document.querySelector(".filter-disclosure");
+  if (filterDisclosure) {
+    const compact = matchMedia("(max-width: 640px)");
+    const collapseIfCompact = () => { if (compact.matches) filterDisclosure.open = false; };
+    collapseIfCompact();
+    compact.addEventListener("change", collapseIfCompact);
+  }
   $("#export-csv").onclick = exportCsv;
   $("#export-json").onclick = exportJson;
   $("#coverage-domain").onchange = renderCoverage;
@@ -496,7 +503,12 @@ function exportJson() {
 }
 
 function showView(name) {
-  $$(".tab").forEach((x) => x.classList.toggle("active", x.dataset.view === name));
+  $$(".tab").forEach((x) => {
+    const on = x.dataset.view === name;
+    x.classList.toggle("active", on);
+    if (on) x.setAttribute("aria-current", "page");
+    else x.removeAttribute("aria-current");
+  });
   $$(".view").forEach((x) => x.classList.toggle("active", x.id === `view-${name}`));
 }
 
@@ -535,7 +547,7 @@ function scaleCard(s) {
   const psychometricCount = (s.psychometricEvidence || []).length;
   const usageKnown = (s.usageEvidence || []).length > 0;
   const shortLabel = shortFormLabel(s);
-  return `<article class="scale-card"><p class="sub">${esc(c.nameJa)} / ${esc(c.nameEn)}</p><h3>${esc(s.name)}</h3><p class="sub">${esc(s.abbreviation)} ・ ${s.year}年 ・ 書誌確認済み</p><div class="badges"><span class="badge">登録版 ${s.itemCount}項目</span><span class="badge">${esc(measurementStyle(s))}</span><span class="badge">${esc(versionTypeLabel(s))}</span><span class="badge">${esc(labels[s.japaneseVersionStatus])}</span><span class="badge warn">${esc(labels[s.usagePermission])}</span>${shortLabel ? `<span class="badge short-form-badge">${esc(shortLabel)}</span>` : ""}${(s.usageStudies || []).length ? `<span class="badge study-badge">使用先行研究 ${s.usageStudies.length}件</span>` : ""}</div><p class="practice-summary">${esc(practiceSummary(s))}</p><p class="usage-summary ${usageKnown ? "known" : ""}">${esc(usageSummary(s))}${usageKnown ? "（対象レビュー内）" : ""}</p><p class="jp-summary">日本語情報：${esc(labels[s.japaneseVersionStatus])}${evidenceCount ? `（根拠${evidenceCount}件）` : ""}${psychometricCount ? ` ／ 測定情報${psychometricCount}件` : ""}</p>${sourceLinks(s)}<div class="card-actions"><button class="detail-button" data-scale="${s.id}">詳細を見る</button><button class="compare-button ${selected ? "selected" : ""}" data-compare="${s.id}">${selected ? "比較から外す" : "比較に追加"}</button></div></article>`;
+  return `<article class="scale-card"><p class="card-kicker">${esc(c.nameJa)} / ${esc(c.nameEn)}</p><h3>${esc(s.name)}</h3><p class="sub">${esc(s.abbreviation)} ・ ${s.year}年 ・ 書誌確認済み</p><div class="badges"><span class="badge">登録版 ${s.itemCount}項目</span><span class="badge">${esc(measurementStyle(s))}</span><span class="badge">${esc(versionTypeLabel(s))}</span><span class="badge">${esc(labels[s.japaneseVersionStatus])}</span><span class="badge warn">${esc(labels[s.usagePermission])}</span>${shortLabel ? `<span class="badge short-form-badge">${esc(shortLabel)}</span>` : ""}${(s.usageStudies || []).length ? `<span class="badge study-badge">使用先行研究 ${s.usageStudies.length}件</span>` : ""}</div><div class="card-meta"><p class="practice-summary">${esc(practiceSummary(s))}</p><p class="usage-summary ${usageKnown ? "known" : ""}">${esc(usageSummary(s))}${usageKnown ? "（対象レビュー内）" : ""}</p><p class="jp-summary">日本語情報：${esc(labels[s.japaneseVersionStatus])}${evidenceCount ? `（根拠${evidenceCount}件）` : ""}${psychometricCount ? ` ／ 測定情報${psychometricCount}件` : ""}</p></div>${sourceLinks(s)}<div class="card-actions"><button class="detail-button" type="button" data-scale="${s.id}">詳細を見る</button><button class="compare-button ${selected ? "selected" : ""}" type="button" data-compare="${s.id}">${selected ? "比較から外す" : "比較に追加"}</button></div></article>`;
 }
 
 function bindCards() {
@@ -546,7 +558,7 @@ function bindCards() {
 function renderScales() {
   const scales = filtered();
   $("#result-count").textContent = `${scales.length}件（全${ATLAS_DATA.scales.length}件）`;
-  $("#scale-list").innerHTML = scales.map(scaleCard).join("") || '<div class="empty-state">条件に合う尺度がありません。</div>';
+  $("#scale-list").innerHTML = scales.map(scaleCard).join("") || '<div class="empty-state"><strong>条件に合う尺度がありません。</strong><span>キーワードや絞り込みを変えると、候補が表示されます。</span></div>';
   bindCards();
 }
 
@@ -560,8 +572,16 @@ function renderConcepts() {
     return (!query || haystack.includes(query)) && (!domain || c.domain === domain) && (!guideFilter || (guideFilter === "available" ? c.decisionGuide : scaleCount > 1));
   });
   $("#concept-result-count").textContent = `${rows.length}概念（全${ATLAS_DATA.concepts.length}概念）`;
-  $("#concept-list").innerHTML = rows.map((c) => { const scaleCount = ATLAS_DATA.scales.filter((s) => s.conceptId === c.id).length; return `<article class="concept-card" data-concept="${c.id}"><div class="concept-card-head"><span class="badge">${esc(c.domain)}</span>${c.decisionGuide ? '<span class="badge guide-badge">目的別ガイドあり</span>' : ""}</div><h3>${esc(c.nameJa)}</h3><p class="sub">${esc(c.nameEn)}</p><p>${esc(c.definitionJa)}</p><p><strong>${scaleCount}尺度</strong>${scaleCount > 1 ? "から比較可能" : "を登録"}</p></article>`; }).join("");
-  $$("[data-concept]").forEach((x) => (x.onclick = () => openConcept(x.dataset.concept)));
+  $("#concept-list").innerHTML = rows.map((c) => { const scaleCount = ATLAS_DATA.scales.filter((s) => s.conceptId === c.id).length; return `<article class="concept-card" data-concept="${c.id}" role="button" tabindex="0"><div class="concept-card-head"><span class="badge">${esc(c.domain)}</span>${c.decisionGuide ? '<span class="badge guide-badge">目的別ガイドあり</span>' : ""}</div><h3>${esc(c.nameJa)}</h3><p class="sub">${esc(c.nameEn)}</p><p>${esc(c.definitionJa)}</p><p><strong>${scaleCount}尺度</strong>${scaleCount > 1 ? "から比較可能" : "を登録"}</p></article>`; }).join("") || '<div class="empty-state"><strong>条件に合う概念がありません。</strong><span>検索語や領域の条件を変えてみてください。</span></div>';
+  $$("[data-concept]").forEach((x) => {
+    x.onclick = () => openConcept(x.dataset.concept);
+    x.onkeydown = (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        openConcept(x.dataset.concept);
+      }
+    };
+  });
 }
 
 function renderPlannerConceptOptions() {
