@@ -123,16 +123,16 @@ a:hover { color: var(--accent-hover); }
 
 .sample-notice {
   display: inline-block;
-  max-width: 100%;
+  max-width: 42rem;
   overflow-wrap: anywhere;
   background: var(--surface);
   border: 1px solid var(--border);
   color: var(--soft);
   padding: 8px 12px;
-  border-radius: 999px;
+  border-radius: 12px;
   font-size: 0.82rem;
   box-shadow: var(--shadow-sm);
-  line-height: 1.55;
+  line-height: 1.6;
 }
 
 .sample-notice strong { color: var(--accent); }
@@ -225,6 +225,8 @@ label {
   font-size: 1rem;
   background: #fff;
   color: var(--text);
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .search-box input:hover { border-color: var(--accent-hover); }
