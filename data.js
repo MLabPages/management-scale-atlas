@@ -2,9 +2,9 @@
 // DOI、原典、項目数、下位次元は原著論文または公式資料で確認。
 const ATLAS_DATA = {
   meta: {
-    version: "0.61.0",
+    version: "0.62.0",
     status: "initial-real-data",
-    updated: "2026-09-14",
+    updated: "2026-09-15",
     scope: "63概念・97尺度",
   },
 
@@ -1407,8 +1407,9 @@ const ATLAS_DATA = {
       ],
       usageStudies: [
         { title: "Gaining a Better Understanding of the Types of Organizational Culture to Manage Suffering at Work", authors: "Assens-Serra et al.", year: 2021, context: "スペイン・ペルーの組織文化研究", sample: "スペインの管理者362名、ペルーの管理者1,317名", itemCount: 10, responseFormat: "5件法", language: "Spanish", adaptation: "表明された顧客ニーズを発見・充足する組織能力としてMORTNを使用。", result: "MORTNの信頼性α=.88を報告し、複数の組織文化との関連を検討。", doi: "10.3389/fpsyg.2021.782488", url: "https://doi.org/10.3389/fpsyg.2021.782488" },
+        { title: "Measuring market orientation in the manufacturing sector using the MORTN scale", authors: "Green, Jr. & Inman", year: 2007, context: "米国製造業におけるMORTNの独立した尺度再評価（次元構造・妥当性）", sample: "米国製造業者の回答者177名", itemCount: 10, responseFormat: "7件法（原典の5件法を改変）", language: "English", adaptation: "Deshpandé & Farley (1998)のMORTN（合成10項目）を製造業サンプルで使用。単一次元想定を再検討し、customer-focusとneeds-assessmentの2次元を同定。各次元は軽微な再特定後に単一次元性・信頼性・収束／弁別／予測妥当性を支持。MKTOR-15・MARKOR-20・Narver–Slater尺度ではない。", result: "MORTNを製造セクター測定の実用的代替として支持。同一データ系列の学位論文では10項目α=.88を報告。", doi: "10.1504/ijil.2007.012378", url: "https://doi.org/10.1504/ijil.2007.012378" },
       ],
-      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-13",
+      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-09-15",
       notes: "15項目MKTORや20項目MARKORより短い選択肢。ただし概念範囲は顧客焦点・表明ニーズへの反応に寄るため、競争志向や潜在ニーズを測る研究では別尺度も比較する。",
       recordStatus: "verified-metadata",
     },
