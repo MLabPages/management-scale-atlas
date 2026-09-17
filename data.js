@@ -2,7 +2,7 @@
 // DOI、原典、項目数、下位次元は原著論文または公式資料で確認。
 const ATLAS_DATA = {
   meta: {
-    version: "0.63.0",
+    version: "0.63.1",
     status: "initial-real-data",
     updated: "2026-09-17",
     scope: "63概念・97尺度",
@@ -4047,6 +4047,7 @@ const ATLAS_DATA = {
         { label: "10特性を各2項目で保持する正式20項目短縮版", itemCounts: [20, 2, 37], evidenceType: "validated-short-form", summary: "原版より17項目少なく、全10特性を残せる。検証がNike・米国1標本に限られるため、他ブランド・日本語では測定構造を再確認する。", title: "Brand Coolness: Development and Validation of a Short Scale", year: 2025, doi: "10.1108/JPBM-05-2024-5146", url: "https://doi.org/10.1108/JPBM-05-2024-5146" },
       ],
       usageStudies: [
+        { title: "Quando o prestígio se torna cool: O papel da Brand Coolness na construção da lealdade às Marcas Masstige", authors: "Salazar", year: 2026, context: "ポルトガル・Porto大学修士論文。masstige ブランドへの brand coolness とロイヤリティ（PLS-SEM）", sample: "Gen Y/Z（18–45）274名（便宜標本；Apple/Samsung/Ray-Ban/Levi’s/Tommy Hilfiger等）", itemCount: 20, responseFormat: "Likert件法（論文本文のアンカーを確認）", language: "Portuguese", adaptation: "Bagozzi & Batra (2025) 短縮 BCS-20 を採用と明記。PLS後に低負荷項目削除等あり（ICO1/SUB2削除、Authentic は3項目寄り、Original は単項目など）＝完全な20項目保持ではない。Warren 37ではない。開発論文ではない。査読誌ではなく修士論文（dissertação）である。", result: "coolness → perceived masstige value → loyalty。次元α≈0.793–0.947等。", url: "https://repositorio-aberto.up.pt/handle/10216/175398" },
         { title: "Pakkausdesign brand coolness -kokemuksen rakentajana: Kategoriakonventioiden vaikutus kuluttajien bränditulkintoihin viinikontekstissa", authors: "Katajisto", year: 2026, context: "フィンランド・Vaasa大学の修士論文。架空ワインブランドのパッケージ実験（カテゴリ慣習的 vs 逸脱）における brand coolness", sample: "オンライン調査525名（Webropol；2条件に無作為割付）", itemCount: 20, responseFormat: "5件法", language: "Finnish", adaptation: "Bagozzi & Batra (2025) の検証済み短縮版 BCS-20（10特性×各2項目）をフィンランド語訳して使用。本文で「当該短縮尺度を使用」と明記し、Table に10×2の英＋フィンランド語項目を掲載。Warren 37・任意抜粋・4特性サブセットではない。開発論文そのものではない。査読誌ではなく修士論文（pro gradu）である。", result: "パッケージ条件による coolness 次元の測定に使用。次元α例: extraordinary .848、energetic .873、aesthetic .883、original .835、authentic .435（弱）、rebellious .863、high status .734、popular .737、subcultural .775、iconic .598（弱）。", url: "https://osuva.uwasa.fi/handle/11111/20459" },
       ],
       itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-09-17",
