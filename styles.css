@@ -708,13 +708,24 @@ thead th {
   to { transform: rotate(360deg); }
 }
 
+/* Author `position` overrides UA `dialog:modal { position: fixed }`.
+   `relative`/`absolute` pins the panel to the document, so after scroll
+   `showModal()` leaves only the backdrop in the viewport. */
 dialog {
+  position: fixed;
+  inset: 0;
   width: min(720px, calc(100% - 30px));
+  height: fit-content;
   max-height: 88vh;
+  max-height: min(88vh, calc(100dvh - 24px));
+  margin: auto;
+  overflow: auto;
+  overscroll-behavior: contain;
   border: 0;
   border-radius: 16px;
   padding: 28px;
-  position: relative;
+  background: var(--surface);
+  color: var(--text);
   box-shadow: 0 24px 70px rgba(18, 40, 48, 0.28);
 }
 
@@ -1118,6 +1129,12 @@ footer {
   .card-actions { flex-wrap: wrap; }
   .detail-button,
   .compare-button { flex: 1 1 auto; min-height: 44px; }
+  dialog {
+    width: calc(100% - 16px);
+    max-height: calc(100vh - 16px);
+    max-height: calc(100dvh - 16px);
+    padding: 22px 16px 20px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
