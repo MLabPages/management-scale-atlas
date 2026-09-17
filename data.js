@@ -2,7 +2,7 @@
 // DOI、原典、項目数、下位次元は原著論文または公式資料で確認。
 const ATLAS_DATA = {
   meta: {
-    version: "0.63.2",
+    version: "0.64.0",
     status: "initial-real-data",
     updated: "2026-09-17",
     scope: "63概念・97尺度",
@@ -4015,8 +4015,10 @@ const ATLAS_DATA = {
       applicationEvidence: [
         { label: "クールネスの10特性を詳細診断する37項目版", itemCounts: [37, 10], evidenceType: "scale-development", summary: "どの特性がブランドのクールさを構成するか詳しく診断できる一方、複数概念調査では負担が大きい。正式20項目短縮版も比較する。", title: "Brand Coolness", year: 2019, doi: "10.1177/0022242919857698", url: "https://doi.org/10.1177/0022242919857698" },
       ],
-      usageStudies: [],
-      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-30",
+      usageStudies: [
+        { title: "Brand coolness, a trigger for brand associations, brand beliefs, and brand advocacy", authors: "Butt & Muhammad", year: 2025, context: "パキスタン観光・クールな場所（place）へのWarren 37適応", sample: "観光客411名収集・有効402名（北部パキスタン等の旅行経験者；オンライン）", itemCount: 34, responseFormat: "5件法（1＝強く不同意～5＝強く同意）", language: "English", adaptation: "Warren et al.（2019）の37項目・10特性を「brand」→「this place／the place」へ置き換え。学位論文（Butt 2024, CUST）§3.13で英語の読み書きスクリーニング後に英語質問票を実施（responseFormat・languageの根拠）。PLSで外的負荷が低いEx1・Or1・Sc1を削除し最終34項目（開始は37＝フル投与）。BCS-20（Bagozzi & Batra 2025）・4特性サブセットではない。開発論文そのものではない。", result: "ブランド・クールネスは場所のブランド連想・信念・アドボカシーに正の影響。連想と信念がクールネス→アドボカシーを媒介（SmartPLS）。", doi: "10.1108/EJMBE-03-2024-0107", url: "https://doi.org/10.1108/EJMBE-03-2024-0107" },
+      ],
+      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-09-17",
       notes: "クールネスを1つの印象語として扱わず10特性で診断する原版。短縮時に特性を丸ごと落とすと構成内容が変わる。",
       recordStatus: "verified-metadata",
     },
