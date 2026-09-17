@@ -2,7 +2,7 @@
 // DOI、原典、項目数、下位次元は原著論文または公式資料で確認。
 const ATLAS_DATA = {
   meta: {
-    version: "0.63.1",
+    version: "0.63.2",
     status: "initial-real-data",
     updated: "2026-09-17",
     scope: "63概念・97尺度",
