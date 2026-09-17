@@ -2,9 +2,9 @@
 // DOI、原典、項目数、下位次元は原著論文または公式資料で確認。
 const ATLAS_DATA = {
   meta: {
-    version: "0.62.0",
+    version: "0.63.0",
     status: "initial-real-data",
-    updated: "2026-09-15",
+    updated: "2026-09-17",
     scope: "63概念・97尺度",
   },
 
@@ -2131,8 +2131,9 @@ const ATLAS_DATA = {
       ],
       usageStudies: [
         { title: "La autenticidad de la marca, su efecto en la imagen y reputación de marca de productos cerveceros en México", authors: "Echeverría-Ríos, Medina-Quintero, & Abrego-Almazán", year: 2021, context: "メキシコ北東部のビールブランド真正性→感情的ブランドイメージ・評判（PLS-SEM）", sample: "ビール消費者200名（都合標本；男性136・女性64；嗜好ブランドTecate/XX/Bud Light/Corona等）", itemCount: 14, responseFormat: "5件法", language: "Spanish", adaptation: "Napoli et al.（2014）CBBAの3次元（quality commitment 6・heritage 5・sincerity 3＝14項目）をスペイン語質問票で使用。Morhart PBA-15ではない。誠実性項目にBruhn et al.（2012）も併記。", result: "品質コミットメントと誠実性はイメージ・評判に正の効果。heritage経路は非支持。CC α=.848、HE α=.879、SD α=.809。", doi: "10.18046/j.estger.2021.160.3966", url: "https://doi.org/10.18046/j.estger.2021.160.3966" },
+        { title: "Exploring the Influence of Brand Authenticity on Consumer Behavior: Insights from Generation Y Consumers in Pakistan", authors: "Zafar, Siddiqui, & Khurshid", year: 2025, context: "パキスタン Generation Y のブランド真正性→ブランド愛→継続購買意図・価格プレミアム（PLS-SEM）", sample: "Generation Y パキスタン消費者395名（収集450・有効395；便宜標本オンライン；対象ブランド J. / Daraz.pk / Khaadi / Adidas / KFC / Amazon）", itemCount: 14, responseFormat: "7件法", language: "English", adaptation: "Napoli et al.（2014）CBBA の CFA 最終14項目（quality commitment 7・heritage 5・sincerity 2）。アトラス既存の Echeverría 形式（QC6/H5/S3）とは次元内項目配分が異なるが、いずれも Napoli 最終14項目系。Morhart PBA-15・Bruhn 単独・Safeer 混成ではない。開発論文そのものではない。", result: "QC/H/S→ブランド愛は有意。ブランド愛→継続購買意図・価格プレミアム意欲。QC CR=.895 AVE=.600；H CR=.841 AVE=.601；S CR=.858 AVE=.873。", url: "https://thecrsss.com/index.php/Journal/article/view/186" },
       ],
-      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-09-11",
+      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-09-17",
       notes: "著者機関の公開記録ではAll rights reserved・書面許可必要とされるため、項目本文は掲載しない。",
       recordStatus: "verified-metadata",
     },
@@ -4045,8 +4046,10 @@ const ATLAS_DATA = {
       applicationEvidence: [
         { label: "10特性を各2項目で保持する正式20項目短縮版", itemCounts: [20, 2, 37], evidenceType: "validated-short-form", summary: "原版より17項目少なく、全10特性を残せる。検証がNike・米国1標本に限られるため、他ブランド・日本語では測定構造を再確認する。", title: "Brand Coolness: Development and Validation of a Short Scale", year: 2025, doi: "10.1108/JPBM-05-2024-5146", url: "https://doi.org/10.1108/JPBM-05-2024-5146" },
       ],
-      usageStudies: [],
-      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-30",
+      usageStudies: [
+        { title: "Pakkausdesign brand coolness -kokemuksen rakentajana: Kategoriakonventioiden vaikutus kuluttajien bränditulkintoihin viinikontekstissa", authors: "Katajisto", year: 2026, context: "フィンランド・Vaasa大学の修士論文。架空ワインブランドのパッケージ実験（カテゴリ慣習的 vs 逸脱）における brand coolness", sample: "オンライン調査525名（Webropol；2条件に無作為割付）", itemCount: 20, responseFormat: "5件法", language: "Finnish", adaptation: "Bagozzi & Batra (2025) の検証済み短縮版 BCS-20（10特性×各2項目）をフィンランド語訳して使用。本文で「当該短縮尺度を使用」と明記し、Table に10×2の英＋フィンランド語項目を掲載。Warren 37・任意抜粋・4特性サブセットではない。開発論文そのものではない。査読誌ではなく修士論文（pro gradu）である。", result: "パッケージ条件による coolness 次元の測定に使用。次元α例: extraordinary .848、energetic .873、aesthetic .883、original .835、authentic .435（弱）、rebellious .863、high status .734、popular .737、subcultural .775、iconic .598（弱）。", url: "https://osuva.uwasa.fi/handle/11111/20459" },
+      ],
+      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-09-17",
       notes: "原版37項目の任意削減版ではなく、10特性を各2項目で保持して再検証された短縮版。現時点の検証対象がNikeと米国標本に限られる点に注意する。",
       recordStatus: "verified-metadata",
     },
