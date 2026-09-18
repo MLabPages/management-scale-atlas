@@ -2,9 +2,9 @@
 // DOI、原典、項目数、下位次元は原著論文または公式資料で確認。
 const ATLAS_DATA = {
   meta: {
-    version: "0.64.0",
+    version: "0.65.0",
     status: "initial-real-data",
-    updated: "2026-09-17",
+    updated: "2026-09-18",
     scope: "63概念・97尺度",
   },
 
@@ -906,9 +906,11 @@ const ATLAS_DATA = {
       reverseItems: [], scoring: "各次元2項目。得点化は原典を確認。",
       targetPopulation: ["消費者", "ブランド利用者"],
       language: "English", versionType: "original", parentScaleId: null,
-      japaneseVersionStatus: "unconfirmed",
-      japaneseStatusNote: "2026年9月4日時点で、Parkら（2010）の原版4項目（自己結合＋顕著性）を日本語で使用した根拠は未登録です。久保田のBR尺度、菅野の独自愛着項目、Thomsonのemotional attachmentと同一視しないでください。",
-      japaneseEvidence: [],
+      japaneseVersionStatus: "usage-example",
+      japaneseStatusNote: "Park et al.（2010）の4項目BAS（自己結合＋顕著性）を日本語でチーム文脈に適応使用した例がある。正式なブランド尺度の翻訳妥当性検証ではない。杉谷2018（Escalas SBC）・久保田BR・Thomson emotional attachment・Brand Loveとは別。",
+      japaneseEvidence: [
+        { kind: "usage-example", label: "プロ野球チーム文脈でPark 2010の4項目（自己結合＋顕著性）を日本語使用", authors: "和田由佳子, 松岡宏高", year: 2020, title: "プロ野球チームのブランド連想がアタッチメントに及ぼす影響：パシフィックリーグに所属するチームを対象として", doi: "10.5225/jjsm.2020-002", url: "https://doi.org/10.5225/jjsm.2020-002" },
+      ],
       validationStudies: [], usagePermission: "unknown",
       usageEvidence: [
         { kind: "systematic-review-count", count: 37, denominator: 139, label: "レビュー内で37研究が使用", scope: "2021年9月までの英語査読誌を対象としたブランド愛着レビュー。尺度を報告した139研究中。", checkedAt: "2026-07-13", title: "Brand attachment: a review and future research", year: 2022, doi: "10.1057/s41262-022-00279-5", url: "https://doi.org/10.1057/s41262-022-00279-5" },
@@ -920,7 +922,7 @@ const ATLAS_DATA = {
       applicationEvidence: [
         { label: "原著内で比較された版", itemCounts: [8, 4], evidenceType: "scale-development", summary: "原著は8項目版と簡潔な4項目版を比較し、最終的に4項目版を採用。後続レビューでは4項目版の使用が37研究で確認されています。", title: "Brand Attachment and Brand Attitude Strength", year: 2010, doi: "10.1509/jmkg.74.6.1", url: "https://doi.org/10.1509/jmkg.74.6.1" },
       ],
-      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-09-04",
+      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-09-18",
       notes: "原著では8項目版との比較後、簡潔な4項目版を採用。",
       recordStatus: "verified-metadata",
     },
@@ -4017,8 +4019,9 @@ const ATLAS_DATA = {
       ],
       usageStudies: [
         { title: "Brand coolness, a trigger for brand associations, brand beliefs, and brand advocacy", authors: "Butt & Muhammad", year: 2025, context: "パキスタン観光・クールな場所（place）へのWarren 37適応", sample: "観光客411名収集・有効402名（北部パキスタン等の旅行経験者；オンライン）", itemCount: 34, responseFormat: "5件法（1＝強く不同意～5＝強く同意）", language: "English", adaptation: "Warren et al.（2019）の37項目・10特性を「brand」→「this place／the place」へ置き換え。学位論文（Butt 2024, CUST）§3.13で英語の読み書きスクリーニング後に英語質問票を実施（responseFormat・languageの根拠）。PLSで外的負荷が低いEx1・Or1・Sc1を削除し最終34項目（開始は37＝フル投与）。BCS-20（Bagozzi & Batra 2025）・4特性サブセットではない。開発論文そのものではない。", result: "ブランド・クールネスは場所のブランド連想・信念・アドボカシーに正の影響。連想と信念がクールネス→アドボカシーを媒介（SmartPLS）。", doi: "10.1108/EJMBE-03-2024-0107", url: "https://doi.org/10.1108/EJMBE-03-2024-0107" },
+        { title: "Luxury fashion brand coolness: niche versus mass cool", authors: "Loureiro, Aleem, & Breazeale", year: 2024, context: "英国・高級ファッション製品ブランドのマス／ニッチ・クール（Louis Vuitton・Vanina等；place適応ではない）", sample: "Study1: 英国MTurk 246名（niche/mass各113）；Study2: ロンドン高級ファッション街フィールド実購買者209名（同37項目）", itemCount: 37, responseFormat: "7件法（1＝強く不同意～7＝強く同意）", language: "English", adaptation: "Warren et al.（2019）の37項目・10特性をそのまま適応（項目削除の記載なし）。共著者LoureiroはWarren 2019の共同開発者である点を注記。BCS-20（Bagozzi & Batra）・4特性サブセット・開発論文そのものではない。Butt & Muhammad（2025）のplace適応（37→34）とも文脈が異なる。", result: "態度がブランド・クールネス→忠誠を媒介。顕示的消費の調整は主にニッチ・クールで態度経路に現れる。ロンドン・フィールドでも態度媒介を確認。", doi: "10.1108/SJME-04-2023-0086", url: "https://doi.org/10.1108/SJME-04-2023-0086" },
       ],
-      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-09-17",
+      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-09-18",
       notes: "クールネスを1つの印象語として扱わず10特性で診断する原版。短縮時に特性を丸ごと落とすと構成内容が変わる。",
       recordStatus: "verified-metadata",
     },
