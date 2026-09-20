@@ -2,7 +2,7 @@
 // DOI、原典、項目数、下位次元は原著論文または公式資料で確認。
 const ATLAS_DATA = {
   meta: {
-    version: "0.66.0",
+    version: "0.67.0",
     status: "initial-real-data",
     updated: "2026-09-20",
     scope: "63概念・97尺度",
@@ -2124,9 +2124,12 @@ const ATLAS_DATA = {
       reverseItems: [], scoring: "3つの一次因子と上位のブランド真正性因子。",
       targetPopulation: ["消費者", "ブランド利用者"],
       language: "English", versionType: "original", parentScaleId: null,
-      japaneseVersionStatus: "unconfirmed",
-      japaneseStatusNote: "Napoliらの14項目版そのものの検証済み日本語版・日本語使用例は、今回の確認範囲では登録していません。Morhartらの15項目・4次元尺度とは別尺度です。",
-      japaneseEvidence: [],
+      japaneseVersionStatus: "related-version",
+      japaneseStatusNote: "NapoliらのCBBA 14項目そのものの検証済み日本語版・日本語使用例は未確認。田中・髙橋（2016）は同概念圏の日本語独自尺度（最終75項目・15要素）を開発したもので、Napoli／Bruhn／Morhartを先行研究として概説するがCBBA-14の翻訳ではない。JSMD Reviewの階層性論文（田中・髙橋 2020）も田中系42項目・11要素を用い、Napoli 14項目ではない。Morhart PBA-15・Bruhn単独・Safeer混成とも区別する。",
+      japaneseEvidence: [
+        { kind: "related-version", label: "日本語独自のブランド本物感尺度（Napoli CBBA-14の翻訳ではない）", authors: "田中祥司, 髙橋広行", year: 2016, title: "ブランドの「本物感」を構成する要素の測定", doi: "10.5844/jsmd.19.1_39", url: "https://doi.org/10.5844/jsmd.19.1_39" },
+        { kind: "related-version", label: "田中系本物感尺度を用いた階層性分析（CBBA-14ではない）", authors: "田中祥司, 髙橋広行", year: 2020, title: "ブランド・オーセンティシティ（ブランドの本物感）の階層性：潜在ランク理論に基づく実証研究", url: "https://www.jstage.jst.go.jp/article/jsmdreview/4/1/4_1/_article/-char/ja" },
+      ],
       validationStudies: [], usagePermission: "permission-required", usageEvidence: [],
       psychometricEvidence: [
         { label: "原著の尺度開発", sample: "4つの研究による消費者標本", methods: "尺度精製、因子構造、収束・弁別・予測妥当性の検討", result: "3次元14項目と上位因子を支持", url: "https://doi.org/10.1016/j.jbusres.2013.06.001" },
@@ -2135,7 +2138,7 @@ const ATLAS_DATA = {
         { title: "La autenticidad de la marca, su efecto en la imagen y reputación de marca de productos cerveceros en México", authors: "Echeverría-Ríos, Medina-Quintero, & Abrego-Almazán", year: 2021, context: "メキシコ北東部のビールブランド真正性→感情的ブランドイメージ・評判（PLS-SEM）", sample: "ビール消費者200名（都合標本；男性136・女性64；嗜好ブランドTecate/XX/Bud Light/Corona等）", itemCount: 14, responseFormat: "5件法", language: "Spanish", adaptation: "Napoli et al.（2014）CBBAの3次元（quality commitment 6・heritage 5・sincerity 3＝14項目）をスペイン語質問票で使用。Morhart PBA-15ではない。誠実性項目にBruhn et al.（2012）も併記。", result: "品質コミットメントと誠実性はイメージ・評判に正の効果。heritage経路は非支持。CC α=.848、HE α=.879、SD α=.809。", doi: "10.18046/j.estger.2021.160.3966", url: "https://doi.org/10.18046/j.estger.2021.160.3966" },
         { title: "Exploring the Influence of Brand Authenticity on Consumer Behavior: Insights from Generation Y Consumers in Pakistan", authors: "Zafar, Siddiqui, & Khurshid", year: 2025, context: "パキスタン Generation Y のブランド真正性→ブランド愛→継続購買意図・価格プレミアム（PLS-SEM）", sample: "Generation Y パキスタン消費者395名（収集450・有効395；便宜標本オンライン；対象ブランド J. / Daraz.pk / Khaadi / Adidas / KFC / Amazon）", itemCount: 14, responseFormat: "7件法", language: "English", adaptation: "Napoli et al.（2014）CBBA の CFA 最終14項目（quality commitment 7・heritage 5・sincerity 2）。アトラス既存の Echeverría 形式（QC6/H5/S3）とは次元内項目配分が異なるが、いずれも Napoli 最終14項目系。Morhart PBA-15・Bruhn 単独・Safeer 混成ではない。開発論文そのものではない。", result: "QC/H/S→ブランド愛は有意。ブランド愛→継続購買意図・価格プレミアム意欲。QC CR=.895 AVE=.600；H CR=.841 AVE=.601；S CR=.858 AVE=.873。", url: "https://thecrsss.com/index.php/Journal/article/view/186" },
       ],
-      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-09-17",
+      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-09-20",
       notes: "著者機関の公開記録ではAll rights reserved・書面許可必要とされるため、項目本文は掲載しない。",
       recordStatus: "verified-metadata",
     },
