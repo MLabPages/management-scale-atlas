@@ -2,9 +2,9 @@
 // DOI、原典、項目数、下位次元は原著論文または公式資料で確認。
 const ATLAS_DATA = {
   meta: {
-    version: "0.65.0",
+    version: "0.66.0",
     status: "initial-real-data",
-    updated: "2026-09-18",
+    updated: "2026-09-20",
     scope: "63概念・97尺度",
   },
 
@@ -3838,9 +3838,12 @@ const ATLAS_DATA = {
       reverseItems: [3], scoring: "世界的な販売・認知を示す方向へ3項目の得点をそろえて平均する。原著Study 2の2項目運用と混同せず、3項目版として用いる。",
       targetPopulation: ["対象ブランドを認知している消費者", "国内・海外ブランドを比較する消費者"],
       language: "English", versionType: "original", parentScaleId: null,
-      japaneseVersionStatus: "unconfirmed",
-      japaneseStatusNote: "PBG-3の検証済み標準日本語版・明確な日本語使用例は今回未登録です。国際販売の客観データではなく、消費者の知覚として翻訳・検証する必要があります。",
-      japaneseEvidence: [], validationStudies: [], usagePermission: "unknown", usageEvidence: [],
+      japaneseVersionStatus: "usage-example",
+      japaneseStatusNote: "Steenkamp et al.（2003）のPBG 3項目を日本語で使用した例がある（山口2021）。原典の3対セマンティック・ディファレンシャルを、グローバル側文言の単極リッカート3項目へ翻訳・変換（表1に日本語3項目を掲載、α=.925）。BLI-3（ローカル象徴性）とは別。韓国原検証サンプルではない。正式な翻訳妥当性検証論文ではない。",
+      japaneseEvidence: [
+        { kind: "usage-example", label: "日本人大学生調査でPBG 3項目（表1）を日本語使用", authors: "山口友規", year: 2021, title: "グローバルブランドの消費における知覚されたブランドのグローバル性と消費者特性の影響", url: "https://kwansei.repo.nii.ac.jp/records/29884" },
+      ],
+      validationStudies: [], usagePermission: "unknown", usageEvidence: [],
       psychometricEvidence: [
         { label: "米国・韓国における3項目測定とブランド価値の検証", sample: "米国および韓国の消費者標本", methods: "3項目尺度、測定モデル、知覚品質・威信・購買可能性との構造関係を検証", result: "知覚ブランド・グローバル性が知覚品質と威信を通じて購買可能性を高める関係を報告。消費者エスノセントリズムが高い場合は効果が弱かった。", url: "https://doi.org/10.1057/palgrave.jibs.8400002" },
       ],
@@ -3851,7 +3854,7 @@ const ATLAS_DATA = {
         { title: "Which cues cause consumers to perceive brands as more global? A conjoint analysis", authors: "De Meulenaer, Dens, & De Pelsmacker", year: 2015, context: "広告・ブランディング手がかりが知覚ブランド・グローバル性に与える相対的重要性（コンジョイント）", sample: "オランダの消費者200名（チョコレート／パソコン各100名）", itemCount: 3, responseFormat: "11件法（セマンティック・ディファレンシャル）", language: "Dutch（オランダでの調査。現地語で実施）", adaptation: "Steenkamp, Batra, & Alden（2003）の3項目を使用。コンジョイント刺激数に合わせ回答カテゴリを11件法へ拡張（α=.904）。", result: "広告コピーがPBGの最大手がかり（相対重要度約40%）。α=.904。", doi: "10.1108/IMR-04-2014-0144", url: "https://doi.org/10.1108/IMR-04-2014-0144" },
         { title: "The Effects of Perceived Brand Globalness and Perceived Brand Localness in China: Empirical Evidence on Western, Asian, and Domestic Retailers", authors: "Swoboda, Pennemann, & Taube", year: 2012, context: "中国小売ブランドのPBG／PBLと来店パトロネージ", sample: "中国消費者1,188名、36の欧米・アジア・中国本土小売ブランド", itemCount: 3, responseFormat: "7件法（リッカート）", language: "Chinese", adaptation: "Steenkamp, Batra, & Alden（2003）由来の3項目を、セマンティック・ディファレンシャルからリッカート評価へ文言調整して使用。PBLも各3項目。", result: "PBGとPBLが機能的・心理的価値を介して小売パトロネージに影響。小売起源・消費者アイデンティティで経路が変化。", doi: "10.1509/jim.12.0105", url: "https://doi.org/10.1509/jim.12.0105" },
       ],
-      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-09-04",
+      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-09-20",
       notes: "実際の海外売上・進出国数ではなく消費者の知覚を測る。ブランドのローカル象徴性とは反対極として処理せず、必要なら両方を測る。",
       recordStatus: "verified-metadata",
     },
