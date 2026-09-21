@@ -2,9 +2,9 @@
 // DOI、原典、項目数、下位次元は原著論文または公式資料で確認。
 const ATLAS_DATA = {
   meta: {
-    version: "0.67.0",
+    version: "0.68.0",
     status: "initial-real-data",
-    updated: "2026-09-20",
+    updated: "2026-09-21",
     scope: "63概念・97尺度",
   },
 
@@ -3878,9 +3878,12 @@ const ATLAS_DATA = {
       reverseItems: [], scoring: "ブランドが特定の国・地域と結びつき、その文化を代表・象徴する方向へ3項目の得点をそろえて平均する。",
       targetPopulation: ["対象ブランドを認知している消費者", "国内・海外ブランドを比較する消費者"],
       language: "English", versionType: "original", parentScaleId: null,
-      japaneseVersionStatus: "unconfirmed",
-      japaneseStatusNote: "BLI-3の検証済み標準日本語版・明確な日本語使用例は今回未登録です。対象とする国・地域を質問文と研究報告で明確にしてください。",
-      japaneseEvidence: [], validationStudies: [], usagePermission: "unknown", usageEvidence: [],
+      japaneseVersionStatus: "usage-example",
+      japaneseStatusNote: "Heinberg et al.（2020）が日本のFMCGブランド消費者（有効N=1,050）に、Steenkamp et al.（2003）のブランド・ローカル・アイコンネス3項目を翻訳・逆翻訳した日本語質問紙で使用。Table 3に英語文言＋China/Japanプレースホルダを掲載（日本側は Japanese / Japan）。原典SDからリッカート化した3項目。全体α=.830 / CR=.833（日中プール；日本単独αは未報告）。日本語項目本文は論文未掲載。正式な翻訳妥当性検証・標準日本語版ではない。山口（2021）はPBG-3のみでBLIには使えない。",
+      japaneseEvidence: [
+        { kind: "usage-example", label: "日本人消費者調査でBLI-3を日本語翻訳・逆翻訳して使用（国名プレースホルダ＝日本）", authors: "Heinberg, Katsikeas, Ozkaya, & Taube", year: 2020, title: "How nostalgic brand positioning shapes brand equity: differences between emerging and developed markets", doi: "10.1007/s11747-019-00637-x", url: "https://doi.org/10.1007/s11747-019-00637-x" },
+      ],
+      validationStudies: [], usagePermission: "unknown", usageEvidence: [],
       psychometricEvidence: [
         { label: "米国・韓国におけるローカル文化象徴性の3項目測定", sample: "米国および韓国の消費者標本", methods: "対象ブランドと国・地域文化との結びつき、代表性、象徴性を3項目で測定", result: "ブランドのグローバル性とは別に、ローカル文化の象徴としての知覚を測定できる構成を提示。", url: "https://doi.org/10.1057/palgrave.jibs.8400002" },
       ],
@@ -3891,7 +3894,7 @@ const ATLAS_DATA = {
         { title: "The Effects of Perceived Brand Globalness and Perceived Brand Localness in China: Empirical Evidence on Western, Asian, and Domestic Retailers", authors: "Swoboda, Pennemann, & Taube", year: 2012, context: "中国の小売ブランドにおけるPBL（ローカル象徴性）と店舗パトロネージ", sample: "中国消費者1,188名、36の欧米・アジア・中国本土小売ブランド", itemCount: 3, responseFormat: "7件法（リッカート）", language: "Chinese", adaptation: "Steenkamp, Batra, & Alden（2003）のローカル文化象徴3項目をセマンティック・ディファレンシャルからリッカートへ調整。国名プレースホルダは中国。同一論文のPBG側は別尺度（既登録）であり、本記録はBLI/PBL側のみ。", result: "PBLは機能的・心理的価値を介して小売パトロネージを高める。国内小売はローカル象徴性の便益が大きい。", doi: "10.1509/jim.12.0105", url: "https://doi.org/10.1509/jim.12.0105" },
         { title: "An Extended Model of Preference Formation between Global and Local Brands: The Roles of Identity Expressiveness, Trust, and Affect", authors: "Xie, Batra, & Peng", year: 2015, context: "中国消費者の電子製品ブランドにおけるPBL経路（アイデンティティ表現性・信頼・感情を介した行動意図）", sample: "北京の主要駅で実施した中国消費者調査、最終N=287、電子製品ブランド（グローバル・国内、自己指名）", itemCount: 3, responseFormat: "7件法（セマンティック・ディファレンシャル）", language: "Chinese", adaptation: "Steenkamp, Batra, & Alden（2003）のローカル文化象徴3項目をセマンティック項目として採用。Table 1で文言確認（associate…Chinese / represents what China is all about / good symbol of China；原版の very good を good に短縮）。国名プレースホルダは中国。同一論文のPBG側は別尺度。第3項目のCFA負荷が弱い点に注意。", result: "PBLのα=.79。CFA負荷 .92/.94/.40。PBLは主にブランド・アイデンティティ表現性を介して行動意図に寄与。", doi: "10.1509/jim.14.0009", url: "https://doi.org/10.1509/jim.14.0009" },
       ],
-      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-09-06",
+      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-09-21",
       notes: "PBG-3の逆転尺度ではない。世界的に認知されながら特定文化の象徴でもあるブランドを表現できるため、必要に応じてPBG-3と併用する。",
       recordStatus: "verified-metadata",
     },
