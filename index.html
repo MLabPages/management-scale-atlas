@@ -9,8 +9,9 @@
   <link rel="stylesheet" href="source-links.css">
 </head>
 <body>
+  <a class="skip-link" href="#main">本文へスキップ</a>
   <header class="hero">
-    <div class="container">
+    <div class="container hero-inner">
       <p class="eyebrow">MANAGEMENT &amp; MARKETING SCALE ATLAS</p>
       <h1>経営学・マーケティング<br>概念・尺度アトラス</h1>
       <p class="hero-copy">測りたい概念から、尺度の特徴・実際の利用研究数・日本語での利用状況・利用条件を比較できます。</p>
@@ -20,24 +21,41 @@
 
   <nav class="tabs" aria-label="メイン画面">
     <div class="container tab-inner">
-      <button class="tab active" data-view="search">尺度を探す</button>
-      <button class="tab" data-view="planner">設計アシスタント</button>
-      <button class="tab" data-view="concepts">概念一覧</button>
-      <button class="tab" data-view="coverage">収録状況</button>
-      <button class="tab" data-view="compare">研究設計 <span id="compare-count">0</span></button>
+      <button class="tab active" type="button" data-view="search" aria-current="page">尺度を探す</button>
+      <button class="tab" type="button" data-view="planner">設計アシスタント</button>
+      <button class="tab" type="button" data-view="concepts">概念一覧</button>
+      <button class="tab" type="button" data-view="coverage">収録状況</button>
+      <button class="tab" type="button" data-view="compare">研究設計 <span id="compare-count">0</span></button>
     </div>
   </nav>
 
-  <main class="container">
+  <main id="main" class="container">
     <section id="view-search" class="view active">
       <div class="search-panel">
+        <label class="search-box"><span>キーワード</span><input id="query" type="search" placeholder="例：ブランド経験、VR、9項目、短縮版"></label>
         <div class="research-paths" aria-label="研究目的から探す">
           <div><strong>研究目的から探す</strong><span>条件は後から調整できます</span></div>
-          <button type="button" data-preset="low-burden">複数概念・低負担</button>
-          <button type="button" data-preset="japanese">日本語調査を優先</button>
-          <button type="button" data-preset="practice">使用先行研究を優先</button>
-          <button type="button" data-preset="diagnostic">多次元で詳しく診断</button>
+          <div class="research-path-actions">
+            <button type="button" data-preset="low-burden">複数概念・低負担</button>
+            <button type="button" data-preset="japanese">日本語調査を優先</button>
+            <button type="button" data-preset="practice">使用先行研究を優先</button>
+            <button type="button" data-preset="diagnostic">多次元で詳しく診断</button>
+          </div>
         </div>
+        <details class="filter-disclosure" open>
+          <summary>絞り込み・並び順</summary>
+          <div class="filters">
+            <label>研究領域<select id="domain-filter"><option value="">すべて</option></select></label>
+            <label>日本語の状況<select id="japanese-filter"><option value="">すべて</option><option value="verified">検証・開発済み</option><option value="available">日本語情報あり</option><option value="unconfirmed">未確認</option></select></label>
+            <label>実使用・検証<select id="practice-filter"><option value="">すべて</option><option value="usage-studies">個別の使用先行研究あり</option><option value="documented">実使用版の根拠あり</option><option value="review">レビュー・比較根拠あり</option><option value="jp-validated">日本語で検証済み</option></select></label>
+            <label>3・4項目の状況<select id="short-form-filter"><option value="">すべて</option><option value="registered">登録尺度そのものが3・4項目</option><option value="usage">使用研究で3・4項目版あり</option><option value="evidence">関連版・比較を含む根拠あり</option></select></label>
+            <label>測定スタイル<select id="measurement-style-filter"><option value="">すべて</option><option value="global-low">総合評価・低負担</option><option value="multidimensional-low">多次元・低負担</option><option value="multidimensional-deep">多次元・詳細診断</option><option value="unidimensional">単一次元</option></select></label>
+            <label>利用条件<select id="permission-filter"><option value="">すべて</option><option value="open">掲載・利用可</option><option value="research">研究利用可</option><option value="permission">申請が必要</option><option value="unknown">未確認</option></select></label>
+            <label>登録尺度の最大項目数<select id="items-filter"><option value="">指定なし</option><option value="3">3項目以下</option><option value="4">4項目以下</option><option value="5">5項目以下</option><option value="10">10項目以下</option><option value="20">20項目以下</option></select></label>
+            <label>並び順<select id="usage-sort"><option value="">登録順</option><option value="short">3・4項目の使いやすさ順</option><option value="practice">実使用・検証情報が多い順</option><option value="usage">利用研究数が多い順</option><option value="year-new">新しい順</option><option value="year-old">古い順</option></select></label>
+          </div>
+          <button id="clear-filters" class="text-button" type="button">条件をクリア</button>
+        </details>
         <section class="explore-guide" aria-labelledby="explore-guide-title">
           <div><strong id="explore-guide-title">迷ったら、ここから押してください</strong><span>押すと何が見られるかを先に示します</span></div>
           <div class="explore-guide-actions">
@@ -47,23 +65,11 @@
           </div>
           <p><strong>候補が見つかったら：</strong>「詳細を見る」で根拠を確認し、「比較に追加」→上の「研究設計」で項目数・使用例・利用条件を横並びにできます。</p>
         </section>
-        <label class="search-box"><span>キーワード</span><input id="query" type="search" placeholder="例：ブランド経験、VR、9項目、短縮版"></label>
-        <div class="filters">
-          <label>研究領域<select id="domain-filter"><option value="">すべて</option></select></label>
-          <label>日本語の状況<select id="japanese-filter"><option value="">すべて</option><option value="verified">検証・開発済み</option><option value="available">日本語情報あり</option><option value="unconfirmed">未確認</option></select></label>
-          <label>実使用・検証<select id="practice-filter"><option value="">すべて</option><option value="usage-studies">個別の使用先行研究あり</option><option value="documented">実使用版の根拠あり</option><option value="review">レビュー・比較根拠あり</option><option value="jp-validated">日本語で検証済み</option></select></label>
-          <label>3・4項目の状況<select id="short-form-filter"><option value="">すべて</option><option value="registered">登録尺度そのものが3・4項目</option><option value="usage">使用研究で3・4項目版あり</option><option value="evidence">関連版・比較を含む根拠あり</option></select></label>
-          <label>測定スタイル<select id="measurement-style-filter"><option value="">すべて</option><option value="global-low">総合評価・低負担</option><option value="multidimensional-low">多次元・低負担</option><option value="multidimensional-deep">多次元・詳細診断</option><option value="unidimensional">単一次元</option></select></label>
-          <label>利用条件<select id="permission-filter"><option value="">すべて</option><option value="open">掲載・利用可</option><option value="research">研究利用可</option><option value="permission">申請が必要</option><option value="unknown">未確認</option></select></label>
-          <label>登録尺度の最大項目数<select id="items-filter"><option value="">指定なし</option><option value="3">3項目以下</option><option value="4">4項目以下</option><option value="5">5項目以下</option><option value="10">10項目以下</option><option value="20">20項目以下</option></select></label>
-          <label>並び順<select id="usage-sort"><option value="">登録順</option><option value="short">3・4項目の使いやすさ順</option><option value="practice">実使用・検証情報が多い順</option><option value="usage">利用研究数が多い順</option><option value="year-new">新しい順</option><option value="year-old">古い順</option></select></label>
-        </div>
-        <button id="clear-filters" class="text-button">条件をクリア</button>
       </div>
-      <div class="result-head"><div><h2>尺度一覧</h2><p id="result-count"></p></div><div class="export-actions" aria-label="検索結果の出力"><button id="export-csv" class="text-button">CSV出力</button><button id="export-json" class="text-button">JSON出力</button></div></div>
+      <div class="result-head"><div><h2>尺度一覧</h2><p id="result-count"></p></div><div class="export-actions" aria-label="検索結果の出力"><button id="export-csv" class="text-button" type="button">CSV出力</button><button id="export-json" class="text-button" type="button">JSON出力</button></div></div>
       <p class="method-note"><strong>3・4項目版を積極収録：</strong>「登録尺度そのもの」と「後続研究による抜粋・調整版」を分けて検索できます。回答負担を抑えられる一方、短ければ常に優れているわけではありません。AVEは項目数そのものではなく標準化負荷量に基づくため、内容の網羅性・信頼性・因子構造・翻訳検証もあわせて確認してください。</p>
       <p class="export-note">現在の検索・絞り込み結果を出力します。尺度項目本文は含みません。</p>
-      <div id="scale-list" class="card-grid"></div>
+      <div id="scale-list" class="card-grid"><div class="empty-state loading-state"><strong>尺度一覧を読み込み中</strong><span>登録データを表示しています。</span></div></div>
     </section>
 
     <section id="view-planner" class="view">
@@ -85,7 +91,7 @@
           <div class="planner-actions"><button id="planner-build" type="submit" class="primary-action">候補を作る</button><button id="planner-clear" type="button" class="secondary-action">選択をクリア</button></div>
         </form>
         <div class="planner-results-panel">
-          <div id="planner-empty" class="empty-state compact"><strong>概念を選ぶと、ここに尺度候補が表示されます。</strong><br>自動候補は採用の確定ではありません。原典・対象・因子構造・翻訳を確認してください。</div>
+          <div id="planner-empty" class="empty-state compact"><strong>概念を選ぶと、ここに尺度候補が表示されます。</strong><span>自動候補は採用の確定ではありません。原典・対象・因子構造・翻訳を確認してください。</span></div>
           <div id="planner-results" hidden></div>
         </div>
       </div>
@@ -114,12 +120,12 @@
       <div id="compare-summary" class="burden-summary" hidden></div>
       <div id="short-option-panel" class="short-option-panel" hidden></div>
       <div id="design-builder" class="design-builder" hidden></div>
-      <div id="compare-empty" class="empty-state"><strong>比較する尺度がまだ選ばれていません。</strong><br>尺度一覧で「詳細を見る」→「比較に追加」を押すと、ここで項目数・使用研究・日本語情報・利用条件を横並びにできます。<br><button type="button" class="text-button" data-guide-view="search">尺度を探すへ戻る</button></div>
+      <div id="compare-empty" class="empty-state"><strong>比較する尺度がまだ選ばれていません。</strong><span>尺度一覧で「詳細を見る」→「比較に追加」を押すと、ここで項目数・使用研究・日本語情報・利用条件を横並びにできます。</span><button type="button" class="text-button" data-guide-view="search">尺度を探すへ戻る</button></div>
       <div id="compare-table-wrap" class="table-wrap" hidden><table id="compare-table"></table></div>
     </section>
   </main>
 
-  <dialog id="detail-dialog"><button class="dialog-close" aria-label="閉じる">×</button><div id="detail-body"></div></dialog>
+  <dialog id="detail-dialog"><button class="dialog-close" type="button" aria-label="閉じる">×</button><div id="detail-body"></div></dialog>
   <footer><div class="container">Management and Marketing Scale Atlas — <span id="footer-version"></span></div></footer>
   <script src="data.js"></script><script src="app.js"></script>
 </body>
