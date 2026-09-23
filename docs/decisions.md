@@ -1,5 +1,12 @@
 # Decisions
 
+## 2026-09-23: OCB は Williams–Anderson の OCBI/OCBO 13項目として登録する
+
+- 概念 `organizational-citizenship-behavior` と尺度 `williams-anderson-ocbi-ocbo` を追加する。項目数は APA PsycTests の最終 Performance Measure 20（OCBI 7＋OCBO 6＋IRB 7）から IRB を除いた 13。二次資料の OCBO 7・計21とは同一視しない。
+- IRB は役割内行動であり、今回は別尺度にしない。Organ、Podsakoff らの24項目、環境向け OCB（OCBE）、田中（2002）の日本版33項目・5因子は別物。日本語状況は `unconfirmed` のままにする。
+- Ibrahim（2016）は PO-Org-7 の使用研究として登録する（組織対象7項目、アラビア語の翻訳・逆翻訳、有効 N=276、5件法、α=.84）。DOI は未確認のため URL のみ。同論文は OCBO を7項目と書くため、OCB 尺度の使用研究にはしない。開発論文は使用研究に入れない。
+- CX Scale 18 の usage、Brand Affect 3、OBE-4 の日本語は HOLD。山本（2023）DOI 10.7222/marketing.2023.032 は概念レビューであり、PO-Org-7 の日本語使用にしない。
+
 ## 2026-09-23: Codex とクラウドの非対称レーン
 
 - ローカル Codex は、条件付きで `main` へ commit / push してよい（force-push 禁止。開始時は status / fetch / 差分確認。dirty や履歴分岐時は自動 pull/rebase/merge しない）。
