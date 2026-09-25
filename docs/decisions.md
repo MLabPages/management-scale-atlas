@@ -1,5 +1,14 @@
 # Decisions
 
+## 2026-09-24: サーバント・リーダーシップは Liden の SL-28 と SL-7 として登録する
+
+- 概念 `servant-leadership` に、尺度 `liden-sl-28`（原版、28項目、7次元×4）と `liden-sl-7`（`validated-short-form`、`parentScaleId` は `liden-sl-28`）を追加する。SL-7 は各次元1項目のグローバル短縮であり、任意の7項目抜粋ではない。
+- Ehrhart（2004）、van Dierendonck 系の小林ら SLS-J、劉培（2013）神戸大学ワーキングペーパーの24項目は別尺度として注記し、レコードにはしない。
+- SLJ-28 の根拠は日本心理学会第84回大会の発表要旨（DOI 10.4992/pacjpa.84.0_pq-018）である。7因子 CFA と増分関連は要旨にあるが、査読誌の検証論文ではない。`liden-sl-28` の日本語状況は `validated` ではなく `translation-study` とする。
+- ResearchGate の尺度資料（DOI 10.13140/RG.2.2.33531.59683）は SLJ-28 と SLJ-7 を併記する。要旨が検証対象とするのは SLJ-28 なので、`liden-sl-7` の日本語状況は `related-version` とする。
+- 開発論文と日本語版の大会発表は `usageStudies` に入れない。日本語のフル使用が本文で確定できていないため、使用研究は空のままにする。
+- Williams–Anderson OCBI/OCBO の usage、CX Scale 18 の第2 usage、Brand Affect 3 と OBE-4 の日本語は HOLD。
+
 ## 2026-09-23: OCB は Williams–Anderson の OCBI/OCBO 13項目として登録する
 
 - 概念 `organizational-citizenship-behavior` と尺度 `williams-anderson-ocbi-ocbo` を追加する。項目数は APA PsycTests の最終 Performance Measure 20（OCBI 7＋OCBO 6＋IRB 7）から IRB を除いた 13。二次資料の OCBO 7・計21とは同一視しない。
