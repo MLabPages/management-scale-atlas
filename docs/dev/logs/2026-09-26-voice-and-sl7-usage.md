@@ -31,3 +31,4 @@
 - `node verify-data.mjs` 成功。概念68、尺度103、使用研究161、日本語未確認52。翻訳・因子構造等の検討4、関連版13。登録版そのものが3・4項目22、使用研究での3・4項目25、目的別ガイド9
 - `node verify-data.mjs --self-test` 成功
 - `node --check data.js`、`node --check app.js`、`git diff --check` 成功
+- ローカルの静的サーバで、見出しが v0.73.0・68概念・103尺度・使用研究161件になることを確認した。発言行動の検索と詳細、SL-7 の Svensson 使用研究、概念一覧、研究設計（合計13項目、CSV/JSON、根拠CSV）、CX Scale 18 が Gao & Jiang の1件のまま、OCBI/OCBO の使用研究が空のまま、Brand Affect 3 の日本語が未確認のままであることを確認した。幅390pxでも詳細ダイアログは画面内に固定表示された
