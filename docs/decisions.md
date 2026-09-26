@@ -1,5 +1,14 @@
 # Decisions
 
+## 2026-09-25: 倫理的リーダーシップは Brown らの ELS-10 として登録する
+
+- 概念 `ethical-leadership` と尺度 `brown-els-10` を追加する。原典は Brown, Treviño, & Harrison（2005）, Organizational Behavior and Human Decision Processes, 97(2), 117–134。DOI `10.1016/j.obhdp.2005.03.002`。10項目、単一次元、5件法、部下による直属上司評定。
+- 変革型リーダーシップの MLQ（商用）とその理想化影響、Liden らの SL における Behaving ethically 次元、研究内の6項目短縮は別物として注記し、別レコードにはしない。
+- 日本語状況は `unconfirmed`。渡辺幹代（2009）の産組心大会「ELS-J」は全文と項目数が未確認のため、`japaneseEvidence` の `context-reference` に留め、`validated` や `translation-study` にはしない。
+- 本橋（2020）の6項目と本橋（2021）の8項目和訳（出典表記は Brown and Trevino 2006）、および本橋（2023）『人と組織がいきる倫理マネジメント』はフル ELS-10 ではない。使用研究にも日本語の検証済み版にもしない。
+- 開発論文は `usageStudies` に入れない。使用研究は空のままにする。
+- Williams–Anderson OCBI/OCBO の usage、CX Scale 18 の第2 usage、Brand Affect 3 と OBE-4 の日本語は HOLD。
+
 ## 2026-09-24: サーバント・リーダーシップは Liden の SL-28 と SL-7 として登録する
 
 - 概念 `servant-leadership` に、尺度 `liden-sl-28`（原版、28項目、7次元×4）と `liden-sl-7`（`validated-short-form`、`parentScaleId` は `liden-sl-28`）を追加する。SL-7 は各次元1項目のグローバル短縮であり、任意の7項目抜粋ではない。

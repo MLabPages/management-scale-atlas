@@ -2,10 +2,10 @@
 // DOI、原典、項目数、下位次元は原著論文または公式資料で確認。
 const ATLAS_DATA = {
   meta: {
-    version: "0.71.0",
+    version: "0.72.0",
     status: "initial-real-data",
-    updated: "2026-09-24",
-    scope: "66概念・101尺度",
+    updated: "2026-09-25",
+    scope: "67概念・102尺度",
   },
 
   concepts: [
@@ -744,6 +744,16 @@ const ATLAS_DATA = {
         caution: "Ehrhart（2004）、van DierendonckらのServant Leadership Survey（SLS）と小林らのSLS-J、劉培（2013）の24項目日本版は、LidenのSL-28／SL-7とは別尺度です。LMX-7とも同一視しないでください。",
       },
       references: ["10.1016/j.leaqua.2008.01.006", "10.1016/j.leaqua.2014.12.002"],
+    },
+    {
+      id: "ethical-leadership",
+      nameJa: "倫理的リーダーシップ",
+      nameEn: "Ethical Leadership",
+      definitionJa: "個人の行動と対人関係を通じて規範的に適切な行動を示範し、双方向のコミュニケーション、強化、意思決定を通じて部下の同様の行動を促すリーダーシップ。Brownらの尺度では、部下が直属上司を評定する単一次元として扱う。",
+      domain: "組織行動・人的資源",
+      relatedConcepts: ["leader-member-exchange", "servant-leadership", "organizational-justice"],
+      parentConcepts: [], childConcepts: [], typicalAntecedents: [], typicalOutcomes: ["job-satisfaction"],
+      references: ["10.1016/j.obhdp.2005.03.002"],
     },
   ],
 
@@ -4245,6 +4255,42 @@ const ATLAS_DATA = {
       itemPublicationStatus: "not-published", items: [],
       verifiedAt: "2026-09-24",
       notes: "SL-28の任意7項目ではない。Lidenら（2015）が各次元1項目で再検証したグローバル短縮。Ehrhart（2004）、van Dierendonck & NuijtenのSLS、小林ら（2020）のSLS-J、劉培（2013）の24項目日本版とは別尺度。開発論文は使用研究に含めない。日本語のフル使用が本文で確定できていないため、使用研究は空。項目本文は転載許諾未確認のため収録しない。",
+      recordStatus: "verified-metadata",
+    },
+    {
+      id: "brown-els-10",
+      name: "Ethical Leadership Scale (ELS-10)",
+      abbreviation: "ELS-10",
+      conceptId: "ethical-leadership",
+      authors: ["Michael E. Brown", "Linda K. Treviño", "David A. Harrison"],
+      year: 2005,
+      sourceTitle: "Ethical leadership: A social learning perspective for construct development and testing",
+      journal: "Organizational Behavior and Human Decision Processes, 97(2), 117–134",
+      doi: "10.1016/j.obhdp.2005.03.002",
+      sourceUrl: "https://doi.org/10.1016/j.obhdp.2005.03.002",
+      itemCount: 10,
+      dimensions: ["Ethical leadership（倫理的リーダーシップ・単一次元）"],
+      responseFormat: "5件法（1＝強く不同意～5＝強く同意）",
+      reverseItems: [], scoring: "10項目を単一次元として合計または平均する。下位次元には分けない。",
+      targetPopulation: ["部下", "直属上司を評定する従業員"],
+      language: "English", versionType: "original", parentScaleId: null,
+      japaneseVersionStatus: "unconfirmed",
+      japaneseStatusNote: "Brown, Treviño, & Harrison（2005）のフル10項目そのものの検証済み日本語版・日本語使用例は今回未確認です。渡辺幹代（2009）の産業・組織心理学会大会発表「ELS-J」は全文と項目数が未確認のため、検証済みにはしません。本橋（2021）経営行動科学の上司評定8項目（6件法。出典表記は Brown and Trevino 2006）と、本橋（2020）の経営トップ6項目、および同系列をまとめた本橋（2023）『人と組織がいきる倫理マネジメント』はフル ELS-10 ではありません。",
+      japaneseEvidence: [
+        { kind: "context-reference", label: "産組心大会のELS-J（全文・項目数は未確認。検証済みではない）", authors: "渡辺幹代", year: 2009, title: "倫理的リーダーシップの心理学的研究-倫理的リーダーシップ尺度日本語版(ELS-J)の開発と要因の検討-", url: "https://jglobal.jst.go.jp/detail?JGLOBAL_ID=200902268158493009" },
+      ],
+      validationStudies: [], usagePermission: "unknown", usageEvidence: [],
+      psychometricEvidence: [
+        { label: "原版10項目・単一次元の開発", sample: "項目精選はMBA学生154名。探索的因子分析は米国の金融サービス企業の従業員127名。確認的因子分析は同社の別標本184名", methods: "当初48項目を5件法で投与し、探索的因子分析と内容の検討を経て10項目に精選。別標本で1因子の確認的因子分析", result: "従業員127名の探索的因子分析は1因子（第1固有値5.99、第2固有値.78）。負荷は.50以上、α=.92。別標本184名の1因子モデルはCFI=.98、NNFI=.97、SRMR=.04、RMSEA=.06、α=.91。", url: "https://doi.org/10.1016/j.obhdp.2005.03.002" },
+        { label: "MLQの理想化影響（行動）との弁別", sample: "弁別は就業経験のある学部上級生123名。増分予測は同一金融サービス企業の作業集団183（倫理的リーダーシップ、理想化影響、アウトカムを別の部下が評定）", methods: "商用のMLQ（Bass & Avolio, 2000）における理想化影響・行動（II-B）との確認的因子分析と、別回答者による構造方程式", result: "123名でELSとII-Bの相関は.71、因子間相関は.80。2因子モデル（CFI=.94、NNFI=.93、SRMR=.07、RMSEA=.08）が1因子より適合し、ELSのα=.93。183集団では個人レベルα=.90、rwgの平均.88（中央値.97）。合成基準への標準化パスはELSが.21（p<.01）で、II-Bは.13（非有意）。変革型リーダーシップのMLQそのものではない。", url: "https://doi.org/10.1016/j.obhdp.2005.03.002" },
+      ],
+      applicationEvidence: [
+        { label: "部下が直属上司を評定する単一次元10項目", itemCounts: [10], evidenceType: "scale-development", summary: "規範的に適切な行動の示範と、コミュニケーション・強化・意思決定による促進を10項目で測る。後続研究の研究内6項目短縮、本橋（2020）の6項目、本橋（2021）の8項目和訳はフル10項目ではない。Lidenらのサーバント・リーダーシップにおける倫理的行動（Behaving ethically）次元とも別概念。", title: "Ethical leadership: A social learning perspective for construct development and testing", year: 2005, doi: "10.1016/j.obhdp.2005.03.002", url: "https://doi.org/10.1016/j.obhdp.2005.03.002" },
+      ],
+      usageStudies: [],
+      itemPublicationStatus: "not-published", items: [],
+      verifiedAt: "2026-09-25",
+      notes: "Brown, Treviño, & Harrison（2005）のフル10項目。単一次元、5件法、対象は部下による直属上司評定。変革型リーダーシップのMLQ（Bass & Avolio。商用）およびその理想化影響とは別尺度。LidenらのSL-28／SL-7にある「Behaving ethically（倫理的行動）」次元とも別概念。後続研究で見られる研究内の6項目短縮は、本レコードのフル10項目ではない。本橋（2020）経営行動科学27の経営トップ6項目（Brown and Trevino 2006の質問文の和訳、6件法、α=.902）と、本橋（2021）経営行動科学28の上司評定8項目（同系統、6件法、α=.965／.937）、および本橋（2023）『人と組織がいきる倫理マネジメント』（白桃書房）はフル ELS-10 ではない。KalshovenらのELWやYuklらのEthical Leadership Questionnaireも別尺度。開発論文は使用研究に含めない。項目本文は転載許諾未確認のため収録しない。",
       recordStatus: "verified-metadata",
     },
   ],
