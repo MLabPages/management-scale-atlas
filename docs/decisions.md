@@ -1,5 +1,15 @@
 # Decisions
 
+## 2026-09-26: 従業員の発言行動は Van Dyne–LePine の Voice 6項目、SL-7 の使用研究は Svensson のみ
+
+- 概念 `employee-voice` と尺度 `van-dyne-lepine-voice-6` を追加する。原典は Van Dyne & LePine（1998）, Academy of Management Journal, 41(1), 108–119。DOI は `10.2307/256902`。Crossref は `10.5465/256902` を別名として返す。
+- 登録するのは voice の6項目だけである。同一論文の Helping は7項目であり、別尺度としても登録しない。組織市民行動、Liang らの促進的／抑制的発言、Farh らの発言尺度、Williams–Anderson の OCBI/OCBO とも同一視しない。
+- 公開抄録で確認できるのは、従業員597名の現場研究で、上司・同僚・本人が役割内と役割外、および helping と voice を区別したことである。voice のα .82～.96 と CFA の識別は、原典を引用する尺度解説の要約であり、原典の表の個別適合度は記さない。
+- 日本語状況は `unconfirmed`。項目本文は収録しない。開発論文は `usageStudies` に入れない。
+- `liden-sl-7` には Svensson, Jones, & Kang の使用研究を1件だけ追加する。公開PDF（https://jsfd.org/wp-content/uploads/2022/02/svensson.servant.leadership.sfd_.pdf）で、Liden et al.（2015）の SL-7、非管理職100名によるリーダー評定、7件法、α=.89 を確認した。誌面は Journal of Sport for Development, 10(1), November 2021, 17–24。引用年は公開PDFに合わせ 2022 とする。Crossref の DOI は見つからなかった。
+- Liden et al.（2015）の開発論文（DOI `10.1016/j.leaqua.2014.12.002`）は使用研究にしない。項目を削った使用（Kumari et al. 2022）と、対応が曖昧な Yuan et al.（2020）は追加しない。Zong et al.（2026）は本PRでは一次資料を再確認していないため追加しない。SL-28 のレコードは変えない。
+- Williams–Anderson OCBI/OCBO の usage、CX Scale 18 の第2 usage、Brand Affect 3 と OBE-4 の日本語は HOLD。
+
 ## 2026-09-25: 倫理的リーダーシップは Brown らの ELS-10 として登録する
 
 - 概念 `ethical-leadership` と尺度 `brown-els-10` を追加する。原典は Brown, Treviño, & Harrison（2005）, Organizational Behavior and Human Decision Processes, 97(2), 117–134。DOI `10.1016/j.obhdp.2005.03.002`。10項目、単一次元、5件法、部下による直属上司評定。
