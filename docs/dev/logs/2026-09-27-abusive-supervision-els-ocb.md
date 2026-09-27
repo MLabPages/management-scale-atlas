@@ -30,4 +30,5 @@
 - 作業開始時の origin/main は `9389805`（v0.73.0）
 - `node verify-data.mjs` 成功。概念69、尺度104、使用研究163、日本語未確認53。翻訳・因子構造等の検討4、関連版13。登録版そのものが3・4項目22、使用研究での3・4項目25、目的別ガイド9
 - `node verify-data.mjs --self-test` 成功
-- `node --check data.js`、`node --check app.js`、`git diff --check` を実施
+- `node --check data.js`、`node --check app.js`、`git diff --check` 成功
+- ローカルの静的サーバと headless Chrome で、見出しが v0.74.0・69概念・104尺度・使用研究163件になることを確認した。虐待的監督の検索は AS-15 の1件で、使用先行研究バッジはなく、詳細に項目本文はない。ELS-10 の詳細に Mayer らの使用研究1件（α=.97）、OCBI/OCBO の詳細に Carlson らの使用研究1件（OCBI α=.88、OCBO α=.79）が出る。3尺度を研究設計に入れると合計38項目。設計CSV、根拠CSV、検索CSV、検索JSONに新尺度と2件の使用研究DOIが入る。概念一覧に虐待的監督が出る。CX Scale 18 は使用先行研究1件のまま、ブランド感情は未確認のまま。幅390pxでも詳細ダイアログは画面内の固定表示だった
