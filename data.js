@@ -2,10 +2,10 @@
 // DOI、原典、項目数、下位次元は原著論文または公式資料で確認。
 const ATLAS_DATA = {
   meta: {
-    version: "0.73.0",
+    version: "0.74.0",
     status: "initial-real-data",
-    updated: "2026-09-26",
-    scope: "68概念・103尺度",
+    updated: "2026-09-27",
+    scope: "69概念・104尺度",
   },
 
   concepts: [
@@ -764,6 +764,16 @@ const ATLAS_DATA = {
       relatedConcepts: ["organizational-citizenship-behavior"],
       parentConcepts: [], childConcepts: [], typicalAntecedents: [], typicalOutcomes: [],
       references: ["10.2307/256902"],
+    },
+    {
+      id: "abusive-supervision",
+      nameJa: "虐待的監督",
+      nameEn: "Abusive Supervision",
+      definitionJa: "部下が知覚する、上司による持続的な敵意的な言語的・非言語的行動。身体的接触は含まない。倫理的リーダーシップ、LMX、サーバント・リーダーシップの倫理的行動、従業員の発言行動とは別概念である。",
+      domain: "組織行動・人的資源",
+      relatedConcepts: ["ethical-leadership", "leader-member-exchange", "servant-leadership", "employee-voice"],
+      parentConcepts: [], childConcepts: [], typicalAntecedents: [], typicalOutcomes: [],
+      references: ["10.2307/1556375"],
     },
   ],
 
@@ -4188,10 +4198,12 @@ const ATLAS_DATA = {
       applicationEvidence: [
         { label: "OCB部分はOCBI 7＋OCBO 6の13項目", itemCounts: [13, 20, 7], evidenceType: "scale-development", summary: "APA PsycTestsは、21項目の因子分析後の最終Performance Measureを20項目（IRB 7、OCBI 7、OCBO 6）と記録する。本尺度はOCB部分13項目のみ。IRBは役割内行動であり含めない。二次資料にはOCBO 7項目・計21項目の表記がある。", title: "Job Satisfaction and Organizational Commitment as Predictors of Organizational Citizenship and In-Role Behaviors", year: 1991, doi: "10.1177/014920639101700305", url: "https://doi.org/10.1177/014920639101700305" },
       ],
-      usageStudies: [],
+      usageStudies: [
+        { title: "Work-Family Balance and Supervisor Appraised Citizenship Behavior: The Link of Positive Affect", authors: "Carlson, Kacmar, Grzywacz, Tepper, & Whitten", year: 2013, context: "米国南部2大学のビジネススクール卒業生を起点とした、ワーク・ファミリー・バランスと監督者評定の組織市民行動。Journal of Behavioral and Applied Management, 14(2), 87–106", sample: "監督者–部下の dyad 205（監督者75名。部下396名へ送付し268名が回答、監督者と対応できたのが205組）", itemCount: 13, responseFormat: "頻度を尋ねる文言（例の書き出しは On average, how often）。確認した方法節では件数の明示はない", language: "English", adaptation: "Williams & Anderson（1991）の OCBI 7項目と OCBO 6項目を、監督者が部下について評定。役割内行動（IRB）は含まない。Lee & Allen、Podsakoff らの24項目、田中堅一郎（2002）の33項目、Ibrahim（2016）の OCBO 7項目ではない。", result: "OCBI のα=.88、OCBO のα=.79。部下のワーク・ファミリー・バランスは監督者評定の OCBI と OCBO を予測し、部下評定のポジティブ感情が完全媒介した。監督者評定のポジティブ感情を媒介にしても同様に完全媒介だった。", doi: "10.21818/001c.17924", url: "https://jbam.scholasticahq.com/article/17924-work-family-balance-and-supervisor-appraised-citizenship-behavior-the-link-of-positive-affect" },
+      ],
       itemPublicationStatus: "not-published", items: [],
-      verifiedAt: "2026-09-23",
-      notes: "Performance Measure全体の最終版は20項目（OCBI 7＋OCBO 6＋IRB 7）。二次資料にOCBO 7項目・計21項目の表記がある。IRBは役割内行動であり本尺度に含めない。Organ（1988）の概念定義、Podsakoffらの24項目・5次元、環境向けOCB（OCBE）とは同一視しない。Ibrahim（2016）はWilliams & Andersonを引用するがOCBOを7項目と書くため、使用研究には登録していない。開発論文は使用研究に含めない。項目本文は転載許諾未確認のため収録しない。",
+      verifiedAt: "2026-09-27",
+      notes: "Performance Measure全体の最終版は20項目（OCBI 7＋OCBO 6＋IRB 7）。二次資料にOCBO 7項目・計21項目の表記がある。IRBは役割内行動であり本尺度に含めない。Organ（1988）の概念定義、Podsakoffらの24項目・5次元、環境向けOCB（OCBE）とは同一視しない。Ibrahim（2016）はWilliams & Andersonを引用するがOCBOを7項目と書くため、使用研究には登録していない。開発論文は使用研究に含めない。使用研究は Carlson らの OCBI 7＋OCBO 6＝13項目のみ。項目本文は転載許諾未確認のため収録しない。",
       recordStatus: "verified-metadata",
     },
     {
@@ -4299,10 +4311,12 @@ const ATLAS_DATA = {
       applicationEvidence: [
         { label: "部下が直属上司を評定する単一次元10項目", itemCounts: [10], evidenceType: "scale-development", summary: "規範的に適切な行動の示範と、コミュニケーション・強化・意思決定による促進を10項目で測る。後続研究の研究内6項目短縮、本橋（2020）の6項目、本橋（2021）の8項目和訳はフル10項目ではない。Lidenらのサーバント・リーダーシップにおける倫理的行動（Behaving ethically）次元とも別概念。", title: "Ethical leadership: A social learning perspective for construct development and testing", year: 2005, doi: "10.1016/j.obhdp.2005.03.002", url: "https://doi.org/10.1016/j.obhdp.2005.03.002" },
       ],
-      usageStudies: [],
+      usageStudies: [
+        { title: "Examining the Link Between Ethical Leadership and Employee Misconduct: The Mediating Role of Ethical Climate", authors: "Mayer, Kuenzi, & Greenbaum", year: 2010, context: "米国南東部の複数業種における部署単位の倫理的リーダーシップ、倫理的風土、従業員の不正行為。Journal of Business Ethics, 95(S1), 7–16。刊行は2010年9月、オンライン公開は2011年2月", sample: "300 work units（従業員1,525名と監督者。従業員回答が3名以上の部署と監督者調査を対応づけた最終標本）", itemCount: 10, responseFormat: "5件法（1＝強く不同意～5＝強く同意）", language: "English", adaptation: "部下が Brown et al.（2005）の10項目倫理的リーダーシップ尺度をフル使用。研究内の6項目短縮、本橋の和訳、商用のMLQ、Lidenらの倫理的行動次元ではない。Brown et al.（2005）の開発論文そのものではない。", result: "倫理的リーダーシップのα=.97（Table I、N=300）。SEMの測定モデルは倫理的リーダーシップ10指標、倫理的風土6指標、不正行為7指標の計23指標（RMSEA=.09、CFI=.97、SRMR=.06、df=227）。完全媒介モデルで倫理的リーダーシップから倫理的風土への標準化パスは.59。", doi: "10.1007/s10551-011-0794-0", url: "https://davemayer.me/wp-content/uploads/sites/11/2019/07/Mayer-Kuenzi-Greenbaum-JBE-2010.pdf" },
+      ],
       itemPublicationStatus: "not-published", items: [],
-      verifiedAt: "2026-09-25",
-      notes: "Brown, Treviño, & Harrison（2005）のフル10項目。単一次元、5件法、対象は部下による直属上司評定。変革型リーダーシップのMLQ（Bass & Avolio。商用）およびその理想化影響とは別尺度。LidenらのSL-28／SL-7にある「Behaving ethically（倫理的行動）」次元とも別概念。後続研究で見られる研究内の6項目短縮は、本レコードのフル10項目ではない。本橋（2020）経営行動科学27の経営トップ6項目（Brown and Trevino 2006の質問文の和訳、6件法、α=.902）と、本橋（2021）経営行動科学28の上司評定8項目（同系統、6件法、α=.965／.937）、および本橋（2023）『人と組織がいきる倫理マネジメント』（白桃書房）はフル ELS-10 ではない。KalshovenらのELWやYuklらのEthical Leadership Questionnaireも別尺度。開発論文は使用研究に含めない。項目本文は転載許諾未確認のため収録しない。",
+      verifiedAt: "2026-09-27",
+      notes: "Brown, Treviño, & Harrison（2005）のフル10項目。単一次元、5件法、対象は部下による直属上司評定。変革型リーダーシップのMLQ（Bass & Avolio。商用）およびその理想化影響とは別尺度。LidenらのSL-28／SL-7にある「Behaving ethically（倫理的行動）」次元とも別概念。後続研究で見られる研究内の6項目短縮は、本レコードのフル10項目ではない。本橋（2020）経営行動科学27の経営トップ6項目（Brown and Trevino 2006の質問文の和訳、6件法、α=.902）と、本橋（2021）経営行動科学28の上司評定8項目（同系統、6件法、α=.965／.937）、および本橋（2023）『人と組織がいきる倫理マネジメント』（白桃書房）はフル ELS-10 ではない。KalshovenらのELWやYuklらのEthical Leadership Questionnaireも別尺度。開発論文は使用研究に含めない。使用研究は Mayer, Kuenzi, & Greenbaum（2010）のフル10項目・5件法・α=.97のみ。日本語状況は未確認のまま。項目本文は転載許諾未確認のため収録しない。",
       recordStatus: "verified-metadata",
     },
     {
@@ -4337,6 +4351,40 @@ const ATLAS_DATA = {
       itemPublicationStatus: "not-published", items: [],
       verifiedAt: "2026-09-26",
       notes: "Van Dyne & LePine（1998）の voice 6項目。DOI は 10.2307/256902。Crossref は 10.5465/256902 を別名として返す。同一論文の Helping は7項目であり、本PRでは登録しない。開発論文は使用研究に含めない。Liang, Farh, & Farh の促進的／抑制的発言、Farhらの発言尺度、Williams–AndersonのOCBI/OCBOとは別尺度。組織市民行動の下位尺度としても扱わない。αの範囲は原典を引用する尺度解説に依る。項目本文は転載許諾未確認のため収録しない。",
+      recordStatus: "verified-metadata",
+    },
+    {
+      id: "tepper-abusive-supervision-15",
+      name: "Abusive Supervision Scale (Tepper)",
+      abbreviation: "AS-15",
+      conceptId: "abusive-supervision",
+      authors: ["Bennett J. Tepper"],
+      year: 2000,
+      sourceTitle: "Consequences of Abusive Supervision",
+      journal: "Academy of Management Journal, 43(2), 178–190",
+      doi: "10.2307/1556375",
+      sourceUrl: "https://doi.org/10.2307/1556375",
+      itemCount: 15,
+      dimensions: ["Abusive supervision（虐待的監督・単一次元）"],
+      responseFormat: "5件法（頻度。1＝この行動を自分に用いた記憶がない～5＝自分に対してとても頻繁にこの行動を用いる。Tepperら（2007）が2000年調査を再分析した方法記述の両端）",
+      reverseItems: [], scoring: "15項目を単一次元として合計または平均する。Mitchell & Ambrose（2007）の5項目短縮とは同一視しない。",
+      targetPopulation: ["部下", "上司を評定する従業員"],
+      language: "English", versionType: "original", parentScaleId: null,
+      japaneseVersionStatus: "unconfirmed",
+      japaneseStatusNote: "Tepper（2000）の15項目そのものの検証済み日本語版・日本語使用例は今回未確認です。Mitchell & Ambrose（2007）の5項目短縮、倫理的リーダーシップのELS-10、Lidenらの倫理的行動次元、LMX、Van Dyne–LePineのVoiceとは別物です。",
+      japaneseEvidence: [],
+      validationStudies: [], usagePermission: "unknown", usageEvidence: [],
+      psychometricEvidence: [
+        { label: "原典抄録で確認できる帰結", sample: "公開抄録は標本サイズを明示しない", methods: "公正理論。部下による上司評定", result: "虐待的監督の知覚が高い部下ほど離職しやすい。残留者では職務満足と生活満足、規範的・情緒的コミットメントが低く、継続的コミットメント、仕事と家庭の葛藤、心理的苦痛が高い。組織的公正が効果の多くを媒介し、職務移動可能性が一部を調整した。", url: "https://doi.org/10.2307/1556375" },
+        { label: "同一データの再分析が記す15項目・5件法", sample: "Tepperら（2007）が再分析した2000年の2時点調査。時点1の有効回答は、中西部都市の有監督就業者712名（有効回収率53%）。相関表のnは342", methods: "時点1の15項目。5件法の頻度（両端は、この行動を自分に用いた記憶がない～自分に対してとても頻繁に用いる）。6か月間隔", result: "再分析での虐待的監督のα=.91（表のn=342）。項目数と回答形式はこの再分析の方法記述に依る。原典の表そのものは開いていない。Mitchell & Ambrose（2007）の5項目短縮は含まない。", url: "https://doi.org/10.5465/amj.2007.20159918" },
+      ],
+      applicationEvidence: [
+        { label: "部下が上司の敵意的言動の頻度を15項目で評定する原版", itemCounts: [15], evidenceType: "scale-development", summary: "持続的な敵意的な言語的・非言語的行動を、身体的接触を除いて15項目で測る。Mitchell & Ambrose（2007）の5項目短縮は別尺度であり、今回は登録しない。ELS-10、サーバント・リーダーシップの倫理的行動次元、LMX、Voiceとも同一視しない。", title: "Consequences of Abusive Supervision", year: 2000, doi: "10.2307/1556375", url: "https://doi.org/10.2307/1556375" },
+      ],
+      usageStudies: [],
+      itemPublicationStatus: "not-published", items: [],
+      verifiedAt: "2026-09-27",
+      notes: "Bennett J. Tepper（2000）の15項目。DOI は 10.2307/1556375。Crossref は 10.5465/1556375 を別名として返す。部下評定の持続的な敵意的言動（身体的接触を除く）。ELS-10、Lidenらの Behaving ethically、LMX、Van Dyne–LePine Voice とは別概念。Mitchell & Ambrose（2007）の5項目短縮は別尺度であり、今回は登録しない。開発論文は使用研究に含めない。項目数・5件法・時点1の712名は、Tepperら（2007, Academy of Management Journal。DOI 10.5465/amj.2007.20159918）が2000年調査を再分析した方法記述に依る。α=.91はその再分析の相関表（n=342）。項目本文は転載許諾未確認のため収録しない。",
       recordStatus: "verified-metadata",
     },
   ],

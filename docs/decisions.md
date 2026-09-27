@@ -1,5 +1,15 @@
 # Decisions
 
+## 2026-09-27: 虐待的監督は Tepper の15項目、ELS-10 と OCBI/OCBO の使用研究は各1件
+
+- 概念 `abusive-supervision` と尺度 `tepper-abusive-supervision-15` を追加する。原典は Tepper（2000）, Academy of Management Journal, 43(2), 178–190。DOI は `10.2307/1556375`。Crossref は `10.5465/1556375` を別名として返す。
+- 登録するのは15項目の原版だけである。Mitchell & Ambrose（2007）の5項目短縮は別尺度であり、今回は登録しない。ELS-10、Liden らの Behaving ethically、LMX、Van Dyne–LePine Voice とも同一視しない。
+- 定義は、部下が知覚する持続的な敵意的な言語的・非言語的行動で、身体的接触を含まない。項目数・5件法・時点1の712名は、Tepper ら（2007, DOI `10.5465/amj.2007.20159918`）が2000年調査を再分析した方法記述に依る。α=.91 はその再分析の相関表（n=342）である。原典の表そのものは開いていない。
+- 日本語状況は `unconfirmed`。項目本文は収録しない。開発論文は `usageStudies` に入れない。
+- `brown-els-10` には Mayer, Kuenzi, & Greenbaum（2010）の使用研究を1件だけ追加する。公開PDF（https://davemayer.me/wp-content/uploads/sites/11/2019/07/Mayer-Kuenzi-Greenbaum-JBE-2010.pdf）で、部下が Brown et al.（2005）の10項目をフル使用し、α=.97、測定モデルの ELS 指標が10であることを確認した。誌面は Journal of Business Ethics, 95(S1), 7–16。DOI は `10.1007/s10551-011-0794-0`。標本は従業員1,525名と監督者の300 work units。Brown et al.（2005）の開発論文は使用研究にしない。日本語状況は `unconfirmed` のまま。
+- `williams-anderson-ocbi-ocbo` には Carlson, Kacmar, Grzywacz, Tepper, & Whitten（2013）の使用研究を1件だけ追加する。公開PDFで、Williams & Anderson（1991）の OCBI 7（α=.88）と OCBO 6（α=.79）を監督者が評定したことを確認した。標本は dyad 205。DOI は `10.21818/001c.17924`。誌面は Journal of Behavioral and Applied Management, 14(2), 87–106。IRB は含めない。Lee & Allen、Podsakoff らの24項目、田中の33項目、Ibrahim の OCBO 7 ではない。方法節は頻度の文言を示すが、件数は明示しない。
+- CX Scale 18 の第2 usage、Brand Affect 3 と OBE-4 の日本語、Mitchell & Ambrose（2007）の5項目短縮は HOLD。
+
 ## 2026-09-26: 従業員の発言行動は Van Dyne–LePine の Voice 6項目、SL-7 の使用研究は Svensson のみ
 
 - 概念 `employee-voice` と尺度 `van-dyne-lepine-voice-6` を追加する。原典は Van Dyne & LePine（1998）, Academy of Management Journal, 41(1), 108–119。DOI は `10.2307/256902`。Crossref は `10.5465/256902` を別名として返す。
