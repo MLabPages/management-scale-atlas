@@ -1,5 +1,16 @@
 # Decisions
 
+## 2026-09-28: ブランド・ヘイトは Zarantonello の18項目、Voice-6 と AS-15 の使用研究は各1件
+
+- 概念 `brand-hate` と尺度 `zarantonello-brand-hate-18` を追加する。原典は Zarantonello, Romani, Grappi, & Bagozzi（2016）, Journal of Product & Brand Management, 25(1), 11–25。DOI は `10.1108/JPBM-01-2015-0799`。
+- ブランド・ヘイトは、能動的負感情と受動的負感情の集合であり、ブランド・ラブの単純な欠如ではない。既存の `brand-love` とは related で結ぶ。
+- 項目数18と6一次元（anger、contempt/disgust、fear、disappointment、shame、dehumanization。active は前2、passive は後4）は、同一著者の総説（DOI `10.1146/annurev-psych-010419-051008`）の要約に依る。原典の表は未開封のため、αと回答形式は記さない。
+- Hegner らの6項目単一次元、Kucuk 系、Fetscherin の Sternberg 適応、Romani, Grappi, & Dalli（2012）の NEB 18項目は別尺度であり、登録しない。
+- 日本語状況は `unconfirmed`。項目本文は収録しない。開発論文は `usageStudies` に入れない。
+- `van-dyne-lepine-voice-6` には Kalenychenko, Mozalov, Petukhova, & Yevchenko（2023）の使用研究を1件だけ追加する。公開PDFで、Van Dyne & LePine（1998）の6項目、自己評定への主語適応、5件法（1＝almost never～5＝almost always）、有効356名を確認した。DOI は `10.33844/ijol.2023.60355`。本文α=.84 と Table 1 対角 .74 は不一致のため両方を残す。Helping、Liang、Farh、OCBI/OCBO は使っていない。開発論文は使用研究にしない。
+- `tepper-abusive-supervision-15` には Wu & Cao（2015）の使用研究を1件だけ追加する。DOI `10.4236/jhrss.2015.34023` の論文題は Abusive Supervision and Work-Family Conflict: The Mediating Role of Emotional Exhaustion である。公開PDFで、Tepper（2000）の15項目、5件法（1＝never～5＝very often）、α=.97、有効339名、部下の自己報告を確認した。Mitchell & Ambrose（2007）の5項目短縮は使用していない。開発論文は使用研究にしない。
+- CX Scale 18 の第2 usage、Brand Affect 3 と OBE-4 の日本語、Mitchell & Ambrose（2007）の5項目短縮は HOLD のまま。
+
 ## 2026-09-27: 虐待的監督は Tepper の15項目、ELS-10 と OCBI/OCBO の使用研究は各1件
 
 - 概念 `abusive-supervision` と尺度 `tepper-abusive-supervision-15` を追加する。原典は Tepper（2000）, Academy of Management Journal, 43(2), 178–190。DOI は `10.2307/1556375`。Crossref は `10.5465/1556375` を別名として返す。

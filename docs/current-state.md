@@ -1,20 +1,20 @@
 # Current state
 
-最終更新: 2026-09-27
+最終更新: 2026-09-28
 
 ## 現在の状態
 
 - ビルド不要の静的 Web アプリで、概念・尺度・略称・対象者・研究領域から検索できる。
 - 概念詳細、尺度詳細、最大 8 尺度の比較、回答負荷、研究設計アシスタント、CSV/JSON 出力がある。
-- 収録データは **v0.74.0**、**69 概念**、**104 尺度**、個別の尺度使用研究 **163 件**、日本語未確認 **53 尺度**（2026-09-27）。虐待的監督（Tepper の15項目）を追加し、ELS-10 に Mayer, Kuenzi, & Greenbaum（2010）、OCBI/OCBO に Carlson ら（2013）の使用研究を各1件追加した。GitHub Pages への公開は本変更では行っていない。main へのマージもしていない。
+- 収録データは **v0.75.0**、**70 概念**、**105 尺度**、個別の尺度使用研究 **165 件**、日本語未確認 **54 尺度**（2026-09-28）。ブランド・ヘイト（Zarantonello らの18項目）を追加し、Voice-6 に Kalenychenko ら（2023）、AS-15 に Wu & Cao（2015）の使用研究を各1件追加した。GitHub Pages への公開は本変更では行っていない。main へのマージもしていない。
 - 原版、短縮版、翻訳版、後続研究の使用例、日本語情報、利用条件、測定根拠を分けて表示する。
 - `HANDOFF.md` に、データ拡充の優先順位と研究上の注意点がまとまっている。
 - エージェント向け入口は `AGENTS.md`。Codex（ローカル main）と Grok Bot / Cursor Cloud（ブランチ→PR）の併用ルールを記載している。
 
-## Git の状態（2026-09-27）
+## Git の状態（2026-09-28）
 
-- 作業開始時の `origin/main` は v0.73.0（`9389805`。Van Dyne–LePine Voice と SL-7 の使用研究。PR #29 の squash）だった。
-- v0.74.0 はブランチ上の追加であり、`main` へは未マージ。GitHub Pages は公開していない。
+- 作業開始時の `origin/main` は v0.74.0（`d019acd`。虐待的監督と ELS-10／OCBI-OCBO の使用研究。PR #30 の squash）だった。
+- v0.75.0 はブランチ上の追加であり、`main` へは未マージ。GitHub Pages は公開していない。
 - 以前あった「リモート強制更新による分岐・merge/rebase 未実施」は解消済み。
 - `.wrangler/` はローカル生成物として保持し、リポジトリには含めない（`.gitignore`）。
 
@@ -25,11 +25,12 @@
 - `verify-data.mjs` は `data.js` を評価するため、取得元を確認していない外部ファイルを対象に実行しない。
 - GitHub Pages の公開状態とローカルのデータ状態を分けて確認する。
 - Brand Affect 3・OBE-4 の日本語根拠は長期 HOLD（英語 usage はあるが JP 運用未確認）。
-- CX Scale 18（`customer-experience-scale-gahler-18`）の第2 usage、Brand Affect 3 と OBE-4 の日本語、Mitchell & Ambrose（2007）の虐待的監督5項目短縮は v0.74.0 でも見送り（HOLD）。CX Scale 18 の使用研究は Gao & Jiang の1件のまま。
+- CX Scale 18（`customer-experience-scale-gahler-18`）の第2 usage、Brand Affect 3 と OBE-4 の日本語、Mitchell & Ambrose（2007）の虐待的監督5項目短縮は v0.75.0 でも見送り（HOLD）。CX Scale 18 の使用研究は Gao & Jiang の1件のまま。
 - ELS-10 は MLQ（変革型・商用）、サーバント・リーダーシップの倫理的行動次元、研究内の6項目短縮、本橋の約8項目和訳とは別物。日本語状況は未確認。使用研究は Mayer らのフル10項目・5件法のみ。Brown et al.（2005）の開発論文は使用研究に入れていない。
-- Tepper（2000）の虐待的監督15項目は、部下評定の持続的な敵意的言動（身体的接触を除く）。ELS-10、SL の倫理次元、LMX、Voice、Mitchell–Ambrose の5項目短縮とは別物。日本語状況は未確認。開発論文は使用研究に入れていない。項目数と5件法は、Tepper ら（2007）が2000年調査を再分析した方法記述に依る。
+- Tepper（2000）の虐待的監督15項目は、部下評定の持続的な敵意的言動（身体的接触を除く）。ELS-10、SL の倫理次元、LMX、Voice、Mitchell–Ambrose の5項目短縮とは別物。日本語状況は未確認。開発論文は使用研究に入れていない。項目数と5件法は、Tepper ら（2007）が2000年調査を再分析した方法記述に依る。使用研究は Wu & Cao（2015）のフル15項目・5件法・α=.97・有効339名のみ。DOI は 10.4236/jhrss.2015.34023。題名は仕事–家庭葛藤と情緒的消耗の媒介である。
+- Zarantonello らのブランド・ヘイト18項目は、能動的負感情と受動的負感情の集合であり、ブランド・ラブの欠如ではない。Hegner の6項目、Kucuk 系、NEB 18項目とは別物。日本語状況は未確認。開発論文は使用研究に入れていない。項目数と6一次元は同一著者の総説（DOI 10.1146/annurev-psych-010419-051008）に依る。原典の表は未開封のため、αと回答形式は記していない。
 - Williams–Anderson の OCBI/OCBO の使用研究は Carlson らの OCBI 7＋OCBO 6＝13項目のみ。IRB、Lee & Allen、Podsakoff 24、田中33、Ibrahim の OCBO 7 は含めていない。日本語状況は未確認のまま。
-- Van Dyne–LePine Voice 6項目は、同一論文の Helping 7項目、Liang の促進的／抑制的発言、Farh の発言尺度、Williams–Anderson OCBI/OCBO とは別物。日本語状況は未確認。開発論文は使用研究に入れていない。
+- Van Dyne–LePine Voice 6項目は、同一論文の Helping 7項目、Liang の促進的／抑制的発言、Farh の発言尺度、Williams–Anderson OCBI/OCBO とは別物。日本語状況は未確認。開発論文は使用研究に入れていない。使用研究は Kalenychenko ら（2023）のフル6項目のみ。自己評定への主語適応と、原版7件法から5件法への変更がある。本文α=.84 と Table 1 対角 .74 は不一致。DOI は 10.33844/ijol.2023.60355。
 - SL-7 の使用研究は Svensson らのフル7項目・7件法のみ。Liden et al.（2015）の開発論文は使用研究に入れていない。SL-28 のレコードは変えていない。
 
 ## 次に確認すること

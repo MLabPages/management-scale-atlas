@@ -2,10 +2,10 @@
 // DOI、原典、項目数、下位次元は原著論文または公式資料で確認。
 const ATLAS_DATA = {
   meta: {
-    version: "0.74.0",
+    version: "0.75.0",
     status: "initial-real-data",
-    updated: "2026-09-27",
-    scope: "69概念・104尺度",
+    updated: "2026-09-28",
+    scope: "70概念・105尺度",
   },
 
   concepts: [
@@ -415,9 +415,19 @@ const ATLAS_DATA = {
       nameEn: "Brand Love",
       definitionJa: "消費者が特定ブランドに抱く、肯定的評価、感情的結合、情熱、自己との統合、長期的関係意向などを含む強い感情的関係。",
       domain: "ブランド・消費者経験",
-      relatedConcepts: ["brand-attachment", "brand-affect", "brand-loyalty", "self-brand-connection"],
+      relatedConcepts: ["brand-attachment", "brand-affect", "brand-loyalty", "self-brand-connection", "brand-hate"],
       parentConcepts: [], childConcepts: [], typicalAntecedents: ["brand-experience", "brand-authenticity"], typicalOutcomes: ["brand-loyalty"],
       references: ["10.1007/s11002-006-4219-2", "10.1007/s11002-016-9406-1"],
+    },
+    {
+      id: "brand-hate",
+      nameJa: "ブランド・ヘイト",
+      nameEn: "Brand Hate",
+      definitionJa: "消費者が特定ブランドに抱く、怒り・侮蔑・嫌悪などの能動的負感情と、恐怖・失望・恥・脱人間化などの受動的負感情からなる負感情の集合（constellation）。ブランド・ラブの単純な欠如や低好意とは別概念である。",
+      domain: "ブランド・消費者経験",
+      relatedConcepts: ["brand-love", "brand-affect", "brand-attachment"],
+      parentConcepts: [], childConcepts: [], typicalAntecedents: [], typicalOutcomes: [],
+      references: ["10.1108/JPBM-01-2015-0799", "10.1146/annurev-psych-010419-051008"],
     },
     {
       id: "self-brand-connection",
@@ -2945,6 +2955,40 @@ const ATLAS_DATA = {
       recordStatus: "verified-metadata",
     },
     {
+      id: "zarantonello-brand-hate-18",
+      name: "Brand Hate Scale (Zarantonello)",
+      abbreviation: "Brand Hate-18",
+      conceptId: "brand-hate",
+      authors: ["Lia Zarantonello", "Simona Romani", "Silvia Grappi", "Richard P. Bagozzi"],
+      year: 2016,
+      sourceTitle: "Brand hate",
+      journal: "Journal of Product & Brand Management, 25(1), 11–25",
+      doi: "10.1108/JPBM-01-2015-0799",
+      sourceUrl: "https://doi.org/10.1108/JPBM-01-2015-0799",
+      itemCount: 18,
+      dimensions: ["Active brand hate（Anger / Contempt / Disgust）", "Passive brand hate（Fear / Disappointment / Shame / Dehumanization）"],
+      responseFormat: "原典の表は未開封（採用時は原典の回答形式を確認）",
+      reverseItems: [], scoring: "能動的負感情と受動的負感情の第二高次として扱う。ブランド・ラブの逆転や、好意の低さとは合算しない。",
+      targetPopulation: ["消費者", "特定ブランドに負感情を持つ回答者"],
+      language: "English", versionType: "original", parentScaleId: null,
+      japaneseVersionStatus: "unconfirmed",
+      japaneseStatusNote: "Zarantonello, Romani, Grappi, & Bagozzi（2016）の18項目そのものの検証済み日本語版・日本語使用例は今回未確認です。Hegnerらの6項目、Kucuk系、ブランド・ラブ尺度を代替物として扱わないでください。",
+      japaneseEvidence: [],
+      validationStudies: [], usagePermission: "unknown", usageEvidence: [],
+      psychometricEvidence: [
+        { label: "原典抄録で確認できる尺度開発", sample: "欧州の2つの量的研究（公開抄録は標本サイズを明示しない）", methods: "Study 1でブランド・ヘイトの測定を開発し、行動帰結への効果を検証。Study 2ではヘイトの理由による行動帰結の違いを検討", result: "負感情の集合として概念化し、不満表明、否定的クチコミ、抗議、愛顧の減少・停止と関連すると報告。企業の不正や期待違反は攻撃・接近的方略、嗜好体系に関する理由は回避的方略と関連。αと回答形式は原典の表を開いていないため記さない。", url: "https://doi.org/10.1108/JPBM-01-2015-0799" },
+        { label: "同一著者の総説が記す18項目と6つの一次元", sample: "原典の表は未開封。項目数は開発者自身の総説の要約に依る", methods: "Zarantonello et al.（2016）の階層的確認的因子分析を、同一著者の総説が要約", result: "18項目で anger、contempt/disgust、fear、disappointment、shame、dehumanization の6一次元。前2一次元が active、後4一次元が passive。階層的CFAは、不満表明、否定的クチコミ、抗議、愛顧の減少・停止を予測したとされる。個別のαと適合度は原典の表を開いていないため記さない。", url: "https://doi.org/10.1146/annurev-psych-010419-051008" },
+      ],
+      applicationEvidence: [
+        { label: "能動・受動の負感情を18項目で測る原版", itemCounts: [18], evidenceType: "scale-development", summary: "特定ブランドへの能動的負感情と受動的負感情を18項目で測る。ブランド・ラブの欠如ではない。Hegner, Fetscherin, & van Delzen（2017）の6項目単一次元、Kucuk系、FetscherinのSternberg適応、Romani, Grappi, & Dalli（2012）の負感情18項目（NEB）とは別の項目集合。", title: "Brand hate", year: 2016, doi: "10.1108/JPBM-01-2015-0799", url: "https://doi.org/10.1108/JPBM-01-2015-0799" },
+      ],
+      usageStudies: [],
+      itemPublicationStatus: "not-published", items: [],
+      verifiedAt: "2026-09-28",
+      notes: "Zarantonello, Romani, Grappi, & Bagozzi（2016）のブランド・ヘイト尺度。DOI は 10.1108/JPBM-01-2015-0799。正式略称は原典で固定されていない。itemCount=18と6一次元（anger、contempt/disgust、fear、disappointment、shame、dehumanization。activeは前2、passiveは後4）は、同一著者の総説（DOI 10.1146/annurev-psych-010419-051008）が開発論文を要約した記述に依る。原典の表は未開封のため、αと回答形式は記さない。Hegnerらの6項目単一次元、Kucuk系、FetscherinのSternberg適応、RomaniらのNEB（anger, dislike, embarrassment, worry, sadness, discontent の18項目）とは別尺度。Carroll & AhuviaおよびBagozziらのブランド・ラブとも別概念。開発論文は使用研究に含めない。項目本文は転載許諾未確認のため収録しない。",
+      recordStatus: "verified-metadata",
+    },
+    {
       id: "self-brand-connection-escalas-bettman-7",
       name: "Self-Brand Connection Scale",
       abbreviation: "SBC-7",
@@ -4347,10 +4391,12 @@ const ATLAS_DATA = {
       applicationEvidence: [
         { label: "役割外の促進的発言を6項目で測る原版", itemCounts: [6], evidenceType: "scale-development", summary: "改善のための建設的な提案・異議を6項目で測る。同一論文の Helping 7項目は別構成であり、本尺度に含めない。Liangらの促進的／抑制的発言、Farhらの発言尺度、Williams–AndersonのOCBI/OCBOとも同一視しない。", title: "Helping and Voice Extra-Role Behaviors: Evidence of Construct and Predictive Validity", year: 1998, doi: "10.2307/256902", url: "https://doi.org/10.2307/256902" },
       ],
-      usageStudies: [],
+      usageStudies: [
+        { title: "The Role of Transformational Leadership in the Relationship between Proactive Personality and Employee Voice", authors: "Kalenychenko, Mozalov, Petukhova, & Yevchenko", year: 2023, context: "公共部門従業員のプロアクティブ・パーソナリティ、変革型リーダーシップ、発言行動。International Journal of Organizational Leadership, 12(Second Special Issue), 18–28", sample: "公共部門従業員のオンライン調査。回収410、無効除外後の有効356名（男性263名、平均年齢39.83歳）", itemCount: 6, responseFormat: "5件法（1＝almost never～5＝almost always）。原版7件法からの適応", language: "調査言語は論文から明確でない（方法節の例示は英語の自己評定文言）", adaptation: "Van Dyne & LePine（1998）の Voice 6項目を自己評定文言（I）に適応。原典の同僚／上司評定主語からの変更。Helping 7項目、Liangらの促進的／抑制的発言、Farhらの発言尺度、Williams–AndersonのOCBI/OCBOは使用していない。LePine & Van Dyne（1998）Journal of Applied Psychology の引用研究ではない。開発論文そのものではない。", result: "方法節で six-item / Van Dyne and LePine (1998) を明示。本文の Cronbach α=.84。Table 1 の対角（Voice of Employees）は .74 で、本文と不一致。3因子測定モデル（プロアクティブ・パーソナリティ、発言、変革型リーダーシップ）は CFI=.90、RMSEA=.05。プロアクティブ・パーソナリティと発言の相関は r=.49。", doi: "10.33844/ijol.2023.60355", url: "https://doi.org/10.33844/ijol.2023.60355" },
+      ],
       itemPublicationStatus: "not-published", items: [],
-      verifiedAt: "2026-09-26",
-      notes: "Van Dyne & LePine（1998）の voice 6項目。DOI は 10.2307/256902。Crossref は 10.5465/256902 を別名として返す。同一論文の Helping は7項目であり、本PRでは登録しない。開発論文は使用研究に含めない。Liang, Farh, & Farh の促進的／抑制的発言、Farhらの発言尺度、Williams–AndersonのOCBI/OCBOとは別尺度。組織市民行動の下位尺度としても扱わない。αの範囲は原典を引用する尺度解説に依る。項目本文は転載許諾未確認のため収録しない。",
+      verifiedAt: "2026-09-28",
+      notes: "Van Dyne & LePine（1998）の voice 6項目。DOI は 10.2307/256902。Crossref は 10.5465/256902 を別名として返す。同一論文の Helping は7項目であり、本レコードには含めない。開発論文は使用研究に含めない。Liang, Farh, & Farh の促進的／抑制的発言、Farhらの発言尺度、Williams–AndersonのOCBI/OCBOとは別尺度。組織市民行動の下位尺度としても扱わない。αの範囲は原典を引用する尺度解説に依る。使用研究は Kalenychenko, Mozalov, Petukhova, & Yevchenko（2023）のフル6項目のみ。自己評定への主語適応と、原版7件法から5件法（almost never～almost always）への変更がある。本文α=.84と Table 1 対角 .74 は不一致のため両方を残す。項目本文は転載許諾未確認のため収録しない。",
       recordStatus: "verified-metadata",
     },
     {
@@ -4381,10 +4427,12 @@ const ATLAS_DATA = {
       applicationEvidence: [
         { label: "部下が上司の敵意的言動の頻度を15項目で評定する原版", itemCounts: [15], evidenceType: "scale-development", summary: "持続的な敵意的な言語的・非言語的行動を、身体的接触を除いて15項目で測る。Mitchell & Ambrose（2007）の5項目短縮は別尺度であり、今回は登録しない。ELS-10、サーバント・リーダーシップの倫理的行動次元、LMX、Voiceとも同一視しない。", title: "Consequences of Abusive Supervision", year: 2000, doi: "10.2307/1556375", url: "https://doi.org/10.2307/1556375" },
       ],
-      usageStudies: [],
+      usageStudies: [
+        { title: "Abusive Supervision and Work-Family Conflict: The Mediating Role of Emotional Exhaustion", authors: "Wu & Cao", year: 2015, context: "中国南部企業従業員における虐待的監督、情緒的消耗、仕事－家庭葛藤。Journal of Human Resource and Sustainability Studies, 3, 171–178", sample: "中国南部（広州・深圳・仏山）の企業従業員。配布360、無効21を除いた有効339名。MBA学生への配布と、企業管理者の紹介による自己報告", itemCount: 15, responseFormat: "5件法（1＝never～5＝very often）", language: "中国南部の企業従業員調査（例示項目は英語。翻訳手続きの詳細は論文に乏しい）", adaptation: "Tepper（2000）の15項目フルを部下の自己報告で使用。Mitchell & Ambrose（2007）の5項目短縮ではない。同論文は Mitchell & Ambrose を職場逸脱の先行知見として引用するだけで、尺度としては用いていない。ELS、LMX、Voice、情緒的消耗6項目、仕事－家庭葛藤は別構成。翻訳手続きの詳細記述は薄い。開発論文そのものではない。", result: "方法節で Tepper (2000) with 15 items を明示。α=.97。虐待的監督は仕事－家庭葛藤と正の関連（階層的回帰の係数0.30）で、情緒的消耗を同時投入すると係数は0.21に下がり、部分媒介と報告。", doi: "10.4236/jhrss.2015.34023", url: "https://doi.org/10.4236/jhrss.2015.34023" },
+      ],
       itemPublicationStatus: "not-published", items: [],
-      verifiedAt: "2026-09-27",
-      notes: "Bennett J. Tepper（2000）の15項目。DOI は 10.2307/1556375。Crossref は 10.5465/1556375 を別名として返す。部下評定の持続的な敵意的言動（身体的接触を除く）。ELS-10、Lidenらの Behaving ethically、LMX、Van Dyne–LePine Voice とは別概念。Mitchell & Ambrose（2007）の5項目短縮は別尺度であり、今回は登録しない。開発論文は使用研究に含めない。項目数・5件法・時点1の712名は、Tepperら（2007, Academy of Management Journal。DOI 10.5465/amj.2007.20159918）が2000年調査を再分析した方法記述に依る。α=.91はその再分析の相関表（n=342）。項目本文は転載許諾未確認のため収録しない。",
+      verifiedAt: "2026-09-28",
+      notes: "Bennett J. Tepper（2000）の15項目。DOI は 10.2307/1556375。Crossref は 10.5465/1556375 を別名として返す。部下評定の持続的な敵意的言動（身体的接触を除く）。ELS-10、Lidenらの Behaving ethically、LMX、Van Dyne–LePine Voice とは別概念。Mitchell & Ambrose（2007）の5項目短縮は別尺度であり、今回は登録しない。開発論文は使用研究に含めない。項目数・5件法・時点1の712名は、Tepperら（2007, Academy of Management Journal。DOI 10.5465/amj.2007.20159918）が2000年調査を再分析した方法記述に依る。α=.91はその再分析の相関表（n=342）。使用研究は Wu & Cao（2015）のフル15項目・5件法（1＝never～5＝very often）・α=.97・有効339名のみ。項目本文は転載許諾未確認のため収録しない。",
       recordStatus: "verified-metadata",
     },
   ],
