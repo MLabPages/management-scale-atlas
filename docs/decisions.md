@@ -1,5 +1,13 @@
 # Decisions
 
+## 2026-09-30: マーケ典型概念Bは旗艦4件。Wiedmann の48項目は原典本文で確定
+
+- セマンティック版は v0.78.0。概念は83から87、尺度は118から122。使用研究は165件のまま。開発論文は `usageStudies` に入れない。項目本文は空、`itemPublicationStatus` は `not-published`、`japaneseVersionStatus` は `unconfirmed`、`versionType` は `original`、`recordStatus` は `verified-metadata`。
+- 強迫購買 `compulsive-buying` / `ridgway-rcbs-6` は Ridgway, Kukar-Kinney, & Monroe（2008）の RCBS／CBI、6項目・2次元（DOI `10.1086/591108`）。`buying-impulsiveness` とは別。Faber & O'Guinn（1992、DOI `10.1086/209315`）の7項目臨床スクリーナは登録しない。臨床カットオフは原典の表を開いていないため採用しない。
+- グリーン消費価値 `green-consumption-values` / `haws-green-6` は Haws らの GREEN、6項目・単一次元（DOI `10.1016/j.jcps.2013.11.002`）。印刷年は2014。`perceived-csr` と `materialism` とは別。GREEN-J の学会発表は査読付きDOIが未確認のため `translation-study` にしない。
+- 説得知識 `persuasion-knowledge` / `bearden-persuasion-knowledge-6` は Bearden, Hardesty, & Rose（2001）の CSC 下位6項目（DOI `10.1086/321951`）。`advertising-skepticism` とは別。Friestad & Wright（1994、DOI `10.1086/209380`）は理論であり尺度本体にしない。PTPK とスポンサーコンテンツ特化尺度は登録しない。
+- ラグジュアリー価値知覚 `luxury-value-perception` / `wiedmann-lvp-48` は登録する。Wiedmann, Hennigs, & Siebels（2009、DOI `10.1002/mar.20292`）の本文が、10因子構造・KMO 0.906・48項目、5件法（1＝strongly disagree～5＝strongly agree）を述べる。初期案の150項目ではない。財務次元は残った10因子に含まれない。二次の20項目主張は採用しない。Hennigs ら（2012、DOI `10.1002/mar.20583`）の短縮版は項目数未確定のため登録しない。Vigneron & Johnson の BLI も登録しない。`status-consumption`、`materialism`、`consumer-need-for-uniqueness`、`perceived-value`、`willingness-to-pay-premium` とは decisionGuide と relatedConcepts で分ける。
+
 ## 2026-09-30: マーケ典型概念は旗艦11件、自己一致性と Tax の公正は HOLD
 
 - セマンティック版は v0.77.0。概念は72から83、尺度は107から118。使用研究は165件のまま。開発論文は `usageStudies` に入れない。項目本文は空、`itemPublicationStatus` は `not-published`、`japaneseVersionStatus` は `unconfirmed`、`versionType` は `original`、`recordStatus` は `verified-metadata`。
