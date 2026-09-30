@@ -1,5 +1,15 @@
 # Decisions
 
+## 2026-09-30: 組織行動 Priority-B は旗艦4件。DUWAS の日本語は開発論文内検証
+
+- セマンティック版は v0.80.0。概念は99から103、尺度は135から139。使用研究は165件のまま。開発論文は `usageStudies` に入れない。項目本文は空、`itemPublicationStatus` は `not-published`、`versionType` は `original`、`recordStatus` は `verified-metadata`。
+- ワーカホリズム `workaholism` / `schaufeli-duwas-10` は Schaufeli, Shimazu, & Taris（2009）の DUWAS 短尺、10項目・2次元（働き過ぎ5＋強迫的働き5。DOI `10.1177/1069397109337239`）。`work-engagement` と `burnout` とは decisionGuide で分ける。長尺DUWAS、WART、WorkBAT は登録しない。
+- DUWAS の `japaneseVersionStatus` は `validated-in-development-paper`。2009年論文の日本サンプル（N=3,311）で二因子を確認した、という開発論文内の根拠である。独立した後続の日本語検証論文を意味する `validated` にはしない。フィルタ「検証・開発済み」には含める。表示ラベルは「開発論文内で日本語版を検証」。
+- 職場での繁栄 `thriving-at-work` / `porath-thriving-10` は Porath ら（2012）の10項目・2次元（DOI `10.1002/job.756`）。印刷は2012年2月、オンライン公開は2011-05-19。登録年は印刷年。`work-engagement`、`psychological-safety`、`job-crafting` とは別。日本語は `unconfirmed`。
+- 意味のある仕事 `meaningful-work` / `steger-wami-10` は Steger, Dik, & Duffy（2012）の WAMI、10項目・3次元（DOI `10.1177/1069072711436160`）。`psychological-empowerment` の意味次元とは別。Lips-Wiersma 系と Common Good 単項目は登録しない。日本語は `unconfirmed`。
+- 職場排斥 `workplace-ostracism` / `ferris-wos-10` は Ferris ら（2008）の WOS、10項目・単一次元（DOI `10.1037/a0012743`）。`workplace-incivility` と `abusive-supervision` とは decisionGuide で分ける。日本語は津村（2025）の WOS-J により `translation-study`。出版社ページの DOI 文字列 `10.14966/jssp.2023-033` は Crossref が HTTP 404 のため、旗艦DOIにも `japaneseEvidence.doi` にも入れない。
+- DUWAS と WAMI の `usagePermission` は `research-use`。根拠ファイルが著者サイトの表記として、学術・非営利は無料、商業利用は事前許諾、と記す。Thriving と WOS は `unknown`。PsycTESTS の尺度データセット DOI は旗艦DOIの代替にしない。
+
 ## 2026-09-30: 組織行動 Priority-A は旗艦12概念。MLQ と ALQ は商用
 
 - セマンティック版は v0.79.0。概念は87から99、尺度は122から135（プロアクティブ・パーソナリティは原版17と短尺10の2レコード）。使用研究は165件のまま。開発論文は `usageStudies` に入れない。項目本文は空、`itemPublicationStatus` は `not-published`、`japaneseVersionStatus` は `unconfirmed`、`recordStatus` は `verified-metadata`。
@@ -113,7 +123,7 @@
 ## 既存機能として維持する判断
 
 - 原版・短縮版・翻訳版・研究内改変版を別レコードまたは別根拠として扱う。
-- 日本語版は「検証済み」「言語的妥当性」「使用例」「翻訳研究」「関連版」「未確認」を区別する。
+- 日本語版は「検証済み」「言語的妥当性」「使用例」「翻訳研究」「関連版」「未確認」に加え、開発論文そのものの日本サンプルで因子を確認した場合は `validated-in-development-paper`（開発論文内の日本語検証）として分ける。これは独立した後続検証を意味する `validated` ではない。
 - 利用研究数はレビュー等が実使用を確認した件数だけを登録し、引用数や検索件数を代用しない。
 - 尺度項目本文は公開・転載の根拠が確認できる場合だけ掲載し、利用条件未確認は `unknown` のままにする。
 - 研究設計の保存はブラウザ内とし、出力は利用者が明示的に行う。

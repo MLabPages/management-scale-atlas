@@ -8,6 +8,7 @@ const labels = {
   "translation-study": "日本語版の検討あり",
   "related-version": "関連版の日本語版あり",
   "original-japanese": "日本語で開発された尺度",
+  "validated-in-development-paper": "開発論文内で日本語版を検証",
   unconfirmed: "日本語版・使用例を未確認",
   open: "掲載・利用可", research: "研究利用可", unknown: "利用条件未確認",
   commercial: "商用ライセンス",
@@ -26,9 +27,10 @@ const evidenceKinds = {
   "translation-study": "日本語版の検討",
   "related-version": "関連版の根拠",
   "original-japanese": "日本語での開発・検証",
+  "validated-in-development-paper": "開発論文内の日本語検証",
   "context-reference": "関連する日本語文献",
 };
-const verifiedJapaneseStatuses = new Set(["validated", "linguistic-validated", "original-japanese"]);
+const verifiedJapaneseStatuses = new Set(["validated", "linguistic-validated", "original-japanese", "validated-in-development-paper"]);
 const MAX_COMPARE = 8;
 const DESIGN_STORAGE_KEY = "management-scale-atlas-design-v1";
 const roleLabels = {
@@ -136,6 +138,7 @@ function japaneseEvidenceScore(s) {
     validated: 7,
     "linguistic-validated": 6,
     "original-japanese": 6,
+    "validated-in-development-paper": 5,
     "usage-example": 4,
     "translation-study": 3,
     "related-version": 2,
@@ -354,6 +357,8 @@ function adoptionGuideHtml(s) {
     cautions.push("日本語での使用・翻訳例はありますが、心理測定学的な検証済み日本語版ではありません。翻訳手続と対象への適合を確認してください。");
   } else if (s.japaneseVersionStatus === "translation-study") {
     cautions.push("日本語版の翻訳・因子構造等の検討はありますが、検証済み日本語版とは区別してください。");
+  } else if (s.japaneseVersionStatus === "validated-in-development-paper") {
+    cautions.push("日本語の根拠は開発論文そのものの日本サンプルです。後続の独立した標準日本語版の検証論文としては扱わないでください。");
   }
   if (!(s.usageStudies || []).length) cautions.push("このデータベースには個別の使用先行研究がまだ登録されていません。");
   if (s.japaneseVersionStatus === "unconfirmed") cautions.push("標準化された日本語版・日本語使用例は今回の確認範囲では未確認です。");

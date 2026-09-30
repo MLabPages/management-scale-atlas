@@ -9,6 +9,7 @@ const JAPANESE_STATUSES = new Set([
   "translation-study",
   "related-version",
   "original-japanese",
+  "validated-in-development-paper",
   "unconfirmed",
 ]);
 
@@ -19,6 +20,7 @@ const JAPANESE_STATUS_LABELS = {
   "translation-study": "翻訳・因子構造等の検討",
   "related-version": "関連版の日本語根拠",
   "original-japanese": "日本語で独自開発",
+  "validated-in-development-paper": "開発論文内の日本語検証",
   unconfirmed: "未確認",
 };
 
