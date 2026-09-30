@@ -1,5 +1,20 @@
 # Decisions
 
+## 2026-09-30: マーケ典型概念は旗艦11件、自己一致性と Tax の公正は HOLD
+
+- セマンティック版は v0.77.0。概念は72から83、尺度は107から118。使用研究は165件のまま。開発論文は `usageStudies` に入れない。項目本文は空、`itemPublicationStatus` は `not-published`、`japaneseVersionStatus` は `unconfirmed`、`versionType` は `original`、`recordStatus` は `verified-metadata`。
+- 広告態度 `attitude-toward-the-ad` / `mackenzie-lutz-aad-3` は、MacKenzie–Lutz 系の通例3項目意味微分を主版にする。代表 DOI は `10.1177/002224378602300205`。構造的先行要因の DOI `10.1177/002224298905300204` は併記するが、1989年論文の項目数としては登録しない。4–6項目版は別項目セット。`brand-attitude` と `advertising-skepticism` とは別。
+- 快楽的・功利的態度は Voss らの HED/UT 10項目（DOI `10.1509/jmkr.40.3.310.19238`）。`shopping-value` とは別。
+- CSII は Bearden らの12項目（DOI `10.1086/209186`）。認知欲求は Cacioppo, Petty, & Kao（1984）の NFC-18（DOI `10.1207/s15327752jpa4803_13`）。神山・藤原（1991）の日本語15項目は NFC-18 の標準日本語版にしない。1982年の34項目原版は登録しない。
+- 情報源信頼性は Ohanian（1990）の15項目（DOI `10.1080/00913367.1990.10673191`）。`brand-credibility` とは対象が異なる。
+- 知覚CSRの旗艦は Turker（2009）の17項目（DOI `10.1007/s10551-008-9780-6`）。Pérez 系（DOI `10.1007/s11628-012-0171-9`）は登録しない。
+- 関係的コミットメントは Morgan & Hunt（1994）の通例3項目（DOI `10.1177/002224299405800302`）。`organizational-commitment` と `brand-loyalty` とは定義で分ける。Likert の件数は未確定のまま記す。
+- 顧客市民行動は Yi & Gong（2013）の市民行動側16項目（DOI `10.1016/j.jbusres.2012.02.026`）。共創全体29項目と参加側は登録しない。`organizational-citizenship-behavior` とは別。回答形式の件数は未確定。
+- 原産国イメージは Parameswaran & Pisharodi（1994）（DOI `10.1080/00913367.1994.10673430`）。`itemCount` 40（GCA 12 / GPA 18 / SPA 10）と10件法は、Pereira, Hsu, & Kundu（2005。DOI `10.1016/S0148-2963(02)00479-4`）が原版として記した記述に依る。原典の表は未開封。24項目・6次元の改訂と Roth & Romeo（1992。DOI `10.1057/palgrave.jibs.8490276`）は登録しない。`consumer-ethnocentrism`、`perceived-brand-globalness`、`brand-local-iconness` とは別。
+- UTAUT は方針a。`social-influence` と `facilitating-conditions` を別概念にする（各通例4項目。DOI `10.2307/30036540`）。単一の UTAUT 概念は作らない。パフォーマンス期待と努力期待は既存の知覚有用性・知覚容易性のため追加しない。UTAUT2（DOI `10.2307/41410412`）の快楽動機・価格価値・習慣は今回入れない。
+- 自己一致性は HOLD。Sirgy 系は直接法が中核で、固定多項目の旗艦として `exact itemCount` を確定できない。`self-brand-connection` と `consumer-brand-identification` に近接する。
+- サービス・リカバリー公正（Tax, Brown, & Chandrashekaran 1998。DOI `10.1177/002224299806200205`）は HOLD。3次元であることは確認できたが、原典PDFを開いておらず、二次文献の項目数（計18項目の例と各3項目の適応、手続・相互作用各5項目と分配の複数ルール採点）が一致しない。`itemCount` を推測で置かない。`organizational-justice` とは別概念のまま未登録。Smith ら（1999）も登録しない。
+
 ## 2026-09-28: ブランド・ヘイトは Zarantonello の18項目、Voice-6 と AS-15 の使用研究は各1件
 
 - 概念 `brand-hate` と尺度 `zarantonello-brand-hate-18` を追加する。原典は Zarantonello, Romani, Grappi, & Bagozzi（2016）, Journal of Product & Brand Management, 25(1), 11–25。DOI は `10.1108/JPBM-01-2015-0799`。
