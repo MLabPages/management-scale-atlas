@@ -2,10 +2,10 @@
 // DOI、原典、項目数、下位次元は原著論文または公式資料で確認。
 const ATLAS_DATA = {
   meta: {
-    version: "0.80.0",
+    version: "0.81.0",
     status: "initial-real-data",
     updated: "2026-09-30",
-    scope: "103概念・139尺度",
+    scope: "104概念・140尺度",
   },
 
   concepts: [
@@ -265,7 +265,7 @@ const ATLAS_DATA = {
       nameEn: "Psychological Empowerment",
       definitionJa: "仕事の意味、有能感、自己決定、影響力に関する認知から構成される、職場での主体的な心理状態。",
       domain: "組織行動・人的資源",
-      relatedConcepts: ["job-satisfaction", "sense-of-agency", "job-characteristics", "role-ambiguity-role-conflict", "meaningful-work"],
+      relatedConcepts: ["job-satisfaction", "sense-of-agency", "job-characteristics", "role-ambiguity-role-conflict", "meaningful-work", "empowering-leadership"],
       parentConcepts: [], childConcepts: [], typicalAntecedents: [], typicalOutcomes: [],
       references: ["10.5465/256865"],
     },
@@ -1077,6 +1077,23 @@ const ATLAS_DATA = {
         caution: "職場インシビリティは、低強度で加害意図が曖昧な無礼・見下しです。虐待的監督は、上司による持続的な敵意的な言語的・非言語的行動で、身体的接触を含みません。職場排斥の中核は、何もされないこと、無視・排除の知覚です。社会的陰謀（social undermining）などの近接尺度は旗艦にしていません。開発論文は使用研究に入れていません。",
       },
       references: ["10.1037/a0012743"],
+    },
+    {
+      id: "empowering-leadership",
+      nameJa: "エンパワーリング・リーダーシップ",
+      nameEn: "Empowering Leadership",
+      definitionJa: "仕事の意味づけ、意思決定への参加、高業績への自信表明、官僚的制約からの自律付与など、部下の心理的エンパワーメントを促すリーダー行動。",
+      domain: "組織行動・人的資源",
+      relatedConcepts: ["psychological-empowerment", "leader-member-exchange", "transformational-leadership", "servant-leadership", "authentic-leadership", "ethical-leadership"],
+      parentConcepts: [], childConcepts: [], typicalAntecedents: [], typicalOutcomes: [],
+      decisionGuide: {
+        question: "測りたいのは、リーダーのエンパワー行動ですか、部下の心理状態ですか？",
+        choices: [
+          { label: "上司のエンパワーリング行動（意味・参加・自信・自律）を部下評定で測る", scaleId: "ahearne-leb-10", recommendation: "旗艦10項目", reason: "Ahearneら（2005）のLEB。Spreitzerの心理的エンパワーメントやArnoldの長尺ELQではない。" },
+        ],
+        caution: "心理的エンパワーメント（Spreitzer）は部下の認知状態です。ArnoldらのELQは別尺度です。Zhang & Bartol（2010）付録の12項目はAhearne Methodsの10項目と一致しません。12項目版をLEB-10と同一視しないでください。",
+      },
+      references: ["10.1037/0021-9010.90.5.945"],
     },
     {
       id: "attitude-toward-the-ad",
@@ -5456,10 +5473,12 @@ const ATLAS_DATA = {
       applicationEvidence: [
         { label: "消費側の環境価値として6項目を旗艦にする", itemCounts: [6], evidenceType: "scale-development", summary: "企業の社会的責任知覚や物質主義とは別。DunlapらのNEPのような一般環境関心は登録しない。GREEN-Jは査読付きDOIが未確認のため日本語の検証済み版にしない。", title: "Seeing the world through GREEN-tinted glasses: Green consumption values and responses to environmentally friendly products", year: 2014, doi: "10.1016/j.jcps.2013.11.002", url: "https://doi.org/10.1016/j.jcps.2013.11.002" },
       ],
-      usageStudies: [],
+      usageStudies: [
+        { title: "Application of GREEN scale to understanding US consumer response to green marketing communications", authors: "Bailey, Mishra, & Tiamiyu", year: 2018, context: "米国消費者のグリーンPR・グリーン広告反応へのGREEN適用（3研究）", sample: "Study1: 中西部米国ビジネス学生152名; Study2: 同210名; Study3: 非学生の米国標本（方法節に正確なN未記載; t検定df=159）", itemCount: 6, responseFormat: "原典にGREENの回答件法は明示せず（従属変数側は7件法が多い）", language: "English", adaptation: "Hawsら（2014）のGREEN 6項目をフル使用。Table2にGREEN1–6の負荷。抜粋・短縮なし。CSR知覚・NEP・GREEN-Jではない。開発論文ではない。", result: "3研究で6項目GREENのα=.93/.91/.93。グリーン消費価値がグリーンPR/広告への信頼・態度・支援意図と関連。", doi: "10.1002/mar.21140", url: "https://doi.org/10.1002/mar.21140" },
+      ],
       itemPublicationStatus: "not-published", items: [],
       verifiedAt: "2026-09-30",
-      notes: "Haws, Winterich, & Naylor。DOI 10.1016/j.jcps.2013.11.002。Journal of Consumer Psychology, 24(3), 336–354。印刷年は2014、オンライン公開は2013-11-13。GREEN尺度は6項目・単一次元。定義は、購買・消費行動を通じて環境保護の価値を表す傾向。6研究であることは出版社抄録による。Likertの件数は抄録になく、7件法は二次ソース。知覚CSR、物質主義、NEPとは別。開発論文は使用研究に含めない。使用研究は空。日本語状況は未確認。項目本文は収録しない。",
+      notes: "Haws, Winterich, & Naylor。DOI 10.1016/j.jcps.2013.11.002。Journal of Consumer Psychology, 24(3), 336–354。印刷年は2014、オンライン公開は2013-11-13。GREEN尺度は6項目・単一次元。定義は、購買・消費行動を通じて環境保護の価値を表す傾向。6研究であることは出版社抄録による。Likertの件数は抄録になく、7件法は二次ソース。知覚CSR、物質主義、NEPとは別。開発論文（DOI 10.1016/j.jcps.2013.11.002）は使用研究に含めない。使用研究は Bailey, Mishra, & Tiamiyu（2018）のフル6項目（GREEN1–6、3研究、α=.93/.91/.93）のみ。DOI は 10.1002/mar.21140。日本語状況は未確認。GREEN-J は査読付きDOIが未確認のため unconfirmed のまま。項目本文は収録しない。",
       recordStatus: "verified-metadata",
     },
     {
@@ -5622,10 +5641,12 @@ const ATLAS_DATA = {
       applicationEvidence: [
         { label: "離職意向の旗艦を6項目にする", itemCounts: [6], evidenceType: "scale-development", summary: "Mobley 系と Kelloway らの3項目運用は登録しない。組織コミットメントや職務満足の逆転ではない。", title: "The validation of the turnover intention scale", year: 2013, doi: "10.4102/sajhrm.v11i1.507", url: "https://doi.org/10.4102/sajhrm.v11i1.507" },
       ],
-      usageStudies: [],
+      usageStudies: [
+        { title: "Quality of work life: Effects on turnover intention and organisational commitment amongst selected South African manufacturing organisations", authors: "Els, Brouwers, & Lodewyk", year: 2021, context: "南アフリカ製造業におけるQWL・組織コミットメント・離職意向", sample: "製造業従業員400名", itemCount: 6, responseFormat: "5件法", language: "English", adaptation: "Bothma & Roodt（2013）のTIS-6を6項目フル使用。英語質問紙。Mobley系や独自3項目ではない。本論文は妥当性検証ではなく応用研究。", result: "本研究内のTIS-6のα=.90。QWLと離職意向の負の関係、組織コミットメントの部分媒介をSEMで検討。", doi: "10.4102/sajhrm.v19i0.1407", url: "https://doi.org/10.4102/sajhrm.v19i0.1407" },
+      ],
       itemPublicationStatus: "not-published", items: [],
       verifiedAt: "2026-09-30",
-      notes: "Bothma & Roodt（2013）の TIS-6。DOI 10.4102/sajhrm.v11i1.507。SA Journal of Human Resource Management, 11(1), Art. #507。Roodt（2004）の15項目系の短縮を検証した論文で、6項目・単一次元・5件法、α=.80、実離職との予測が根拠ファイルの OA 確認にある。15項目原版は未登録（parentScaleId は空）。Mobley 系は登録しない。開発・検証論文は使用研究に含めない。使用研究は空。日本語状況は未確認。項目本文は収録しない。",
+      notes: "Bothma & Roodt（2013）の TIS-6。DOI 10.4102/sajhrm.v11i1.507。SA Journal of Human Resource Management, 11(1), Art. #507。Roodt（2004）の15項目系の短縮を検証した論文で、6項目・単一次元・5件法、α=.80、実離職との予測が根拠ファイルの OA 確認にある。15項目原版は未登録（parentScaleId は空）。Mobley 系は登録しない。開発・検証論文（Bothma & Roodt 2013、ハンガリー語の心理測定検証）は使用研究に含めない。使用研究は Els, Brouwers, & Lodewyk（2021）の英語・フル6項目・南アフリカ製造業従業員400名のみ。DOI は 10.4102/sajhrm.v19i0.1407。本研究内のα=.90。日本語状況は未確認。項目本文は収録しない。",
       recordStatus: "verified-metadata",
     },
     {
@@ -6092,6 +6113,39 @@ const ATLAS_DATA = {
       itemPublicationStatus: "not-published", items: [],
       verifiedAt: "2026-09-30",
       notes: "Ferris, Brown, Berry, & Lian（2008）。Journal of Applied Psychology, 93(6), 1348–1366。DOI 10.1037/a0012743。10項目・単一次元。通例7件法の頻度（never–always）。職場インシビリティ（WIS-7）と虐待的監督（AS-15）とは別。PsycTESTS 10.1037/t01829-000 は尺度データセットであり、旗艦DOIの代替ではない。日本語は津村（2025）の WOS-J（社会心理学研究, 41(1), 1–11）を translation-study とする。DOI 文字列 10.14966/jssp.2023-033 は Crossref 未登録のため保存しない。開発論文と WOS-J は使用研究に含めない。使用研究は空。項目本文は収録しない。利用条件は未確認。",
+      recordStatus: "verified-metadata",
+    },
+    {
+      id: "ahearne-leb-10",
+      name: "Leadership Empowerment Behavior (Ahearne, Mathieu, & Rapp)",
+      abbreviation: "LEB",
+      conceptId: "empowering-leadership",
+      authors: ["Michael Ahearne", "John Mathieu", "Adam Rapp"],
+      year: 2005,
+      sourceTitle: "To Empower or Not to Empower Your Sales Force? An Empirical Examination of the Influence of Leadership Empowerment Behavior on Customer Satisfaction and Performance",
+      journal: "Journal of Applied Psychology, 90(5), 945–955",
+      doi: "10.1037/0021-9010.90.5.945",
+      sourceUrl: "https://doi.org/10.1037/0021-9010.90.5.945",
+      itemCount: 10,
+      dimensions: ["Enhancing meaningfulness of work（3）", "Fostering participation in decision making（2）", "Expressing confidence in high performance（2）", "Providing autonomy from bureaucratic constraints（3）"],
+      responseFormat: "Likert（件数は原典Methodsで未確定。二次のLikert件数は確定に使わない）",
+      reverseItems: [], scoring: "4下位次元（3＋2＋2＋3）を合成した単一の LEB。Zhang & Bartol（2010）の12項目付録、Spreitzer の心理的エンパワーメント12項目、Arnold らの ELQ とは合算しない。",
+      targetPopulation: ["部下", "直属上司のエンパワー行動を評定する従業員"],
+      language: "English", versionType: "original", parentScaleId: null,
+      japaneseVersionStatus: "unconfirmed",
+      japaneseStatusNote: "Ahearne LEB-10そのものの検証済み日本語版・日本語使用例は今回未確認。",
+      japaneseEvidence: [],
+      validationStudies: [], usagePermission: "unknown", usageEvidence: [],
+      psychometricEvidence: [
+        { label: "原典Methodsの10項目と合成α", sample: "米国の製薬営業担当231名。顧客満足の外部評定は864名", methods: "4下位次元（意味づけ3、意思決定参加2、高業績への自信2、官僚的制約からの自律3）。多水準因子分析の後、単一の LEB 合成として扱う", result: "項目数は3＋2＋2＋3＝10。下位次元のαは.76、.92、.90、.86。合成α=.88。二次文献の12項目は主に Zhang & Bartol（2010）付録であり、原典Methodsの項目数ではない。", url: "https://doi.org/10.1037/0021-9010.90.5.945" },
+      ],
+      applicationEvidence: [
+        { label: "部下評定のエンパワーリング行動10項目を旗艦にする", itemCounts: [10], evidenceType: "scale-development", summary: "Spreitzer（1995）の心理的エンパワーメントは部下の認知状態（12項目・4認知）であり、リーダー行動ではない。Arnold, Arad, Rhoades, & Drasgow（2000）の ELQ は別の長尺尺度であり、登録しない。Zhang & Bartol（2010）付録の12項目は Ahearne への帰属であり、旗艦の10項目使用としては扱わない。開発論文は使用研究に含めない。", title: "To Empower or Not to Empower Your Sales Force? An Empirical Examination of the Influence of Leadership Empowerment Behavior on Customer Satisfaction and Performance", year: 2005, doi: "10.1037/0021-9010.90.5.945", url: "https://doi.org/10.1037/0021-9010.90.5.945" },
+      ],
+      usageStudies: [],
+      itemPublicationStatus: "not-published", items: [],
+      verifiedAt: "2026-09-30",
+      notes: "Ahearne, Mathieu, & Rapp（2005）。Journal of Applied Psychology, 90(5), 945–955。DOI 10.1037/0021-9010.90.5.945。Leadership Empowerment Behavior（LEB）。原典Methodsは3+2+2+3=10項目・合成α=.88。米国の製薬営業担当231名、顧客評定864名。二次の「12項目」は主にZhang & Bartol（2010、DOI 10.5465/amj.2010.48037118）付録であり、旗艦にも使用研究にもしない。Arnold らの ELQ（Journal of Organizational Behavior, 2000。DOI 10.1002/(sici)1099-1379(200005)21:3<249::aid-job10>3.0.co;2-#）は別尺度で未登録。Spreitzer（1995）の心理的エンパワーメントは部下の認知状態。開発論文は使用研究に含めない。使用研究は空。日本語状況は未確認。回答形式の件数は原典Methodsで未確定。項目本文は収録しない。",
       recordStatus: "verified-metadata",
     },
   ],
