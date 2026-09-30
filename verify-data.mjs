@@ -247,6 +247,40 @@ function validateAtlas(atlas, duplicateErrors = []) {
     }
   }
 
+  const relationIds = new Set();
+  if (atlas.relations !== undefined && !Array.isArray(atlas.relations)) errors.push("relations: 配列が必要です。");
+  for (const [index, relation] of (Array.isArray(atlas.relations) ? atlas.relations : []).entries()) {
+    const fieldPath = `relations[${index}]`;
+    if (!relation || typeof relation !== "object") { errors.push(`${fieldPath}: オブジェクトが必要です。`); continue; }
+    if (!isNonEmptyText(relation?.id) || relationIds.has(relation.id)) errors.push(`${fieldPath}.id: 空でない一意の関係IDが必要です。`);
+    relationIds.add(relation?.id);
+    if (!Array.isArray(relation.conceptIds) || relation.conceptIds.length !== 2 || relation.conceptIds.some((id) => !conceptIds.has(id))) errors.push(`${fieldPath}.conceptIds: 存在する概念IDを2つ指定してください。`);
+    if (!["association", "discriminant", "convergent", "comparison"].includes(relation.kind)) errors.push(`${fieldPath}.kind: 許容されない検証種類です。`);
+    if (!["concept", "scale"].includes(relation.level)) errors.push(`${fieldPath}.level: conceptまたはscaleが必要です。`);
+    if (!Array.isArray(relation.scaleIds) || relation.scaleIds.some((id) => !scaleIds.has(id))) errors.push(`${fieldPath}.scaleIds: 存在する尺度IDの配列が必要です。`);
+    if (relation.level === "scale") {
+      const scales = (Array.isArray(relation.scaleIds) ? relation.scaleIds : []).map((id) => atlas.scales.find((s) => s.id === id));
+      const expected = (Array.isArray(relation.conceptIds) ? [...relation.conceptIds] : []).sort().join("|");
+      if (scales.length !== 2 || new Set(relation.scaleIds).size !== 2 || scales.map((s) => s?.conceptId).sort().join("|") !== expected) errors.push(`${fieldPath}.scaleIds: 尺度版の検証は対応する別々の2尺度が必要です。`);
+    }
+    for (const field of ["summary", "caveat", "assembledAt"]) if (!isNonEmptyText(relation[field])) errors.push(`${fieldPath}.${field}: 空でない値が必要です。`);
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(relation.assembledAt || "")) errors.push(`${fieldPath}.assembledAt: 整理日が必要です。`);
+    if (!Array.isArray(relation.sources) || !relation.sources.length) errors.push(`${fieldPath}.sources: 登録済みの根拠への参照が必要です。`);
+    const sourceKeys = new Set();
+    for (const [sourceIndex, pointer] of (Array.isArray(relation.sources) ? relation.sources : []).entries()) {
+      const sourcePath = `${fieldPath}.sources[${sourceIndex}]`;
+      if (!pointer || typeof pointer !== "object") { errors.push(`${sourcePath}: オブジェクトが必要です。`); continue; }
+      const scale = atlas.scales.find((s) => s.id === pointer.scaleId);
+      if (!["usageStudies", "psychometricEvidence", "applicationEvidence"].includes(pointer.collection)) errors.push(`${sourcePath}.collection: 許容されない記録種別です。`);
+      const found = scale?.[pointer.collection]?.filter((e) => e.url === pointer.sourceUrl && (!pointer.sourceLabel || (e.label || e.title) === pointer.sourceLabel)) || [];
+      if (!isNonEmptyText(pointer.sourceUrl) || found.length !== 1) errors.push(`${sourcePath}: 一意に特定できる登録済み根拠が存在しません。`);
+      if (!relation.scaleIds?.includes(pointer.scaleId)) errors.push(`${sourcePath}.scaleId: 関係の対応尺度に含まれていません。`);
+      const key = `${pointer.scaleId}|${pointer.collection}|${pointer.sourceUrl}|${pointer.sourceLabel || ""}`;
+      if (sourceKeys.has(key)) errors.push(`${sourcePath}: 同じ根拠参照が重複しています。`);
+      sourceKeys.add(key);
+    }
+  }
+
   addUrlAndDoiErrors(atlas, "ATLAS_DATA", errors);
   const statusCounts = Object.fromEntries([...JAPANESE_STATUSES].map((status) => [JAPANESE_STATUS_LABELS[status], atlas.scales.filter((scale) => scale.japaneseVersionStatus === status).length]));
   return {
@@ -258,6 +292,7 @@ function validateAtlas(atlas, duplicateErrors = []) {
       registeredShortScaleCount: atlas.scales.filter((scale) => [3, 4].includes(scale.itemCount)).length,
       usageShortScaleCount: atlas.scales.filter((scale) => scale.usageStudies?.some((study) => [3, 4].includes(study.itemCount))).length,
       decisionGuideCount: atlas.concepts.filter((concept) => concept.decisionGuide).length,
+      relationCount: atlas.relations?.length || 0,
       statusCounts,
     },
   };
@@ -292,6 +327,14 @@ function runSelfTest() {
   for (const expected of ["重複", "存在しません", "正の整数", "許容されない", "DOI", "有効なURL", "decisionGuide", "質問文"]) {
     if (!errors.some((error) => error.includes(expected))) throw new Error(`自己テスト失敗: 「${expected}」に関するエラーを検出できません。`);
   }
+  const invalidRelationAtlas = { concepts: [{ id: "a" }, { id: "b" }], scales: [
+    { id: "sa", conceptId: "a", itemCount: 1, japaneseVersionStatus: "unconfirmed" },
+    { id: "sb", conceptId: "b", itemCount: 1, japaneseVersionStatus: "unconfirmed" },
+  ], relations: [{ id: "r", conceptIds: ["a", "missing"], kind: "bad", level: "scale", scaleIds: ["sa", "sa"], summary: "", caveat: "", assembledAt: "bad", sources: [{ scaleId: "sa", collection: "usageStudies", sourceUrl: "https://example.com" }] }] };
+  const relationErrors = validateAtlas(invalidRelationAtlas).errors;
+  for (const expected of ["conceptIds", "kind", "scaleIds", "summary", "caveat", "assembledAt", "根拠が存在しません"]) {
+    if (!relationErrors.some((error) => error.includes(expected))) throw new Error(`関係の自己テスト失敗: ${expected}`);
+  }
   console.log("自己テスト: ルート・ネストした重複キー、ID・参照・形式エラーを検出できました。");
 }
 
@@ -302,6 +345,7 @@ function printSummary(summary) {
   console.log(`登録版そのものが3・4項目: ${summary.registeredShortScaleCount}`);
   console.log(`個別使用研究で3・4項目版を確認済み: ${summary.usageShortScaleCount}`);
   console.log(`目的別の尺度選択ガイド: ${summary.decisionGuideCount}概念`);
+  console.log(`根拠つき関係: ${summary.relationCount}件`);
   console.log("日本語情報:");
   for (const [label, count] of Object.entries(summary.statusCounts)) console.log(`  ${label}: ${count}`);
 }

@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="経営学・マーケティングの構成概念と尺度を検索・比較する研究支援用アトラス">
   <title>経営学・マーケティング概念・尺度アトラス</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23184a5a'/%3E%3Cpath d='M8 23V9h4v14m4 0V14h4v9m4 0V5' stroke='white' stroke-width='2' fill='none'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="source-links.css">
 </head>
@@ -25,6 +26,7 @@
       <button class="tab" type="button" data-view="planner">設計アシスタント</button>
       <button class="tab" type="button" data-view="concepts">概念一覧</button>
       <button class="tab" type="button" data-view="coverage">収録状況</button>
+      <button class="tab" type="button" data-view="relations">関係・研究の空白</button>
       <button class="tab" type="button" data-view="compare">研究設計 <span id="compare-count">0</span></button>
     </div>
   </nav>
@@ -115,6 +117,28 @@
       <div class="table-wrap coverage-table-wrap"><table id="coverage-table"></table></div>
     </section>
 
+    <section id="view-relations" class="view">
+      <div class="result-head"><div><h2>関係の根拠マップ</h2><p>概念間の関連と、尺度同士の妥当性・版比較を分けて調べます。</p></div></div>
+      <p class="method-note"><strong>研究の空白は、まず調査候補として表示：</strong>「?」は文献調査待ち、「—」は関係未整理です。未検証を意味しません。根拠の件数は、このアトラスに登録された範囲であり、世界の研究総数や研究の質の順位ではありません。</p>
+      <div id="relation-summary" class="coverage-summary"></div>
+      <div class="relation-controls">
+        <label>概念を中心に見る<select id="relation-focus"><option value="">すべての概念</option></select></label>
+        <label>研究領域<select id="relation-domain"><option value="">すべて</option></select></label>
+        <label>検証の種類<select id="relation-kind"><option value="">すべて</option><option value="association">概念間の関連</option><option value="discriminant">弁別妥当性</option><option value="convergent">収束・版比較</option><option value="comparison">尺度比較</option><option value="neighbor">関連概念・調査待ち</option></select></label>
+        <label>根拠の状況<select id="relation-status"><option value="">すべて</option><option value="synthesis">レビュー・メタ分析あり</option><option value="multiple">複数論文の根拠あり</option><option value="single">1論文の根拠あり</option><option value="unreviewed">文献調査待ち</option></select></label>
+        <label>キーワード<input id="relation-query" type="search" placeholder="概念・尺度・根拠の内容"></label>
+        <button id="relation-reset" type="button" class="text-button">条件をクリア</button>
+      </div>
+      <div class="relation-legend" aria-label="根拠の状況の凡例"><span class="relation-synthesis">M レビュー・メタ分析</span><span class="relation-multiple">R 複数論文</span><span class="relation-single">S 1論文</span><span class="relation-unreviewed">? 文献調査待ち</span><span>— 関係未整理</span></div>
+      <p id="relation-matrix-note" class="sub"></p>
+      <div id="relation-matrix" class="table-wrap relation-matrix-wrap"></div>
+      <div class="result-head"><h3>関係と追加調査の候補</h3><div class="export-actions"><button id="relation-export-csv" type="button" class="text-button">CSV出力</button><button id="relation-export-json" type="button" class="text-button">JSON出力</button></div></div>
+      <p id="relation-result-count" class="sub" aria-live="polite"></p>
+      <div id="relation-list" class="relation-list"></div>
+      <button id="relation-more" type="button" class="secondary-action" hidden>さらに20件表示</button>
+      <details class="relation-method"><summary>収集・更新の方針と確認範囲</summary><p>初期収録は104概念・140尺度。主要尺度の完全な網羅はまだ認定していません。原版・短縮版・翻訳版の収録、異文脈の使用研究、日本語検証、関係のレビューを順に補います。</p><p>関係の根拠は既存の確認済み記録から整理しました。原文の新たな再確認、網羅検索、独立追試数の集計は未実施です。検索して見つからなかった場合も、データベース・検索語・期間・検索日を記録した範囲内だけの結果として扱います。</p><p>調査候補はCSV/JSONで出力できます。定期更新は未設定です。新しい文献の書誌情報だけで検証済みに変更せず、方法・表・付録で尺度の版と検証結果を確認してから登録します。</p></details>
+    </section>
+
     <section id="view-compare" class="view">
       <div class="result-head"><h2>研究設計・尺度比較・回答負荷</h2><p>複数概念の調査設計用に、尺度一覧から最大8件を選択できます。</p></div>
       <div id="compare-summary" class="burden-summary" hidden></div>
@@ -127,6 +151,6 @@
 
   <dialog id="detail-dialog"><button class="dialog-close" type="button" aria-label="閉じる">×</button><div id="detail-body"></div></dialog>
   <footer><div class="container">Management and Marketing Scale Atlas — <span id="footer-version"></span></div></footer>
-  <script src="data.js"></script><script src="app.js"></script>
+  <script src="data.js"></script><script src="relation-model.js"></script><script src="app.js"></script><script src="relations.js"></script>
 </body>
 </html>

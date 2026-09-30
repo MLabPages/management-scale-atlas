@@ -12,6 +12,9 @@ Management Scale Atlas は、`index.html`、`styles.css`、`app.js`、`data.js` 
 4. 比較画面で最大 8 尺度の負担・項目数・根拠を並べる。
 5. 研究設計は役割、採用メモ、根拠文献、項目数などを `localStorage` に保存し、CSV/JSON で出力する。
 6. `verify-data.mjs` が JavaScript として `data.js` を読み、ID参照・形式・重複・必須項目を検証する。
+7. `data.js`の`relations`は既存根拠への尺度ID・記録種別・URL（必要時はラベル）を参照する。配列順序を参照に使わない。`relation-model.js`が根拠を解決し、論文重複を除去し、関連概念リンクから調査待ちの組合せを生成する。
+8. `relations.js`が関係のマトリクス、フィルター、出典詳細、CSV/JSON出力を担当する。`concept`レベルと特定の2尺度版の`scale`レベルを分ける。
+9. `collect-literature.mjs`は同じ関係モデルと`collection-targets.json`から調査キューを生成する。接続時はCrossrefから書誌候補だけを収集し、検索ログを保存する。`data.js`を書き換えず、候補JSONをJavaScriptとして評価しない。
 
 ## 情報の境界
 

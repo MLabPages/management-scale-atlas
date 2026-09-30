@@ -2,11 +2,84 @@
 // DOI、原典、項目数、下位次元は原著論文または公式資料で確認。
 const ATLAS_DATA = {
   meta: {
-    version: "0.81.0",
+    version: "0.82.0",
     status: "initial-real-data",
-    updated: "2026-09-30",
+    updated: "2026-10-01",
     scope: "104概念・140尺度",
   },
+
+  // 既存の確認済み記録から整理。本文を新たに再確認した日ではない。
+  relations: [
+    {
+      id: "customer-experience-satisfaction", conceptIds: ["customer-experience", "customer-satisfaction"],
+      kind: "association", level: "concept", scaleIds: ["exq-19"], assembledAt: "2026-10-01",
+      summary: "EXQと顧客満足の関係を異なるサービス文脈で検討。登録済み2論文の根拠がある。",
+      caveat: "2013年論文は尺度開発者による検証。2023年論文は19項目を投与後、15項目に削除。顧客満足側の尺度版は未整理で、ACSIとの組合せの検証を意味しない。効果量・因果性は統合していない。",
+      sources: [
+        { scaleId: "exq-19", collection: "usageStudies", sourceUrl: "https://doi.org/10.2501/IJMR-2013-021" },
+        { scaleId: "exq-19", collection: "usageStudies", sourceUrl: "https://doi.org/10.3390/su15075954" },
+      ],
+    },
+    {
+      id: "customer-experience-loyalty", conceptIds: ["customer-experience", "brand-loyalty"],
+      kind: "association", level: "concept", scaleIds: ["exq-19"], assembledAt: "2026-10-01",
+      summary: "EXQがロイヤルティを説明する関係を英国の4サービス文脈で検討。",
+      caveat: "サービスへのロイヤルティの根拠をロイヤルティ概念の関連資料として整理。Chaudhuri–Holbrookのブランド尺度そのものとの比較ではない。尺度開発者による1論文で、独立追試数・効果量は未集計。",
+      sources: [{ scaleId: "exq-19", collection: "usageStudies", sourceUrl: "https://doi.org/10.2501/IJMR-2013-021" }],
+    },
+    {
+      id: "brand-engagement-loyalty", conceptIds: ["consumer-brand-engagement", "brand-loyalty"],
+      kind: "association", level: "concept", scaleIds: ["consumer-brand-engagement-scale", "consumer-brand-engagement-beyond-likes-6"], assembledAt: "2026-10-01",
+      summary: "SNS向け10項目版と日常消費向け6項目版に、ロイヤルティとの関係の記録がある。",
+      caveat: "別系統の尺度を用いた2論文であり、同一尺度ペアの反復検証ではない。SNS研究では活性化次元だけが有意。ロイヤルティ側の尺度版・統合効果量は未整理。",
+      sources: [
+        { scaleId: "consumer-brand-engagement-scale", collection: "usageStudies", sourceUrl: "https://doi.org/10.1016/j.jretconser.2019.01.016" },
+        { scaleId: "consumer-brand-engagement-beyond-likes-6", collection: "psychometricEvidence", sourceUrl: "https://doi.org/10.3389/fpsyg.2021.692000", sourceLabel: "6項目への精選と法則的妥当性" },
+      ],
+    },
+    {
+      id: "brand-attitude-purchase-intention", conceptIds: ["brand-attitude", "purchase-intention"],
+      kind: "discriminant", level: "scale", scaleIds: ["brand-attitude-spears-singh-5", "purchase-intention-spears-singh-5"], assembledAt: "2026-10-01",
+      summary: "Spears & Singhの態度5項目と購買意向5項目を、関連するが区別可能な尺度として検討。",
+      caveat: "複数研究を含む1開発論文の記録。独立した追試数、HTMT、測定不変性は未集計。弁別検証は因果関係の証明ではない。",
+      sources: [{ scaleId: "brand-attitude-spears-singh-5", collection: "psychometricEvidence", sourceUrl: "https://doi.org/10.1080/10641734.2004.10505164" }],
+    },
+    {
+      id: "brand-trust-affect", conceptIds: ["brand-trust", "brand-affect"],
+      kind: "discriminant", level: "scale", scaleIds: ["brand-trust-chaudhuri-holbrook-4", "brand-affect-chaudhuri-holbrook-3"], assembledAt: "2026-10-01",
+      summary: "同一の原著でブランド信頼4項目と感情3項目を分けて測定し、弁別妥当性を検討。",
+      caveat: "149ブランド・4,470名の原著。ブランド単位の分析であり独立追試ではない。8項目BTSへの一般化はしない。個別ペアのHTMT値は未登録。",
+      sources: [{ scaleId: "brand-affect-chaudhuri-holbrook-3", collection: "psychometricEvidence", sourceUrl: "https://doi.org/10.1509/jmkg.65.2.81.18255" }],
+    },
+    {
+      id: "brand-trust-loyalty", conceptIds: ["brand-trust", "brand-loyalty"],
+      kind: "discriminant", level: "scale", scaleIds: ["brand-trust-chaudhuri-holbrook-4", "brand-loyalty-chaudhuri-holbrook-4"], assembledAt: "2026-10-01",
+      summary: "Chaudhuri & Holbrookの信頼4項目と購買・態度ロイヤルティ各2項目の弁別妥当性を検討。",
+      caveat: "1原著におけるCFA・AVE比較。ロイヤルティ4項目は2次元。独立追試数、統合効果量、HTMTは未集計。",
+      sources: [{ scaleId: "brand-loyalty-chaudhuri-holbrook-4", collection: "psychometricEvidence", sourceUrl: "https://doi.org/10.1509/jmkg.65.2.81.18255" }],
+    },
+    {
+      id: "brand-affect-loyalty", conceptIds: ["brand-affect", "brand-loyalty"],
+      kind: "discriminant", level: "scale", scaleIds: ["brand-affect-chaudhuri-holbrook-3", "brand-loyalty-chaudhuri-holbrook-4"], assembledAt: "2026-10-01",
+      summary: "ブランド感情と購買・態度ロイヤルティを別構成概念として測定し、弁別妥当性を検討。",
+      caveat: "信頼・感情・ロイヤルティの3関係は同じ1原著に由来する。3論文の独立した根拠として数えない。",
+      sources: [{ scaleId: "brand-loyalty-chaudhuri-holbrook-4", collection: "psychometricEvidence", sourceUrl: "https://doi.org/10.1509/jmkg.65.2.81.18255" }],
+    },
+    {
+      id: "uwes-3-9", conceptIds: ["work-engagement", "work-engagement"],
+      kind: "convergent", level: "scale", scaleIds: ["uwes-3", "uwes-9"], assembledAt: "2026-10-01",
+      summary: "5か国でUWES-3とUWES-9を比較。共有分散86〜92%、関連概念との相関差の平均絶対値.02。",
+      caveat: "多国比較を含む1論文の版比較。独立追試や日本語版の等価性を自動認定しない。短縮版は原版と内容範囲が完全に同じとは限らない。",
+      sources: [{ scaleId: "uwes-3", collection: "psychometricEvidence", sourceUrl: "https://doi.org/10.1027/1015-5759/a000430" }],
+    },
+    {
+      id: "markor-mktor", conceptIds: ["market-orientation", "market-orientation"],
+      kind: "comparison", level: "scale", scaleIds: ["markor", "mktor"], assembledAt: "2026-10-01",
+      summary: "オーストラリアでMARKORとMKTORの比較研究を実施。MKTORの精選8項目モデルを交差検証。",
+      caveat: "行動プロセスと組織文化という概念範囲の差がある。原版20項目と15項目の完全な等価性を支持する表示ではない。比較内で精選した版を含む。",
+      sources: [{ scaleId: "mktor", collection: "applicationEvidence", sourceUrl: "https://marketing-bulletin.massey.ac.nz/V8/MB_V8_A3_Farrell.pdf" }],
+    },
+  ],
 
   concepts: [
     {
