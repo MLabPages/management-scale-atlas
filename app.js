@@ -10,6 +10,7 @@ const labels = {
   "original-japanese": "日本語で開発された尺度",
   unconfirmed: "日本語版・使用例を未確認",
   open: "掲載・利用可", research: "研究利用可", unknown: "利用条件未確認",
+  commercial: "商用ライセンス",
   permission: "申請が必要", "research-use": "研究利用可",
   "permission-required": "申請が必要", original: "原版", short: "短縮版", translated: "翻訳版", subscale: "公式下位尺度",
   "short-form": "短縮版", "original-multidimensional": "多次元原版", "applied-short": "後続短縮適用",
@@ -356,6 +357,7 @@ function adoptionGuideHtml(s) {
   }
   if (!(s.usageStudies || []).length) cautions.push("このデータベースには個別の使用先行研究がまだ登録されていません。");
   if (s.japaneseVersionStatus === "unconfirmed") cautions.push("標準化された日本語版・日本語使用例は今回の確認範囲では未確認です。");
+  if (s.usagePermission === "commercial") cautions.push("商用ライセンスが必要です。ライセンスなしの項目転載はできません。研究と実務で許諾の種類が分かれる場合があります。");
   if (["unknown", "permission-required"].includes(s.usagePermission)) cautions.push(s.usagePermission === "unknown" ? "利用・転載条件を原典または権利者に確認してください。" : "利用・転載前に申請要否と条件を確認してください。");
   const alternatives = ATLAS_DATA.scales.filter((x) => x.conceptId === s.conceptId && x.id !== s.id).sort((a, b) => a.itemCount - b.itemCount).slice(0, 6);
   const defaultCaution = "登録情報だけで採用を確定せず、対象文脈・因子構造・原典の項目内容を確認してください。";
