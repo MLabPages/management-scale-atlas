@@ -1,5 +1,13 @@
 # Decisions
 
+## 2026-09-30: 週次ダイジェストは LEB-10 の新規と、TIS-6・GREEN の使用研究各1件
+
+- セマンティック版は v0.81.0。概念は103から104、尺度は139から140。使用研究は165から167。開発・検証論文は `usageStudies` に入れない。項目本文は空、`itemPublicationStatus` は `not-published`。
+- エンパワーリング・リーダーシップ `empowering-leadership` / `ahearne-leb-10` は Ahearne, Mathieu, & Rapp（2005）の LEB。DOI `10.1037/0021-9010.90.5.945`。`itemCount` は原典 Methods の 3+2+2+3＝**10**。合成α=.88。二次文献の12項目は Zhang & Bartol（2010、DOI `10.5465/amj.2010.48037118`）付録であり、旗艦にも使用研究にもしない。Arnold らの ELQ は別尺度で未登録。Spreitzer の心理的エンパワーメント（部下の認知状態、12項目）とは decisionGuide で分ける。`psychological-empowerment` の relatedConcepts に双方向の参照を足す。
+- LEB の `japaneseVersionStatus` は `unconfirmed`。回答形式の Likert 件数は原典 Methods で未確定のため、二次の件数は採用しない。`versionType` は `original`、`recordStatus` は `verified-metadata`。開発論文は使用研究にしない。
+- TIS-6（`bothma-roodt-tis-6`）の使用研究は Els, Brouwers, & Lodewyk（2021）の英語・フル6項目・南アフリカ製造業従業員400名（DOI `10.4102/sajhrm.v19i0.1407`）のみ。Bothma & Roodt（2013）の検証論文とハンガリー語の心理測定検証は使用研究にしない。日本語は `unconfirmed` のまま。
+- GREEN（`haws-green-6`）の使用研究は Bailey, Mishra, & Tiamiyu（2018）のフル6項目（DOI `10.1002/mar.21140`。3研究でα=.93/.91/.93）のみ。Haws らの開発論文は使用研究にしない。日本語は `unconfirmed` のまま。GREEN-J は査読付き DOI が未確認のため `translation-study` にしない。
+
 ## 2026-09-30: 組織行動 Priority-B は旗艦4件。DUWAS の日本語は開発論文内検証
 
 - セマンティック版は v0.80.0。概念は99から103、尺度は135から139。使用研究は165件のまま。開発論文は `usageStudies` に入れない。項目本文は空、`itemPublicationStatus` は `not-published`、`versionType` は `original`、`recordStatus` は `verified-metadata`。
