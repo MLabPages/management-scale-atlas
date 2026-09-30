@@ -1,5 +1,22 @@
 # Decisions
 
+## 2026-09-30: 組織行動 Priority-A は旗艦12概念。MLQ と ALQ は商用
+
+- セマンティック版は v0.79.0。概念は87から99、尺度は122から135（プロアクティブ・パーソナリティは原版17と短尺10の2レコード）。使用研究は165件のまま。開発論文は `usageStudies` に入れない。項目本文は空、`itemPublicationStatus` は `not-published`、`japaneseVersionStatus` は `unconfirmed`、`recordStatus` は `verified-metadata`。
+- 変革型リーダーシップ `transformational-leadership` / `bass-avolio-mlq-5x-short` は MLQ Form 5X-Short の通例45項目。Mind Garden 公式が Multi-rater / Rater / Self を45項目、Actual/Ought を90項目とする。公開メタの DOI は `10.1037/t03624-000`（内容作成年1995）。`usagePermission` は `commercial`。ライセンスなしの項目転載は不可。Actual/Ought、Long 版、GTL、変革型だけの抜粋は登録しない。ELS-10、SL、LMX、虐待的監督とは別。
+- 真正なリーダーシップ `authentic-leadership` / `walumbwa-alq-16` は Walumbwa ら（2008）の16項目・4次元（DOI `10.1177/0149206307308913`）。項目数16は Mind Garden の製品記載。`usagePermission` は `commercial`。研究許可と License to Administer は分離。次元配分の二次例（4/5/4/3）は確定内訳にしない。
+- 離職意向の旗艦は Bothma & Roodt（2013）の TIS-6（DOI `10.4102/sajhrm.v11i1.507`）。6項目・単一次元・5件法、α=.80。`versionType` は `validated-short-form`。Roodt（2004）の15項目は未登録。Mobley 系は入れない。検証論文は使用研究にしない。
+- 職場逸脱は Bennett & Robinson（2000）の19項目（組織12＋対人7。DOI `10.1037/0021-9010.85.3.349`）。WIS-7、AS-15、OCB、Spector らの CWB-C は登録しない。
+- 個人–組織適合は Cable & DeRue（2002）の P–O fit 3項目だけ（DOI `10.1037/0021-9010.87.5.875`）。PFS 全体9項目は登録しない。`versionType` は `subscale`。
+- ワーク・ファミリー・コンフリクトは Netemeyer ら（1996）の10項目（DOI `10.1037/0021-9010.81.4.400`）。Carlson らの18項目は入れない。渡井らの日本語報告は書誌未確定のため `unconfirmed` のまま。
+- 心理的契約の不履行は Robinson & Morrison（2000）の global breach 5項目。DOI は `10.1002/1099-1379(200008)21:5<525::AID-JOB40>3.0.CO;2-T`。violation は登録しない。SICI 形式の山括弧を通すため、`verify-data.mjs` の DOI 文字クラスに `<>` を加えた。
+- 職の不安定性は Vander Elst ら（2014）の JIS 4項目（DOI `10.1080/1359432X.2012.745989`。誌面 23(3), 364–380。オンラインは2013-01-17）。2014年論文は心理測定評価であり使用研究にしない。Hellgren らの多次元版は入れない。
+- 上司への信頼は McAllister（1995）の11項目（認知6＋感情5。DOI `10.2307/256727`）。Mayer & Davis（1999、DOI `10.1037/0021-9010.84.1.123`）は入れない。
+- プロアクティブ・パーソナリティは Bateman & Crant（1993）の17項目（DOI `10.1002/job.4030140202`）を原版、Seibert ら（1999）の10項目（DOI `10.1037/0021-9010.84.3.416`）を `versionType: short` の主運用にする。
+- 役割曖昧性と役割葛藤は1概念 `role-ambiguity-role-conflict`、通例14項目（葛藤8＋曖昧性6。DOI `10.2307/2391486`）。約29項目の原プールと役割過負荷は登録しない。
+- 職務特性の旗艦は Morgeson & Humphrey（2006）の WDQ 77項目・21特性（DOI `10.1037/0021-9010.91.6.1321`）。自律性9項目などの抜粋は正式短縮版にしない。JDS（DOI `10.1037/h0076546`）は related の注意のみ。
+- Mind Garden が一覧する日本語訳は品質未保証のため、MLQ も ALQ も `usage-example` や `validated` にしない。
+
 ## 2026-09-30: マーケ典型概念Bは旗艦4件。Wiedmann の48項目は原典本文で確定
 
 - セマンティック版は v0.78.0。概念は83から87、尺度は118から122。使用研究は165件のまま。開発論文は `usageStudies` に入れない。項目本文は空、`itemPublicationStatus` は `not-published`、`japaneseVersionStatus` は `unconfirmed`、`versionType` は `original`、`recordStatus` は `verified-metadata`。

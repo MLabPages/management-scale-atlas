@@ -22,7 +22,7 @@ const JAPANESE_STATUS_LABELS = {
   unconfirmed: "未確認",
 };
 
-const DOI_PATTERN = /^10\.\d{4,9}\/[\w.()/:;-]+$/i;
+const DOI_PATTERN = /^10\.\d{4,9}\/[\w.()/:;<>\-]+$/i;
 
 function lineAndColumn(source, index) {
   const lines = source.slice(0, index).split("\n");
