@@ -42,4 +42,5 @@
 - 作業開始時の origin/main は `6a60d21`（v0.78.0。PR #34）
 - `node verify-data.mjs` 成功。概念99、尺度135、使用研究165、日本語未確認84。登録版そのものが3・4項目28、使用研究での3・4項目25、目的別ガイド33
 - `node verify-data.mjs --self-test` 成功
-- `node --check data.js`、`node --check app.js`、`git diff --check` を実行する
+- `node --check data.js`、`node --check app.js`、`git diff --check` 成功
+- ローカルの静的サーバと headless Chrome で、見出しが v0.79.0・99概念・135尺度・使用研究165件になることを確認した。利用条件「商用ライセンス」は MLQ-5X と ALQ-16 の2件だけ。MLQ の詳細は45項目、利用条件は商用ライセンス、項目本文は「掲載していません」、ライセンスなしの転載不可、使用先行研究は未登録。ALQ の詳細も商用で項目本文のリストは空。TIS-6・P–O fit 3・JIS-4 を研究設計に入れると合計13項目・概念数3。役割曖昧性・役割葛藤の設計アシスタントは RC/RA-14 の14項目。JIS 絞り込みの CSV は DOI `10.1080/1359432X.2012.745989`。JSON 出力の meta.version は 0.79.0。幅390pxでも MLQ の詳細ダイアログは `position: fixed` で画面内（幅352px）に収まった。Mobley、Carlson、JDS、Mayer の検索は注記へのヒットで、別尺度は出ていない
