@@ -2,14 +2,60 @@
 // DOI、原典、項目数、下位次元は原著論文または公式資料で確認。
 const ATLAS_DATA = {
   meta: {
-    version: "0.84.0",
+    version: "0.85.0",
     status: "initial-real-data",
     updated: "2026-10-02",
-    scope: "106概念・146尺度",
+    scope: "106概念・148尺度",
   },
 
   // 既存記録と本文確認済みの追加根拠を整理。個々の確認日は出典のverifiedAtに記録。
   relations: [
+    {
+      "id": "influencer-credibility-purchase-meta",
+      "conceptIds": [
+        "source-credibility",
+        "purchase-intention"
+      ],
+      "kind": "association",
+      "level": "concept",
+      "scaleIds": [
+        "ohanian-source-credibility-15"
+      ],
+      "assembledAt": "2026-10-02",
+      "summary": "Panら（2025、オンライン2024）のメタ分析で、インフルエンサーの信頼性と購買意向の補正相関rcw=.51（95% CI [.47,.56]、k=86、N=39,132、I²=97%）。",
+      "caveat": "伝統的セレブリティ推奨を除いた尺度混在の概念統合。Ohanian-15とPI-5の特定ペアや日本人の効果ではない。ランダム効果でも異質性は高く、主に横断関連で因果としない。説得知識関係と同じ1メタ分析。本文で検索期間・一律の言語条件は確定できず。",
+      "sources": [
+        {
+          "scaleId": "ohanian-source-credibility-15",
+          "collection": "applicationEvidence",
+          "sourceUrl": "https://doi.org/10.1007/s11747-024-01052-7",
+          "sourceLabel": "インフルエンサーの信頼性と購買意向：概念水準のメタ分析"
+        }
+      ]
+    },
+    {
+      "id": "persuasion-knowledge-purchase-meta",
+      "conceptIds": [
+        "persuasion-knowledge",
+        "purchase-intention"
+      ],
+      "kind": "association",
+      "level": "concept",
+      "scaleIds": [
+        "boerman-pks-sc-intent-6"
+      ],
+      "assembledAt": "2026-10-02",
+      "summary": "同じメタ分析で説得知識と購買意向の補正相関rcw=−.17（95% CI [−.36,.03]、k=16、N=5,138、I²=98%）。CIが0を含み、平均的な負の関連は有意とは認定できない。",
+      "caveat": "説得知識の測定系統を統合し、INTENT-6とPI-5の特定ペアの効果ではない。効果量数を独立論文数としない。信頼性関係と同じ1論文で標本重複があり得る。異質性が高く、全場面で知識が購買意向を下げるとは結論しない。未調査という状態とも区別する。",
+      "sources": [
+        {
+          "scaleId": "boerman-pks-sc-intent-6",
+          "collection": "applicationEvidence",
+          "sourceUrl": "https://doi.org/10.1007/s11747-024-01052-7",
+          "sourceLabel": "説得知識と購買意向：概念水準のメタ分析"
+        }
+      ]
+    },
     {
       id: "work-family-satisfaction-meta", conceptIds: ["work-family-conflict", "job-satisfaction"],
       kind: "association", level: "concept", scaleIds: ["carlson-wfcs-18"], assembledAt: "2026-10-02",
@@ -562,14 +608,44 @@ const ATLAS_DATA = {
       references: ["10.1207/S15327663JCP1303_14"],
     },
     {
-      id: "consumer-involvement",
-      nameJa: "消費者関与",
-      nameEn: "Consumer Involvement",
-      definitionJa: "製品、広告、購買状況などを、自分の欲求・価値・関心に照らして重要かつ関連性の高い対象として知覚する程度。",
-      domain: "消費者意思決定",
-      relatedConcepts: ["consumer-brand-engagement", "purchase-intention", "need-for-cognition"],
-      parentConcepts: [], childConcepts: [], typicalAntecedents: [], typicalOutcomes: ["purchase-intention"],
-      references: ["10.1086/208520", "10.1080/00913367.1943.10673459"],
+      "id": "consumer-involvement",
+      "nameJa": "消費者関与",
+      "nameEn": "Consumer Involvement",
+      "definitionJa": "製品、広告、購買状況などを、自分の欲求・価値・関心に照らして重要かつ関連性の高い対象として知覚する程度。",
+      "domain": "消費者意思決定",
+      "relatedConcepts": [
+        "consumer-brand-engagement",
+        "purchase-intention",
+        "need-for-cognition"
+      ],
+      "parentConcepts": [],
+      "childConcepts": [],
+      "typicalAntecedents": [],
+      "typicalOutcomes": [
+        "purchase-intention"
+      ],
+      "references": [
+        "10.1086/208520",
+        "10.1080/00913367.1943.10673459"
+      ],
+      "decisionGuide": {
+        "question": "個人的関連性を、原版の総合20項目と改訂10項目のどちらで測りますか？",
+        "choices": [
+          {
+            "label": "原版20項目を使い、既存の日本語使用例を参照する",
+            "scaleId": "personal-involvement-inventory-20",
+            "recommendation": "PII-20",
+            "reason": "1985年原版。増地・瀧川の日本語使用は20項目で、正式標準日本語検証とは区別する。"
+          },
+          {
+            "label": "著者が改訂した10項目で負担を減らす",
+            "scaleId": "revised-personal-involvement-inventory-10",
+            "recommendation": "RPII-10",
+            "reason": "1994年の正式改訂版。認知・感情を分ける場合は文脈で構造を確認し、任意10項目削除版を同一視しない。"
+          }
+        ],
+        "caution": "両極の向きと採点を揃える。原著の高低カットオフを全標本へ流用しない。PII-20の日本語訳は3因子と訳の問題が報告され、RPII-10の日本語根拠へ転用しない。CIPやMPIIは別系統。"
+      }
     },
     {
       id: "purchase-intention",
@@ -1428,21 +1504,46 @@ const ATLAS_DATA = {
       references: ["10.1016/j.jcps.2013.11.002"],
     },
     {
-      id: "persuasion-knowledge",
-      nameJa: "説得知識",
-      nameEn: "Persuasion Knowledge",
-      definitionJa: "マーケターの説得戦術を見分け、それに対処できるという消費者の知識と自信。広告一般を疑う安定した傾向とは別である。Friestad & Wright（1994）の説得知識モデルは理論であり、この測定そのものではない。",
-      domain: "広告・消費者情報処理",
-      relatedConcepts: ["advertising-skepticism", "attitude-toward-the-ad", "need-for-cognition"],
-      parentConcepts: [], childConcepts: [], typicalAntecedents: [], typicalOutcomes: ["advertising-skepticism", "brand-attitude"],
-      decisionGuide: {
-        question: "広告への反応を、懐疑として測りますか、説得戦術への知識として測りますか？",
-        choices: [
-          { label: "消費者自信の下位尺度として、説得知識を6項目で測る", scaleId: "bearden-persuasion-knowledge-6", recommendation: "CSCのPK下位6項目", reason: "Beardenらの説得知識。広告一般への懐疑傾向ではなく、戦術の認識と対処に関する下位尺度である。" },
+      "id": "persuasion-knowledge",
+      "nameJa": "説得知識",
+      "nameEn": "Persuasion Knowledge",
+      "definitionJa": "説得主体の目的・戦術・仕組みに関する知識や、それを認識し対処する能力の自己評価。実際の意図理解、主観的な自信、特定場面での知識の活性化は測定を分ける。広告一般を疑う傾向とは別で、Friestad & Wright（1994）は理論モデルである。",
+      "domain": "広告・消費者情報処理",
+      "relatedConcepts": [
+        "advertising-skepticism",
+        "attitude-toward-the-ad",
+        "need-for-cognition"
+      ],
+      "parentConcepts": [],
+      "childConcepts": [],
+      "typicalAntecedents": [],
+      "typicalOutcomes": [
+        "advertising-skepticism",
+        "brand-attitude"
+      ],
+      "decisionGuide": {
+        "question": "広告への反応を、懐疑として測りますか、説得戦術への知識として測りますか？",
+        "choices": [
+          {
+            "label": "消費者自信の下位尺度として、説得知識を6項目で測る",
+            "scaleId": "bearden-persuasion-knowledge-6",
+            "recommendation": "CSCのPK下位6項目",
+            "reason": "Beardenらの説得知識。広告一般への懐疑傾向ではなく、戦術の認識と対処に関する下位尺度である。"
+          },
+          {
+            "label": "スポンサーコンテンツの販売・説得意図の理解を測る",
+            "scaleId": "boerman-pks-sc-intent-6",
+            "recommendation": "PKS-SC INTENT-6",
+            "reason": "Boermanらの9成分のうち意図理解。正しい6文の同意得点とフィラーを区別し、戦術を見分ける自信とは合算しない。"
+          }
         ],
-        caution: "Friestad & Wright（1994、DOI 10.1086/209380）は説得知識モデルの理論論文であり、固定多項目尺度ではありません。広告懐疑は広告主張を疑う傾向です。価格戦術に特化したPTPK、スポンサーコンテンツ特化の知識尺度、状況操作の単項目は登録していません。Consumer Self-Confidenceの他の5次元も含めません。",
+        "caution": "Friestad & WrightのPKMは固定尺度ではありません。CSCの主観的自信とPKS-SCの意図理解、場面ごとの知識活性化は区別します。PKS-SCはINTENT下位6項目のみ登録し、残る成分や全体の総合得点は登録していません。フィラーを含む調査負担を考慮してください。価格戦術に特化したPTPK、CSCの他5次元は未登録です。"
       },
-      references: ["10.1086/321951", "10.1086/209380"],
+      "references": [
+        "10.1086/321951",
+        "10.1086/209380",
+        "10.1080/02650487.2018.1470485"
+      ]
     },
     {
       id: "luxury-value-perception",
@@ -1464,6 +1565,191 @@ const ATLAS_DATA = {
   ],
 
   scales: [
+    {
+      "id": "personal-involvement-inventory-20",
+      "name": "Personal Involvement Inventory – Original",
+      "abbreviation": "PII-20",
+      "conceptId": "consumer-involvement",
+      "authors": [
+        "Judith Lynne Zaichkowsky"
+      ],
+      "year": 1985,
+      "sourceTitle": "Measuring the Involvement Construct",
+      "journal": "Journal of Consumer Research, 12(3), 341–352",
+      "doi": "10.1086/208520",
+      "sourceUrl": "https://doi.org/10.1086/208520",
+      "itemCount": 20,
+      "dimensions": [
+        "対象の個人的関連性・関与（原版の総合20項目）"
+      ],
+      "responseFormat": "7段階の両極形容詞対（意味微分）",
+      "scoring": "Appendix Aの左右配置と反転指示に従い、高関与方向を高得点に揃えた20項目を合計（20～140点）。原著の低・中・高区分は特定製品・標本の分布から作ったもので、汎用カットオフとしない。",
+      "targetPopulation": [
+        "製品カテゴリーの消費者",
+        "対象への個人的関連性を評価する回答者"
+      ],
+      "language": "English",
+      "versionType": "original",
+      "parentScaleId": null,
+      "japaneseVersionStatus": "usage-example",
+      "japaneseStatusNote": "増地・瀧川（1999）の日本語20項目使用を本文で確認。探索的3因子と訳の問題を著者が報告。逆翻訳・独立再検査・英日不変性を伴う標準日本語検証は今回の検索範囲内で根拠未確認。RPII-10へ転用しない。",
+      "japaneseEvidence": [
+        {
+          "kind": "usage-example",
+          "label": "日本語PII-20を冬道運転の関与に使用（旧RPII-10の帰属を訂正）",
+          "title": "リスク認知とリスクの受容におけるメッセージの効果と関与性の役割",
+          "authors": "増地あゆみ・瀧川哲夫",
+          "year": 1999,
+          "doi": "10.4992/jjpsy.70.285",
+          "url": "https://www.jstage.jst.go.jp/article/jjpsy1926/70/4/70_4_285/_article/-char/ja/",
+          "fullTextUrl": "https://www.jstage.jst.go.jp/article/jjpsy1926/70/4/70_4_285/_pdf",
+          "sourceLocator": "方法：関与性の測定 p.286、結果：関与性の関わり pp.289–290、考察 pp.291–292（PDFと表を目視照合）",
+          "verifiedAt": "2026-10-02"
+        }
+      ],
+      "psychometricEvidence": [
+        {
+          "label": "原著の20項目・信頼性・基準関連性",
+          "sample": "項目選定の心理学学生68名・MBA学生45名。3週後の完了者55名・26名。製品別の追加標本は同一人の複数製品評定を含む。",
+          "methods": "両極形容詞の項目精選、内的一貫性、3週再検査、製品間の差と情報探索等による妥当性検討",
+          "result": "20項目のα=.95～.97。3週再検査は電卓.88、洗口液.89、シリアル.88、赤ワイン.93。Appendix Aで20項目と採点20～140を確認。Appendix Bの製品横断分布N=751は同一回答者の複数製品評定を含み、751独立回答者とは数えない。",
+          "url": "https://doi.org/10.1086/208520",
+          "fullTextUrl": "https://www.sfu.ca/~zaichkow/JCR%2085.pdf",
+          "sourceLocator": "Scale Construction and Reliability pp.343–345、Appendices A–B pp.349–351（著者公式掲載PDF）",
+          "verifiedAt": "2026-10-02"
+        }
+      ],
+      "applicationEvidence": [
+        {
+          "label": "原版20項目と改訂10項目を区別する",
+          "itemCounts": [
+            20
+          ],
+          "evidenceType": "scale-development",
+          "summary": "製品への個人的関連性を20組で測定。1994年の改訂10項目は別登録。原著の高低分類を全製品・日本語標本へ一般化せず、認知・感情5項目ずつの区分を原版へ遡って付けない。",
+          "title": "Measuring the Involvement Construct",
+          "year": 1985,
+          "doi": "10.1086/208520",
+          "url": "https://doi.org/10.1086/208520",
+          "fullTextUrl": "https://www.sfu.ca/~zaichkow/JCR%2085.pdf",
+          "sourceLocator": "Appendices A–B（pp.349–351）",
+          "verifiedAt": "2026-10-02"
+        }
+      ],
+      "usageStudies": [
+        {
+          "title": "リスク認知とリスクの受容におけるメッセージの効果と関与性の役割",
+          "authors": "増地あゆみ・瀧川哲夫",
+          "year": 1999,
+          "context": "冬道運転とスパイク／スタッドレスタイヤのリスク評価・受容。メッセージ3条件と運転経験3群",
+          "sample": "札幌の社会人87名・大学生165名、分析252名（各条件×経験群28名）。当初回答284名から標本を調整",
+          "itemCount": 20,
+          "responseFormat": "7段階の両極形容詞対、20項目合計20～140点",
+          "language": "Japanese",
+          "adaptation": "Zaichkowsky (1985) のPII-20を著者が日本語訳し、対象を冬道の自動車運転へ変更。1994年RPII-10ではない。逆翻訳・独立CFA・再検査の確認はできず、日本語使用例として登録。",
+          "result": "PIIと運転頻度r=.52、事故の起きにくさr=−.20。主因子解・バリマックスで14＋4＋2の3因子（寄与率43.0%、12.7%、9.6%）。著者は第3因子の日本語訳の不適切さの可能性を指摘し、標準日本語版の等価性を認定しない。研究自身のαは未確認。",
+          "doi": "10.4992/jjpsy.70.285",
+          "url": "https://www.jstage.jst.go.jp/article/jjpsy1926/70/4/70_4_285/_article/-char/ja/",
+          "fullTextUrl": "https://www.jstage.jst.go.jp/article/jjpsy1926/70/4/70_4_285/_pdf",
+          "sourceLocator": "方法：関与性の測定 p.286、結果：関与性の関わり pp.289–290、考察 pp.291–292（PDFと表を目視照合）",
+          "verifiedAt": "2026-10-02"
+        }
+      ],
+      "notes": "著者公式PDFの本文・Appendix Aを確認。意味微分の反転を省略しない。項目本文・項目番号対応表の転載は行わない。CIP、MPII-16、独自10項目削除版とは別。日本語根拠は旧RPII-10から版を訂正して移した。",
+      "reverseItems": [],
+      "validationStudies": [],
+      "usagePermission": "unknown",
+      "usageEvidence": [],
+      "itemPublicationStatus": "not-published",
+      "items": [],
+      "verifiedAt": "2026-10-02",
+      "recordStatus": "verified-metadata"
+    },
+    {
+      "id": "boerman-pks-sc-intent-6",
+      "name": "Persuasion Knowledge Scales of Sponsored Content – INTENT Subscale",
+      "abbreviation": "PKS-SC INTENT-6",
+      "conceptId": "persuasion-knowledge",
+      "authors": [
+        "Sophie C. Boerman",
+        "Eva A. van Reijmersdal",
+        "Esther Rozendaal",
+        "Alexandra L. Dima"
+      ],
+      "year": 2018,
+      "sourceTitle": "Development of the Persuasion Knowledge Scales of Sponsored Content (PKS-SC)",
+      "journal": "International Journal of Advertising, 37(5), 671–697",
+      "doi": "10.1080/02650487.2018.1470485",
+      "sourceUrl": "https://doi.org/10.1080/02650487.2018.1470485",
+      "itemCount": 6,
+      "dimensions": [
+        "スポンサーコンテンツの販売・説得意図の理解（INTENT）"
+      ],
+      "responseFormat": "7件法（1＝strongly disagree～7＝strongly agree）",
+      "scoring": "販売・説得意図についての正しい6文への同意を平均（1～7、高得点ほど理解が高い）。原著は誤った理由のフィラーも提示する。6は得点項目数であり、フィラーを含む実際の質問数とは異なる。",
+      "targetPopulation": [
+        "成人のスポンサーコンテンツ受け手",
+        "テレビ・ブログ・ビデオゲーム利用者"
+      ],
+      "language": "English",
+      "versionType": "original",
+      "parentScaleId": null,
+      "japaneseVersionStatus": "unconfirmed",
+      "japaneseStatusNote": "2026-10-02の日本語・英語Web限定検索では、INTENT最終6項目の日本語翻訳・心理測定検証を本文で確認できず。日本語版の不存在を意味しない。",
+      "japaneseEvidence": [],
+      "psychometricEvidence": [
+        {
+          "label": "INTENT最終6項目の原著検証",
+          "sample": "英国Prolificの成人614名（19～75歳）：ゲーム210、テレビ189、ブログ215。5週再検査は同一標本の293名。2016年5月調査。",
+          "methods": "予備の内容・言語確認、Mokken尺度分析、項目精選、CFA、内的一貫性、5週再検査",
+          "result": "INTENTの最終6項目：H=.60（SE=.03）、α=.89。2組の誤差共分散を許すCFAはχ²(7)=19.28、CFI=.99、TLI=.97、RMSEA=.05（90% CI [.03,.08]）。5週Spearman再検査ρ=.58。フィラーは平均得点に含めない。独立標本での最終版再検証と予測・法則的妥当性は原著の課題として残る。",
+          "url": "https://doi.org/10.1080/02650487.2018.1470485",
+          "fullTextUrl": "https://pure.uva.nl/ws/files/33392274/PKS_SC.pdf",
+          "sourceLocator": "Phase 3: Sample, Measures, Results; Tables 1, 4（pp.678–686、大学公開掲載PDF）",
+          "verifiedAt": "2026-10-02"
+        }
+      ],
+      "applicationEvidence": [
+        {
+          "label": "PKS-SCの9成分中、意図理解のみの最終6項目",
+          "itemCounts": [
+            6
+          ],
+          "evidenceType": "scale-development",
+          "summary": "一般的なスポンサーコンテンツについての持続的な販売・説得意図理解を測る。特定投稿直後の活性化や、戦術を見分けられるというCSCの自己評価と区別する。全9成分47質問の総合得点や全体の6項目短縮版として扱わない。",
+          "title": "Development of the Persuasion Knowledge Scales of Sponsored Content (PKS-SC)",
+          "year": 2018,
+          "doi": "10.1080/02650487.2018.1470485",
+          "url": "https://doi.org/10.1080/02650487.2018.1470485",
+          "fullTextUrl": "https://pure.uva.nl/ws/files/33392274/PKS_SC.pdf",
+          "sourceLocator": "Introduction、Measures: INTENT、Table 1と注、Discussion（pp.673–674, 679–680, 683, 691–693）",
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "itemCounts": [],
+          "evidenceType": "meta-analysis",
+          "title": "Influencer marketing effectiveness: A meta-analytic review",
+          "year": 2025,
+          "doi": "10.1007/s11747-024-01052-7",
+          "url": "https://doi.org/10.1007/s11747-024-01052-7",
+          "fullTextUrl": "https://d-nb.info/1352413256/34",
+          "sourceLocator": "Method: Literature search, Effect size calculation、Table 4 continued（PDF pp.13–16；オンライン2024、巻号2025）",
+          "verifiedAt": "2026-10-02",
+          "label": "説得知識と購買意向：概念水準のメタ分析",
+          "summary": "同じPanらのメタ分析。ランダム効果・測定誤差補正相関rcw=−.17（95% CI [−.36,.03]、k=16、N=5,138、I²=98%）。CIが0を含み、平均的な負の関連を有意と認定しない。説得知識の測定を統合し、PKS-SC INTENT-6やBearden PK-6限定の効果ではない。検索期間・言語条件は本文から確定できず。信頼性の記録と同じ1論文で標本重複があり得る。"
+        }
+      ],
+      "usageStudies": [],
+      "notes": "原著で命名されたINTENT下位尺度を別記録。PKS-SC全体の原版・短縮版親レコードは未登録のためparentScaleIdは設定しない。独立使用研究は今回未登録。最終6項目の得点に含めないフィラーを考慮して調査負担を設計する。論文のCC BY-NC-NDを尺度の翻訳・改変・転載の包括許可と解釈しない。",
+      "reverseItems": [],
+      "validationStudies": [],
+      "usagePermission": "unknown",
+      "usageEvidence": [],
+      "itemPublicationStatus": "not-published",
+      "items": [],
+      "verifiedAt": "2026-10-02",
+      "recordStatus": "verified-metadata"
+    },
     {
       id: "carlson-wfcs-18", name: "Multidimensional Work–Family Conflict Scale (Carlson)",
       abbreviation: "WFCS-18", conceptId: "work-family-conflict",
@@ -3870,78 +4156,247 @@ const ATLAS_DATA = {
       recordStatus: "verified-metadata",
     },
     {
-      id: "revised-personal-involvement-inventory-10",
-      name: "Revised Personal Involvement Inventory",
-      abbreviation: "RPII-10",
-      conceptId: "consumer-involvement",
-      authors: ["Judith Lynne Zaichkowsky"],
-      year: 1994,
-      sourceTitle: "The Personal Involvement Inventory: Reduction, Revision, and Application to Advertising",
-      journal: "Journal of Advertising, 23(4), 59–70",
-      doi: "10.1080/00913367.1943.10673459",
-      sourceUrl: "https://doi.org/10.1080/00913367.1943.10673459",
-      itemCount: 10,
-      dimensions: ["Cognitive involvement（5項目）", "Affective involvement（5項目）"],
-      responseFormat: "7件法の両極形容詞対",
-      reverseItems: [], scoring: "10組の両極形容詞対を合計または平均。認知・感情の2群を分ける場合は研究内で因子構造を確認。",
-      targetPopulation: ["製品カテゴリーの消費者", "広告受け手", "購買意思決定者"],
-      language: "English", versionType: "short-form", parentScaleId: null,
-      japaneseVersionStatus: "usage-example",
-      japaneseStatusNote: "PIIを日本語の消費者・リスク研究で使用した例はありますが、RPII-10の標準化された検証済み日本語版は今回未登録です。",
-      japaneseEvidence: [
-        { kind: "usage-example", label: "日本の冬道運転への関与測定でPIIを使用", title: "リスク認知におけるメッセージと関与性の効果", url: "https://www.jstage.jst.go.jp/article/jjpsy1926/70/4/70_4_285/_pdf" },
+      "id": "revised-personal-involvement-inventory-10",
+      "name": "Revised Personal Involvement Inventory",
+      "abbreviation": "RPII-10",
+      "conceptId": "consumer-involvement",
+      "authors": [
+        "Judith Lynne Zaichkowsky"
       ],
-      validationStudies: [], usagePermission: "unknown", usageEvidence: [],
-      psychometricEvidence: [
-        { label: "20項目原版から10項目への短縮・改訂", sample: "製品、広告、購買状況を扱う複数標本", methods: "項目削減、信頼性、製品・広告文脈への構成概念妥当性検討", result: "PIIを20項目から10項目へ削減可能と報告し、認知・感情の2下位群の可能性も提示。", url: "https://doi.org/10.1080/00913367.1943.10673459" },
+      "year": 1994,
+      "sourceTitle": "The Personal Involvement Inventory: Reduction, Revision, and Application to Advertising",
+      "journal": "Journal of Advertising, 23(4), 59–70",
+      "doi": "10.1080/00913367.1943.10673459",
+      "sourceUrl": "https://doi.org/10.1080/00913367.1943.10673459",
+      "itemCount": 10,
+      "dimensions": [
+        "Cognitive involvement（5項目）",
+        "Affective involvement（5項目）"
       ],
-      applicationEvidence: [
-        { label: "製品・広告・購買状況に共通利用できる10項目版", itemCounts: [10, 5], evidenceType: "validated-short-form", summary: "特定ブランドへのエンゲージメントではなく、対象が自分にとって重要・関連的・魅力的かを文脈横断的に測る。", title: "The Personal Involvement Inventory", year: 1994, doi: "10.1080/00913367.1943.10673459", url: "https://doi.org/10.1080/00913367.1943.10673459" },
+      "responseFormat": "7件法の両極形容詞対",
+      "reverseItems": [],
+      "scoring": "10組の両極形容詞対を合計または平均。認知・感情の2群を分ける場合は研究内で因子構造を確認。",
+      "targetPopulation": [
+        "製品カテゴリーの消費者",
+        "広告受け手",
+        "購買意思決定者"
       ],
-      usageStudies: [
-        { title: "Application of the Personal Involvement Inventory in Marketing", authors: "Flynn & Goldsmith", year: 1993, context: "旅行サービスとファッション衣料", sample: "旅行サービス185名、ファッション衣料の成人女性135名", itemCount: 10, responseFormat: "本文参照", language: "English", adaptation: "改訂10項目PIIを2つのマーケティング対象へ適用し、関与の高い消費者の識別に使用。", result: "旅行サービスと衣料という異なる対象で、10項目PIIの実務的なセグメンテーション利用を例示。", doi: "10.1002/mar.4220100409", url: "https://doi.org/10.1002/mar.4220100409" },
-        { title: "Exploring the Information Source Preferences Among Canadian Adult Golf League Members", authors: "Davies & Gray", year: 2016, context: "カナダの成人レクリエーショナル・ゴルフ・リーグ会員のオンライン調査。認知・感情的関与と購買前情報源選好の関係", sample: "カナダの成人ゴルフ・リーグ会員419名（平均年齢62歳；主にサスカチュワン・BC；50歳以上・長期プレーヤーが多い）", itemCount: 10, responseFormat: "7段階セマンティック・ディファレンシャル（両極形容詞；感情5＋認知5）；三分位で高・中・低関与", language: "English", adaptation: "Zaichkowsky (1994) の改訂10項目PII（RPII）をゴルフ・リーグを態度対象として適用。翻訳なし。認知・感情下位尺度（α=.90 / .89）。原版PII-20ではない。", result: "認知・感情関与レベル間で情報源選好に有意差なし。全体としてPersonal・SocialがWeb・Publicより好まれた。性別（女性）がPublic情報源利用を予測（関与ではない）。", doi: "10.17161/jas.v2i2.5711", url: "https://journals.ku.edu/jams/article/view/5711" },
+      "language": "English",
+      "versionType": "short-form",
+      "parentScaleId": "personal-involvement-inventory-20",
+      "japaneseVersionStatus": "unconfirmed",
+      "japaneseStatusNote": "旧登録の増地・瀧川（1999）は本文で原版20項目を使用していたため、PII-20へ帰属を訂正。2026-10-02の限定検索では、1994年改訂10項目と同一項目セットの正式日本語検証を本文で確認できず。日本語の独自削除版を標準RPII-10としない。",
+      "japaneseEvidence": [],
+      "validationStudies": [],
+      "usagePermission": "unknown",
+      "usageEvidence": [],
+      "psychometricEvidence": [
+        {
+          "label": "20項目原版から10項目への短縮・改訂",
+          "sample": "製品、広告、購買状況を扱う複数標本",
+          "methods": "項目削減、信頼性、製品・広告文脈への構成概念妥当性検討",
+          "result": "PIIを20項目から10項目へ削減可能と報告し、認知・感情の2下位群の可能性も提示。",
+          "url": "https://doi.org/10.1080/00913367.1943.10673459"
+        },
+        {
+          "label": "改訂10項目の原著本文確認",
+          "sample": "ビジネス学生52名のうち3週再検査47名。5つの製品・広告刺激を用いた項目精選。",
+          "methods": "原版からの削減・内容改訂、内的一貫性、3週再検査、認知／感情の因子検討",
+          "result": "10項目のαは各文脈で.91以上。最終10項目の3週再検査相関は.77、.84、.73。認知／感情5項目ずつの区分を示すが、文脈ごとの構造を確認する。任意の10項目抜粋と同一視しない。",
+          "url": "https://doi.org/10.1080/00913367.1943.10673459",
+          "fullTextUrl": "https://www.sfu.ca/~zaichkow/JA%2094.pdf",
+          "sourceLocator": "Scale Reduction and Revision、Table 2（pp.60–63、著者公式掲載PDF）",
+          "verifiedAt": "2026-10-02"
+        }
       ],
-      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-09-12",
-      notes: "原版20項目を単に任意削除した版ではなく、Zaichkowsky自身が削減・改訂した10項目版。",
-      recordStatus: "verified-metadata",
+      "applicationEvidence": [
+        {
+          "label": "製品・広告・購買状況に共通利用できる10項目版",
+          "itemCounts": [
+            10,
+            5
+          ],
+          "evidenceType": "validated-short-form",
+          "summary": "特定ブランドへのエンゲージメントではなく、対象が自分にとって重要・関連的・魅力的かを文脈横断的に測る。",
+          "title": "The Personal Involvement Inventory",
+          "year": 1994,
+          "doi": "10.1080/00913367.1943.10673459",
+          "url": "https://doi.org/10.1080/00913367.1943.10673459"
+        }
+      ],
+      "usageStudies": [
+        {
+          "title": "Application of the Personal Involvement Inventory in Marketing",
+          "authors": "Flynn & Goldsmith",
+          "year": 1993,
+          "context": "旅行サービスとファッション衣料",
+          "sample": "旅行サービス185名、ファッション衣料の成人女性135名",
+          "itemCount": 10,
+          "responseFormat": "本文参照",
+          "language": "English",
+          "adaptation": "改訂10項目PIIを2つのマーケティング対象へ適用し、関与の高い消費者の識別に使用。",
+          "result": "旅行サービスと衣料という異なる対象で、10項目PIIの実務的なセグメンテーション利用を例示。",
+          "doi": "10.1002/mar.4220100409",
+          "url": "https://doi.org/10.1002/mar.4220100409"
+        },
+        {
+          "title": "Exploring the Information Source Preferences Among Canadian Adult Golf League Members",
+          "authors": "Davies & Gray",
+          "year": 2016,
+          "context": "カナダの成人レクリエーショナル・ゴルフ・リーグ会員のオンライン調査。認知・感情的関与と購買前情報源選好の関係",
+          "sample": "カナダの成人ゴルフ・リーグ会員419名（平均年齢62歳；主にサスカチュワン・BC；50歳以上・長期プレーヤーが多い）",
+          "itemCount": 10,
+          "responseFormat": "7段階セマンティック・ディファレンシャル（両極形容詞；感情5＋認知5）；三分位で高・中・低関与",
+          "language": "English",
+          "adaptation": "Zaichkowsky (1994) の改訂10項目PII（RPII）をゴルフ・リーグを態度対象として適用。翻訳なし。認知・感情下位尺度（α=.90 / .89）。原版PII-20ではない。",
+          "result": "認知・感情関与レベル間で情報源選好に有意差なし。全体としてPersonal・SocialがWeb・Publicより好まれた。性別（女性）がPublic情報源利用を予測（関与ではない）。",
+          "doi": "10.17161/jas.v2i2.5711",
+          "url": "https://journals.ku.edu/jams/article/view/5711"
+        }
+      ],
+      "itemPublicationStatus": "not-published",
+      "items": [],
+      "verifiedAt": "2026-10-02",
+      "notes": "原版20項目を単に任意削除した版ではなく、Zaichkowsky自身が削減・改訂した10項目版。 2026-10-02に原版20項目を親へ設定し、日本語使用根拠の誤帰属を訂正。既存の使用研究2件は保持し、1993年の10項目セットと1994年最終版の逐項目照合は継続課題。",
+      "recordStatus": "verified-metadata"
     },
     {
-      id: "purchase-intention-spears-singh-5",
-      name: "Purchase Intention Scale – Spears & Singh",
-      abbreviation: "PI-5",
-      conceptId: "purchase-intention",
-      authors: ["Nancy Spears", "Surendra N. Singh"],
-      year: 2004,
-      sourceTitle: "Measuring Attitude toward the Brand and Purchase Intentions",
-      journal: "Journal of Current Issues & Research in Advertising, 26(2), 53–66",
-      doi: "10.1080/10641734.2004.10505164",
-      sourceUrl: "https://doi.org/10.1080/10641734.2004.10505164",
-      itemCount: 5,
-      dimensions: ["Purchase intention"],
-      responseFormat: "7件法の両極尺度",
-      reverseItems: [], scoring: "5項目を平均し、購入可能性・購入意図・関心を総合する。高得点側が購買意向となるよう符号を統一。",
-      targetPopulation: ["広告・製品刺激を評価する消費者", "将来の購入可能性を回答できる消費者"],
-      language: "English", versionType: "original", parentScaleId: null,
-      japaneseVersionStatus: "unconfirmed",
-      japaneseStatusNote: "日本語研究では単一項目や独自項目による購買意向測定も多く、PI-5の検証済み標準日本語版は今回未登録です。",
-      japaneseEvidence: [],
-      validationStudies: [], usagePermission: "unknown", usageEvidence: [],
-      psychometricEvidence: [
-        { label: "購買意向5項目の尺度開発", sample: "広告刺激を用いた複数の実証研究", methods: "候補項目の精選、因子構造、信頼性・妥当性、追試", result: "ブランド態度尺度と区別した5項目の購買意向尺度を提示。後続研究で高い内的一貫性が反復報告されている。", url: "https://doi.org/10.1080/10641734.2004.10505164" },
+      "id": "purchase-intention-spears-singh-5",
+      "name": "Purchase Intention Scale – Spears & Singh",
+      "abbreviation": "PI-5",
+      "conceptId": "purchase-intention",
+      "authors": [
+        "Nancy Spears",
+        "Surendra N. Singh"
       ],
-      applicationEvidence: [
-        { label: "購買可能性を5つの両極尺度で測定", itemCounts: [5, 3], evidenceType: "scale-development", summary: "単一の『買いたい』質問より測定誤差を抑えやすい。後続研究では3項目へ削減される例もあるが、正式原版は5項目。", title: "Measuring Attitude toward the Brand and Purchase Intentions", year: 2004, doi: "10.1080/10641734.2004.10505164", url: "https://doi.org/10.1080/10641734.2004.10505164" },
-        { label: "後続研究内の3項目抜粋版", itemCounts: [3, 5], evidenceType: "study-specific-reduction", summary: "購入可能性・購入関心・購入意図を表す3組を原版から選んだ低負担運用。正式短縮版ではなく、採用する3項目と内容範囲を研究ごとに明記する。", title: "Morality rules: Understanding the role of prior reputation in consequences of scansis", year: 2022, doi: "10.1016/j.pubrev.2022.102147", url: "https://doi.org/10.1016/j.pubrev.2022.102147" },
+      "year": 2004,
+      "sourceTitle": "Measuring Attitude toward the Brand and Purchase Intentions",
+      "journal": "Journal of Current Issues & Research in Advertising, 26(2), 53–66",
+      "doi": "10.1080/10641734.2004.10505164",
+      "sourceUrl": "https://doi.org/10.1080/10641734.2004.10505164",
+      "itemCount": 5,
+      "dimensions": [
+        "Purchase intention"
       ],
-      usageStudies: [
-        { title: "Examining the Impact of Issue Salience, Issue Proximity, Situational Motivation, and Communicative Behaviors on Environmental CSR Outcomes", authors: "Kim et al.", year: 2022, context: "企業の環境CSRブログを用いた米国オンライン実験", sample: "操作確認の有効回答426～434名", itemCount: 5, responseFormat: "7件法の両極尺度", language: "English", adaptation: "Spears & Singhの購買意向5項目をCSRメッセージ後のブランド反応へ適用。", result: "購買意向5項目のα=.96。WOM意向等とともに環境CSRコミュニケーションの結果を測定。", doi: "10.3390/su14052763", url: "https://doi.org/10.3390/su14052763" },
-        { title: "Validating Cross-Modal Measures for Comparative Research: Message Veracity, Novelty, and Memorability", authors: "Jensen et al.", year: 2023, context: "物語型・論証型広告の比較（Intel／Ancestry.com）", sample: "米国成人105名および322名", itemCount: 5, responseFormat: "7件法の両極尺度", language: "English", adaptation: "Spears & Singhの5項目を、広告視聴後に対象ブランドの商品を将来購入する意向へ適用。", result: "Intel標本でα=.96、Ancestry.com標本でα=.98。異なるブランドと広告様式で同じ5項目を使用。", doi: "10.1002/mar.21910", url: "https://doi.org/10.1002/mar.21910" },
-        { title: "Morality rules: Understanding the role of prior reputation in consequences of scansis", authors: "Wei & Diddi", year: 2022, context: "企業の事前評判と道徳的スキャンダルを操作したオンライン実験", sample: "成人293名", itemCount: 3, responseFormat: "7件法の両極尺度", language: "English", adaptation: "Spears & Singhの5項目から、購入可能性・購入関心・購入意図を表す3組を使用。正式短縮版ではなく研究内抜粋版。", result: "3項目のα=.96。良い評判の企業でも道徳的問題後に強い反発が生じることを示した。", doi: "10.1016/j.pubrev.2022.102147", url: "https://doi.org/10.1016/j.pubrev.2022.102147" },
+      "responseFormat": "7件法の両極尺度",
+      "reverseItems": [],
+      "scoring": "5項目を平均し、購入可能性・購入意図・関心を総合する。高得点側が購買意向となるよう符号を統一。",
+      "targetPopulation": [
+        "広告・製品刺激を評価する消費者",
+        "将来の購入可能性を回答できる消費者"
       ],
-      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-15",
-      notes: "購買意向は行動の代理指標であり、実購買率とは一致しない可能性がある。可能なら行動ログや追跡購買も併用する。",
-      recordStatus: "verified-metadata",
+      "language": "English",
+      "versionType": "original",
+      "parentScaleId": null,
+      "japaneseVersionStatus": "unconfirmed",
+      "japaneseStatusNote": "日本語研究では単一項目や独自項目による購買意向測定も多く、PI-5の検証済み標準日本語版は今回未登録です。",
+      "japaneseEvidence": [],
+      "validationStudies": [],
+      "usagePermission": "unknown",
+      "usageEvidence": [],
+      "psychometricEvidence": [
+        {
+          "label": "購買意向5項目の尺度開発",
+          "sample": "広告刺激を用いた複数の実証研究",
+          "methods": "候補項目の精選、因子構造、信頼性・妥当性、追試",
+          "result": "ブランド態度尺度と区別した5項目の購買意向尺度を提示。後続研究で高い内的一貫性が反復報告されている。",
+          "url": "https://doi.org/10.1080/10641734.2004.10505164"
+        }
+      ],
+      "applicationEvidence": [
+        {
+          "label": "購買可能性を5つの両極尺度で測定",
+          "itemCounts": [
+            5,
+            3
+          ],
+          "evidenceType": "scale-development",
+          "summary": "単一の『買いたい』質問より測定誤差を抑えやすい。後続研究では3項目へ削減される例もあるが、正式原版は5項目。",
+          "title": "Measuring Attitude toward the Brand and Purchase Intentions",
+          "year": 2004,
+          "doi": "10.1080/10641734.2004.10505164",
+          "url": "https://doi.org/10.1080/10641734.2004.10505164"
+        },
+        {
+          "label": "後続研究内の3項目抜粋版",
+          "itemCounts": [
+            3,
+            5
+          ],
+          "evidenceType": "study-specific-reduction",
+          "summary": "購入可能性・購入関心・購入意図を表す3組を原版から選んだ低負担運用。正式短縮版ではなく、採用する3項目と内容範囲を研究ごとに明記する。",
+          "title": "Morality rules: Understanding the role of prior reputation in consequences of scansis",
+          "year": 2022,
+          "doi": "10.1016/j.pubrev.2022.102147",
+          "url": "https://doi.org/10.1016/j.pubrev.2022.102147"
+        }
+      ],
+      "usageStudies": [
+        {
+          "title": "Examining the Impact of Issue Salience, Issue Proximity, Situational Motivation, and Communicative Behaviors on Environmental CSR Outcomes",
+          "authors": "Kim et al.",
+          "year": 2022,
+          "context": "企業の環境CSRブログを用いた米国オンライン実験",
+          "sample": "操作確認の有効回答426～434名",
+          "itemCount": 5,
+          "responseFormat": "7件法の両極尺度",
+          "language": "English",
+          "adaptation": "Spears & Singhの購買意向5項目をCSRメッセージ後のブランド反応へ適用。",
+          "result": "購買意向5項目のα=.96。WOM意向等とともに環境CSRコミュニケーションの結果を測定。",
+          "doi": "10.3390/su14052763",
+          "url": "https://doi.org/10.3390/su14052763"
+        },
+        {
+          "title": "Validating Cross-Modal Measures for Comparative Research: Message Veracity, Novelty, and Memorability",
+          "authors": "Jensen et al.",
+          "year": 2023,
+          "context": "物語型・論証型広告の比較（Intel／Ancestry.com）",
+          "sample": "米国成人105名および322名",
+          "itemCount": 5,
+          "responseFormat": "7件法の両極尺度",
+          "language": "English",
+          "adaptation": "Spears & Singhの5項目を、広告視聴後に対象ブランドの商品を将来購入する意向へ適用。",
+          "result": "Intel標本でα=.96、Ancestry.com標本でα=.98。異なるブランドと広告様式で同じ5項目を使用。",
+          "doi": "10.1002/mar.21910",
+          "url": "https://doi.org/10.1002/mar.21910"
+        },
+        {
+          "title": "Morality rules: Understanding the role of prior reputation in consequences of scansis",
+          "authors": "Wei & Diddi",
+          "year": 2022,
+          "context": "企業の事前評判と道徳的スキャンダルを操作したオンライン実験",
+          "sample": "成人293名",
+          "itemCount": 3,
+          "responseFormat": "7件法の両極尺度",
+          "language": "English",
+          "adaptation": "Spears & Singhの5項目から、購入可能性・購入関心・購入意図を表す3組を使用。正式短縮版ではなく研究内抜粋版。",
+          "result": "3項目のα=.96。良い評判の企業でも道徳的問題後に強い反発が生じることを示した。",
+          "doi": "10.1016/j.pubrev.2022.102147",
+          "url": "https://doi.org/10.1016/j.pubrev.2022.102147"
+        },
+        {
+          "title": "Virtual Influencer Credibility and Purchase Intention: The Mediating Role of Consumer Skepticism in China",
+          "authors": "Luo & Wan Hussain",
+          "year": 2026,
+          "context": "中国のバーチャル・インフルエンサー推奨への信頼性・懐疑・購買意向。共通シナリオを提示した横断質問紙",
+          "sample": "中国Credamoの18歳以上、推奨コンテンツ接触経験のある350名。400配布・387回収から37除外。予備50名は本標本へ加算しない。",
+          "language": "Chinese（英語原尺度を翻訳・逆翻訳したと報告）",
+          "doi": "10.32870/myn.vi58.8091",
+          "url": "https://doi.org/10.32870/myn.vi58.8091",
+          "fullTextUrl": "https://www.scielo.org.mx/pdf/myn/v27n58/2594-0163-myn-27-58-89.pdf",
+          "sourceLocator": "Sampling and Data Collection、Measurement Instruments、Tables 1, 4–5, 8（pp.97–105、公開掲載PDFを目視照合）",
+          "verifiedAt": "2026-10-02",
+          "itemCount": 5,
+          "responseFormat": "7件法の同意と報告（原版の両極尺度から変更）",
+          "adaptation": "Spears & Singh (2004) の5項目を推奨製品の購買意向へ変更（Tables 1, 5）。英語から中国語に翻訳・逆翻訳と報告するが、項目逐次対照・測定不変性は未確認。",
+          "result": "Table 5：α=.89、CR=.90、AVE=.64。信頼性とのr=.52、懐疑とのr=−.44。Table 8では信頼性β=.36、懐疑β=−.26。R²=.38。購買意向は実購買ではなく、横断媒介を因果としない。"
+        }
+      ],
+      "itemPublicationStatus": "not-published",
+      "items": [],
+      "verifiedAt": "2026-10-02",
+      "notes": "購買意向は行動の代理指標であり、実購買率とは一致しない可能性がある。可能なら行動ログや追跡購買も併用する。",
+      "recordStatus": "verified-metadata"
     },
     {
       id: "switching-intention-bansal-3",
@@ -4355,38 +4810,114 @@ const ATLAS_DATA = {
       recordStatus: "verified-metadata",
     },
     {
-      id: "skepticism-toward-advertising-9",
-      name: "Skepticism Toward Advertising Scale",
-      abbreviation: "SKEP-9",
-      conceptId: "advertising-skepticism",
-      authors: ["Carl Obermiller", "Eric R. Spangenberg"],
-      year: 1998,
-      sourceTitle: "Development of a Scale to Measure Consumer Skepticism toward Advertising",
-      journal: "Journal of Consumer Psychology, 7(2), 159–186",
-      doi: "10.1207/s15327663jcp0702_03",
-      sourceUrl: "https://doi.org/10.1207/s15327663jcp0702_03",
-      itemCount: 9,
-      dimensions: ["Disbelief of advertising claims"],
-      responseFormat: "7件法",
-      reverseItems: [], scoring: "広告主張への不信を表す9項目を平均。肯定方向項目がある場合は原典どおり逆転する。",
-      targetPopulation: ["一般消費者", "広告接触者"],
-      language: "English", versionType: "original", parentScaleId: null,
-      japaneseVersionStatus: "unconfirmed",
-      japaneseStatusNote: "広告懐疑を扱う日本語研究はありますが、SKEP-9の標準化された心理測定学的日本語版は今回未登録です。",
-      japaneseEvidence: [], validationStudies: [], usagePermission: "unknown", usageEvidence: [],
-      psychometricEvidence: [
-        { label: "広告懐疑9項目尺度の開発", sample: "複数の消費者標本", methods: "項目生成・精選、信頼性、収束・弁別・既知集団妥当性", result: "広告一般の主張を信じない安定傾向を9項目で測る尺度を提示。", url: "https://doi.org/10.1207/s15327663jcp0702_03" },
+      "id": "skepticism-toward-advertising-9",
+      "name": "Skepticism Toward Advertising Scale",
+      "abbreviation": "SKEP-9",
+      "conceptId": "advertising-skepticism",
+      "authors": [
+        "Carl Obermiller",
+        "Eric R. Spangenberg"
       ],
-      applicationEvidence: [
-        { label: "広告一般への不信を9項目で測定", itemCounts: [9], evidenceType: "scale-development", summary: "個別広告の真偽評価ではなく、広告一般への傾向。スポンサーコンテンツ固有の懐疑尺度とは分ける。", title: "Development of a Scale to Measure Consumer Skepticism toward Advertising", year: 1998, doi: "10.1207/s15327663jcp0702_03", url: "https://doi.org/10.1207/s15327663jcp0702_03" },
+      "year": 1998,
+      "sourceTitle": "Development of a Scale to Measure Consumer Skepticism toward Advertising",
+      "journal": "Journal of Consumer Psychology, 7(2), 159–186",
+      "doi": "10.1207/s15327663jcp0702_03",
+      "sourceUrl": "https://doi.org/10.1207/s15327663jcp0702_03",
+      "itemCount": 9,
+      "dimensions": [
+        "Disbelief of advertising claims"
       ],
-      usageStudies: [
-        { title: "Ad Skepticism: The Consequences of Disbelief", authors: "Obermiller, Spangenberg, & MacLachlan", year: 2005, context: "情報訴求・感情訴求を含む広告反応3研究", sample: "3つの消費者研究（詳細は本文参照）", itemCount: 9, responseFormat: "7件法", language: "English", adaptation: "SKEP-9を広告態度、注意、回避、情報源依存等と関連づけて使用。", result: "懐疑が高い消費者ほど広告を好まず、依存・注意が低く、感情訴求へ相対的に好意的に反応。", doi: "10.1080/00913367.2005.10639199", url: "https://doi.org/10.1080/00913367.2005.10639199" },
-        { title: "Development of the Persuasion Knowledge Scales of Sponsored Content (PKS-SC)", authors: "Boerman, van Reijmersdal, Rozendaal, & Dima", year: 2018, context: "ゲーム・テレビ・ブログのスポンサーコンテンツ", sample: "Wave 1: 614名、5週後のWave 2: 293名（ほか予備調査）", itemCount: 9, responseFormat: "尺度得点（原論文参照）", language: "English", adaptation: "PKS-SCの収束・弁別検討用に、Obermiller & Spangenbergの広告一般への懐疑9項目を併用。", result: "広告一般への懐疑を、スポンサーコンテンツ固有の懐疑・適切性等と区別しながら妥当性検討に使用。", doi: "10.1080/02650487.2018.1470485", url: "https://doi.org/10.1080/02650487.2018.1470485" },
+      "responseFormat": "7件法",
+      "reverseItems": [],
+      "scoring": "広告主張への不信を表す9項目を平均。肯定方向項目がある場合は原典どおり逆転する。",
+      "targetPopulation": [
+        "一般消費者",
+        "広告接触者"
       ],
-      itemPublicationStatus: "not-published", items: [], verifiedAt: "2026-07-16",
-      notes: "特定広告の説得知識、広告回避、シニシズムとは区別する。",
-      recordStatus: "verified-metadata",
+      "language": "English",
+      "versionType": "original",
+      "parentScaleId": null,
+      "japaneseVersionStatus": "unconfirmed",
+      "japaneseStatusNote": "広告懐疑を扱う日本語研究はありますが、SKEP-9の標準化された心理測定学的日本語版は今回未登録です。",
+      "japaneseEvidence": [],
+      "validationStudies": [],
+      "usagePermission": "unknown",
+      "usageEvidence": [],
+      "psychometricEvidence": [
+        {
+          "label": "広告懐疑9項目尺度の開発",
+          "sample": "複数の消費者標本",
+          "methods": "項目生成・精選、信頼性、収束・弁別・既知集団妥当性",
+          "result": "広告一般の主張を信じない安定傾向を9項目で測る尺度を提示。",
+          "url": "https://doi.org/10.1207/s15327663jcp0702_03"
+        }
+      ],
+      "applicationEvidence": [
+        {
+          "label": "広告一般への不信を9項目で測定",
+          "itemCounts": [
+            9
+          ],
+          "evidenceType": "scale-development",
+          "summary": "個別広告の真偽評価ではなく、広告一般への傾向。スポンサーコンテンツ固有の懐疑尺度とは分ける。",
+          "title": "Development of a Scale to Measure Consumer Skepticism toward Advertising",
+          "year": 1998,
+          "doi": "10.1207/s15327663jcp0702_03",
+          "url": "https://doi.org/10.1207/s15327663jcp0702_03"
+        }
+      ],
+      "usageStudies": [
+        {
+          "title": "Ad Skepticism: The Consequences of Disbelief",
+          "authors": "Obermiller, Spangenberg, & MacLachlan",
+          "year": 2005,
+          "context": "情報訴求・感情訴求を含む広告反応3研究",
+          "sample": "3つの消費者研究（詳細は本文参照）",
+          "itemCount": 9,
+          "responseFormat": "7件法",
+          "language": "English",
+          "adaptation": "SKEP-9を広告態度、注意、回避、情報源依存等と関連づけて使用。",
+          "result": "懐疑が高い消費者ほど広告を好まず、依存・注意が低く、感情訴求へ相対的に好意的に反応。",
+          "doi": "10.1080/00913367.2005.10639199",
+          "url": "https://doi.org/10.1080/00913367.2005.10639199"
+        },
+        {
+          "title": "Development of the Persuasion Knowledge Scales of Sponsored Content (PKS-SC)",
+          "authors": "Boerman, van Reijmersdal, Rozendaal, & Dima",
+          "year": 2018,
+          "context": "ゲーム・テレビ・ブログのスポンサーコンテンツ",
+          "sample": "Wave 1: 614名、5週後のWave 2: 293名（ほか予備調査）",
+          "itemCount": 9,
+          "responseFormat": "尺度得点（原論文参照）",
+          "language": "English",
+          "adaptation": "PKS-SCの収束・弁別検討用に、Obermiller & Spangenbergの広告一般への懐疑9項目を併用。",
+          "result": "広告一般への懐疑を、スポンサーコンテンツ固有の懐疑・適切性等と区別しながら妥当性検討に使用。",
+          "doi": "10.1080/02650487.2018.1470485",
+          "url": "https://doi.org/10.1080/02650487.2018.1470485"
+        },
+        {
+          "title": "Virtual Influencer Credibility and Purchase Intention: The Mediating Role of Consumer Skepticism in China",
+          "authors": "Luo & Wan Hussain",
+          "year": 2026,
+          "context": "中国のバーチャル・インフルエンサー推奨への信頼性・懐疑・購買意向。共通シナリオを提示した横断質問紙",
+          "sample": "中国Credamoの18歳以上、推奨コンテンツ接触経験のある350名。400配布・387回収から37除外。予備50名は本標本へ加算しない。",
+          "language": "Chinese（英語原尺度を翻訳・逆翻訳したと報告）",
+          "doi": "10.32870/myn.vi58.8091",
+          "url": "https://doi.org/10.32870/myn.vi58.8091",
+          "fullTextUrl": "https://www.scielo.org.mx/pdf/myn/v27n58/2594-0163-myn-27-58-89.pdf",
+          "sourceLocator": "Sampling and Data Collection、Measurement Instruments、Tables 1, 4–5, 8（pp.97–105、公開掲載PDFを目視照合）",
+          "verifiedAt": "2026-10-02",
+          "itemCount": 9,
+          "responseFormat": "7件法の同意（1＝strongly disagree～7＝strongly agree）",
+          "adaptation": "Obermiller & Spangenberg (1998) の9項目を広告一般からバーチャル・インフルエンサー推奨へ変更（Tables 1, 5）。逆転採点・全項目対照は本文で確認できず、広告一般への安定傾向と等価とは認定しない。",
+          "result": "Table 5：α=.84、CR=.85、AVE=.51。購買意向とのr=−.44、信頼性とのr=−.47（Table 4）。Table 8の購買意向へのβ=−.26。横断データ・翻訳改変版の結果で、日本語検証や因果効果ではない。"
+        }
+      ],
+      "itemPublicationStatus": "not-published",
+      "items": [],
+      "verifiedAt": "2026-10-02",
+      "notes": "特定広告の説得知識、広告回避、シニシズムとは区別する。",
+      "recordStatus": "verified-metadata"
     },
     {
       id: "material-values-scale-short-9",
@@ -5484,37 +6015,117 @@ const ATLAS_DATA = {
       recordStatus: "verified-metadata",
     },
     {
-      id: "ohanian-source-credibility-15",
-      name: "Celebrity Endorsers' Perceived Expertise, Trustworthiness, and Attractiveness Scale",
-      abbreviation: "Ohanian-15",
-      conceptId: "source-credibility",
-      authors: ["Roobina Ohanian"],
-      year: 1990,
-      sourceTitle: "Construction and Validation of a Scale to Measure Celebrity Endorsers' Perceived Expertise, Trustworthiness, and Attractiveness",
-      journal: "Journal of Advertising, 19(3), 39–52",
-      doi: "10.1080/00913367.1990.10673191",
-      sourceUrl: "https://doi.org/10.1080/00913367.1990.10673191",
-      itemCount: 15,
-      dimensions: ["Attractiveness", "Trustworthiness", "Expertise"],
-      responseFormat: "意味微分（通例7件法）",
-      reverseItems: [], scoring: "Attractiveness、Trustworthiness、Expertise を各5項目。ブランド信憑性の得点と合算しない。",
-      targetPopulation: ["広告の受け手", "セレブリティ・エンドーサーの評価者"],
-      language: "English", versionType: "original", parentScaleId: null,
-      japaneseVersionStatus: "unconfirmed",
-      japaneseStatusNote: "Ohanian（1990）の15項目そのものの検証済み日本語版は今回未確認です。日本語の広告研究で援用されていても、標準版としては扱いません。ブランド信憑性の日本語情報とも別です。",
-      japaneseEvidence: [],
-      validationStudies: [], usagePermission: "unknown", usageEvidence: [],
-      psychometricEvidence: [
-        { label: "3次元15項目の二次確認", sample: "原典の表は未開封", methods: "セレブリティ・エンドーサーの知覚された専門性・信頼・魅力の尺度構成", result: "15項目（各次元5）。意味微分で、通例は7件法。タイトル・DOI・次元名は Crossref と二次ソースで一致。αは今回の根拠ファイルには記さない。", url: "https://doi.org/10.1080/00913367.1990.10673191" },
+      "id": "ohanian-source-credibility-15",
+      "name": "Celebrity Endorsers' Perceived Expertise, Trustworthiness, and Attractiveness Scale",
+      "abbreviation": "Ohanian-15",
+      "conceptId": "source-credibility",
+      "authors": [
+        "Roobina Ohanian"
       ],
-      applicationEvidence: [
-        { label: "エンドーサーの3次元を各5項目で測る原版", itemCounts: [15], evidenceType: "scale-development", summary: "魅力・信頼・専門性。ブランドの意思と能力を測るブランド信憑性6項目とは対象が異なる。インフルエンサーへの転用は原典のセレブリティ文脈と区別する。", title: "Construction and Validation of a Scale to Measure Celebrity Endorsers' Perceived Expertise, Trustworthiness, and Attractiveness", year: 1990, doi: "10.1080/00913367.1990.10673191", url: "https://doi.org/10.1080/00913367.1990.10673191" },
+      "year": 1990,
+      "sourceTitle": "Construction and Validation of a Scale to Measure Celebrity Endorsers' Perceived Expertise, Trustworthiness, and Attractiveness",
+      "journal": "Journal of Advertising, 19(3), 39–52",
+      "doi": "10.1080/00913367.1990.10673191",
+      "sourceUrl": "https://doi.org/10.1080/00913367.1990.10673191",
+      "itemCount": 15,
+      "dimensions": [
+        "Attractiveness",
+        "Trustworthiness",
+        "Expertise"
       ],
-      usageStudies: [],
-      itemPublicationStatus: "not-published", items: [],
-      verifiedAt: "2026-09-30",
-      notes: "Ohanian（1990）。DOI 10.1080/00913367.1990.10673191。Journal of Advertising, 19(3), 39–52。15項目（Attractiveness / Trustworthiness / Expertise 各5）の意味微分。通例7件法は二次ソース。ブランド信憑性とは測定対象が異なる。開発論文は使用研究に含めない。使用研究は空。日本語状況は未確認。項目本文は収録しない。",
-      recordStatus: "verified-metadata",
+      "responseFormat": "意味微分（通例7件法）",
+      "reverseItems": [],
+      "scoring": "Attractiveness、Trustworthiness、Expertise を各5項目。ブランド信憑性の得点と合算しない。",
+      "targetPopulation": [
+        "広告の受け手",
+        "セレブリティ・エンドーサーの評価者"
+      ],
+      "language": "English",
+      "versionType": "original",
+      "parentScaleId": null,
+      "japaneseVersionStatus": "unconfirmed",
+      "japaneseStatusNote": "Ohanian（1990）の15項目そのものの検証済み日本語版は今回未確認です。日本語の広告研究で援用されていても、標準版としては扱いません。ブランド信憑性の日本語情報とも別です。",
+      "japaneseEvidence": [],
+      "validationStudies": [],
+      "usagePermission": "unknown",
+      "usageEvidence": [],
+      "psychometricEvidence": [
+        {
+          "label": "3次元15項目の二次確認",
+          "sample": "原典の表は未開封",
+          "methods": "セレブリティ・エンドーサーの知覚された専門性・信頼・魅力の尺度構成",
+          "result": "15項目（各次元5）。意味微分で、通例は7件法。タイトル・DOI・次元名は Crossref と二次ソースで一致。αは今回の根拠ファイルには記さない。",
+          "url": "https://doi.org/10.1080/00913367.1990.10673191"
+        }
+      ],
+      "applicationEvidence": [
+        {
+          "label": "エンドーサーの3次元を各5項目で測る原版",
+          "itemCounts": [
+            15
+          ],
+          "evidenceType": "scale-development",
+          "summary": "魅力・信頼・専門性。ブランドの意思と能力を測るブランド信憑性6項目とは対象が異なる。インフルエンサーへの転用は原典のセレブリティ文脈と区別する。",
+          "title": "Construction and Validation of a Scale to Measure Celebrity Endorsers' Perceived Expertise, Trustworthiness, and Attractiveness",
+          "year": 1990,
+          "doi": "10.1080/00913367.1990.10673191",
+          "url": "https://doi.org/10.1080/00913367.1990.10673191"
+        },
+        {
+          "itemCounts": [],
+          "evidenceType": "meta-analysis",
+          "title": "Influencer marketing effectiveness: A meta-analytic review",
+          "year": 2025,
+          "doi": "10.1007/s11747-024-01052-7",
+          "url": "https://doi.org/10.1007/s11747-024-01052-7",
+          "fullTextUrl": "https://d-nb.info/1352413256/34",
+          "sourceLocator": "Method: Literature search, Effect size calculation、Table 4 continued（PDF pp.13–16；オンライン2024、巻号2025）",
+          "verifiedAt": "2026-10-02",
+          "label": "インフルエンサーの信頼性と購買意向：概念水準のメタ分析",
+          "summary": "EBSCO、ProQuest、CNKI、Scopus、Google Scholar・引用追跡等の251論文・279独立標本・1,531効果量。伝統的セレブリティ推奨を除外。ランダム効果・測定誤差補正相関rcw=.51（95% CI [.47,.56]、k=86、N=39,132、I²=97%）。尺度版は混在し、Ohanian-15とPI-5の限定効果ではない。本文から検索期間の始点・終点と一律の言語条件は確定できず。"
+        }
+      ],
+      "usageStudies": [
+        {
+          "title": "Social media influencer marketing: the moderating role of materialism",
+          "authors": "Koay, Cheung, Soh, & Teoh",
+          "year": 2022,
+          "context": "Instagramのインフルエンサーの魅力・信頼・専門性とフォロワーの購買意向。2020年9～11月オンライン横断調査",
+          "sample": "Instagram利用者191名、平均24.18歳、女性123・男性68。マレーシア華人69%。予備30名を本分析標本に加算しない。",
+          "itemCount": 15,
+          "responseFormat": "7件法の同意尺度（strongly disagree～strongly agree）。原版の意味微分から変更。",
+          "language": "本文で質問票の実施言語・翻訳手続を確認できず（英文掲載）",
+          "adaptation": "Ohanian (1991) を引用して魅力・専門性・信頼各5項目をInstafamousへ適用。Table 2で15指標を確認。購買意向はDodds系3項目、物質主義は5項目で、PI-5やMVS-9の使用と数えない。",
+          "result": "Table 2のαは魅力.894、専門性.944、信頼.930。Table 4/5 Model 1で購買意向への信頼β=.345、専門性β=.408は有意、魅力β=−.003は非有意。PLS-SEM・5,000回bootstrap。後続モデルの一部CIとt値の不整合を一般化せず、横断関連として記録。",
+          "doi": "10.1108/ebr-02-2021-0032",
+          "url": "https://doi.org/10.1108/EBR-02-2021-0032",
+          "fullTextUrl": "https://www.researchgate.net/publication/351269353_Social_media_influencer_marketing_The_moderating_role_of_materialism",
+          "sourceLocator": "Sections 3.1–3.2、Tables 2, 4–5（Koay著者公開の掲載論文本文；オンライン2021、巻号2022）",
+          "verifiedAt": "2026-10-02"
+        },
+        {
+          "title": "Virtual Influencer Credibility and Purchase Intention: The Mediating Role of Consumer Skepticism in China",
+          "authors": "Luo & Wan Hussain",
+          "year": 2026,
+          "context": "中国のバーチャル・インフルエンサー推奨への信頼性・懐疑・購買意向。共通シナリオを提示した横断質問紙",
+          "sample": "中国Credamoの18歳以上、推奨コンテンツ接触経験のある350名。400配布・387回収から37除外。予備50名は本標本へ加算しない。",
+          "language": "Chinese（英語原尺度を翻訳・逆翻訳したと報告）",
+          "doi": "10.32870/myn.vi58.8091",
+          "url": "https://doi.org/10.32870/myn.vi58.8091",
+          "fullTextUrl": "https://www.scielo.org.mx/pdf/myn/v27n58/2594-0163-myn-27-58-89.pdf",
+          "sourceLocator": "Sampling and Data Collection、Measurement Instruments、Tables 1, 4–5, 8（pp.97–105、公開掲載PDFを目視照合）",
+          "verifiedAt": "2026-10-02",
+          "itemCount": 15,
+          "responseFormat": "全項目7件法の同意と報告する一方、信頼性の説明に意味微分との表記もあり、実提示形式は確定できず。",
+          "adaptation": "Table 1と5で魅力・専門性・信頼各5の15項目。celebrityをvirtual influencerへ変更。翻訳・逆翻訳の報告はあるが、原版との全項目対照・不変性は未確認。",
+          "result": "Table 5：専門性α=.85、信頼.87、魅力.83、全体.91。購買意向とのr=.52、懐疑とのr=−.47（Table 4）；Table 8の購買意向へのβ=.36。原著の総合化の報告であり、全15項目が常に単一因子という認定ではない。横断媒介を因果としない。"
+        }
+      ],
+      "itemPublicationStatus": "not-published",
+      "items": [],
+      "verifiedAt": "2026-10-02",
+      "notes": "Ohanian（1990）。DOI 10.1080/00913367.1990.10673191。Journal of Advertising, 19(3), 39–52。15項目（Attractiveness / Trustworthiness / Expertise 各5）の意味微分。通例7件法は二次ソース。ブランド信憑性とは測定対象が異なる。開発論文は使用研究に含めない。独立使用論文2本を今回追加（形式変更・記述の不整合を併記）。日本語状況は未確認。項目本文は収録しない。 原典1990年の項目表は今回再確認していない。メタ分析は1論文の概念統合で、15項目版限定の使用証拠には数えない。",
+      "recordStatus": "verified-metadata"
     },
     {
       id: "turker-perceived-csr-17",
@@ -5784,37 +6395,68 @@ const ATLAS_DATA = {
       recordStatus: "verified-metadata",
     },
     {
-      id: "bearden-persuasion-knowledge-6",
-      name: "Persuasion Knowledge (Consumer Self-Confidence subscale)",
-      abbreviation: "PK-6",
-      conceptId: "persuasion-knowledge",
-      authors: ["William O. Bearden", "David M. Hardesty", "Randall L. Rose"],
-      year: 2001,
-      sourceTitle: "Consumer Self-Confidence: Refinements in Conceptualization and Measurement",
-      journal: "Journal of Consumer Research, 28(1), 121–134",
-      doi: "10.1086/321951",
-      sourceUrl: "https://doi.org/10.1086/321951",
-      itemCount: 6,
-      dimensions: ["Persuasion knowledge（説得知識・CSCの下位尺度）"],
-      responseFormat: "通例5件法（extremely uncharacteristic–characteristic。原典の表は未開封）",
-      reverseItems: [], scoring: "Consumer Self-Confidenceのうち説得知識の6項目だけを用いる。残る5次元や、広告懐疑とは合算しない。",
-      targetPopulation: ["消費者"],
-      language: "English", versionType: "original", parentScaleId: null,
-      japaneseVersionStatus: "unconfirmed",
-      japaneseStatusNote: "Beardenらの説得知識6項目そのものの検証済み日本語版は今回未確認です。広告懐疑尺度の日本語情報とは別です。",
-      japaneseEvidence: [],
-      validationStudies: [], usagePermission: "unknown", usageEvidence: [],
-      psychometricEvidence: [
-        { label: "CSCのうち説得知識の下位尺度", sample: "原典の表は未開封。Journal of Consumer Research, 28(1), 121–134", methods: "消費者自信の概念整理と測定", result: "旗艦は説得知識の6項目・単一次元。通例5件法（extremely uncharacteristic–characteristic）。CSC全体は6次元で、本レコードはそのうち説得知識だけ。αは今回の根拠ファイルには記さない。", url: "https://doi.org/10.1086/321951" },
+      "id": "bearden-persuasion-knowledge-6",
+      "name": "Persuasion Knowledge (Consumer Self-Confidence subscale)",
+      "abbreviation": "PK-6",
+      "conceptId": "persuasion-knowledge",
+      "authors": [
+        "William O. Bearden",
+        "David M. Hardesty",
+        "Randall L. Rose"
       ],
-      applicationEvidence: [
-        { label: "理論論文ではなく測定下位尺度を旗艦にする", itemCounts: [6], evidenceType: "scale-development", summary: "Friestad & Wright（1994、DOI 10.1086/209380）は説得知識モデルの理論であり尺度開発ではない。広告懐疑とは別。Hardesty, Bearden, & Carlson（2007）の価格戦術説得知識（DOI 10.1016/j.jretai.2006.06.003）と、スポンサーコンテンツ特化の知識尺度は登録しない。", title: "Consumer Self-Confidence: Refinements in Conceptualization and Measurement", year: 2001, doi: "10.1086/321951", url: "https://doi.org/10.1086/321951" },
+      "year": 2001,
+      "sourceTitle": "Consumer Self-Confidence: Refinements in Conceptualization and Measurement",
+      "journal": "Journal of Consumer Research, 28(1), 121–134",
+      "doi": "10.1086/321951",
+      "sourceUrl": "https://doi.org/10.1086/321951",
+      "itemCount": 6,
+      "dimensions": [
+        "Persuasion knowledge（説得知識・CSCの下位尺度）"
       ],
-      usageStudies: [],
-      itemPublicationStatus: "not-published", items: [],
-      verifiedAt: "2026-09-30",
-      notes: "Bearden, Hardesty, & Rose（2001）の Consumer Self-Confidence のうち Persuasion Knowledge。DOI 10.1086/321951。Journal of Consumer Research, 28(1), 121–134。6項目・単一次元。通例5件法（extremely uncharacteristic–characteristic）。原典の表は未開封。CSC全体の6次元は登録しない。Friestad & Wright（1994、DOI 10.1086/209380）は理論論文であり、尺度本体にも使用研究にもしない。広告懐疑とは別。PTPKとスポンサーコンテンツ特化尺度は登録しない。開発論文は使用研究に含めない。使用研究は空。日本語状況は未確認。項目本文は収録しない。",
-      recordStatus: "verified-metadata",
+      "responseFormat": "通例5件法（extremely uncharacteristic–characteristic。原典の表は未開封）",
+      "reverseItems": [],
+      "scoring": "Consumer Self-Confidenceのうち説得知識の6項目だけを用いる。残る5次元や、広告懐疑とは合算しない。",
+      "targetPopulation": [
+        "消費者"
+      ],
+      "language": "English",
+      "versionType": "original",
+      "parentScaleId": null,
+      "japaneseVersionStatus": "unconfirmed",
+      "japaneseStatusNote": "Beardenらの説得知識6項目そのものの検証済み日本語版は今回未確認です。広告懐疑尺度の日本語情報とは別です。",
+      "japaneseEvidence": [],
+      "validationStudies": [],
+      "usagePermission": "unknown",
+      "usageEvidence": [],
+      "psychometricEvidence": [
+        {
+          "label": "CSCのうち説得知識の下位尺度",
+          "sample": "原典の表は未開封。Journal of Consumer Research, 28(1), 121–134",
+          "methods": "消費者自信の概念整理と測定",
+          "result": "旗艦は説得知識の6項目・単一次元。通例5件法（extremely uncharacteristic–characteristic）。CSC全体は6次元で、本レコードはそのうち説得知識だけ。αは今回の根拠ファイルには記さない。",
+          "url": "https://doi.org/10.1086/321951"
+        }
+      ],
+      "applicationEvidence": [
+        {
+          "label": "理論論文ではなく測定下位尺度を旗艦にする",
+          "itemCounts": [
+            6
+          ],
+          "evidenceType": "scale-development",
+          "summary": "Friestad & Wright（1994、DOI 10.1086/209380）は説得知識モデルの理論であり尺度開発ではない。広告懐疑とは別。Hardesty, Bearden, & Carlson（2007）の価格戦術説得知識（DOI 10.1016/j.jretai.2006.06.003）は未登録。スポンサーコンテンツの意図理解はPKS-SC INTENT-6に分けて登録する。",
+          "title": "Consumer Self-Confidence: Refinements in Conceptualization and Measurement",
+          "year": 2001,
+          "doi": "10.1086/321951",
+          "url": "https://doi.org/10.1086/321951"
+        }
+      ],
+      "usageStudies": [],
+      "itemPublicationStatus": "not-published",
+      "items": [],
+      "verifiedAt": "2026-09-30",
+      "notes": "Bearden, Hardesty, & Rose（2001）の Consumer Self-Confidence のうち Persuasion Knowledge。DOI 10.1086/321951。Journal of Consumer Research, 28(1), 121–134。6項目・単一次元。通例5件法（extremely uncharacteristic–characteristic）。原典の表は未開封。CSC全体の6次元は登録しない。Friestad & Wright（1994、DOI 10.1086/209380）は理論論文であり、尺度本体にも使用研究にもしない。広告懐疑とは別。PTPKは未登録。スポンサーコンテンツの意図理解はPKS-SC INTENT-6を別登録し、本尺度と合算しない。開発論文は使用研究に含めない。使用研究は空。日本語状況は未確認。項目本文は収録しない。",
+      "recordStatus": "verified-metadata"
     },
     {
       id: "wiedmann-lvp-48",
