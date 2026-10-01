@@ -120,7 +120,7 @@ function practiceSummary(s) {
   const counts = observedItemCounts(s);
   if ((s.usageEvidence || []).length) return `${usageSummary(s)}・実使用数の根拠あり`;
   if ((s.usageStudies || []).length) return `使用先行研究 ${s.usageStudies.length}件を登録${counts.length ? `（${counts.join("・")}項目）` : ""}`;
-  if ((s.applicationEvidence || []).some((e) => ["systematic-review", "systematic-review-count", "comparative-validation"].includes(e.evidenceType))) return `複数研究・版の比較根拠あり${counts.length ? `（${counts.join("・")}項目）` : ""}`;
+  if ((s.applicationEvidence || []).some((e) => ["systematic-review", "systematic-review-count", "meta-analysis", "comparative-validation"].includes(e.evidenceType))) return `複数研究・版の比較根拠あり${counts.length ? `（${counts.join("・")}項目）` : ""}`;
   if ((s.applicationEvidence || []).length) return `実研究での使用版あり${counts.length ? `（${counts.join("・")}項目）` : ""}`;
   if ((s.psychometricEvidence || []).length > 1 || s.japaneseVersionStatus === "validated") return "複数環境・日本語での検証根拠あり";
   if ((s.psychometricEvidence || []).length) return "開発・検証根拠あり／実使用版は未整理";
@@ -129,7 +129,7 @@ function practiceSummary(s) {
 
 function practiceScore(s) {
   const directCount = (s.usageEvidence || [])[0]?.count || 0;
-  const reviewEvidence = (s.applicationEvidence || []).filter((e) => e.evidenceType?.includes("review") || e.evidenceType === "comparative-validation").length;
+  const reviewEvidence = new Set((s.applicationEvidence || []).filter((e) => e.evidenceType?.includes("review") || ["meta-analysis", "comparative-validation"].includes(e.evidenceType)).map((e) => e.doi || e.url)).size;
   return (directCount ? 100000 + directCount : 0) + reviewEvidence * 10000 + (s.usageStudies || []).length * 2000 + (s.applicationEvidence || []).length * 1000 + (s.psychometricEvidence || []).length * 100 + (s.japaneseVersionStatus === "validated" ? 10 : 0);
 }
 
@@ -534,7 +534,7 @@ function filtered() {
     const hay = [s.name, s.abbreviation, ...s.authors, ...s.targetPopulation, c.nameJa, c.nameEn, s.japaneseStatusNote, evidenceText].join(" ").toLowerCase();
     const japaneseMatch = !jp || (jp === "available" ? s.japaneseVersionStatus !== "unconfirmed" : jp === "verified" ? verifiedJapaneseStatuses.has(s.japaneseVersionStatus) : s.japaneseVersionStatus === jp);
     const permissionMatch = !permission || (permission === "research" ? s.usagePermission === "research-use" : permission === "permission" ? s.usagePermission === "permission-required" : s.usagePermission === permission);
-    const practiceMatch = !practice || (practice === "documented" ? (s.applicationEvidence || []).length || (s.usageEvidence || []).length || (s.usageStudies || []).length : practice === "usage-studies" ? (s.usageStudies || []).length : practice === "review" ? (s.usageEvidence || []).length || (s.applicationEvidence || []).some((e) => e.evidenceType?.includes("review") || e.evidenceType === "comparative-validation") : practice === "jp-validated" ? s.japaneseVersionStatus === "validated" : true);
+    const practiceMatch = !practice || (practice === "documented" ? (s.applicationEvidence || []).length || (s.usageEvidence || []).length || (s.usageStudies || []).length : practice === "usage-studies" ? (s.usageStudies || []).length : practice === "review" ? (s.usageEvidence || []).length || (s.applicationEvidence || []).some((e) => e.evidenceType?.includes("review") || ["meta-analysis", "comparative-validation"].includes(e.evidenceType)) : practice === "jp-validated" ? s.japaneseVersionStatus === "validated" : true);
     const shortProfile = shortFormProfile(s);
     const shortFormMatch = !shortForm || (shortForm === "registered" ? shortProfile.registered : shortForm === "usage" ? shortProfile.usageCounts.length : shortProfile.registered || shortProfile.usageCounts.length || shortProfile.evidenceCounts.length);
     return (!q || hay.includes(q)) && (!domain || c.domain === domain) && (!style || measurementStyleKey(s) === style) && japaneseMatch && practiceMatch && permissionMatch && shortFormMatch && s.itemCount <= max;
