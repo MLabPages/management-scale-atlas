@@ -1,5 +1,5 @@
 {
-  "scopeVersion": "2026-10-01",
+  "scopeVersion": "2026-10-02",
   "interpretation": "収録範囲を広げる調査候補。尺度の存在・版・項目数・日本語版は原典確認前で、登録尺度として数えない。網羅性を認定するリストではない。",
   "targets": [
     { "id": "absorptive-capacity", "area": "戦略・組織能力", "label": "吸収能力", "query": "absorptive capacity scale Flatten", "priority": "A", "reason": "戦略・組織能力の主要概念を補う。潜在／実現吸収能力と尺度の定義を確認。" },
@@ -7,12 +7,12 @@
     { "id": "learning-orientation", "area": "戦略・組織能力", "label": "学習志向・組織学習能力", "query": "learning orientation organizational learning capability scale", "priority": "A", "reason": "Chiva系組織学習能力14項目は登録済み。学習志向・学習行動は別概念として本文確認を継続。" },
     { "id": "planned-behavior", "area": "消費者意思決定", "label": "計画的行動理論の態度・主観的規範・知覚行動統制", "query": "theory planned behavior questionnaire measurement Ajzen", "priority": "A", "reason": "行動・対象・文脈・時間を合わせた測定設計を確認。固定の汎用項目数を推測しない。" },
     { "id": "technology-readiness", "area": "技術受容・情報システム", "label": "技術レディネス", "query": "Technology Readiness Index TRI 2.0 validation", "priority": "B", "reason": "技術受容の特性側を補う。原版と後続版、利用条件を確認。" },
-    { "id": "general-self-efficacy", "area": "組織行動・人的資源", "label": "一般性自己効力感", "query": "general self efficacy scale Japanese validation", "priority": "B", "reason": "一般性と職務特異的自己効力感を分け、日本語版を確認。" },
+    { "id": "general-self-efficacy", "area": "組織行動・人的資源", "label": "一般性自己効力感", "query": "general self efficacy scale Japanese validation", "priority": "B", "reason": "坂野・東條の日本語独自16項目を登録済み。Schwarzer–Jerusalemの10項目・Sherer系と区別して原著・日本語検証を続行。" },
     { "id": "social-desirability", "area": "研究方法・統制変数", "label": "社会的望ましさ", "query": "social desirability scale short form Japanese validation", "priority": "B", "reason": "自己報告調査の統制候補。短縮版と回答バイアスの用途を確認。" },
     { "id": "recovery-justice", "area": "サービス・顧客関係", "label": "サービス・リカバリー公正", "query": "Tax Brown Chandrashekaran 1998 justice service recovery measurement", "priority": "A", "reason": "既存HOLD。原典の項目数と次元ごとの採点方法を本文で確定する。" },
     { "id": "self-congruity", "area": "ブランド・消費者関係", "label": "自己一致性", "query": "Sirgy self congruity measurement scale", "priority": "B", "reason": "既存HOLD。直接・間接測定や複数の自己概念を分ける。" },
-    { "id": "carlson-wfc", "area": "組織行動・人的資源", "label": "Carlson系ワーク・ファミリー・コンフリクト", "query": "Carlson Kacmar Williams work family conflict scale", "priority": "B", "reason": "渡井らのCarlson系日本語18項目は登録済み。英語原版の本文確認と親子対応が残る。Netemeyerとは別系統。" },
+    { "id": "carlson-wfc", "area": "組織行動・人的資源", "label": "Carlson系ワーク・ファミリー・コンフリクト", "query": "Carlson Kacmar Williams work family conflict scale", "priority": "B", "reason": "英語原版18項目の本文と渡井日本語版の親子対応を確認済み。英語原版の独立使用研究・他職種・英日間不変性を優先。Netemeyerとは別系統。" },
     { "id": "jds", "area": "組織行動・人的資源", "label": "Job Diagnostic Survey", "query": "Hackman Oldham Job Diagnostic Survey validation", "priority": "B", "reason": "WDQと異なる主要測定系統。診断と次元別の項目を確認。" },
-    { "id": "janssen-iwb", "area": "組織行動・人的資源", "label": "Janssen系革新的業務行動", "query": "Janssen 2000 innovative work behavior scale", "priority": "B", "reason": "登録済みScott–Bruceと評定者・段階・版を比較する。" }
+    { "id": "janssen-iwb", "area": "組織行動・人的資源", "label": "Janssen系革新的業務行動", "query": "Janssen 2000 innovative work behavior scale", "priority": "B", "reason": "原著9項目と使用研究3件（日本語1件）を確認済み。日本語の翻訳手続き・独立再検証・評定者間不変性、Scott–Bruceとの版比較を継続。" }
   ]
 }
