@@ -2,9 +2,9 @@
 // DOI、原典、項目数、下位次元は原著論文または公式資料で確認。
 const ATLAS_DATA = {
   meta: {
-    version: "0.83.0",
+    version: "0.84.0",
     status: "initial-real-data",
-    updated: "2026-10-01",
+    updated: "2026-10-04",
     scope: "105概念・143尺度",
   },
 
@@ -5237,15 +5237,17 @@ const ATLAS_DATA = {
       validationStudies: [], usagePermission: "unknown", usageEvidence: [],
       psychometricEvidence: [
         { label: "原典抄録で確認できるモデル", sample: "公開抄録は標本サイズを明示しない", methods: "リーダーシップ、個人の問題解決スタイル、作業集団の関係が、革新風土の知覚を介して革新的行動に影響するというパスモデル。構造方程式。課題特性の調整", result: "モデルは革新的行動の分散の約37%を説明した。リーダーの役割期待と革新的行動の関係は課題タイプが調整した。項目数・評定者・αは抄録にない。", url: "https://doi.org/10.5465/256701" },
-        { label: "二次文献が原典として報告する6項目・上司評定・α", sample: "原典の表は本確認では未開封。Steyn（2019）ほかが Scott & Bruce（1994）を引用", methods: "原典を引用する尺度解説が、項目数、評定者、5件法のアンカー、α、客観的革新指標との相関を要約", result: "上司が部下を6項目で評定する単一次元。5件法は not at all から to an exceptional degree（二次文献の表記。to の有無は引用により揺れる）。原典のα=.89。客観的な革新指標との相関は r=.33 と報告される。自己評定への後続適応、Janssen（2000）の9項目、Scott & Bruce（1998）の4項目短縮は本レコードに含めない。", url: "https://sajesbm.co.za/index.php/sajesbm/article/view/291/353" },
+        { label: "二次文献が原典として報告する6項目・上司評定・α", sample: "原典の表は本確認では未開封。Steyn（2019）ほかが Scott & Bruce（1994）を引用", methods: "原典を引用する尺度解説が、項目数、評定者、5件法のアンカー、α、客観的革新指標との相関を要約", result: "上司が部下を6項目で評定する単一次元。5件法は not at all から to an exceptional degree（二次文献の表記。to の有無は引用により揺れる）。原典のα=.89。客観的な革新指標との相関は r=.33 と報告される。自己評定への後続適応、Janssen（2000）の9項目、Scott & Bruce（1998）の4項目短縮は本レコードに含めない。Wang, Ellinger, & Wu（2013）の Table I の α=0.92 は当該使用標本の値であり、この開発論文の α=.89 を置き換えない。", url: "https://sajesbm.co.za/index.php/sajesbm/article/view/291/353" },
       ],
       applicationEvidence: [
         { label: "上司が部下の革新的行動を6項目で評定する原版", itemCounts: [6], evidenceType: "scale-development", summary: "アイデアの探索・生成、推進、実装に向かう個人の行動を、上司評定の6項目・単一次元で測る。Janssen（2000）の9項目、Scott & Bruce（1998）の4項目短縮、Goldsmith & Hofackerの消費者向け DSI とは別の項目集合。開発論文は使用研究に含めない。", title: "Determinants of innovative behavior: A path model of individual innovation in the workplace", year: 1994, doi: "10.5465/256701", url: "https://doi.org/10.5465/256701" },
       ],
-      usageStudies: [],
+      usageStudies: [
+        { title: "Entrepreneurial opportunity recognition: an empirical study of R&D personnel", authors: "Wang, Ellinger, & Wu", year: 2013, context: "台湾のサイエンスパークにいる R&D 人材の起業機会認識。Management Decision, 51(2), 248–266", sample: "台湾の1つのサイエンスパーク。ハイテク企業83社（企業回答率30.29%）。R&Dマネジャー（上司）83名が部下268名の革新的行動を評定。従業員質問紙の有効回答は268名（64.58%）。マネジャーは、R&Dプロジェクトチームで3年を超えて働いたシニアを3〜5名選ぶよう求められた。機会認識とその先行要因は従業員の自己報告であり、この革新的行動の評定ではない", itemCount: 6, responseFormat: "5件法の Likert 型。両端のアンカーは確認した方法節に記載がない", language: "掲載論文と Table I の項目ラベルは英語。台湾サンプルでの実施言語は、確認した節では明示されていない", adaptation: "Scott and Bruce（1994）の個人レベルの革新業績6項目を、R&Dマネジャーが各シニア・メンバーについて評定。§5.2 の探索的因子分析（バリマックス）では因子のまとまりが先行分析と一致し、項目は削除されていない。Janssen（2000）の9項目、Scott & Bruce（1998）の4項目短縮、従業員による自己評定ではない。開発論文そのものではない。", result: "Table I の Individual-level innovation performance は6項目で、Cronbach の α=0.92。標準化因子負荷は 0.780、0.806、0.791、0.793、0.827、0.844。本文 §4.2 の括弧内 0.89 は Scott and Bruce（1994）を引用した際の数字であり、この標本の α ではない。確認的因子分析は6構成概念モデルで、この革新尺度はそのうちの1構成概念。", doi: "10.1108/00251741311301803", url: "https://doi.org/10.1108/00251741311301803" },
+      ],
       itemPublicationStatus: "not-published", items: [],
-      verifiedAt: "2026-09-30",
-      notes: "Scott & Bruce（1994）の Innovative Behavior Scale。登録DOIは 10.5465/256701。JSTOR の同一論文は 10.2307/256701。上司評定の6項目・単一次元。α=.89 と5件法のアンカー（not at all～to an exceptional degree）は、原典を引用する二次文献の記述に依る。原典の表は開いていない。分散説明率約37%は公開抄録。Janssen（2000）の9項目、Scott & Bruce（1998）の4項目短縮、消費者革新性の DSI とは別尺度。開発論文は使用研究に含めない。使用研究は空。日本語状況は未確認。項目本文は転載許諾未確認のため収録しない。",
+      verifiedAt: "2026-10-04",
+      notes: "Scott & Bruce（1994）の Innovative Behavior Scale。登録DOIは 10.5465/256701。JSTOR の同一論文は 10.2307/256701。上司評定の6項目・単一次元。開発論文側の α=.89 と5件法のアンカー（not at all～to an exceptional degree）は、原典を引用する二次文献の記述に依る。原典の表は開いていない。分散説明率約37%は公開抄録。Janssen（2000）の9項目、Scott & Bruce（1998）の4項目短縮、消費者革新性の DSI とは別尺度。開発論文は使用研究に含めない。使用研究は Wang, Ellinger, & Wu（2013）のフル6項目・上司評定・5件法のみ（DOI 10.1108/00251741311301803。Table I の α=0.92。本文中の 0.89 はこの標本の α ではない）。アンカーはこの使用研究の方法節から写していない。日本語状況は未確認。項目本文は転載許諾未確認のため収録しない。",
       recordStatus: "verified-metadata",
     },
     {
