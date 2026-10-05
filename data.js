@@ -1566,7 +1566,7 @@ const ATLAS_DATA = {
       id: "job-embeddedness",
       nameJa: "職務埋め込み",
       nameEn: "Job Embeddedness",
-      definitionJa: "現在の組織にとどまりにくく離れにくい、という全体的な埋め込みの知覚。旗艦は Crossley らのグローバル職務埋め込みで、単一次元・反射型の7項目である。Mitchell らの links・fit・sacrifice を組織と地域社会で組む複合（形成型）指標、離職意向、組織コミットメントとは別である。",
+      definitionJa: "現在の組織に埋め込まれ、離れにくいという全体的な知覚。旗艦は Crossley らのグローバル職務埋め込みで、単一次元・反射型の7項目である。Mitchell らの links・fit・sacrifice を組織と地域社会で組む複合（形成型）指標、離職意向、組織コミットメントとは別である。",
       domain: "組織行動・人的資源",
       relatedConcepts: ["turnover-intention", "organizational-commitment"],
       parentConcepts: [], childConcepts: [], typicalAntecedents: [], typicalOutcomes: ["turnover-intention"],

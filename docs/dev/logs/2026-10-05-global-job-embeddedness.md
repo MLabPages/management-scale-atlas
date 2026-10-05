@@ -33,4 +33,7 @@
 - 作業開始時の `origin/main` は `46679eb`（v0.85.1）
 - `node verify-data.mjs` 成功。概念107、尺度149、使用研究182、選択ガイド41、関係16。日本語は検証済み16、使用例16、未確認90
 - `node verify-data.mjs --self-test`、`node --check data.js`、`node --check app.js`、`git diff --check` 成功
-- 画面の検索・詳細・比較・研究設計・出力は、この変更のブラウザ確認のあと、同じログへ結果を追記する
+- ローカル静的サーバと headless Chrome で、見出しが v0.86.0・107概念・149尺度・使用研究182件になることを確認した。「職務埋め込み」と「Global JE-7」の検索は1件。尺度詳細に Allen ら（2016）、DOI `10.1037/apl0000134`、有効597名、α=.84、7件法、Table 2 の6番目の逆転、項目は「掲載していません」。項目文 "It would be easy for me to leave" は出てこない
+- 比較・研究設計では合計7項目。使用研究を採用根拠にすると JSON と先行研究CSVに当該 DOI・7項目・597名が出る。検索結果の CSV/JSON にも Global JE-7 が出る
+- 概念詳細の decisionGuide は Mitchell 複合版、TIS-6、組織コミットメントと分ける。幅390pxの詳細ダイアログは幅352pxで画面内に収まった
+- 概念定義は「埋め込まれ、離れにくい」とした。「とどまりにくく」は使わない
