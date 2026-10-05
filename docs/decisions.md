@@ -1,5 +1,14 @@
 # Decisions
 
+## 2026-10-05: JIS-4 の使用研究は Sultana ら（2022）のフル4項目だけ
+
+- セマンティック版は v0.86.0 のまま。概念107、尺度149。使用研究は182から183。Vander Elst ら（2014）の心理測定論文は `usageStudies` に入れない。項目本文は空のまま。`japaneseVersionStatus` は `unconfirmed`。
+- `vander-elst-jis-4` に Sultana ら（2022）を1件入れる。BMC Psychology, 10, 265。DOI は `10.1186/s40359-022-00974-7`。書誌の筆頭は Naznin Sultana。Crossref は BMC Psychology, 10(1)、発行日 2022-11-14。
+- PMC の Methods で、De Witte（2000）が開発し Vander Elst らが検証した4項目をすべて使用し、1項目逆転、5件法（1 = strongly disagree～5 = strongly agree）、平均点であることを確認した。標本はバングラデシュ・コックスバザールの人道支援従事者。466名配布、有効445名。2021年4–5月のオンライン調査。確認した節に実施言語はない。
+- この使用研究の α は 0.62。本文が引用する 0.82 は原英語版の値であり、標本αにしない。分析では 4–5点を不安定ありとして insecure / not insecure に分けている。αの低さと二値化を adaptation と notes に残す。
+- Richter, Vander Elst, & De Witte（2020）の Frontiers in Psychology 論文は1項目なので、JIS-4 の使用研究にしない。Price Consciousness は入れない。JCQ／Karasek 系の日本語4項目は `japaneseEvidence` にしない。
+- Global JE-7 の概念・尺度・Allen ら（2016）の使用例は変えない。
+
 ## 2026-10-05: 職務埋め込みは Crossley の Global JE-7。Mitchell 複合版は登録しない
 
 - セマンティック版は v0.86.0。概念は106から107、尺度は148から149。使用研究は181から182。選択ガイドは40から41。関係は16のまま。開発論文は `usageStudies` に入れない。項目本文は空、`itemPublicationStatus` は `not-published`。
@@ -9,7 +18,7 @@
 - Mitchell, Holtom, Lee, Sablynski, & Erez（2001）の複合（形成型）職務埋め込みは登録しない。Crossley らの方法節では40項目、組織と地域社会の links・fit・sacrifice。Lee らの on/off 版と、Allen ら（2016）Study 2 の Mitchell 短縮9項目も登録しない。TIS-6 と組織コミットメントとは decisionGuide で分ける。
 - 正誤 Crossley ら（2011）, Journal of Applied Psychology, 96(6), 1316、DOI `10.1037/a0025569` は notes に留める。書誌は Crossref で一致。本文は未開封。PsycNET 抄録（検索結果経由）が教示文の追記を述べる、という範囲を超えて教示の有無を断定しない。正誤は使用研究にしない。
 - 使用研究と `japaneseEvidence` は Allen, Peltokorpi, & Rubenstein（2016）Study 1 の1件。DOI `10.1037/apl0000134`。Journal of Applied Psychology, 101(12), 1670–1686。日本の調査会社経由、首都圏のフルタイム従業員。T1 799名から T3 有効597名。7件法への改変、Brislin（1980）の逆翻訳、α=.84。`japaneseVersionStatus` は `usage-example`。検証済み日本語版や標準版にはしない。開いた節の標本記述はフルタイム従業員であり、雇用形態を正社員と追加断定しない。
-- Price Consciousness、JIS-4 への Frontiers in Psychology（2020）の1項目、Sultana ら（2022）の4項目使用は、この変更に入れない。
+- Price Consciousness と、JIS-4 への Frontiers in Psychology（2020）の1項目は入れない。Sultana ら（2022）のフル4項目は、ユーザー承認のあと同じ版へ追加した。
 
 ## 2026-10-04: IWB-6 の使用研究は Wang, Ellinger, & Wu（2013）のフル6項目だけ
 
