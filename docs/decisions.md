@@ -1,5 +1,15 @@
 # Decisions
 
+## 2026-10-06: リカバリー経験は REQ-16 と REQ-J。関係的コミットメントの原版は7項目
+
+- セマンティック版は v0.87.0。概念は107から108、尺度は149から151。使用研究は183のまま。選択ガイドは41から42。関係は16のまま。開発論文と翻訳・検証論文は `usageStudies` に入れない。項目本文は空、`itemPublicationStatus` は `not-published`。
+- 概念 `recovery-experience`（リカバリー経験）を追加する。`workaholism` と `burnout` とは decisionGuide と relatedConcepts で分ける。心理的距離だけ、または他の1下位尺度だけの利用はフル16項目の使用として登録しない。
+- 尺度 `sonnentag-req-16`（REQ-16）は Sonnentag & Fritz（2007）, Journal of Occupational Health Psychology, 12(3), 204–221。DOI は `10.1037/1076-8998.12.3.204`。著者は Crossref で Sabine Sonnentag、Charlotte Fritz。`itemCount` は 4×4＝16。5件法（1＝do not agree at all～5＝fully agree）。仕事後の自由な夕方。`versionType` は `original`。較正／交差検証のαは心理的距離 .84／.85、リラックス .85／.85、熟達 .79／.85、コントロール .85／.85。Table 2 の適合度と Table 3 の負荷量の個別値は根拠抜粋にないため記さない。
+- 尺度 `shimazu-req-j`（REQ-J）は島津・Sonnentag・窪田・川上（2012）, Journal of Occupational Health, 54(3), 196–205。DOI は `10.1539/joh.11-0220-OA`。著者のローマ字は Crossref で Akihito Shimazu、Sabine Sonnentag、Kazumi Kubota、Norito Kawakami。`versionType` は既存の翻訳版区分 `translated`。`parentScaleId` は `sonnentag-req-16`。`language` は Japanese。`japaneseVersionStatus` は `validated`。フル16、日本の従業員 N=2,520、4因子を優先する確認的因子分析。αは心理的距離 0.85、リラックス 0.89、熟達 0.87、コントロール 0.85。回答件数は根拠抜粋で未確定のため、英語原版の5件法を REQ-J の確定値にはしない。
+- 英語 REQ-16 の `japaneseVersionStatus` も `validated` とする。Carlson 英語原版と同じく、対応する検証済み日本語版が別レコードにあることを示す。検証済みレコード数は16から18。独立した日本語検証論文は島津ら（2012）の1本であり、未確認90は変わらない。
+- 関係的コミットメントの既存レコードは、二次情報の「通例3項目」を原版として扱っていた。Morgan & Hunt（1994）付録Aは Relationship commitment（7 items）、複合信頼性 .895、Cronbach のα .895、VEE .626、平均負荷量 .736。脚注aは7件法。付録が印刷するのはサンプル3項目のみ。ID を `morgan-hunt-relationship-commitment-7`、略称を RC-7、`itemCount` を7へ改める。3項目短縮のレコードと使用研究は作らない。Allen & Meyer の転用は入れない。開発論文は使用研究にしない。登録版そのものが3・4項目の尺度は28から27。
+- Lopez（2009）と Astakhova（2016）は Cable & DeRue の P–O fit 3項目の使用として受理しない。Price Consciousness は入れない。
+
 ## 2026-10-05: JIS-4 の使用研究は Sultana ら（2022）のフル4項目だけ
 
 - セマンティック版は v0.86.0 のまま。概念107、尺度149。使用研究は182から183。Vander Elst ら（2014）の心理測定論文は `usageStudies` に入れない。項目本文は空のまま。`japaneseVersionStatus` は `unconfirmed`。
