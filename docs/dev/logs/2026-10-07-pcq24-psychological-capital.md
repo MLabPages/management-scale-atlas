@@ -42,3 +42,5 @@
 - 関連概念4件はすべて存在。`general-self-efficacy` は `psychological-capital` を指す。相手3概念への逆リンクはない
 - `items` は空、`itemPublicationStatus` は `not-published`、`japaneseVersionStatus` は `unconfirmed`、`usagePermission` は `commercial`、`reverseItems` は空
 - Aad-3、UTAUT-SI、UTAUT-FC の `usageStudies` は空のまま
+- `psychometricEvidence` は1件にまとめた。2件以上あると、既存のカード要約が「複数環境・日本語での検証根拠あり」になる。日本語は未確認なので、その表示は使わない。Görgens-Ekermans & Herbert（2013）と Mind Garden の内容は、その1件の result と notes、`sourceUrl` に残す
+- ローカル静的サーバと headless Chrome で、見出しが v0.88.0・109概念・152尺度・使用研究183件になることを確認した。検索「心理的資本」は PCQ-24 の1件。カードは「日本語版・使用例を未確認」「商用ライセンス」で、使用先行研究バッジはない。カード要約の「実研究での使用版あり（24項目）」は、既存表示が `applicationEvidence` をそう呼ぶためであり、`usageStudies` は0のまま。詳細は24項目、6件法、商用ライセンス、DOI と Mind Garden、項目は「掲載していません」、CPC-12R を別尺度とする注意がある。「複数環境・日本語での検証根拠あり」は出ない。概念詳細の関連は一般性自己効力感、ワーク・エンゲイジメント、真正なリーダーシップ、職場での繁栄。一般性自己効力感の詳細に「心理的資本」が出る。研究設計は24項目、使用研究0、商用ライセンス。検索 CSV/JSON と設計 JSON に DOI があり、項目本文はない。設計アシスタントは PCQ-24 を候補にし、日本語未確認と使用研究未登録を出す。Aad-3、UTAUT-SI、UTAUT-FC の検索に使用先行研究バッジはない。幅390pxの詳細ダイアログは幅352px、左19px、右371pxで画面内に収まった

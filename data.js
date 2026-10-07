@@ -7314,9 +7314,7 @@ const ATLAS_DATA = {
       japaneseEvidence: [],
       validationStudies: [], usagePermission: "commercial", usageEvidence: [],
       psychometricEvidence: [
-        { label: "開発論文が示す24項目・4構成・6件法", sample: "確認抜粋の範囲。標本人数は本レコードでは再掲しない", methods: "4構成概念から各最良6項目を等ウェイトで選定", result: "Hope、Efficacy、Resilience、Optimism の各6項目、計24項目。6件法（1＝strongly disagree～6＝strongly agree）。状態的な枠（今の自分についての考え）。開発論文は使用研究にしない。項目本文は転載しない。", url: "https://doi.org/10.1111/j.1744-6570.2007.00083.x" },
-        { label: "公開論文が構造と回答形式を再確認", sample: "南アフリカ標本。人数は本レコードでは再掲しない", methods: "PCQ-24 の構成と Likert を方法で確認", result: "hope、optimism、self-efficacy、resilience の各6項目。1–6 の Likert。構造確認の論文であり、使用研究にはしない。項目本文は転載しない。", url: "https://doi.org/10.4102/sajip.v39i2.1131" },
-        { label: "Mind Garden が示す24項目と許諾の分離", sample: "製品ページ。マニュアル標本は未開封", methods: "配布条件と項目数の確認", result: "Length は24項目。尺度名は Hope、Efficacy、Resilience、Optimism。非商用の研究は Research Permission、実施ライセンスは License to Administer と分かれる。Japanese Self Form は品質未保証。項目本文は転載しない。", url: "https://www.mindgarden.com/136-psychological-capital-questionnaire" },
+        { label: "24項目・4構成・6件法と商用配布", sample: "開発論文の確認抜粋と Mind Garden 製品ページ。標本人数は本レコードでは再掲しない", methods: "4構成から各6項目を等ウェイトで選定。製品ページで項目数・尺度名・許諾を確認。公開論文が構成と Likert を再確認", result: "Hope、Efficacy、Resilience、Optimism の各6項目、計24。6件法（1＝strongly disagree～6＝strongly agree）。Mind Garden の Length は24、尺度名は同じ4つ。Research Permission と License to Administer は分離。Görgens-Ekermans & Herbert（2013、DOI 10.4102/sajip.v39i2.1131）は各6項目と1–6 Likert の構造確認であり、使用研究にも日本語検証にもしない。Japanese Self Form は品質未保証。項目本文は転載しない。", url: "https://doi.org/10.1111/j.1744-6570.2007.00083.x" },
       ],
       applicationEvidence: [
         { label: "商用の24項目・4次元を旗艦にする", itemCounts: [24], evidenceType: "scale-development", summary: "PCQ-12、CPC-12、CPC-12R、PCQJ は別物として登録しない。一般性自己効力感、ワーク・エンゲイジメント、真正なリーダーシップ、職場での繁栄とは別概念。ライセンスなしの項目転載は不可。開発論文は使用研究にしない。", title: "Positive psychological capital: Measurement and relationship with performance and satisfaction", year: 2007, doi: "10.1111/j.1744-6570.2007.00083.x", url: "https://doi.org/10.1111/j.1744-6570.2007.00083.x" },

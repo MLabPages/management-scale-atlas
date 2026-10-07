@@ -5,7 +5,7 @@
 - セマンティック版は v0.88.0。概念は108から109、尺度は151から152。使用研究は183のまま。選択ガイドは42から43。関係は16のまま。開発論文と構造確認の論文は `usageStudies` に入れない。項目本文は空、`itemPublicationStatus` は `not-published`。
 - 概念 `psychological-capital`（心理的資本 / Psychological Capital）と尺度 `luthans-pcq-24`（PCQ-24）を追加する。原典は Luthans, Avolio, Avey, & Norman（2007）, Personnel Psychology, 60(3), 541–572。DOI は `10.1111/j.1744-6570.2007.00083.x`。`itemCount` は 4×6＝24。6件法（1＝strongly disagree～6＝strongly agree）。`versionType` は `original`、`recordStatus` は `verified-metadata`。
 - 公式の配布は Mind Garden（https://www.mindgarden.com/136-psychological-capital-questionnaire）。`sourceUrl` は製品ページ、`doi` は開発論文。`usagePermission` は `commercial`。研究許可と License to Administer は分離。ライセンスなしの項目転載は不可。
-- Görgens-Ekermans & Herbert（2013）、DOI `10.4102/sajip.v39i2.1131` は、各6項目と 1–6 Likert の構造確認として `psychometricEvidence` に置く。使用研究にはしない。
+- Görgens-Ekermans & Herbert（2013）、DOI `10.4102/sajip.v39i2.1131` は、各6項目と 1–6 Likert の構造確認である。使用研究にはしない。Mind Garden の確認とあわせ、`psychometricEvidence` は1件にまとめる。2件以上に分けると、既存のカード要約が「複数環境・日本語での検証根拠あり」になる。日本語未確認の尺度にその表示は使わない。
 - 逆転項目の番号は、開発論文の確認抜粋と Mind Garden 製品ページでは確定していない。二次ソースの番号は `reverseItems` に入れない。項目文は書かない。
 - `japaneseVersionStatus` は `unconfirmed`。Mind Garden の Japanese Self Form は品質未保証で、MLQ・ALQ と同じく `validated` にしない。池田・波多野・田中・中原（2023）の CPC-12R（DOI `10.3389/fpsyg.2022.1053601`）は別のオープン尺度であり、PCQ の日本語根拠にしない。PCQJ は査読誌の検証としては未確認のため `translation-study` にしない。
 - PCQ-12、CPC-12、CPC-12R は同時登録しない。一般性自己効力感、職務埋め込み、ワーク・エンゲイジメントとは decisionGuide で分ける。
