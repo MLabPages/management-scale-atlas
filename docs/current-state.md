@@ -1,6 +1,15 @@
 # Current state
 
-最終更新: 2026-10-06
+最終更新: 2026-10-07
+
+## v0.88.0 の追加（心理的資本と PCQ-24）
+
+- 109概念・152尺度・183使用研究・43選択ガイド・16関係。概念 `psychological-capital`（心理的資本）と尺度 `luthans-pcq-24`（PCQ-24）を追加。使用研究は増やしていない。
+- PCQ-24 は Luthans, Avolio, Avey, & Norman（2007）, Personnel Psychology, 60(3), 541–572。DOI `10.1111/j.1744-6570.2007.00083.x`。Hope、Efficacy、Resilience、Optimism の各6項目、計24。6件法（1＝strongly disagree～6＝strongly agree）。等ウェイト。Mind Garden の Length と尺度名でも確認（https://www.mindgarden.com/136-psychological-capital-questionnaire）。`usagePermission` は `commercial`。研究許可と License to Administer は分離。項目本文は空、`itemPublicationStatus` は `not-published`。
+- 開発論文と、構造を確認した Görgens-Ekermans & Herbert（2013、DOI `10.4102/sajip.v39i2.1131`）は使用研究に入れない。逆転項目の番号は、開発論文の確認抜粋と製品ページでは確定していないため記録しない。
+- 日本語は `unconfirmed`。Mind Garden の Japanese Self Form は品質未保証。池田ら（2023）の CPC-12R（DOI `10.3389/fpsyg.2022.1053601`）は別のオープン尺度であり、PCQ の日本語検証にしない。PCQ-12、CPC-12、CPC-12R、PCQJ は未登録。未確認は90から91。検証済みレコードは18のまま。
+- `general-self-efficacy.relatedConcepts` が既に指していた `psychological-capital` は、概念登録で解決する。相手側の `work-engagement`、`authentic-leadership`、`thriving-at-work` へは逆リンクを足さない。既存の関連概念は対称ではない。
+- Aad-3 と UTAUT-SI／UTAUT-FC の使用研究は HOLD のまま変更していない。確認は [2026-10-07ログ](dev/logs/2026-10-07-pcq24-psychological-capital.md)。
 
 ## v0.87.0 の追加（リカバリー経験と関係的コミットメント原版）
 
@@ -75,7 +84,7 @@
 
 - ビルド不要の静的 Web アプリで、概念・尺度・略称・対象者・研究領域から検索できる。
 - 概念詳細、尺度詳細、最大 8 尺度の比較、回答負荷、研究設計アシスタント、CSV/JSON 出力がある。
-- 収録データは **v0.87.0**、**108 概念**、**151 尺度**、個別の尺度使用研究 **183 件**、日本語未確認 **90 尺度**、日本語の検証済みレコード **18**（2026-10-06）。リカバリー経験の REQ-16 と REQ-J を追加し、関係的コミットメントの原版を7項目・7件法へ修正した。使用研究は増やしていない。開発・検証論文と使用研究を分け、確認日・箇所を新規根拠に記録。公開状態はGitHubのデプロイ結果と公開`data.js`の版・内容で確認する。
+- 収録データは **v0.88.0**、**109 概念**、**152 尺度**、個別の尺度使用研究 **183 件**、日本語未確認 **91 尺度**、日本語の検証済みレコード **18**（2026-10-07）。心理的資本の PCQ-24 を追加した。商用で、項目本文は載せていない。使用研究は増やしていない。CPC-12R は日本語検証にしない。開発論文と使用研究を分け、確認日・箇所を新規根拠に記録。公開状態はGitHubのデプロイ結果と公開`data.js`の版・内容で確認する。
 - 原版、短縮版、翻訳版、後続研究の使用例、日本語情報、利用条件、測定根拠を分けて表示する。
 - `HANDOFF.md` に、データ拡充の優先順位と研究上の注意点がまとまっている。
 - エージェント向け入口は `AGENTS.md`。Codex（ローカル main）と Grok Bot / Cursor Cloud（ブランチ→PR）の併用ルールを記載している。
@@ -96,6 +105,7 @@
 - 職場排斥は Ferris, Brown, Berry, & Lian（2008）の WOS、10項目・単一次元（DOI 10.1037/a0012743。Journal of Applied Psychology, 93(6), 1348–1366）。通例7件法の頻度は二次の使用慣行。職場インシビリティ、虐待的監督とは別。日本語は津村（2025）の WOS-J（社会心理学研究, 41(1), 1–11）を `translation-study` とする。DOI 文字列 10.14966/jssp.2023-033 は Crossref が HTTP 404 のため保存していない。開発論文と WOS-J は使用研究に入れていない。項目本文は収録していない。
 - MLQ Form 5X-Short は通例45項目の商用尺度（Mind Garden。Multi-rater / Rater / Self）。Actual/Ought は90項目で登録していない。公開メタ DOI は 10.1037/t03624-000。`usagePermission` は `commercial`。ライセンスなしの項目転載は不可。変革型だけの抜粋、GTL、ELS-10、SL、LMX とは別。日本語一覧はあるが品質未保証のため未確認。開発論文は使用研究に入れていない。
 - ALQ は Walumbwa ら（2008）の16項目・4次元（DOI 10.1177/0149206307308913）。項目数は Mind Garden。`usagePermission` は `commercial`。研究許可と実施ライセンスは分離。次元配分の二次例は確定していない。ELS-10 とは別。日本語は未確認。開発論文は使用研究に入れていない。
+- 心理的資本の旗艦は Luthans, Avolio, Avey, & Norman（2007）の PCQ-24、24項目・4次元（Hope、Efficacy、Resilience、Optimism の各6。DOI 10.1111/j.1744-6570.2007.00083.x。Personnel Psychology, 60(3), 541–572）。6件法（1＝strongly disagree～6＝strongly agree）。項目数と尺度名は Mind Garden（https://www.mindgarden.com/136-psychological-capital-questionnaire）。`usagePermission` は `commercial`。研究許可と実施ライセンスは分離。項目本文は収録していない。PCQ-12、CPC-12、CPC-12R、PCQJ は登録していない。日本語は未確認。池田ら（2023）の CPC-12R（DOI 10.3389/fpsyg.2022.1053601）は PCQ の日本語検証ではない。開発論文と Görgens-Ekermans & Herbert（2013、DOI 10.4102/sajip.v39i2.1131）は使用研究に入れていない。一般性自己効力感からの関連概念リンクは、この概念の登録でつながる。
 - 離職意向の旗艦は Bothma & Roodt（2013）の TIS-6、6項目（DOI 10.4102/sajhrm.v11i1.507）。α=.80、5件法。Roodt（2004）の15項目と Mobley 系は登録していない。検証論文とハンガリー語の心理測定検証は使用研究に入れていない。使用研究は Els, Brouwers, & Lodewyk（2021）の英語・フル6項目・南アフリカ製造業従業員400名のみ（DOI 10.4102/sajhrm.v19i0.1407。本研究内のα=.90）。日本語は未確認。
 - 職場逸脱は Bennett & Robinson（2000）の19項目（組織12＋対人7。DOI 10.1037/0021-9010.85.3.349）。α=.81/.78 は根拠ファイルが PubMed 抄録で確認した値。WIS-7、AS-15、OCB、CWB-C は登録していない。日本語は未確認。
 - 個人–組織適合は Cable & DeRue（2002）の P–O fit 3項目（DOI 10.1037/0021-9010.87.5.875）。PFS 全体9項目は登録していない。組織同一視・コミットメントとは別。日本語は未確認。
