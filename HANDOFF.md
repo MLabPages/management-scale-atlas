@@ -1,7 +1,7 @@
 # 経営学・マーケティング概念・尺度アトラス 開発引継ぎ
 
-最終更新: 2026-10-07<br>
-対象版: v0.88.0（心理的資本 PCQ-24）<br>
+最終更新: 2026-10-09<br>
+対象版: v0.89.0（知覚楽しさ ENJ-3、MBI-GS の使用研究）<br>
 公開URL: https://mlabpages.github.io/management-scale-atlas/  
 リポジトリ: https://github.com/MLabPages/management-scale-atlas
 
@@ -21,6 +21,8 @@
 ## 2. 現在の実装状況
 
 ### データ
+
+2026-10-09の v0.89.0 は、110概念・153尺度・184使用研究・44選択ガイド・16関係。知覚楽しさを追加し、Davis, Bagozzi, & Warshaw（1992）の ENJ-3（DOI 10.1111/j.1559-1816.1992.tb00945.x。3項目、7件法の両極形式、研究1 α=.81、研究2 α=.92）を登録した。項目本文は載せていない。UTAUT2 の快楽動機と van der Heijden（2004）の意味微分は未登録。日本語は未確認で、未確認は92。中川（2021）は日本語版にしない。検証済みは18のまま。関連概念は片方向のまま。MBI-GS に Seibt & Kreuzfeld（2021、DOI 10.3390/ijerph18041535）のドイツ語フル16項目を使用研究として1件追加した。Kalimo 式の総合得点は adaptation に残し、採点方針は変えていない。Bodendieck ら（2022）と Pina ら（2022）は入れていない。CSR-17 は HOLD のまま。詳細は [2026-10-09ログ](docs/dev/logs/2026-10-09-perceived-enjoyment-mbigs-usage.md)。以下はそれ以前の状態。
 
 2026-10-07の v0.88.0 は、109概念・152尺度・183使用研究・43選択ガイド・16関係。心理的資本を追加し、Luthans, Avolio, Avey, & Norman（2007）の PCQ-24（DOI 10.1111/j.1744-6570.2007.00083.x。Hope・Efficacy・Resilience・Optimism の各6、6件法）を商用レコードにした。Mind Garden が24項目として配布する。項目本文は載せていない。PCQ-12、CPC-12、CPC-12R、PCQJ は未登録。CPC-12R の日本語検証は PCQ に付けない。日本語は未確認で、未確認は91。検証済みは18のまま。使用研究は183のまま。一般性自己効力感が既に指していた概念 ID は、この登録でつながる。Aad-3 と UTAUT-SI／FC の使用研究は変更していない。詳細は [2026-10-07ログ](docs/dev/logs/2026-10-07-pcq24-psychological-capital.md)。以下はそれ以前の状態。
 
