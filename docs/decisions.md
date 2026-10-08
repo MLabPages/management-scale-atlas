@@ -1,5 +1,18 @@
 # Decisions
 
+## 2026-10-09: 知覚楽しさは Davis らの ENJ-3。MBI-GS の使用研究は Seibt & Kreuzfeld のみ。CSR-17 は HOLD
+
+- セマンティック版は v0.89.0。概念は109から110、尺度は152から153。使用研究は183から184。選択ガイドは43から44。関係は16のまま。開発論文は `usageStudies` に入れない。項目本文は空、`itemPublicationStatus` は `not-published`。機能用とデータ用で版を分けない。
+- 概念 `perceived-enjoyment`（知覚楽しさ / Perceived Enjoyment）と尺度 `davis-bagozzi-warshaw-enjoyment-3`（ENJ-3）を追加する。原典は Davis, Bagozzi, & Warshaw（1992）, Journal of Applied Social Psychology, 22(14), 1111–1132。DOI は `10.1111/j.1559-1816.1992.tb00945.x`。`itemCount` は3。7件法の両極形式で、2項目は likely/unlikely、1項目は unpleasant/pleasant。定義は p. 1113。研究1は α=.81（MBA学生 n=200、Table 1、p. 1118）。研究2はシステム名を入れた would 形式で α=.92（n=80、p. 1124）。`versionType` は `original`、`recordStatus` は `verified-metadata`。`usagePermission` は `unknown`。
+- 数値は出版論文のスキャンで確認した。第三者の文書共有サイトの URL は `sourceUrl`、`fullTextUrl`、notes のどこにも置かない。引用は DOI とページ番号にする。Crossref の Wiley オンライン掲載日 2006-07-31 は出版年にしない。
+- `psychometricEvidence` は1件にまとめる。2件以上に分けると、既存のカード要約が「複数環境・日本語での検証根拠あり」になる。日本語未確認の尺度にその表示は使わない。
+- UTAUT2 の快楽動機（Venkatesh, Thong, & Xu 2012、DOI `10.2307/41410412`。Kim et al. 2005 由来の Likert 同意形式）と、van der Heijden（2004、DOI `10.2307/25148660`）の意味微分4組は別項目セットであり、登録しない。Moon & Kim の playfulness と Koufaris の enjoyment もこの版では登録しない。フロー、プレゼンス、快楽的・功利的態度、買物価値とは decisionGuide で分ける。
+- `japaneseVersionStatus` は `unconfirmed`。`japaneseEvidence` は空。中川（2021、DOI `10.32299/jsmdreview.5.2_41`）の「知覚された楽しさ」は、本論文を参考にした独自の7件法 Likert（楽しい／ワクワク／喜び）であり、ENJ-3 の翻訳使用でも `usage-example` でもない。`japaneseStatusNote` にだけ区別を書く。未確認は91から92。検証済みレコードは18のまま。
+- `relatedConcepts` は存在する `perceived-usefulness`、`perceived-ease-of-use`、`social-influence`、`facilitating-conditions`、`flow` だけにする。2026-10-07 の判断どおり、関連概念は対称である必要はない。既存概念への逆リンクは足さない。
+- `maslach-burnout-inventory-general-survey` に、これまで無かった `usageStudies` を1件追加する。Seibt & Kreuzfeld（2021）, International Journal of Environmental Research and Public Health, 18(4), 1535。DOI `10.3390/ijerph18041535`（PMC7914652）。ドイツ語版 MBI-GS、16項目（5＋5＋6）、0–6件法。この標本のαは 0.79〜0.84 で、下位尺度別の内訳はない。分析標本はドイツの教員12,014名（常勤6,109、非常勤5,905）。Kalimo 式の重み付け総合得点（0.4×消耗＋0.3×シニシズム＋0.3×効力感）を使っているので、その違いは adaptation に書く。レコードの `scoring`（総合得点に統合しない）は変えない。日本語状況は `validated` のまま。
+- Bodendieck ら（2022、DOI `10.1186/s12875-022-01831-7`）は項目数と標本αが本文にないため不採用。Pina ら（2022、DOI `10.1371/journal.pone.0268636`）は予備であり入れない。
+- CSR-17（`turker-perceived-csr-17`）の使用研究は HOLD のまま変更しない。Cek & Eyupoglu（2019、DOI `10.4102/sajbm.v50i1.1481`）は Methods で17項目とα .88／.71／.89 を述べるが、Table 3 の測定モデルは内部 CSR の5指標と外部 CSR の4指標（CSR5 が両因子に重複）に減っており、フル17項目の使用として受理しない。P–O fit-3、RC-3、Aad-3、UTAUT-SI／FC、Price Consciousness 5 も変更しない。
+
 ## 2026-10-07: 心理的資本は PCQ-24。CPC-12R と PCQ-12 は登録しない
 
 - セマンティック版は v0.88.0。概念は108から109、尺度は151から152。使用研究は183のまま。選択ガイドは42から43。関係は16のまま。開発論文と構造確認の論文は `usageStudies` に入れない。項目本文は空、`itemPublicationStatus` は `not-published`。
