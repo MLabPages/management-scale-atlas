@@ -1,5 +1,22 @@
 # Decisions
 
+## 2026-10-09: 技術レディネスは TRI 2.0。吸収能力は ACAP-14。Thriving-10 の使用研究は Ni ら
+
+- セマンティック版は v0.90.0。概念は110から112、尺度は153から155。使用研究は184から185。選択ガイドは44から46。関係は16のまま。開発論文は `usageStudies` に入れない。TRI 2.0 と ACAP-14 の項目本文は空、`itemPublicationStatus` は `not-published`。機能用とデータ用で版を分けない。
+- 概念 `technology-readiness`（技術レディネス / Technology Readiness）と尺度 `parasuraman-colby-tri-2-16`（TRI 2.0）を追加する。原典は Parasuraman & Colby（2015）, Journal of Service Research, 18(1), 59–74。DOI は `10.1177/1094670514539730`。`itemCount` は16（楽観・革新・不快・不安の各4、Table 5）。5件法の同意形式。Table 5 の α は .80／.83／.70／.71（N=878）。第三者要約の不安 .77 は採らない。`versionType` は `original`、`recordStatus` は `verified-metadata`。
+- Table 2 の注は、TRI 1.0 と TRI 2.0 が Rockbridge Associates と著者の著作物で、利用には著者の書面許諾が必要だとする。`usagePermission` は `permission-required`。Mind Garden の有料配布である PCQ-24 の `commercial` とは分ける。`sourceUrl` は DOI。項目本文は掲載しない。
+- 根拠の表番号は OnlineFirst 版で確認した。印刷版ページとの対応は未確認のため、ページ番号ではなく表番号で引用する。第三者の文書共有サイトの URL は `sourceUrl`、`fullTextUrl`、notes のどこにも置かない。
+- TRI 1.0（Parasuraman 2000、36項目）、Lin & Hsieh（2012）の削除による16項目、Radius Insights の10項目版は別の項目セットであり、登録しない。TAM・UTAUT の知覚有用性・知覚容易性・社会的影響・促進条件・知覚楽しさ、および消費者革新性とは decisionGuide で分ける。
+- `japaneseVersionStatus` は `unconfirmed`。`japaneseEvidence` は空。中野（2026、組織科学 59(3)、DOI `10.11207/soshikikagaku.20260430-1`）は16項目を日本語化して7件法で聴取したが、INS4 を除いた15項目で分析している。`japaneseStatusNote` にだけ書く。未確認は92から94。検証済みレコードは18のまま。
+- `psychometricEvidence` は1件にまとめる。2件以上に分けると、既存のカード要約が「複数環境・日本語での検証根拠あり」になる。日本語未確認の尺度にその表示は使わない。
+- 概念 `absorptive-capacity`（吸収能力 / Absorptive Capacity）と尺度 `flatten-acap-14`（ACAP-14）を追加する。2026-10-01／02／04 の HOLD（原典の方法・項目表が未取得）は解除する。原典は Flatten, Engelen, Zahra, & Brettel（2011）, European Management Journal, 29(2), 98–116。DOI は `10.1016/j.emj.2010.11.002`。最終尺度は Table 10（p. 110）の14項目（獲得3・同化4・変換4・活用3）。7件法 Likert 型（p. 105）。両端アンカーは確認した箇所にないため、`responseFormat` にアンカーを書かない。標本2（n=361）の α は Table 8 で .73／.85／.93／.80。
+- 標本1は本文が285社、同じ頁の回答者内訳が283票と食い違う。推測で埋めず、notes に両方を残す。検証の旗艦数値は標本2（n=361）に置く。
+- 研究開発費比率などの代理指標と Zahra & George（2002）は旗艦にしない。Chiva らの OLC-14 は学習促進条件の従業員知覚であり、ACAP-14 とは decisionGuide で分ける。後続の11項目などの短縮・改変は登録しない。`usagePermission` は `unknown`。項目本文は、利用条件が未確認で Elsevier の著作権があるため載せない。
+- `japaneseVersionStatus` は `unconfirmed`。程・渡邉（2024、DOI `10.11497/jasmin.202411.0_174`）は中国所在子会社の学会要旨であり、日本語版の根拠にしない。
+- `relatedConcepts` は存在する ID だけにする。2026-10-07 の判断どおり、組織学習能力などへの逆リンクは足さない。
+- `porath-thriving-10` に、これまで無かった `usageStudies` を1件追加する。Ni, Zeng, & Zhou（2023）, Frontiers in Psychology。DOI `10.3389/fpsyg.2023.1136470`（PMC10702575）。Porath らの10項目（学習5・活力5）をすべて使用、7件法、中国の既婚就業者、有効372名。Table 2 の α は全体 0.868、学習 0.767、活力 0.809。筆頭著者は Ni であり、Jiang らではない。第4・第8項目の逆転採点は当該質問紙の番号なので、原典の `reverseItems` は空のままにする。原典の `responseFormat`（通例5件法 Likert）も変えない。日本語状況は変えない。同じ論文の DUWAS 使用は今回の範囲外であり入れない。
+- CSR-17、Aad-3、UTAUT-SI／FC、P–O fit-3、RC-3 の使用研究、Price Consciousness 5 は HOLD のまま変更しない。
+
 ## 2026-10-09: 知覚楽しさは Davis らの ENJ-3。MBI-GS の使用研究は Seibt & Kreuzfeld のみ。CSR-17 は HOLD
 
 - セマンティック版は v0.89.0。概念は109から110、尺度は152から153。使用研究は183から184。選択ガイドは43から44。関係は16のまま。開発論文は `usageStudies` に入れない。項目本文は空、`itemPublicationStatus` は `not-published`。機能用とデータ用で版を分けない。
