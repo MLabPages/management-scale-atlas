@@ -1,5 +1,24 @@
 # Decisions
 
+## 2026-10-11: ダイナミック・ケイパビリティは DC-14。インクルーシブ・リーダーシップは IL-9。WIS-7 の使用研究は Gan ら
+
+- セマンティック版は v0.91.0。概念は112から114、尺度は155から157。使用研究は185から186。選択ガイドは46から48。関係は16のまま。開発論文は `usageStudies` に入れない。DC-14 と IL-9 の項目本文は空、`itemPublicationStatus` は `not-published`。機能用とデータ用で版を分けない。
+- 概念 `dynamic-capabilities`（ダイナミック・ケイパビリティ / Dynamic Capabilities）と尺度 `kump-dc-14`（DC-14）を追加する。原典は Kump, Engelmann, Kessler, & Schweiger（2019）, Industrial and Corporate Change, 28(5), 1149–1172。DOI は `10.1093/icc/dty054`。オンライン公開は2018-12-13、登録年は印刷年の2019。`itemCount` は14（感知5・捕捉4・変革5）。16項目の EFA で交差負荷の SE6・T6 を削除した（§4.3.2、Table 2）。6件法 Likert（1＝strongly disagree～6＝strongly agree、§4.2.1）。確認標本 n=307 の α は .84／.84／.87、全体 .91（Table 4）。開発標本 n=269 の α は .88／.83／.86、全体 .91（Table 3）。`versionType` は `original`、`recordStatus` は `verified-metadata`。
+- 原典は © OUP、All rights reserved で、CC ライセンスはない。`usagePermission` は `unknown`。`sourceUrl` は DOI。項目本文は掲載しない。
+- 数値は出版論文の Advance Access 版で確認した。第三者の文書共有サイトの URL は `sourceUrl`、`fullTextUrl`、notes、文書のどこにも置かない。引用は DOI と節・表番号にする。2026-10-09 の ENJ-3、TRI 2.0、ACAP-14 と同じ出処の扱い。
+- Teece（2007）と Teece ら（1997）は概念枠であり尺度ではない。特許数、研究開発費、再編回数などの代理指標、Wilden ら（2013）の活動頻度型、提携・新製品開発など業界・機能別の DC 尺度は登録しない。捕捉の一部は Flatten らの ACAP-14 の内容を改作している（§4.2.2）。吸収能力、組織学習能力（OLC-14）、市場志向とは decisionGuide で分ける。感知は反応的な市場志向に近い挙動を示した（§5.2）。その注意は caution に書く。
+- `psychometricEvidence` は1件にまとめる。2件以上に分けると、既存のカード要約が「複数環境・日本語での検証根拠あり」になる。日本語未確認の尺度にその表示は使わない。
+- `japaneseVersionStatus` は `unconfirmed`。`japaneseEvidence` は空。濵﨑・大江（2024、DOI `10.11497/jasmin.202411.0_114`）は空港のアーカイブデータで感知を測り、Kump を引用するだけである。`japaneseStatusNote` にだけ書く。
+- 概念 `inclusive-leadership`（インクルーシブ・リーダーシップ / Inclusive Leadership）と尺度 `carmeli-il-9`（IL-9）を追加する。原典は Carmeli, Reiter-Palmon, & Ziv（2010）, Creativity Research Journal, 22(3), 250–260。DOI は `10.1080/10400419.2010.504654`。`itemCount` は9（開放性3・availability 4・accessibility 2。Appendix A の区分）。5件法（1＝not at all～5＝to a large extent）。因子分析は1因子（固有値6.18、説明率68.74%、負荷 .51–.82）。α=.94、N=150。3側面は内容上の区分であり、下位尺度得点の妥当性は原典で検証されていない。採点は9項目の平均として書く。
+- 数値は UNO DigitalCommons の著者受理稿（Psychology Faculty Publications 30、https://digitalcommons.unomaha.edu/psychfacpub/30、© 2010 Taylor & Francis）の Method・Table 1・Appendix A で確認した。2026-09-27／28 の著者ホスト PDF と同じく、受理稿の URL は `psychometricEvidence` に置ける。`sourceUrl` は DOI のままにする。`itemPublicationStatus` は `not-published` とする。受理稿に項目が載っていても、アプリの「原文を開く」は `sourceUrl` を使うため、DOI を機関リポジトリへ付け替えない。CC ライセンスはなく、`usagePermission` は `unknown`。項目本文は掲載しない。ページ番号は受理稿のものなので、節名と Table 1・Appendix A で引用する。
+- 調査国と実施言語は受理稿に記載がない。所属機関から国を推測しない。`targetPopulation` に国名を書かない。
+- Nembhard & Edmondson（2006）のリーダー包摂性、Randel ら（2018）と Shore ら（2011）の所属感・独自性、Owens, Johnson, & Mitchell（2013）の謙虚なリーダーシップは別の項目集合であり、登録しない。心理的安全性（TPS）は原典の結果変数であり、IL-9 と同一視しない。LMX、サーバント、エンパワーリング、変革型とは decisionGuide で分ける。後続研究の6項目抜粋は IL-9 として扱わない。
+- `japaneseVersionStatus` は `unconfirmed`。`japaneseEvidence` は空。金・牛丸（2022、ビジネス科学研究 11、DOI `10.82765/jobsr.11.0_11`）は同尺度から6項目を用いた（p. 15、α=.923）。フル9項目の日本語版ではない。`japaneseStatusNote` にだけ書く。日本語の項目文は写さない。未確認は94から96。検証済みレコードは18のまま。
+- `relatedConcepts` は存在する ID だけにする。2026-10-07 の判断どおり、吸収能力や心理的安全性への逆リンクは足さない。
+- `cortina-wis-7` に、これまで無かった `usageStudies` を1件追加する。Gan, Zeng, & Wang（2023）, Frontiers in Psychology。DOI `10.3389/fpsyg.2023.1320703`（PMC10715392、CC BY）。Cortina ら（2001）の7項目をすべて使用。変更は、原典の文脈（Eighth Circuit Court）を一般の職場にしたことと、想起期間を過去5年から過去6か月にしたことだけ。5件法（1＝Never～5＝Most of the time）。この標本の α=0.93。シンガポールの就業者、募集152名から有効118名。同じ段落の 0.91／0.92 は Lim & Lee（2011）の値であり、標本αにしない。原典の `responseFormat`（0＝never～4＝most of the time、想起は過去5年）は変えない。実施言語は本文にないので、「記載なし」と書く。日本語状況は変えない。
+- Xia, Wang, Li, He, & Wang（2022、DOI `10.3389/fpsyg.2022.921161`）はフル7項目の候補だが、上端アンカーが always で、中国語訳でもある。今回の使用研究には入れず、予備として残す。
+- CSR-17、Aad-3、UTAUT-SI／FC、P–O fit-3、RC-3 の使用研究、Price Consciousness 5 は HOLD のまま変更しない。
+
 ## 2026-10-09: 技術レディネスは TRI 2.0。吸収能力は ACAP-14。Thriving-10 の使用研究は Ni ら
 
 - セマンティック版は v0.90.0。概念は110から112、尺度は153から155。使用研究は184から185。選択ガイドは44から46。関係は16のまま。開発論文は `usageStudies` に入れない。TRI 2.0 と ACAP-14 の項目本文は空、`itemPublicationStatus` は `not-published`。機能用とデータ用で版を分けない。
