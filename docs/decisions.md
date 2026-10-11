@@ -1,5 +1,23 @@
 # Decisions
 
+## 2026-10-11: 謙虚なリーダーシップは EH-9。創造的自己効力感は CSE-3。EH-9 の使用研究は Qian ら
+
+- セマンティック版は v0.92.0。概念は114から116、尺度は157から159。使用研究は186から187。選択ガイドは48から50。関係は16のまま。開発論文は `usageStudies` に入れない。EH-9 と CSE-3 の項目本文は空、`itemPublicationStatus` は `not-published`。機能用とデータ用で版を分けない。
+- 概念 ID は `humble-leadership`（謙虚なリーダーシップ / Humble Leadership (Expressed Humility)）。尺度 ID は `owens-expressed-humility-9`（EH-9）。原典は Owens, Johnson, & Mitchell（2013）, Organization Science, 24(5), 1517–1538。DOI は `10.1287/orsc.1120.0795`。著者は Crossref で Bradley P. Owens、Michael D. Johnson、Terence R. Mitchell。`itemCount` は9（正確な自己認識への意欲・他者の強みの評価・教えられやすさが各3。Table 3 の項目1–3、4–6、7–9）。3つの一次因子が二次の expressed humility に載る反射型。`versionType` は `original`、`recordStatus` は `verified-metadata`。
+- 数値は著者公開PDF（https://faculty.washington.edu/mdj3/Humility%20and%20performance.pdf）の Table 2、Table 3、Study 1、Study 3 で確認した。2026-10-11 の IL-9 と同じく、著者ホストの URL は `psychometricEvidence` に置く。`sourceUrl` は DOI のままにする。項目本文は PDF にあっても掲載しない。
+- Study 1 の回答は strongly disagree～strongly agree の Likert。件数の明記は Study 3 で、humility は five-point（5＝strongly agree）。`responseFormat` にはその両方を書く。評定は他者評定（Sample A・B はよく知る人物、Sample C はプロジェクト成員、Sample D・E と Study 3 は直属上司）。自己評定ではない。
+- 旗艦αは開発 Sample A（N=164）の .94。Sample D（N=511、フィールド）の .95 は、学生標本の .94 と同等と本文が述べる。Study 3 の Table 7 対角は .97（従業員704名が218名のリーダーを評定）。.97 を旗艦αに置き換えない。適合度のカイ二乗など、PDF 抽出で小数が崩れた値は記録しない。
+- 著者PDFの terms は、研究・教育・私的研究を認め、商業利用と自動的な大量ダウンロードは出版社の明示的承認がなければ不可とする（permissions@informs.org）。有料誌で利用条件の記載がない DC-14・IL-9・ACAP-14 の `unknown` とは分け、明示の商業利用制限があるため `usagePermission` は `permission-required`。Mind Garden 型の有料実施ライセンスではないので `commercial` にはしない。尺度実施そのものの別ライセンス文書は確認していない。
+- Ou ら（2014）の19項目拡張、HEXACO honesty-humility、modesty は旗艦にしない。IL-9、サーバント、エンパワーリング、真正・倫理的リーダーシップ、LMX とは decisionGuide で分ける。`relatedConcepts` は存在する ID だけにする。2026-10-07 の判断どおり、既存概念への逆リンクは足さない。
+- `japaneseVersionStatus` は `unconfirmed`。`japaneseEvidence` は空。Qian ら（2018）は中国語使用であり、日本語版にしない。`japaneseStatusNote` にだけ書く。未確認は96から98。検証済みレコードは18のまま。
+- `psychometricEvidence` は1件にまとめる。2件以上に分けると、使用研究がない尺度のカード要約が「複数環境・日本語での検証根拠あり」になる。EH-9 には使用研究があるが、CSE-3 と扱いを揃える。
+- 概念 ID は `creative-self-efficacy`（創造的自己効力感 / Creative Self-Efficacy）。尺度 ID は `tierney-farmer-cse-3`（CSE-3）。原典は Tierney & Farmer（2002）, Academy of Management Journal, 45(6), 1137–1148。登録 DOI は `10.5465/3069429`。Crossref が保持する DOI 文字列は `10.2307/3069429` で、AOM の版リンクは `10.5465/3069429`。IWB-6 が `10.5465/256701` を登録 DOI にしたのと同じく、AOM 形式を正本にする。`10.2307/3069309` は別論文であり、DOI 欄にも notes の採用値にも使わない。著者の名は Crossref がイニシャル（P.、S. M.）だけなので、フルネームは補わない。
+- `itemCount` は3、単一次元。7件法（1＝very strongly disagree～7＝very strongly agree）。α は manufacturing .83、operations .87。この回答形式と α は Abulela（2024、Frontiers in Education、2024-01-19、DOI `10.3389/feduc.2023.1306532`）が原典を要約した値である。AMJ 原典の表は未開封なので、ページ番号や標本人数は書かない。項目本文は二次文献で通例文言が知られていても掲載しない。`usagePermission` は `unknown`。
+- Karwowski らの SSCS CSE-6、Beghetto（2006）の3項目、Abbott（2010）の多次元版は旗艦にしない。一般性自己効力感、PCQ-24 の Efficacy、創造的パーソナルアイデンティティとは decisionGuide で分ける。創造的パーソナルアイデンティティは概念として未登録なので `relatedConcepts` に入れない。相手側への逆リンクは足さない。
+- `owens-expressed-humility-9` に、これまで無かった `usageStudies` を1件追加する。Qian, Li, Song, Wang, Wang, Chang, & Xiong（2018）, Frontiers in Psychology, 9, 563。DOI `10.3389/fpsyg.2018.00563`（CC BY）。Owens ら（2013）の9項目をすべて使用。中国のホテルグループ。研修に参加した上司64名から各5名の部下を無作為抽出し、有効は上司57名（89.06%）と部下248名（77.5%）。部下が直属上司を評定。Brislin（1980）の翻訳・逆翻訳で中国語化。7件法（1＝strongly disagree～7＝strongly agree）。原典の5件法からの改変は adaptation に書き、尺度の `responseFormat` は変えない。この標本の α=0.93。サンプル項目は転載しない。Owens ら（2013）は開発論文なので使用研究に入れない。
+- 登録版そのものが3・4項目の尺度は28から29（CSE-3）。使用研究側の3・4項目は26のまま（Qian らは9項目）。
+- CSR-17、Aad-3、UTAUT-SI／FC、P–O fit-3、RC-3、Price Consciousness 5、Brand Affect 3／OBE-4 の日本語、CX Scale 18 の第2使用研究、Mitchell–Ambrose の5項目、Brand Hate-18 の使用研究、自己一致性（Sirgy）、サービス・リカバリー公正（Tax ら）、`ahearne-leb-10` の候補使用研究、Voice-6 の4項目抜粋は HOLD のまま変更しない。
+
 ## 2026-10-11: ダイナミック・ケイパビリティは DC-14。インクルーシブ・リーダーシップは IL-9。WIS-7 の使用研究は Gan ら
 
 - セマンティック版は v0.91.0。概念は112から114、尺度は155から157。使用研究は185から186。選択ガイドは46から48。関係は16のまま。開発論文は `usageStudies` に入れない。DC-14 と IL-9 の項目本文は空、`itemPublicationStatus` は `not-published`。機能用とデータ用で版を分けない。
