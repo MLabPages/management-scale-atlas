@@ -1,7 +1,7 @@
 # 経営学・マーケティング概念・尺度アトラス 開発引継ぎ
 
-最終更新: 2026-10-11<br>
-対象版: v0.92.0（謙虚なリーダーシップ EH-9、創造的自己効力感 CSE-3、EH-9 の使用研究）<br>
+最終更新: 2026-10-12<br>
+対象版: v0.93.0（知識隠蔽 KH-12、EH-9 と IL-9 の使用研究）<br>
 公開URL: https://mlabpages.github.io/management-scale-atlas/  
 リポジトリ: https://github.com/MLabPages/management-scale-atlas
 
@@ -21,6 +21,8 @@
 ## 2. 現在の実装状況
 
 ### データ
+
+2026-10-12の v0.93.0 は、117概念・160尺度・190使用研究・51選択ガイド・16関係。知識隠蔽を追加し、Connelly, Zweig, Webster, & Trougakos（2012）の KH-12（DOI 10.1002/job.737。evasive hiding・playing dumb・rationalized hiding が各4、7件法）を登録した。回答形式は Steiner, Bart, & Rieger（2026、DOI 10.3389/fpsyg.2026.1812789）が原典の初期7件法を保持したと明記した記述に依る。開発論文の標本αは未確認のため記していない。確認できたフル12項目の標本αは Hu ら（2023）の全体 0.95 であり、下位パーセルαで置き換えていない。項目本文は載せていない。知識共有の欠如、知識ホーディング、Peng らの短縮版は旗艦にしない。日本語は未確認で、未確認は99。検証済みは18のまま。関連概念は片方向のまま。KH-12 に Hu, Yan, Jiang, & Yeo（2023、DOI 10.1016/j.jvb.2023.103911。CC BY）のフル12項目を使用研究として1件追加した。アンカー文言の変更は adaptation に残し、原典の回答形式は変えていない。Prolific 経由、3波完了の有効301名、英語、全体 α=0.95。EH-9 に Zou & Chen（2022、DOI 10.3389/fpsyg.2022.950059。Wen-Qian Zou、Shu-Chen Chen）のフル9項目を1件追加し、Qian ら（2018）は残した。中国南東部31組織、部下238名・リーダー45名、全体回収率72%、中国語、7件法、α=0.93。原典の5件法は変えていない。IL-9 に Wang, Chen, & Li（2021、DOI 10.3389/fpsyg.2021.666477。Hui Wang、Min Chen、Xiangqing Li）のフル9項目を1件追加した。製造企業20社、2波有効418名、中国語、5件法の strongly disagree～strongly agree、α=0.916。原典のアンカーは変えていない。Yang & Cheng の創造的自己効力感10項目と Scott & Bruce の IWB-6 は入れていない。CSR-17、Aad-3、UTAUT-SI／FC、P–O fit-3、RC-3、Price Consciousness 5、Brand Affect 3／OBE-4 の日本語、CX18 の第2使用、Mitchell–Ambrose 5、Brand Hate-18 の使用、自己一致性、サービス・リカバリー公正、`ahearne-leb-10`、Voice-6 の Chen（2023）、LEB-10 の Khan（2025）、CSE-3 の使用研究、DC-14、WAMI、パラドキシカル・リーダーシップ、PSI は HOLD のまま。詳細は [2026-10-12ログ](docs/dev/logs/2026-10-12-kh12-eh9-il9-usage.md)。以下はそれ以前の状態。
 
 2026-10-11の v0.92.0 は、116概念・159尺度・187使用研究・50選択ガイド・16関係。謙虚なリーダーシップを追加し、Owens, Johnson, & Mitchell（2013）の EH-9（DOI 10.1287/orsc.1120.0795。3因子×3、他者評定、5件法、Sample A の α=.94）を登録した。数値は著者公開PDF。商業利用は出版社許諾が必要で、項目本文は載せていない。Ou らの19項目、HEXACO honesty-humility、modesty は旗艦にしない。IL-9、サーバント、エンパワーリングとは分ける。日本語は未確認。創造的自己効力感を追加し、Tierney & Farmer（2002）の CSE-3（DOI 10.5465/3069429。3項目、7件法、manufacturing α=.83、operations α=.87）を登録した。回答形式と α は Abulela（2024）の原典要約。JSTOR 別名は 10.2307/3069429。項目本文は載せていない。一般性自己効力感、PCQ の Efficacy、創造的パーソナルアイデンティティとは別。未確認は98。検証済みは18のまま。関連概念は片方向のまま。EH-9 に Qian ら（2018、DOI 10.3389/fpsyg.2018.00563）のフル9項目を使用研究として1件追加した。7件法への改変は adaptation に残し、原典の回答形式は変えていない。標本αは 0.93。中国のホテル業、部下248名、上司57名。CSR-17、Aad-3、UTAUT-SI／FC、P–O fit-3、RC-3、Price Consciousness 5、Brand Affect 3／OBE-4 の日本語、CX18 の第2使用、Mitchell–Ambrose 5、Brand Hate-18 の使用、自己一致性、サービス・リカバリー公正、LEB-10 の候補使用、Voice-6 の4項目抜粋は HOLD のまま。詳細は [2026-10-11ログ](docs/dev/logs/2026-10-11-eh9-cse3-humility-usage.md)。以下はそれ以前の状態。
 
