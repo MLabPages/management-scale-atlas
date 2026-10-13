@@ -1,7 +1,7 @@
 # 経営学・マーケティング概念・尺度アトラス 開発引継ぎ
 
-最終更新: 2026-10-12<br>
-対象版: v0.93.0（知識隠蔽 KH-12、EH-9 と IL-9 の使用研究）<br>
+最終更新: 2026-10-13<br>
+対象版: v0.94.0（職場の孤独感 LAWS、WOS-10 と PCB-5 の使用研究）<br>
 公開URL: https://mlabpages.github.io/management-scale-atlas/  
 リポジトリ: https://github.com/MLabPages/management-scale-atlas
 
@@ -21,6 +21,8 @@
 ## 2. 現在の実装状況
 
 ### データ
+
+2026-10-13の v0.94.0 は、118概念・161尺度・193使用研究・52選択ガイド・16関係。職場の孤独感を追加し、Wright, Burt, & Strongman（2006）の LAWS（New Zealand Journal of Psychology, 35(2), 59–68。DOI なし。出版元 PDF。情緒的剥奪9・社会的交友7、逆転8項目、7件法）を登録した。7件法のアンカーは60項目パイロット（p.61）の記述で、最終16項目の研究1・2では再記述されていない。研究1の得点範囲16–107と整合する。研究2の α は未確認のため記していない。項目本文は載せていない。UCLA 孤独感尺度、職場排斥、ソーシャル・サポート、心理的安全性は旗艦にしない。ソーシャル・サポートは未登録なので関連概念に入れない。日本語は使用例で、未確認は99のまま。検証済みは18のまま。使用例は17。関連概念は片方向のまま。LAWS に Sasaki ら（2025、DOI 10.1093/joccuh/uiaf009。CC BY 4.0。PMC11879050）のフル16項目を使用研究として1件追加した。日本の常勤従業員、ベースライン在職かつ追跡回答の n=706、過去4週間、α=.932。Nagano ら（2024）の抄録は未開封なので検証済みにしない。Sasaki らの逆転9項目は原典の8項目と食い違う。原典の逆転項目は変えていない。WOS-10 に Fiset, Al Hajj, & Vongas（2017、DOI 10.3389/fpsyg.2017.01528。CC BY）の研究2を1件追加した。フル10項目、過去6か月、7件法（1＝never～7＝always）、Table 4 対角の α=0.95（N=232）。研究1の1項目ビネットは入れていない。実施言語は本文に明記がない。旗艦の回答形式は変えていない。PCB-5 に Shen, Schaubroeck, Zhao, & Wu（2019、DOI 10.3389/fpsyg.2019.00067。CC BY）のフル5項目を1件追加した。中国の製薬製造企業、最終分析は部下232名・監督者71名、中国語、6件法、α=0.80。旗艦の「件数は根拠ファイルで未確定」は変えていない。CSR-17、Aad-3、UTAUT-SI／FC、P–O fit-3、RC-3、Price Consciousness 5、Brand Affect 3／OBE-4 の日本語、Mitchell–Ambrose 5、CX18 の第2使用、Brand Hate-18 の使用、LEB-10 の Khan（2025）、Voice-6 の Chen（2023）、Frontiers 2020 の JIS、自己一致性、サービス・リカバリー公正、`ahearne-leb-10`、CSE-3 の使用研究、DC-14、WAMI、パラドキシカル・リーダーシップ、PSI は HOLD のまま。詳細は [2026-10-13ログ](docs/dev/logs/2026-10-13-laws16-wos10-pcb5-usage.md)。以下はそれ以前の状態。
 
 2026-10-12の v0.93.0 は、117概念・160尺度・190使用研究・51選択ガイド・16関係。知識隠蔽を追加し、Connelly, Zweig, Webster, & Trougakos（2012）の KH-12（DOI 10.1002/job.737。evasive hiding・playing dumb・rationalized hiding が各4、7件法）を登録した。回答形式は Steiner, Bart, & Rieger（2026、DOI 10.3389/fpsyg.2026.1812789）が原典の初期7件法を保持したと明記した記述に依る。開発論文の標本αは未確認のため記していない。確認できたフル12項目の標本αは Hu ら（2023）の全体 0.95 であり、下位パーセルαで置き換えていない。項目本文は載せていない。知識共有の欠如、知識ホーディング、Peng らの短縮版は旗艦にしない。日本語は未確認で、未確認は99。検証済みは18のまま。関連概念は片方向のまま。KH-12 に Hu, Yan, Jiang, & Yeo（2023、DOI 10.1016/j.jvb.2023.103911。CC BY）のフル12項目を使用研究として1件追加した。アンカー文言の変更は adaptation に残し、原典の回答形式は変えていない。Prolific 経由、3波完了の有効301名、英語、全体 α=0.95。EH-9 に Zou & Chen（2022、DOI 10.3389/fpsyg.2022.950059。Wen-Qian Zou、Shu-Chen Chen）のフル9項目を1件追加し、Qian ら（2018）は残した。中国南東部31組織、部下238名・リーダー45名、全体回収率72%、中国語、7件法、α=0.93。原典の5件法は変えていない。IL-9 に Wang, Chen, & Li（2021、DOI 10.3389/fpsyg.2021.666477。Hui Wang、Min Chen、Xiangqing Li）のフル9項目を1件追加した。製造企業20社、2波有効418名、中国語、5件法の strongly disagree～strongly agree、α=0.916。原典のアンカーは変えていない。Yang & Cheng の創造的自己効力感10項目と Scott & Bruce の IWB-6 は入れていない。CSR-17、Aad-3、UTAUT-SI／FC、P–O fit-3、RC-3、Price Consciousness 5、Brand Affect 3／OBE-4 の日本語、CX18 の第2使用、Mitchell–Ambrose 5、Brand Hate-18 の使用、自己一致性、サービス・リカバリー公正、`ahearne-leb-10`、Voice-6 の Chen（2023）、LEB-10 の Khan（2025）、CSE-3 の使用研究、DC-14、WAMI、パラドキシカル・リーダーシップ、PSI は HOLD のまま。詳細は [2026-10-12ログ](docs/dev/logs/2026-10-12-kh12-eh9-il9-usage.md)。以下はそれ以前の状態。
 
