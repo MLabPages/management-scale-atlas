@@ -1,5 +1,19 @@
 # Decisions
 
+## 2026-10-15: 心理的安全性の旗艦は Edmondson TPS-7。知識共有は Lee KSS-7。EH-9 の日本語は Matsuo ら
+
+- セマンティック版は v0.96.0。概念は119から120、尺度は162から164。使用研究は195のまま。選択ガイドは53から55。関係は16のまま。開発論文と日本語の検証論文は `usageStudies` に入れない。項目本文は空、`itemPublicationStatus` は `not-published`。機能用とデータ用で版を分けない。
+- 尺度 ID は `edmondson-tps-7`（TPS-7）。既存概念 `psychological-safety` に足す。原典は Edmondson（1999）, Administrative Science Quarterly, 44(2), 350–383。DOI は `10.2307/2666999`。`sourceUrl` は https://doi.org/10.2307/2666999 のみ。Crossref の当該レコードに、この DOI 以外の別名はなかったので、別名は書かない。MIT 授業用 PDF の URL は `sourceUrl` にしない。notes に「著者公開相当の授業用PDFで Table 2 を確認」とだけ書く。
+- `itemCount` は7、単一次元。7件法（1＝not at all～7＝strongly agree）。この回答形式は Matsuo ら（2024）が原典の回答形式として明記した記述と、原典 Table 2 の平均 5.25（SD=1.03）と整合する。旗艦 α は Table 2 対角の .82（N=51 teams / 427 members）。逆転は原典と Matsuo が明示する3項目。項目番号は Matsuo Table 2 / Appendix の 1, 3, 5。項目本文は転載しない。`usagePermission` は `unknown`。`versionType` は `original`。`recordStatus` は `verified-metadata`。`psychometricEvidence` は1件。`usageStudies` は空。
+- 日本語は `validated`。Matsuo, Tsujita, Kita, Ayaya, & Kumagaya（2024）, Management and Labour Studies, 49(3), 375–388。DOI `10.1177/0258042X231191871`。Online First 2023-10-02。印刷年は2024。CC BY-NC 4.0。原著者許可・翻訳・逆翻訳。12組織・就業者893名（EFA/CFAは半数分割）。CFA 1因子 CFI=0.95、SRMR=0.044、RMSEA=0.089。α=0.82。日本語アンカーは Appendix の「まったくあてはまらない～非常にあてはまる」。verifiedAt は 2026-10-15。
+- decisionGuide は既存概念に1件足す。旗艦は TPS-7。Liang 系、Ochiai & Otsuka（2021）の別系統、根拠未確認の PSI-18、Plouffe らの30項目 Psychological Safety Inventory は旗艦にしない。先行レコード `edmondson-team-psychological-safety-scale` の4項目使用と Ochiai & Otsuka（2022）は移さない。`relatedConcepts` は変えない。2026-10-07 の判断どおり、既存概念への逆リンクは足さない。
+- 概念 ID は `knowledge-sharing`（知識共有 / Knowledge Sharing）。尺度 ID は `lee-knowledge-sharing-7`（KSS-7）。原典は Jae-Nam Lee（2001）, Information & Management, 38(5), 323–335。DOI は `10.1016/S0378-7206(00)00074-4`。`sourceUrl` は DOI のみ。7項目（明示的4＋暗黙的／implicit 3）。5件法 Likert（1＝strongly disagree～5＝strongly agree）。旗艦αは Table 2 の Explicit .901、Implicit .758。全体7項目の単一αは原典にないため記さない。原文脈は韓国公共部門195組織の IS アウトソーシング。職場チーム内への転用は adaptation。`usagePermission` は `unknown`。`usageStudies` は空。項目本文は空。
+- KSS-7 の日本語も同じ Matsuo ら（2024）で `validated`。日本語7項目。原典の「we and our service provider」をチーム内の「私たちは…互いに共有している」へ文脈適応した点を japaneseStatusNote に書く。5件法。CFA は2因子がやや良い（CFI=0.95, SRMR=0.041, RMSEA=0.097）。下位αは Explicit .74 / Implicit .77（Matsuo Table 2）。N=893 の半数分割。検証論文は使用研究に入れない。
+- `relatedConcepts` は存在する `knowledge-hiding`、`psychological-safety`、`humble-leadership`、`absorptive-capacity` だけにする。相手側への逆リンクは足さない。関係レコードは追加しない。decisionGuide で KH-12 と、アウトソーシング原典と職場適応の違いを分ける。
+- `owens-expressed-humility-9` の `japaneseVersionStatus` を `unconfirmed` から `validated` にする。同じ Matsuo ら（2024）。フル9項目・3因子（Willingness / Appreciation / Teachability）。日本語は7件法（1＝全く同意しない～7＝強く同意する）。原典5件法からの件数変更は japaneseStatusNote に書き、旗艦の `responseFormat` は変えない。CFA 3因子は CFI=0.99、SRMR=0.026、RMSEA=0.054（1因子より良い）。下位αは Willingness .73、Appreciation .88、Teachability .89（Matsuo Table 2）。全体9項目の単一αはこの表にないため記さない。回答者はフォロワーのみ。EHS 分析用半数は n_a=367 / n_b=368。原著者許可・翻訳・逆翻訳。検証論文は使用研究に入れない。既存の Qian ら（2018）と Zou & Chen（2022）は残す。WORK 誌の Matsuo ら（2024、DOI 10.3233/WOR-230197）は同一データ系列の一部（Sample A+B）の再分析のため、独立の `usageStudies` に入れない。notes に「同一データ系列のため見送り」と書く。
+- 日本語の検証済みレコードは18から21。未確認は100から99。使用例は17のまま。登録版そのものが3・4項目の尺度は29のまま。使用研究側の3・4項目は27のまま。
+- PSI-18、Plouffe PSI-30、Ayase 2026 LAWS、Nagano 2024 LAWS 抄録、CSR-17、Aad-3、UTAUT-SI／FC、P–O fit-3、RC-3、Price Consciousness 5、Brand Affect 3／OBE-4 の日本語、Mitchell–Ambrose 5、CX18 の第2使用、Frontiers 2020 の JIS、LEB-10 の Khan、Voice-6 の Chen、項目本文、ResearchGate 等のミラー URL は HOLD のまま変更しない。
+
 ## 2026-10-14: パラドキシカル・リーダーシップは PLB-22。CSE-3 の使用研究は Tu ら。WAMI-10 の使用研究は Letona-Ibañez ら
 
 - セマンティック版は v0.95.0。概念は118から119、尺度は161から162。使用研究は193から195。選択ガイドは52から53。関係は16のまま。開発論文は `usageStudies` に入れない。PLB-22 の項目本文は空、`itemPublicationStatus` は `not-published`。機能用とデータ用で版を分けない。
