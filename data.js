@@ -2,10 +2,10 @@
 // DOI、原典、項目数、下位次元は原著論文または公式資料で確認。
 const ATLAS_DATA = {
   meta: {
-    version: "0.96.0",
+    version: "0.97.0",
     status: "initial-real-data",
     updated: "2026-10-15",
-    scope: "120概念・164尺度",
+    scope: "128概念・173尺度",
   },
 
   // 既存記録と本文確認済みの追加根拠を整理。個々の確認日は出典のverifiedAtに記録。
@@ -1807,6 +1807,253 @@ const ATLAS_DATA = {
         caution: "知識隠蔽（Connelly らの KH-12）は、求められた知識を意図的に出さない行為であり、知識共有の欠如と同一視しないでください。Lee（2001）の原典は、韓国公共部門195組織における IS アウトソーシングのサービス受託側と提供者の知識共有です。職場チーム内の「私たちは…互いに共有している」への転用は文脈適応であり、原典そのものではありません。全体7項目の単一αは原典にないため記していません。開発論文と日本語検証論文は使用研究に入れていません。項目本文は掲載しません。",
       },
       references: ["10.1016/S0378-7206(00)00074-4"],
+    },
+    {
+      "id": "memorable-tourism-experience",
+      "nameJa": "記憶に残る観光体験",
+      "nameEn": "Memorable Tourism Experience",
+      "definitionJa": "旅行後に肯定的に思い出される観光体験の内容。単なる満足や再訪意向とは区別する。",
+      "domain": "観光・ホスピタリティ",
+      "relatedConcepts": [
+        "destination-emotion",
+        "tourism-experience-economy",
+        "tourism-novelty-seeking"
+      ],
+      "parentConcepts": [],
+      "childConcepts": [],
+      "typicalAntecedents": [],
+      "typicalOutcomes": [],
+      "decisionGuide": {
+        "question": "記憶に残る観光体験をどの観点・版で測りますか？",
+        "choices": [
+          {
+            "label": "24項目・7次元の原版を確認する",
+            "scaleId": "kim-ritchie-mccormick-mte-24",
+            "recommendation": "MTE-24",
+            "reason": "旅行後に肯定的に思い出される観光体験の内容。単なる満足や再訪意向とは区別する。"
+          }
+        ],
+        "caution": "Kim（2014）の観光地属性尺度や研究内の項目削除版とは別です。回顧した体験の内容を測り、将来の再訪意向そのものは測りません。"
+      },
+      "references": [
+        "10.1177/0047287510385467"
+      ]
+    },
+    {
+      "id": "destination-emotion",
+      "nameJa": "観光地での感情体験",
+      "nameEn": "Destination Emotion",
+      "definitionJa": "観光地に対して経験する肯定的感情の種類と強さ。観光地の属性評価や満足とは別の概念。",
+      "domain": "観光・ホスピタリティ",
+      "relatedConcepts": [
+        "memorable-tourism-experience",
+        "tourism-experience-economy"
+      ],
+      "parentConcepts": [],
+      "childConcepts": [],
+      "typicalAntecedents": [],
+      "typicalOutcomes": [],
+      "decisionGuide": {
+        "question": "観光地での感情体験をどの観点・版で測りますか？",
+        "choices": [
+          {
+            "label": "15項目・3次元の原版を確認する",
+            "scaleId": "hosany-gilbert-des-15",
+            "recommendation": "DES-15",
+            "reason": "観光地に対して経験する肯定的感情の種類と強さ。観光地の属性評価や満足とは別の概念。"
+          }
+        ],
+        "caution": "肯定的感情の尺度です。恐怖・怒りなどの否定的感情や、旅行経験全体の質を網羅する尺度ではありません。"
+      },
+      "references": [
+        "10.1177/0047287509349267"
+      ]
+    },
+    {
+      "id": "tourism-experience-economy",
+      "nameJa": "観光における経験経済の4領域",
+      "nameEn": "Experience Economy in Tourism",
+      "definitionJa": "観光・宿泊の経験を教育、娯楽、審美、脱日常の4領域で捉える概念。",
+      "domain": "観光・ホスピタリティ",
+      "relatedConcepts": [
+        "memorable-tourism-experience",
+        "destination-emotion"
+      ],
+      "parentConcepts": [],
+      "childConcepts": [],
+      "typicalAntecedents": [],
+      "typicalOutcomes": [],
+      "decisionGuide": {
+        "question": "観光における経験経済の4領域をどの観点・版で測りますか？",
+        "choices": [
+          {
+            "label": "16項目・4次元の原版を確認する",
+            "scaleId": "oh-fiore-jeoung-4e-16",
+            "recommendation": "4E-16",
+            "reason": "観光・宿泊の経験を教育、娯楽、審美、脱日常の4領域で捉える概念。"
+          }
+        ],
+        "caution": "Pine–Gilmore の理論そのものと、Oh らの16項目の測定尺度を区別してください。後続研究の12項目版はこの原版と同一ではありません。"
+      },
+      "references": [
+        "10.1177/0047287507304039"
+      ]
+    },
+    {
+      "id": "place-attachment",
+      "nameJa": "場所愛着",
+      "nameEn": "Place Attachment",
+      "definitionJa": "特定の場所との心理的な結び付き。自己の一部としての同一性と、活動目的を支える機能的な依存を区別する。",
+      "domain": "観光・ホスピタリティ",
+      "relatedConcepts": [
+        "memorable-tourism-experience",
+        "resident-emotional-solidarity"
+      ],
+      "parentConcepts": [],
+      "childConcepts": [],
+      "typicalAntecedents": [],
+      "typicalOutcomes": [],
+      "decisionGuide": {
+        "question": "場所愛着をどの観点・版で測りますか？",
+        "choices": [
+          {
+            "label": "12項目・2次元の原版を確認する",
+            "scaleId": "williams-vaske-place-attachment-12",
+            "recommendation": "PA-12",
+            "reason": "特定の場所との心理的な結び付き。自己の一部としての同一性と、活動目的を支える機能的な依存を区別する。"
+          }
+        ],
+        "caution": "観光地以外にも適用される概念です。住民の地域愛着、社会的結合を加えた多次元尺度、研究内の8項目版とは区別してください。"
+      },
+      "references": [
+        "10.1093/forestscience/49.6.830"
+      ]
+    },
+    {
+      "id": "resident-emotional-solidarity",
+      "nameJa": "住民の観光客に対する感情的連帯",
+      "nameEn": "Residents’ Emotional Solidarity with Tourists",
+      "definitionJa": "住民が観光客に感じる親しさ、共感的理解、歓迎の気持ち。観光開発への賛否そのものとは区別する。",
+      "domain": "観光・ホスピタリティ",
+      "relatedConcepts": [
+        "resident-tourism-empowerment",
+        "sustainable-tourism-attitude",
+        "place-attachment"
+      ],
+      "parentConcepts": [],
+      "childConcepts": [],
+      "typicalAntecedents": [],
+      "typicalOutcomes": [],
+      "decisionGuide": {
+        "question": "住民の観光客に対する感情的連帯をどの観点・版で測りますか？",
+        "choices": [
+          {
+            "label": "10項目・3次元の原版を確認する",
+            "scaleId": "woosnam-norman-ess-10",
+            "recommendation": "ESS-10",
+            "reason": "住民が観光客に感じる親しさ、共感的理解、歓迎の気持ち。観光開発への賛否そのものとは区別する。"
+          }
+        ],
+        "caution": "住民が観光客を評価する版です。観光客が住民を評価する方向の変更は文脈適応であり、同じ回答対象として混ぜないでください。"
+      },
+      "references": [
+        "10.1177/0047287509346858"
+      ]
+    },
+    {
+      "id": "sustainable-tourism-attitude",
+      "nameJa": "持続可能な観光に対する住民態度",
+      "nameEn": "Sustainable Tourism Attitude",
+      "definitionJa": "観光地の住民が、観光の社会的費用、環境、経済、計画、参加などの持続可能性をどう捉えるか。",
+      "domain": "観光・ホスピタリティ",
+      "relatedConcepts": [
+        "resident-tourism-empowerment",
+        "resident-emotional-solidarity"
+      ],
+      "parentConcepts": [],
+      "childConcepts": [],
+      "typicalAntecedents": [],
+      "typicalOutcomes": [],
+      "decisionGuide": {
+        "question": "持続可能な観光に対する住民態度をどの観点・版で測りますか？",
+        "choices": [
+          {
+            "label": "44項目・7次元の原版を確認する",
+            "scaleId": "choi-sirakaya-sus-tas-44",
+            "recommendation": "SUS-TAS-44",
+            "reason": "観光地の住民が、観光の社会的費用、環境、経済、計画、参加などの持続可能性をどう捉えるか。"
+          }
+        ],
+        "caution": "観光客の環境配慮行動を測る尺度ではありません。後続の21項目などの短縮版や学生向け適応版は原版と区別してください。"
+      },
+      "references": [
+        "10.1177/0047287505274651"
+      ]
+    },
+    {
+      "id": "resident-tourism-empowerment",
+      "nameJa": "観光による住民エンパワーメント",
+      "nameEn": "Resident Empowerment through Tourism",
+      "definitionJa": "観光を通じ、住民が誇りや地域とのつながり、観光の意思決定に関わる力を感じる程度。経済的利益だけとは区別する。",
+      "domain": "観光・ホスピタリティ",
+      "relatedConcepts": [
+        "sustainable-tourism-attitude",
+        "resident-emotional-solidarity"
+      ],
+      "parentConcepts": [],
+      "childConcepts": [],
+      "typicalAntecedents": [],
+      "typicalOutcomes": [],
+      "decisionGuide": {
+        "question": "観光による住民エンパワーメントをどの観点・版で測りますか？",
+        "choices": [
+          {
+            "label": "12項目・3次元の原版を確認する",
+            "scaleId": "boley-mcgehee-rets-12",
+            "recommendation": "RETS-12",
+            "reason": "観光を通じ、住民が誇りや地域とのつながり、観光の意思決定に関わる力を感じる程度。経済的利益だけとは区別する。"
+          },
+          {
+            "label": "大泉町で検証された日本語11項目の文脈適応版を確認する",
+            "scaleId": "boley-maruyama-woosnam-rets-jp-11",
+            "recommendation": "RETS-JP-11",
+            "reason": "翻訳・逆翻訳とCFAを確認。心理5・社会3・政治3項目で、原版12項目とは項目構成が異なる。"
+          }
+        ],
+        "caution": "原版12項目と日本で検証された11項目版を区別してください。日本版では政治的次元の項目を変更しています。経済的エンパワーメントは含めません。"
+      },
+      "references": [
+        "10.1016/j.tourman.2014.04.003"
+      ]
+    },
+    {
+      "id": "tourism-novelty-seeking",
+      "nameJa": "旅行における新奇性追求",
+      "nameEn": "Novelty Seeking in Tourism",
+      "definitionJa": "旅行で刺激、日常からの変化、退屈の解消、驚きを求める傾向。体験後に知覚した新奇性とは区別する。",
+      "domain": "観光・ホスピタリティ",
+      "relatedConcepts": [
+        "memorable-tourism-experience"
+      ],
+      "parentConcepts": [],
+      "childConcepts": [],
+      "typicalAntecedents": [],
+      "typicalOutcomes": [],
+      "decisionGuide": {
+        "question": "旅行における新奇性追求をどの観点・版で測りますか？",
+        "choices": [
+          {
+            "label": "21項目・4次元の原版を確認する",
+            "scaleId": "lee-crompton-tourism-novelty-21",
+            "recommendation": "Tourism NS-21",
+            "reason": "旅行で刺激、日常からの変化、退屈の解消、驚きを求める傾向。体験後に知覚した新奇性とは区別する。"
+          }
+        ],
+        "caution": "一般的な刺激希求性やMTEの新奇性下位尺度とは別です。旅行前の動機・傾向と旅行後の経験評価を混同しないでください。"
+      },
+      "references": [
+        "10.1016/0160-7383(92)90064-V"
+      ]
     },
   ],
 
@@ -8278,6 +8525,529 @@ const ATLAS_DATA = {
       verifiedAt: "2026-10-15",
       notes: "Lee（2001）。Information & Management, 38(5), 323–335。DOI 10.1016/S0378-7206(00)00074-4。sourceUrl は DOI のみ。著者は Crossref で Jae-Nam Lee。7項目（明示的4＋暗黙的／implicit 3）。5件法 Likert（1＝strongly disagree～5＝strongly agree）。旗艦αは Table 2 の Explicit .901、Implicit .758。全体7項目の単一αは原典にないため記さない。原文脈は韓国公共部門195組織における、IS アウトソーシングのサービス受託側と提供者の知識共有。職場チーム内の共有への転用は adaptation。usagePermission は unknown。itemPublicationStatus は not-published。項目本文は収録しない。開発論文は使用研究に含めない。使用研究は空。日本語は Matsuo ら（2024、DOI 10.1177/0258042X231191871。Management and Labour Studies, 49(3), 375–388。Online First 2023-10-02。CC BY-NC 4.0）により validated。日本語7項目。原典の「we and our service provider」をチーム内の「私たちは…互いに共有している」へ文脈適応した点は japaneseStatusNote に明記する。5件法。CFA は2因子がやや良い（CFI=0.95, SRMR=0.041, RMSEA=0.097）。下位αは Explicit .74 / Implicit .77（Matsuo Table 2）。N=893 の半数分割。検証論文は使用研究に入れない。知識隠蔽（KH-12）とは別。",
       recordStatus: "verified-metadata",
+    },
+    {
+      "id": "kim-ritchie-mccormick-mte-24",
+      "name": "Memorable Tourism Experience Scale",
+      "abbreviation": "MTE-24",
+      "conceptId": "memorable-tourism-experience",
+      "authors": [
+        "Jong-Hyeong Kim",
+        "J. R. Brent Ritchie",
+        "Bryan McCormick"
+      ],
+      "year": 2012,
+      "sourceTitle": "Development of a Scale to Measure Memorable Tourism Experiences",
+      "journal": "Journal of Travel Research, 51(1), 12–25",
+      "doi": "10.1177/0047287510385467",
+      "sourceUrl": "https://doi.org/10.1177/0047287510385467",
+      "itemCount": 24,
+      "dimensions": [
+        "Hedonism（快楽）",
+        "Refreshment（リフレッシュ）",
+        "Local culture（地域文化）",
+        "Meaningfulness（有意味性）",
+        "Knowledge（知識）",
+        "Involvement（関与）",
+        "Novelty（新奇性）"
+      ],
+      "responseFormat": "原典の回答件法・アンカーは今回の確認範囲では未確定",
+      "reverseItems": [],
+      "scoring": "下位次元ごとに評価する。総得点、欠測処理、逆転の扱いは原典・使用版で確認する。",
+      "targetPopulation": [
+        "観光旅行の経験者"
+      ],
+      "language": "English",
+      "versionType": "original",
+      "parentScaleId": null,
+      "japaneseVersionStatus": "unconfirmed",
+      "japaneseStatusNote": "今回確認した原典・公開資料の範囲では、この版の日本語検証・使用を未確認。日本語版が存在しないことを意味しない。",
+      "japaneseEvidence": [],
+      "validationStudies": [],
+      "usagePermission": "unknown",
+      "usageEvidence": [],
+      "psychometricEvidence": [
+        {
+          "label": "原典の確認範囲",
+          "sample": "観光旅行の経験者",
+          "methods": "出版社の原著抄録：24項目・7領域。巻号の刊行年は2012、オンライン先行公開は2010-11-19。",
+          "result": "原著抄録が7領域の構造、内的一貫性、内容・構成概念・収束・弁別妥当性を報告。係数と回答件法は本文の表を未確認のため記載しない。",
+          "url": "https://doi.org/10.1177/0047287510385467",
+          "sourceLocator": "出版社の原著抄録：24項目・7領域。巻号の刊行年は2012、オンライン先行公開は2010-11-19。",
+          "verifiedAt": "2026-10-15"
+        }
+      ],
+      "applicationEvidence": [],
+      "usageStudies": [],
+      "itemPublicationStatus": "not-published",
+      "items": [],
+      "verifiedAt": "2026-10-15",
+      "notes": "Kim（2014）の観光地属性尺度や研究内の項目削除版とは別です。回顧した体験の内容を測り、将来の再訪意向そのものは測りません。 出版社の原著抄録：24項目・7領域。巻号の刊行年は2012、オンライン先行公開は2010-11-19。 項目本文は掲載しない。利用条件は未確認。逆転項目の配列が空でも逆転なしの確認を意味しない。開発・検証論文は使用研究数に含めない。",
+      "recordStatus": "verified-metadata"
+    },
+    {
+      "id": "hosany-gilbert-des-15",
+      "name": "Destination Emotion Scale",
+      "abbreviation": "DES-15",
+      "conceptId": "destination-emotion",
+      "authors": [
+        "Sameer Hosany",
+        "David Gilbert"
+      ],
+      "year": 2010,
+      "sourceTitle": "Measuring Tourists’ Emotional Experiences toward Hedonic Holiday Destinations",
+      "journal": "Journal of Travel Research, 49(4), 513–526",
+      "doi": "10.1177/0047287509349267",
+      "sourceUrl": "https://doi.org/10.1177/0047287509349267",
+      "itemCount": 15,
+      "dimensions": [
+        "Joy（喜び・5項目）",
+        "Love（愛情・5項目）",
+        "Positive surprise（肯定的驚き・5項目）"
+      ],
+      "responseFormat": "7件法（1＝not at all～7＝very much）",
+      "reverseItems": [],
+      "scoring": "下位次元ごとに評価する。総得点、欠測処理、逆転の扱いは原典・使用版で確認する。",
+      "targetPopulation": [
+        "休暇旅行の経験者"
+      ],
+      "language": "English",
+      "versionType": "original",
+      "parentScaleId": null,
+      "japaneseVersionStatus": "unconfirmed",
+      "japaneseStatusNote": "今回確認した原典・公開資料の範囲では、この版の日本語検証・使用を未確認。日本語版が存在しないことを意味しない。",
+      "japaneseEvidence": [],
+      "validationStudies": [],
+      "usagePermission": "unknown",
+      "usageEvidence": [],
+      "psychometricEvidence": [
+        {
+          "label": "原典の確認範囲",
+          "sample": "休暇旅行の経験者",
+          "methods": "原著 Study 1 の回答形式、尺度精製の15項目（5＋5＋5）の記述、Study 2 のCFA。著者公開本文で確認。",
+          "result": "23項目の初期構造から15項目へ精製。Study 2 の15項目CFAは CFI=.90、RMSEA=.07。尺度精製段階の CFI=.96 と混同しない。",
+          "url": "https://doi.org/10.1177/0047287509349267",
+          "sourceLocator": "原著 Study 1 の回答形式、尺度精製の15項目（5＋5＋5）の記述、Study 2 のCFA。著者公開本文で確認。",
+          "verifiedAt": "2026-10-15"
+        }
+      ],
+      "applicationEvidence": [],
+      "usageStudies": [],
+      "itemPublicationStatus": "not-published",
+      "items": [],
+      "verifiedAt": "2026-10-15",
+      "notes": "肯定的感情の尺度です。恐怖・怒りなどの否定的感情や、旅行経験全体の質を網羅する尺度ではありません。 原著 Study 1 の回答形式、尺度精製の15項目（5＋5＋5）の記述、Study 2 のCFA。著者公開本文で確認。 項目本文は掲載しない。利用条件は未確認。逆転項目の配列が空でも逆転なしの確認を意味しない。開発・検証論文は使用研究数に含めない。",
+      "recordStatus": "verified-metadata"
+    },
+    {
+      "id": "oh-fiore-jeoung-4e-16",
+      "name": "Experience Economy Scale (Tourism Applications)",
+      "abbreviation": "4E-16",
+      "conceptId": "tourism-experience-economy",
+      "authors": [
+        "Haemoon Oh",
+        "Ann Marie Fiore",
+        "Miyoung Jeoung"
+      ],
+      "year": 2007,
+      "sourceTitle": "Measuring Experience Economy Concepts: Tourism Applications",
+      "journal": "Journal of Travel Research, 46(2), 119–132",
+      "doi": "10.1177/0047287507304039",
+      "sourceUrl": "https://doi.org/10.1177/0047287507304039",
+      "itemCount": 16,
+      "dimensions": [
+        "Education（教育・4項目）",
+        "Entertainment（娯楽・4項目）",
+        "Esthetics（審美・4項目）",
+        "Escapism（脱日常・4項目）"
+      ],
+      "responseFormat": "回答件法・アンカーは原典本文の追加確認が必要",
+      "reverseItems": [],
+      "scoring": "下位次元ごとに評価する。総得点、欠測処理、逆転の扱いは原典・使用版で確認する。",
+      "targetPopulation": [
+        "B&B（ベッド・アンド・ブレックファスト）の宿泊客"
+      ],
+      "language": "English",
+      "versionType": "original",
+      "parentScaleId": null,
+      "japaneseVersionStatus": "unconfirmed",
+      "japaneseStatusNote": "今回確認した原典・公開資料の範囲では、この版の日本語検証・使用を未確認。日本語版が存在しないことを意味しない。",
+      "japaneseEvidence": [],
+      "validationStudies": [],
+      "usagePermission": "unknown",
+      "usageEvidence": [],
+      "psychometricEvidence": [
+        {
+          "label": "原典の確認範囲",
+          "sample": "B&B（ベッド・アンド・ブレックファスト）の宿泊客",
+          "methods": "出版社原著抄録と原著PDFの検索可能本文（尺度精製後の16項目・各領域4項目）。PDF表の全文照合は未実施。",
+          "result": "B&B の所有者・宿泊客を対象に質的調査とフィールド調査で尺度を開発。原著抄録は4領域の構造を支持。適合度・α・回答件法は今回の確認範囲では記載しない。",
+          "url": "https://doi.org/10.1177/0047287507304039",
+          "sourceLocator": "出版社原著抄録と原著PDFの検索可能本文（尺度精製後の16項目・各領域4項目）。PDF表の全文照合は未実施。",
+          "verifiedAt": "2026-10-15"
+        }
+      ],
+      "applicationEvidence": [],
+      "usageStudies": [],
+      "itemPublicationStatus": "not-published",
+      "items": [],
+      "verifiedAt": "2026-10-15",
+      "notes": "Pine–Gilmore の理論そのものと、Oh らの16項目の測定尺度を区別してください。後続研究の12項目版はこの原版と同一ではありません。 出版社原著抄録と原著PDFの検索可能本文（尺度精製後の16項目・各領域4項目）。PDF表の全文照合は未実施。 項目本文は掲載しない。利用条件は未確認。逆転項目の配列が空でも逆転なしの確認を意味しない。開発・検証論文は使用研究数に含めない。",
+      "recordStatus": "verified-metadata"
+    },
+    {
+      "id": "williams-vaske-place-attachment-12",
+      "name": "Place Attachment Measure (Williams & Vaske)",
+      "abbreviation": "PA-12",
+      "conceptId": "place-attachment",
+      "authors": [
+        "Daniel R. Williams",
+        "Jerry J. Vaske"
+      ],
+      "year": 2003,
+      "sourceTitle": "The Measurement of Place Attachment: Validity and Generalizability of a Psychometric Approach",
+      "journal": "Forest Science, 49(6), 830–840",
+      "doi": "10.1093/forestscience/49.6.830",
+      "sourceUrl": "https://doi.org/10.1093/forestscience/49.6.830",
+      "itemCount": 12,
+      "dimensions": [
+        "Place identity（場所同一性・6項目）",
+        "Place dependence（場所依存性・6項目）"
+      ],
+      "responseFormat": "5件法（1＝strongly disagree～5＝strongly agree、3が中立）",
+      "reverseItems": [],
+      "scoring": "下位次元ごとに評価する。総得点、欠測処理、逆転の扱いは原典・使用版で確認する。",
+      "targetPopulation": [
+        "自然レクリエーション地域の利用者",
+        "訪問経験のある学生"
+      ],
+      "language": "English",
+      "versionType": "original",
+      "parentScaleId": null,
+      "japaneseVersionStatus": "unconfirmed",
+      "japaneseStatusNote": "今回確認した原典・公開資料の範囲では、この版の日本語検証・使用を未確認。日本語版が存在しないことを意味しない。",
+      "japaneseEvidence": [],
+      "validationStudies": [],
+      "usagePermission": "unknown",
+      "usageEvidence": [],
+      "psychometricEvidence": [
+        {
+          "label": "原典の確認範囲",
+          "sample": "自然レクリエーション地域の利用者・訪問経験のある学生",
+          "methods": "US Forest Service 公開原著PDF、Instrument（pp.833–834）、Table 1、Table 2、一般化可能性の議論。",
+          "result": "各6項目、計12項目で複数の場所を評定。2次元モデルを検討し、各次元4項目でも信頼して測定できる可能性を一般化可能性分析で示す。ここでは12項目の投与版を登録し、8項目版を自動生成しない。",
+          "url": "https://doi.org/10.1093/forestscience/49.6.830",
+          "sourceLocator": "US Forest Service 公開原著PDF、Instrument（pp.833–834）、Table 1、Table 2、一般化可能性の議論。",
+          "verifiedAt": "2026-10-15"
+        }
+      ],
+      "applicationEvidence": [],
+      "usageStudies": [],
+      "itemPublicationStatus": "not-published",
+      "items": [],
+      "verifiedAt": "2026-10-15",
+      "notes": "観光地以外にも適用される概念です。住民の地域愛着、社会的結合を加えた多次元尺度、研究内の8項目版とは区別してください。 US Forest Service 公開原著PDF、Instrument（pp.833–834）、Table 1、Table 2、一般化可能性の議論。 項目本文は掲載しない。利用条件は未確認。逆転項目の配列が空でも逆転なしの確認を意味しない。開発・検証論文は使用研究数に含めない。",
+      "recordStatus": "verified-metadata"
+    },
+    {
+      "id": "woosnam-norman-ess-10",
+      "name": "Emotional Solidarity Scale (Resident Perspective)",
+      "abbreviation": "ESS-10",
+      "conceptId": "resident-emotional-solidarity",
+      "authors": [
+        "Kyle M. Woosnam",
+        "William C. Norman"
+      ],
+      "year": 2010,
+      "sourceTitle": "Measuring Residents’ Emotional Solidarity with Tourists: Scale Development of Durkheim’s Theoretical Constructs",
+      "journal": "Journal of Travel Research, 49(3), 365–380",
+      "doi": "10.1177/0047287509346858",
+      "sourceUrl": "https://doi.org/10.1177/0047287509346858",
+      "itemCount": 10,
+      "dimensions": [
+        "Emotional closeness（感情的近接性・2項目）",
+        "Sympathetic understanding（共感的理解・4項目）",
+        "Welcoming visitors（観光客の歓迎・4項目）"
+      ],
+      "responseFormat": "7件法の同意評定（原典の強い同意～強い不同意。数値方向は調査票で確認）",
+      "reverseItems": [],
+      "scoring": "下位次元ごとに評価する。総得点、欠測処理、逆転の扱いは原典・使用版で確認する。",
+      "targetPopulation": [
+        "観光地の住民"
+      ],
+      "language": "English",
+      "versionType": "original",
+      "parentScaleId": null,
+      "japaneseVersionStatus": "unconfirmed",
+      "japaneseStatusNote": "今回確認した原典・公開資料の範囲では、この版の日本語検証・使用を未確認。日本語版が存在しないことを意味しない。",
+      "japaneseEvidence": [],
+      "validationStudies": [],
+      "usagePermission": "unknown",
+      "usageEvidence": [],
+      "psychometricEvidence": [
+        {
+          "label": "原典の確認範囲",
+          "sample": "観光地の住民",
+          "methods": "著者研究室からの原著PDF：本調査の測定形式（p.373）、Table 4 の Emotional solidarity（p.375）。",
+          "result": "米国サウスカロライナ州 Beaufort County の住民455名。最終Table 4で2＋4＋4項目、下位αは近接性 .88、共感的理解 .91、歓迎 .85。同論文の共有信念・共有行動・交流の項目はESS-10に含めない。",
+          "url": "https://doi.org/10.1177/0047287509346858",
+          "sourceLocator": "著者研究室からの原著PDF：本調査の測定形式（p.373）、Table 4 の Emotional solidarity（p.375）。",
+          "verifiedAt": "2026-10-15"
+        }
+      ],
+      "applicationEvidence": [],
+      "usageStudies": [],
+      "itemPublicationStatus": "not-published",
+      "items": [],
+      "verifiedAt": "2026-10-15",
+      "notes": "住民が観光客を評価する版です。観光客が住民を評価する方向の変更は文脈適応であり、同じ回答対象として混ぜないでください。 著者研究室からの原著PDF：本調査の測定形式（p.373）、Table 4 の Emotional solidarity（p.375）。 項目本文は掲載しない。利用条件は未確認。逆転項目の配列が空でも逆転なしの確認を意味しない。開発・検証論文は使用研究数に含めない。",
+      "recordStatus": "verified-metadata"
+    },
+    {
+      "id": "choi-sirakaya-sus-tas-44",
+      "name": "Sustainable Tourism Attitude Scale",
+      "abbreviation": "SUS-TAS-44",
+      "conceptId": "sustainable-tourism-attitude",
+      "authors": [
+        "Hwan-Suk Chris Choi",
+        "Ercan Sirakaya"
+      ],
+      "year": 2005,
+      "sourceTitle": "Measuring Residents’ Attitude toward Sustainable Tourism: Development of Sustainable Tourism Attitude Scale",
+      "journal": "Journal of Travel Research, 43(4), 380–394",
+      "doi": "10.1177/0047287505274651",
+      "sourceUrl": "https://doi.org/10.1177/0047287505274651",
+      "itemCount": 44,
+      "dimensions": [
+        "Perceived social costs（社会的費用）",
+        "Environmental sustainability（環境の持続可能性）",
+        "Long-term planning（長期計画）",
+        "Perceived economic benefits（経済的便益）",
+        "Ensuring visitor satisfaction（訪問者満足）",
+        "Community-centered economy（地域中心の経済）",
+        "Maximizing community participation（住民参加）"
+      ],
+      "responseFormat": "5件法 Likert 型（アンカーの文言は原典調査票で確認）",
+      "reverseItems": [],
+      "scoring": "下位次元ごとに評価する。総得点、欠測処理、逆転の扱いは原典・使用版で確認する。",
+      "targetPopulation": [
+        "観光地の住民"
+      ],
+      "language": "English",
+      "versionType": "original",
+      "parentScaleId": null,
+      "japaneseVersionStatus": "unconfirmed",
+      "japaneseStatusNote": "今回確認した原典・公開資料の範囲では、この版の日本語検証・使用を未確認。日本語版が存在しないことを意味しない。",
+      "japaneseEvidence": [],
+      "validationStudies": [],
+      "usagePermission": "unknown",
+      "usageEvidence": [],
+      "psychometricEvidence": [
+        {
+          "label": "原典の確認範囲",
+          "sample": "観光地の住民",
+          "methods": "著者公開原著本文：尺度項目生成の5件法、最終Table 4とValidation、結論の44項目・7下位尺度。初期Table 2は38項目で最終版とは異なる。",
+          "result": "最終尺度は44項目・7下位尺度。本文のValidationは下位α .79～.95、全体 .87 を報告。初期因子分析の38項目の係数を最終44項目版の係数として転用しない。",
+          "url": "https://doi.org/10.1177/0047287505274651",
+          "sourceLocator": "著者公開原著本文：尺度項目生成の5件法、最終Table 4とValidation、結論の44項目・7下位尺度。初期Table 2は38項目で最終版とは異なる。",
+          "verifiedAt": "2026-10-15"
+        }
+      ],
+      "applicationEvidence": [],
+      "usageStudies": [],
+      "itemPublicationStatus": "not-published",
+      "items": [],
+      "verifiedAt": "2026-10-15",
+      "notes": "観光客の環境配慮行動を測る尺度ではありません。後続の21項目などの短縮版や学生向け適応版は原版と区別してください。 著者公開原著本文：尺度項目生成の5件法、最終Table 4とValidation、結論の44項目・7下位尺度。初期Table 2は38項目で最終版とは異なる。 項目本文は掲載しない。利用条件は未確認。逆転項目の配列が空でも逆転なしの確認を意味しない。開発・検証論文は使用研究数に含めない。",
+      "recordStatus": "verified-metadata"
+    },
+    {
+      "id": "boley-mcgehee-rets-12",
+      "name": "Resident Empowerment through Tourism Scale",
+      "abbreviation": "RETS-12",
+      "conceptId": "resident-tourism-empowerment",
+      "authors": [
+        "B. Bynum Boley",
+        "Nancy Gard McGehee"
+      ],
+      "year": 2014,
+      "sourceTitle": "Measuring empowerment: Developing and validating the Resident Empowerment through Tourism Scale (RETS)",
+      "journal": "Tourism Management, 45, 85–94",
+      "doi": "10.1016/j.tourman.2014.04.003",
+      "sourceUrl": "https://doi.org/10.1016/j.tourman.2014.04.003",
+      "itemCount": 12,
+      "dimensions": [
+        "Psychological empowerment（心理的・5項目）",
+        "Social empowerment（社会的・3項目）",
+        "Political empowerment（政治的・4項目）"
+      ],
+      "responseFormat": "原版の回答件法・アンカーは今回未確定。日本の11項目版の7件法を原版へ転用しない",
+      "reverseItems": [],
+      "scoring": "下位次元ごとに評価する。総得点、欠測処理、逆転の扱いは原典・使用版で確認する。",
+      "targetPopulation": [
+        "観光地の住民"
+      ],
+      "language": "English",
+      "versionType": "original",
+      "parentScaleId": null,
+      "japaneseVersionStatus": "related-version",
+      "japaneseStatusNote": "Boley, Maruyama, & Woosnam（2015）は群馬県大泉町で日本語11項目版を検証。原版12項目そのものの日本語検証ではない。別レコード RETS-JP-11 を参照。",
+      "japaneseEvidence": [
+        {
+          "kind": "psychometric-validation",
+          "label": "大泉町の日本語11項目版の検証",
+          "title": "Measuring empowerment in an eastern context: Findings from Japan",
+          "authors": "Boley, Maruyama, & Woosnam",
+          "year": 2015,
+          "doi": "10.1016/j.tourman.2015.01.011",
+          "url": "https://doi.org/10.1016/j.tourman.2015.01.011",
+          "sourceLocator": "原著 2.3、3.4、Table 2、4.2–4.3。心理5・社会3・政治3。翻訳・逆翻訳。調査解析対象456、CFA表では451。",
+          "verifiedAt": "2026-10-15"
+        }
+      ],
+      "validationStudies": [],
+      "usagePermission": "unknown",
+      "usageEvidence": [],
+      "psychometricEvidence": [
+        {
+          "label": "原典の確認範囲",
+          "sample": "観光地の住民",
+          "methods": "開発論文の著者公開原稿 Table 2 とCFA節。12項目の構成は後続原著 Boley ら（2015）Introduction・2.1–2.3でも照合。",
+          "result": "米国Virginia州3郡、n=703。CFA CFI=.971、RMSEA=.063。下位CRは心理 .92、社会 .90、政治 .85。CRをαと表示しない。",
+          "url": "https://doi.org/10.1016/j.tourman.2014.04.003",
+          "sourceLocator": "開発論文の著者公開原稿 Table 2 とCFA節。12項目の構成は後続原著 Boley ら（2015）Introduction・2.1–2.3でも照合。",
+          "verifiedAt": "2026-10-15"
+        }
+      ],
+      "applicationEvidence": [],
+      "usageStudies": [],
+      "itemPublicationStatus": "not-published",
+      "items": [],
+      "verifiedAt": "2026-10-15",
+      "notes": "原版12項目と日本で検証された11項目版を区別してください。日本版では政治的次元の項目を変更しています。経済的エンパワーメントは含めません。 開発論文の著者公開原稿 Table 2 とCFA節。12項目の構成は後続原著 Boley ら（2015）Introduction・2.1–2.3でも照合。 項目本文は掲載しない。利用条件は未確認。逆転項目の配列が空でも逆転なしの確認を意味しない。開発・検証論文は使用研究数に含めない。",
+      "recordStatus": "verified-metadata"
+    },
+    {
+      "id": "lee-crompton-tourism-novelty-21",
+      "name": "Novelty Seeking in Tourism Scale",
+      "abbreviation": "Tourism NS-21",
+      "conceptId": "tourism-novelty-seeking",
+      "authors": [
+        "Tae-Hee Lee",
+        "John Crompton"
+      ],
+      "year": 1992,
+      "sourceTitle": "Measuring novelty seeking in tourism",
+      "journal": "Annals of Tourism Research, 19(4), 732–751",
+      "doi": "10.1016/0160-7383(92)90064-V",
+      "sourceUrl": "https://doi.org/10.1016/0160-7383(92)90064-V",
+      "itemCount": 21,
+      "dimensions": [
+        "Thrill（刺激）",
+        "Change from routine（日常からの変化）",
+        "Boredom alleviation（退屈の解消）",
+        "Surprise（驚き）"
+      ],
+      "responseFormat": "原典の回答件法・アンカーは今回の確認範囲では未確定",
+      "reverseItems": [],
+      "scoring": "下位次元ごとに評価する。総得点、欠測処理、逆転の扱いは原典・使用版で確認する。",
+      "targetPopulation": [
+        "旅行者"
+      ],
+      "language": "English",
+      "versionType": "original",
+      "parentScaleId": null,
+      "japaneseVersionStatus": "unconfirmed",
+      "japaneseStatusNote": "今回確認した原典・公開資料の範囲では、この版の日本語検証・使用を未確認。日本語版が存在しないことを意味しない。",
+      "japaneseEvidence": [],
+      "validationStudies": [],
+      "usagePermission": "unknown",
+      "usageEvidence": [],
+      "psychometricEvidence": [
+        {
+          "label": "原典の確認範囲",
+          "sample": "旅行者",
+          "methods": "出版社の原著抄録：21項目・4次元と妥当性・信頼性の検討。回答件法や個別係数は原典本文を未確認。",
+          "result": "原著抄録は内容・収束・理論・弁別・基準妥当性、内的一貫性、再検査・折半信頼性を報告。個別の係数は未確認のため記載しない。",
+          "url": "https://doi.org/10.1016/0160-7383(92)90064-V",
+          "sourceLocator": "出版社の原著抄録：21項目・4次元と妥当性・信頼性の検討。回答件法や個別係数は原典本文を未確認。",
+          "verifiedAt": "2026-10-15"
+        }
+      ],
+      "applicationEvidence": [],
+      "usageStudies": [],
+      "itemPublicationStatus": "not-published",
+      "items": [],
+      "verifiedAt": "2026-10-15",
+      "notes": "一般的な刺激希求性やMTEの新奇性下位尺度とは別です。旅行前の動機・傾向と旅行後の経験評価を混同しないでください。 出版社の原著抄録：21項目・4次元と妥当性・信頼性の検討。回答件法や個別係数は原典本文を未確認。 項目本文は掲載しない。利用条件は未確認。逆転項目の配列が空でも逆転なしの確認を意味しない。開発・検証論文は使用研究数に含めない。",
+      "recordStatus": "verified-metadata"
+    },
+    {
+      "id": "boley-maruyama-woosnam-rets-jp-11",
+      "name": "Resident Empowerment through Tourism Scale (Oizumi Japanese Adaptation)",
+      "abbreviation": "RETS-JP-11",
+      "conceptId": "resident-tourism-empowerment",
+      "authors": [
+        "B. Bynum Boley",
+        "Naho Maruyama",
+        "Kyle M. Woosnam"
+      ],
+      "year": 2015,
+      "sourceTitle": "Measuring empowerment in an eastern context: Findings from Japan",
+      "journal": "Tourism Management, 50, 112–122",
+      "doi": "10.1016/j.tourman.2015.01.011",
+      "sourceUrl": "https://doi.org/10.1016/j.tourman.2015.01.011",
+      "itemCount": 11,
+      "dimensions": [
+        "Psychological empowerment（心理的・5項目）",
+        "Social empowerment（社会的・3項目）",
+        "Political empowerment（政治的・3項目）"
+      ],
+      "responseFormat": "7件法（1＝strongly disagree～7＝strongly agree）",
+      "reverseItems": [],
+      "scoring": "下位次元ごとに評価する。総得点、欠測処理、逆転の扱いは原典・使用版で確認する。",
+      "targetPopulation": [
+        "群馬県大泉町の日本人住民（世帯主または配偶者）"
+      ],
+      "language": "Japanese",
+      "versionType": "translated",
+      "parentScaleId": "boley-mcgehee-rets-12",
+      "japaneseVersionStatus": "validated",
+      "japaneseStatusNote": "日本語へ翻訳・逆翻訳し、心理5・社会3・政治3項目を検証した文脈適応版。原版12項目の単純な全項目翻訳や汎用の正式短縮版ではない。政治的次元ではアクセス・投票の表現を見直している。",
+      "japaneseEvidence": [
+        {
+          "kind": "psychometric-validation",
+          "label": "大泉町の日本語11項目版の検証",
+          "title": "Measuring empowerment in an eastern context: Findings from Japan",
+          "authors": "Boley, Maruyama, & Woosnam",
+          "year": 2015,
+          "doi": "10.1016/j.tourman.2015.01.011",
+          "url": "https://doi.org/10.1016/j.tourman.2015.01.011",
+          "sourceLocator": "原著 2.3、3.4、Table 2、4.2–4.3。心理5・社会3・政治3。翻訳・逆翻訳。調査解析対象456、CFA表では451。",
+          "verifiedAt": "2026-10-15"
+        }
+      ],
+      "validationStudies": [],
+      "usagePermission": "unknown",
+      "usageEvidence": [],
+      "psychometricEvidence": [
+        {
+          "label": "大泉町の日本語11項目版CFA",
+          "sample": "有効回答456、Table 2 のCFAはN=451",
+          "methods": "原著3.4とTable 2：翻訳・逆翻訳、3因子CFA。",
+          "result": "CFI=.97、RMSEA=.07。Table 2 の下位CRは心理 .89、社会 .93、政治 .91。CRをαと混同しない。心理的次元のAVE .62は社会的次元との共有分散 .64を下回り、弁別妥当性の判断には留意する。",
+          "url": "https://doi.org/10.1016/j.tourman.2015.01.011",
+          "sourceLocator": "原著3.4、Table 2、4.2–4.3",
+          "verifiedAt": "2026-10-15"
+        }
+      ],
+      "applicationEvidence": [],
+      "usageStudies": [],
+      "itemPublicationStatus": "not-published",
+      "items": [],
+      "verifiedAt": "2026-10-15",
+      "notes": "大泉町で検証した日本語11項目の文脈適応版。原版12項目との親子関係を保持。全国・他の観光地での測定不変性まで証明したものではない。 項目本文は掲載しない。利用条件は未確認。逆転項目の配列が空でも逆転なしの確認を意味しない。開発・検証論文は使用研究数に含めない。",
+      "recordStatus": "verified-metadata"
     },
   ],
 };
