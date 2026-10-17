@@ -1,5 +1,20 @@
 # Decisions
 
+## 2026-10-17: BAT-12 を短縮版として足す。PLB-22 の使用研究は Meng ら。BAT-23 の使用研究は Brulin ら
+
+- セマンティック版は v0.100.0。概念は128のまま。尺度は174から175。使用研究は197から199。選択ガイドは64のまま。関係は16のまま。開発論文は `usageStudies` に入れない。BAT-12 の項目本文は空、`itemPublicationStatus` は `not-published`。機能用とデータ用で版を分けない。
+- 新概念は作らない。尺度 ID は `hadzibajramovic-bat-12`（BAT-12）。既存概念 `burnout` に足す。親は `schaufeli-bat-23`。`versionType` は既存の正式短縮版と同じ `short`。`parentScaleId` は `schaufeli-bat-23`。原典は Hadžibajramović, E., Schaufeli, W., & De Witte, H.（2022）, BMC Public Health, 22, 560。DOI は `10.1186/s12889-022-12946-y`。公開は 2022-03-22。CC BY 4.0。`sourceUrl` は https://doi.org/10.1186/s12889-022-12946-y のみ。著者の名は根拠メモがイニシャルのため、フルネームは補わない。
+- `itemCount` は12。4下位尺度×3（疲弊、心的距離、認知的障害、情緒的障害）。心的距離・認知的障害・情緒的障害は BAT15 の段階で各3項目。疲弊は6項目から3項目。BAT15 は別尺度にしない。5件法の頻度（1＝never～5＝always）は BAT-23 と同じ。4下位尺度は単一のバーンアウト得点に合成できる。Rasch 上は、下位尺度内の局所依存を testlet で処理したあと適合する。標本はオランダとフランドル（ベルギー）の就業者代表標本（各 n=1500）。完全回答 n=2978（オランダ 1500、フランドル 1478）。原版オランダ語 BAT-23。Rasch 分析と項目内容分析・専門家判断。年齢・性別・国で DIF なし。
+- 信頼性は α として書かない。根拠メモは α の報告がなく、Person Separation Index（PSI。α に類似）だけを記す。subsample 1（n=800）は12項目 .91、4 testlets .82。subsample 2（n=800）は12項目 .90、4 testlets .81。`psychometricEvidence` は1件。使用研究が空の尺度で測定根拠を分けると、カード要約が「複数環境・日本語での検証根拠あり」になる。
+- `usagePermission` は `open`。BAT 公式サイトは無償・許諾不要・改変不可・Schaufeli et al.（2020）の引用。公式の英語質問票に短縮版項目の印があり、BAT-12 は公式配布物の一部。BAT-23 と同じ列挙値。新しい列挙値は作らない。短い `usagePermissionNote` も置く。項目本文は転載しない。逆転項目の番号は根拠メモに別記がないため記録しない。
+- 日本語は `unconfirmed`。`japaneseEvidence` は空。Sakakibara ら（2020）の BAT-J は23項目版の検証なので、BAT-12 の日本語根拠にしない。未確認は106から107。検証済みレコードは23のまま。関連版は14のまま。
+- 開発論文は `usageStudies` に入れない。使用研究は空。BAT4（Hadžibajramović et al. 2024、PLoS One）は登録しない。`burnout` の decisionGuide は変えない。BAT-23 の notes に、短縮版が別レコードである旨を足す。BAT-23 の項目数、回答形式、開発論文の α、利用条件、日本語根拠は変えない。
+- `zhang-plb-22` に `usageStudies` を1件追加する。既存の Stynen & Semeijn（2023）は残す。Meng, W., Xu, Z., Abuliezi, Z., Lyu, Y., & Zhang, Q.（2023）, Frontiers in Psychology, 14, 1052732。DOI `10.3389/fpsyg.2023.1052732`（epub 2023-04-06、CC BY 4.0）。Zhang ら（2015）の22項目。5次元（SO 5、UI 5、RF 4、DC 4、CA 4）を本文が明記。中国本土の複数企業。2時点（1か月間隔）。最終 60チーム・メンバー254名（有効率82.70%）。PLB はチームメンバーが上司を評定（T1）。中国語（Brislin 1980 の翻訳・逆翻訳）。5件法の同意（1＝strongly disagree～5＝strongly agree）。原版の頻度形式からの変更は adaptation に書き、旗艦の `responseFormat` は変えない。α=.94。倫理承認は East China Normal University（HR2-1110-2020）。`url` は DOI、`fullTextUrl` は Frontiers の出版社ページ。中国語使用を日本語の `usage-example` にしない。
+- `schaufeli-bat-23` に `usageStudies` を1件追加する。それまで空。Brulin, Wilczek, Ekberg, Lidwall, De Beer, Hadzibajramovic, Landstad, & Nyberg（2025）, BMJ Open, 15(4), e090966。DOI `10.1136/bmjopen-2024-090966`（epub 2025-04-10、CC BY-NC 4.0）。BAT-23 の23項目すべて（疲弊8、心的距離5、情緒的障害5、認知的障害5）。5件法（1＝never～5＝always）。下位尺度と全体の平均得点。赤カットオフ（全体 ≥3.02、Schaufeli et al. 2023）は adaptation に書く。旗艦の採点（開発論文では臨床カットオフ未確立）は変えない。α は全体 .95、疲弊 .92、心的距離 .84、情緒的障害 .90、認知的障害 .85（Table 2）。LOHHCS。医師の代表標本6699名に招待。ベースライン回答2761名（41.3%）。両時点回答1575名。実施言語は本文に明記がない。スウェーデンの調査であることをもって言語を書かない。共著に De Beer と Hadzibajramovic がいるが開発論文ではない。`url` は DOI、`fullTextUrl` は BMJ Open の出版社ページ。
+- 登録版そのものが3・4項目の尺度は29のまま（BAT-12 は12項目）。使用研究側の3・4項目は27のまま（Meng らは22項目。Brulin らは23項目）。
+- 見送り。PCQ-24 の Su & Hahn（2023、Behav Sci 13:981）は、例示項目が原典と異なり、本研究の PCQ の α を本文から確認できない。KSS-7 の Al-Rjoub & Mrayyan（2024）は、α .78 が本研究の値ではなく、回答形式の表記も誤記。どちらもデータに入れない。
+- CSR-17、Aad-3、UTAUT-SI／FC、P–O fit-3、RC-3、Price Consciousness 5、Brand Affect 3／OBE-4 の日本語、Mitchell–Ambrose 5、CX Scale 18 の第2使用、Brand Hate-18 の使用、Frontiers 2020 の JIS、LEB-10 の Khan（2025）、Voice-6 の Chen（2023）、PSI-18、Nagano 2024 日本語版 LAWS、Matsuo WORK 2024 は HOLD のまま変更しない。
+
 ## 2026-10-17: BAT-23 の利用条件文を詳細に出す
 
 - セマンティック版は v0.99.0。概念128、尺度174、使用研究197、選択ガイド64、関係16。件数は変えない。`usagePermission` は `open` のまま。新しい列挙値は作らない。
