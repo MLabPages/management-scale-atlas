@@ -2,9 +2,9 @@
 // DOI、原典、項目数、下位次元は原著論文または公式資料で確認。
 const ATLAS_DATA = {
   meta: {
-    version: "0.98.0",
+    version: "0.99.0",
     status: "initial-real-data",
-    updated: "2026-10-16",
+    updated: "2026-10-17",
     scope: "128概念・174尺度",
   },
 
@@ -9135,6 +9135,7 @@ const ATLAS_DATA = {
       ],
       validationStudies: [],
       usagePermission: "open",
+      usagePermissionNote: "無償で利用可・事前許諾不要・項目の改変不可・出典の引用必須（BAT公式サイト記載）。https://burnoutassessmenttool.be/en/",
       usageEvidence: [],
       psychometricEvidence: [
         {
@@ -9162,8 +9163,8 @@ const ATLAS_DATA = {
       usageStudies: [],
       itemPublicationStatus: "not-published",
       items: [],
-      verifiedAt: "2026-10-16",
-      notes: "Schaufeli, W. B., Desart, S., & De Witte, H.（2020）。International Journal of Environmental Research and Public Health, 17(24), 9495。DOI 10.3390/ijerph17249495。オンライン公開 2020-12-18。CC BY 4.0。sourceUrl は https://doi.org/10.3390/ijerph17249495 のみ。Burnout Assessment Tool の中核症状（BAT-C）23項目・4次元（疲弊 exhaustion 8、心的距離 mental distance 5、認知的障害 cognitive impairment 5、情緒的障害 emotional impairment 5）。5件法の頻度尺度（1＝全くない never, 2＝まれに rarely, 3＝時々 sometimes, 4＝よくある often, 5＝いつも always）。全項目が症状方向で、逆転項目は確認されない。二次因子モデルを採用し、総得点（単一合成得点）と4下位尺度得点を使える。臨床カットオフは本論文では確立されていない。対象は就業者。開発言語はオランダ語（フランドル）。フランドルの就業者 N=1,500（iVOX オンラインパネル、2017年春、代表性のあるサンプル）を折半し EFA n=750 / CFA n=750。相関4因子モデルと二次因子モデルの適合は同等（CFI .95, TLI .94, RMSEA .06）で二次因子モデルを採用。α は疲弊 .92、心的距離 .91、認知的障害 .92、情緒的障害 .90、BAT-C 合計 .95。BAT-S .90（心理的 .81、心身症的 .85）。MTMM で MBI-GS（UBOS）・OLBI との収束・弁別妥当性、UWES-3・DUWAS・DUBS との弁別妥当性。二次症状 BAT-S（心理的愁訴5・心身症的愁訴5の10項目。合計 BAT 33項目）は別尺度として登録しない。抑うつ気分は BAT に含まれない。著者は 4DSQ の抑うつ下位尺度の併用を推奨する。usagePermission は open。公式サイト https://burnoutassessmenttool.be/en/ は「The BAT is non-proprietary and may be used free of charge without requesting permission from the authors. … the instrument should not be modified, and [Schaufeli, Desart, & De Witte (2020)] should be cited」と記載する。無償・許諾不要・改変不可・引用必須に最も近い既存列挙値として open（掲載・利用可）を使う。research-use は学術は無料で商業は事前許諾、というこのアトラスの区分なので使わない。項目本文は収録しない。itemPublicationStatus は not-published。開発論文は使用研究に含めない。使用研究は空。日本語は同じレコードの japaneseVersionStatus validated。Sakakibara, K., Shimazu, A., Toyama, H., & Schaufeli, W. B.（2020）。Frontiers in Psychology, 11, 1819。DOI 10.3389/fpsyg.2020.01819。2020-08-11。CC BY 4.0。翻訳は KS・AS、バイリンガル心理学者が逆翻訳、Schaufeli が調整、認知面接を実施。インターネットモニター調査（2018年5月）の分析対象 N=982（フルタイム・64歳未満、平均年齢39.8、男性51.0%、ホワイトカラー83.2%）。1か月後再検査 485名（招待498）。BAT-JC 23項目・BAT-JS 10項目、同じ5件法（1 never～5 always）。α は BAT-JC .96（疲弊 .93、心的距離 .86、情緒的障害 .91、認知的障害 .93）、BAT-JS .92（心理的苦痛 .89、心身症的 .87）。1か月の再検査信頼性は BAT-JC .64、BAT-JS .71。bifactor ESEM の適合が最良（BAT-JC: CFI .98, TLI .96, RMSEA .04。ECV BAT-JC .70）。BAT-JC の二次因子 CFA は CFI .93, TLI .92, RMSEA .06。日本語版 MBI-GS との MTMM で収束妥当性、UWES・DUWAS と弁別（AVE > 相関の二乗）。原典と日本語版論文で下位尺度の項目番号の並び表記が異なるため、項目番号で下位尺度を対応づけない。この検証論文は使用研究に入れない。MBI-GS とは別尺度。UWES と DUWAS とは別概念。",
+      verifiedAt: "2026-10-17",
+      notes: "無償で利用可・事前許諾不要・項目の改変不可・出典の引用必須（BAT公式サイト記載）。出典は https://burnoutassessmenttool.be/en/ （2026-10-17確認）。英語ページは “The BAT is non-proprietary and may be used free of charge without requesting permission from the authors. Please note, however, that the instrument should not be modified, and the following publication should be cited: Schaufeli, W. B., Desart, S., & De Witte, H. (2020).” と記載する。オランダ語トップ https://burnoutassessmenttool.be/ も同趣旨。Schaufeli, W. B., Desart, S., & De Witte, H.（2020）。International Journal of Environmental Research and Public Health, 17(24), 9495。DOI 10.3390/ijerph17249495。オンライン公開 2020-12-18。CC BY 4.0。sourceUrl は https://doi.org/10.3390/ijerph17249495 のみ。Burnout Assessment Tool の中核症状（BAT-C）23項目・4次元（疲弊 exhaustion 8、心的距離 mental distance 5、認知的障害 cognitive impairment 5、情緒的障害 emotional impairment 5）。5件法の頻度尺度（1＝全くない never, 2＝まれに rarely, 3＝時々 sometimes, 4＝よくある often, 5＝いつも always）。全項目が症状方向で、逆転項目は確認されない。二次因子モデルを採用し、総得点（単一合成得点）と4下位尺度得点を使える。臨床カットオフは本論文では確立されていない。対象は就業者。開発言語はオランダ語（フランドル）。フランドルの就業者 N=1,500（iVOX オンラインパネル、2017年春、代表性のあるサンプル）を折半し EFA n=750 / CFA n=750。相関4因子モデルと二次因子モデルの適合は同等（CFI .95, TLI .94, RMSEA .06）で二次因子モデルを採用。α は疲弊 .92、心的距離 .91、認知的障害 .92、情緒的障害 .90、BAT-C 合計 .95。BAT-S .90（心理的 .81、心身症的 .85）。MTMM で MBI-GS（UBOS）・OLBI との収束・弁別妥当性、UWES-3・DUWAS・DUBS との弁別妥当性。二次症状 BAT-S（心理的愁訴5・心身症的愁訴5の10項目。合計 BAT 33項目）は別尺度として登録しない。抑うつ気分は BAT に含まれない。著者は 4DSQ の抑うつ下位尺度の併用を推奨する。usagePermission は open。公式サイト https://burnoutassessmenttool.be/en/ は「The BAT is non-proprietary and may be used free of charge without requesting permission from the authors. … the instrument should not be modified, and [Schaufeli, Desart, & De Witte (2020)] should be cited」と記載する。無償・許諾不要・改変不可・引用必須に最も近い既存列挙値として open（掲載・利用可）を使う。research-use は学術は無料で商業は事前許諾、というこのアトラスの区分なので使わない。項目本文は収録しない。itemPublicationStatus は not-published。開発論文は使用研究に含めない。使用研究は空。日本語は同じレコードの japaneseVersionStatus validated。Sakakibara, K., Shimazu, A., Toyama, H., & Schaufeli, W. B.（2020）。Frontiers in Psychology, 11, 1819。DOI 10.3389/fpsyg.2020.01819。2020-08-11。CC BY 4.0。翻訳は KS・AS、バイリンガル心理学者が逆翻訳、Schaufeli が調整、認知面接を実施。インターネットモニター調査（2018年5月）の分析対象 N=982（フルタイム・64歳未満、平均年齢39.8、男性51.0%、ホワイトカラー83.2%）。1か月後再検査 485名（招待498）。BAT-JC 23項目・BAT-JS 10項目、同じ5件法（1 never～5 always）。α は BAT-JC .96（疲弊 .93、心的距離 .86、情緒的障害 .91、認知的障害 .93）、BAT-JS .92（心理的苦痛 .89、心身症的 .87）。1か月の再検査信頼性は BAT-JC .64、BAT-JS .71。bifactor ESEM の適合が最良（BAT-JC: CFI .98, TLI .96, RMSEA .04。ECV BAT-JC .70）。BAT-JC の二次因子 CFA は CFI .93, TLI .92, RMSEA .06。日本語版 MBI-GS との MTMM で収束妥当性、UWES・DUWAS と弁別（AVE > 相関の二乗）。原典と日本語版論文で下位尺度の項目番号の並び表記が異なるため、項目番号で下位尺度を対応づけない。この検証論文は使用研究に入れない。MBI-GS とは別尺度。UWES と DUWAS とは別概念。",
       recordStatus: "verified-metadata",
     },
   ],

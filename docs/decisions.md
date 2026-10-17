@@ -1,5 +1,12 @@
 # Decisions
 
+## 2026-10-17: BAT-23 の利用条件文を詳細に出す
+
+- セマンティック版は v0.99.0。概念128、尺度174、使用研究197、選択ガイド64、関係16。件数は変えない。`usagePermission` は `open` のまま。新しい列挙値は作らない。
+- 2026-10-17 に https://burnoutassessmenttool.be/en/ を開いた。英語は “The BAT is non-proprietary and may be used free of charge without requesting permission from the authors. Please note, however, that the instrument should not be modified, and the following publication should be cited: Schaufeli, W. B., Desart, S., & De Witte, H. (2020).” である。https://burnoutassessmenttool.be/ のオランダ語も同趣旨（gratis、著者への許諾不要、instrument は改変しない、同じ文献を記す）。別の利用条件ページは、このトップの文言以外には確認していない。
+- 表示文は「無償で利用可・事前許諾不要・項目の改変不可・出典の引用必須（BAT公式サイト記載）」。出典 URL は英語ページ。公式の “the instrument should not be modified” は尺度全体の改変不可で、項目文だけに限るとは書いていない。表示の「項目の改変不可」は、その公式文の範囲で項目を変えない、という意味で置く。商用の可否はページが述べていないので書かない。
+- `license`、`usageNote`、`permissionNote` は他尺度にない。条件文は `notes` に追記する。`notes` は尺度項目欄の長文なので、利用条件セルには短い `usagePermissionNote` を出す。空の尺度ではセルの見た目は区分ラベルのまま。
+
 ## 2026-10-16: バーンアウトに BAT-23 を足す。TPS-7 の使用研究は Wang ら。PLB-22 の使用研究は Stynen と Semeijn
 
 - セマンティック版は v0.98.0。概念は128のまま。尺度は173から174。使用研究は195から197。選択ガイドは63から64。関係は16のまま。開発論文と日本語の検証論文は `usageStudies` に入れない。BAT-23 の項目本文は空、`itemPublicationStatus` は `not-published`。機能用とデータ用で版を分けない。
