@@ -135,6 +135,16 @@ function isNonEmptyText(value) {
   return typeof value === "string" && value.trim().length > 0;
 }
 
+function isResearchGateUrl(value) {
+  if (typeof value !== "string" || !/^https?:\/\//i.test(value.trim())) return false;
+  try {
+    const host = new URL(value.trim()).hostname.toLowerCase().replace(/\.$/, "");
+    return host === "researchgate.net" || host.endsWith(".researchgate.net");
+  } catch {
+    return false;
+  }
+}
+
 function addUrlAndDoiErrors(value, fieldPath, errors) {
   if (!value || typeof value !== "object") return;
   if (Array.isArray(value)) {
@@ -155,6 +165,9 @@ function addUrlAndDoiErrors(value, fieldPath, errors) {
       } catch {
         errors.push(`${nestedPath}: http または https の有効なURLを指定してください。`);
       }
+    }
+    if (isResearchGateUrl(nestedValue)) {
+      errors.push(`${nestedPath}: ResearchGate（researchgate.net）のURLは登録できません。DOIまたは出版社の公式ページを使ってください。`);
     }
     addUrlAndDoiErrors(nestedValue, nestedPath, errors);
   }
@@ -335,7 +348,25 @@ function runSelfTest() {
   for (const expected of ["conceptIds", "kind", "scaleIds", "summary", "caveat", "assembledAt", "根拠が存在しません"]) {
     if (!relationErrors.some((error) => error.includes(expected))) throw new Error(`関係の自己テスト失敗: ${expected}`);
   }
-  console.log("自己テスト: ルート・ネストした重複キー、ID・参照・形式エラーを検出できました。");
+  const mirrorAtlas = {
+    concepts: [{ id: "a" }],
+    scales: [{
+      id: "sa", conceptId: "a", itemCount: 1, japaneseVersionStatus: "unconfirmed",
+      sourceUrl: "https://doi.org/10.1000/example",
+      psychometricEvidence: [{ url: "https://doi.org/10.1000/example", fullTextUrl: "https://www.researchgate.net/publication/1" }],
+      usageStudies: [
+        { title: "Mirror", authors: "Tester", year: 2026, context: "test", sample: "test", itemCount: 1, responseFormat: "test", language: "test", adaptation: "test", result: "test", url: "https://researchgate.net/publication/2" },
+      ],
+    }],
+  };
+  const mirrorErrors = validateAtlas(mirrorAtlas).errors;
+  if (!mirrorErrors.some((error) => error.includes("usageStudies[0].url") && error.includes("researchgate.net"))) {
+    throw new Error("自己テスト失敗: 使用研究の ResearchGate URL を検出できません。");
+  }
+  if (!mirrorErrors.some((error) => error.includes("fullTextUrl") && error.includes("researchgate.net"))) {
+    throw new Error("自己テスト失敗: fullTextUrl の ResearchGate URL を検出できません。");
+  }
+  console.log("自己テスト: ルート・ネストした重複キー、ID・参照・形式エラー、ResearchGate の URL を検出できました。");
 }
 
 function printSummary(summary) {

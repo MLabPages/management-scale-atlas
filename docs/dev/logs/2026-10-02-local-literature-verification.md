@@ -25,7 +25,7 @@ PDF・抽出テキスト・照合画像・書誌ログはGit無視対象の`coll
 
 | 登録 | 一次本文と確認箇所 | 確認結果・留保 |
 | --- | --- | --- |
-| Carlson WFCS-18 | [原著DOI](https://doi.org/10.1006/jvbe.1999.1713)、[Carlson著者公開全文](https://www.researchgate.net/publication/228079357_Construction_and_Initial_Validation_of_a_Multidimensional_Measure_of_Work-Family_Conflict)。Studies 1–3、Tables 2–7、pp.253–270 | 6次元各3項目、5件法。最終CFA標本225名、α=.78～.87、CFI=.95、RMSEA=.06。内容分類の学生も含む全1,211名を最終版の独立した投与標本と数えない。行動の両方向などの高い因子間相関と、全制約が不変ではないことを併記。Table 7の職務満足への非有意結果も保持。渡井日本語18項目の親を設定し、日本語根拠の前回確認日を保持。 |
+| Carlson WFCS-18 | [原著DOI](https://doi.org/10.1006/jvbe.1999.1713)。Studies 1–3、Tables 2–7、pp.253–270 | 6次元各3項目、5件法。最終CFA標本225名、α=.78～.87、CFI=.95、RMSEA=.06。内容分類の学生も含む全1,211名を最終版の独立した投与標本と数えない。行動の両方向などの高い因子間相関と、全制約が不変ではないことを併記。Table 7の職務満足への非有意結果も保持。渡井日本語18項目の親を設定し、日本語根拠の前回確認日を保持。 |
 | Janssen IWB-9 | [原著DOI](https://doi.org/10.1348/096317900167038)、[大学公開の掲載PDF](https://pure.rug.nl/ws/portalfiles/portal/1565274671/J_Occupat_Organ_Psyc_-_2010_-_Janssen_-_Job_demands_perceptions_of_effort_reward_fairness_and_innovative_work_behaviour.pdf)。Method、Measures p.292、Tables 1–3 | 生成・推進・実現各3、7件法。自己170名、対応上司評定110名、α=.95/.96。高い段階間相関を理由に原著は総合化し、独立した3因子のCFAとは扱わない。Scott–Bruce-6を基にした別9項目系統で、正式短縮・翻訳や未確認の項目対応を作らない。PDFファイル名の2010を刊行年に採らず2000年。 |
 | 坂野・東條 GSES-J-16 | [原著DOI](https://doi.org/10.24468/jjbt.12.1_73)、[J-STAGE PDF](https://www.jstage.jst.go.jp/article/jjbt/12/1/12_KJ00008937421/_pdf/-char/ja)。調査I–III、Tables 2–5、pp.75–80。採点・項目構成・信頼性のページを目視確認 | 日本語独自16項目、7+5+4、Yes/No、高自己効力方向を1点とする0～16点。全てのYesを1点にしない。学生278名、対応再検査116名、約5か月r=.83、折半r=.84、KR-21=.74。折半やKR-21をαと表示しない。英語GSE-10・Sherer系と別。臨床群との比較を汎用診断カットオフとしない。 |
 
