@@ -2,7 +2,7 @@
 // DOI、原典、項目数、下位次元は原著論文または公式資料で確認。
 const ATLAS_DATA = {
   meta: {
-    version: "0.104.0",
+    version: "0.105.0",
     status: "initial-real-data",
     updated: "2026-10-21",
     scope: "131概念・179尺度",
@@ -2322,7 +2322,7 @@ const ATLAS_DATA = {
         label: "原著の最終18項目と6因子CFA", sample: "3研究・5標本の計1,211名には内容分類の学生も含む。最終項目精選は228名、確認標本はフルタイム従業員225名。",
         methods: "内容分類、探索的因子分析、項目精選、6因子CFA、性別・標本間の制約モデル比較",
         result: "Table 2で6次元各3項目を確認。N=225のCFAはχ²(120)=237.40, CFI=.95, RMSEA=.06。下位尺度α=.78～.87。因子間相関は.24～.83で、特に行動の両方向の重なりに注意。性別の負荷量制約は棄却されなかったが、因子相関・誤差を含む全制約が不変とは言えない。Table 7の仕事→家庭3形態から職務満足への係数は有意ではない。",
-        url: "https://doi.org/10.1006/jvbe.1999.1713", fullTextUrl: "https://www.researchgate.net/publication/228079357_Construction_and_Initial_Validation_of_a_Multidimensional_Measure_of_Work-Family_Conflict",
+        url: "https://doi.org/10.1006/jvbe.1999.1713", fullTextUrl: "https://doi.org/10.1006/jvbe.1999.1713",
         sourceLocator: "Studies 1–3, Tables 2–7（pp.253–270、Carlson著者公開の掲載論文本文）", verifiedAt: "2026-10-02",
       }],
       applicationEvidence: [
@@ -2398,7 +2398,7 @@ const ATLAS_DATA = {
       japaneseStatusNote: "2026-10-01のWeb検索（Chiva 日本語 尺度／組織学習能力 尺度、J-STAGE・CiNii対象検索を含む）の範囲では、14項目そのものの日本語検証を本文で確認できず。未調査とは区別するが、存在しないという結論ではない。検索範囲はdocs/dev/logs/2026-10-01-local-literature-verification.mdに記録。",
       japaneseEvidence: [], validationStudies: [], usagePermission: "unknown", usageEvidence: [],
       psychometricEvidence: [
-        { label: "原著本文：5次元14項目", sample: "スペインの陶磁器タイル製造企業8社、現場作業者157名。調査は2004年1～4月。管理職・事務職を除外。", methods: "スペイン語理解の事前確認、二次因子CFA、内的整合性、次元間の制約モデル比較", result: "Table IIの2+2+3+4+3項目を確認。Table IVのα=.74～.89、合成信頼性=.65～.80（リスクテイキングは.65）。Table Vの全比較が有意とは言えず、他の学習尺度との弁別を認定する結果ではない。", url: "https://doi.org/10.1108/01437720710755227", fullTextUrl: "https://www.researchgate.net/publication/242026262_Measuring_organisational_learning_capability_among_the_workforce", sourceLocator: "Methodology, Table II–V（pp.231–236、著者公開全文）", verifiedAt: "2026-10-01" },
+        { label: "原著本文：5次元14項目", sample: "スペインの陶磁器タイル製造企業8社、現場作業者157名。調査は2004年1～4月。管理職・事務職を除外。", methods: "スペイン語理解の事前確認、二次因子CFA、内的整合性、次元間の制約モデル比較", result: "Table IIの2+2+3+4+3項目を確認。Table IVのα=.74～.89、合成信頼性=.65～.80（リスクテイキングは.65）。Table Vの全比較が有意とは言えず、他の学習尺度との弁別を認定する結果ではない。", url: "https://doi.org/10.1108/01437720710755227", fullTextUrl: "https://doi.org/10.1108/01437720710755227", sourceLocator: "Methodology, Table II–V（pp.231–236、著者公開全文）", verifiedAt: "2026-10-01" },
       ],
       applicationEvidence: [],
       usageStudies: [
@@ -3483,7 +3483,7 @@ const ATLAS_DATA = {
         { label: "単一次元4項目版とは別尺度", itemCounts: [8, 4], evidenceType: "alternative-scale", summary: "Chaudhuri & Holbrookの4項目版を延長した尺度ではない。回答負担を優先するなら4項目版、問題発生時の意図まで分けたいならBTS 8項目版を比較する。", title: "The Chain of Effects from Brand Trust and Brand Affect to Brand Performance", year: 2001, doi: "10.1509/jmkg.65.2.81.18255", url: "https://doi.org/10.1509/jmkg.65.2.81.18255" },
       ],
       usageStudies: [
-        { title: "Brand Trust: An Australian Replication of a Two-Factor Structure", authors: "Rosenberger III", year: 2009, context: "オーストラリアのシャンプー・ブランド", sample: "マーケティング専攻の大学生154名", itemCount: 8, responseFormat: "5件法", language: "English", adaptation: "Delgado-Ballesterらの8項目を、最もよく使うシャンプー・ブランドについて回答する形で使用。", result: "Brand reliability α=.89、Brand intentions α=.85。2因子相関モデルが代替モデルより良好で、CFI=.95、NFI=.93、TLI=.93、RMSEA=.106。満足・ロイヤルティとの理論的関係も概ね再現。", url: "https://www.researchgate.net/publication/260268176_Brand_Trust_An_Australian_Replication_of_a_Two-Factor_Structure" },
+        { title: "Brand Trust: An Australian Replication of a Two-Factor Structure", authors: "Rosenberger III", year: 2009, context: "オーストラリアのシャンプー・ブランド", sample: "マーケティング専攻の大学生154名", itemCount: 8, responseFormat: "5件法", language: "English", adaptation: "Delgado-Ballesterらの8項目を、最もよく使うシャンプー・ブランドについて回答する形で使用。", result: "Brand reliability α=.89、Brand intentions α=.85。2因子相関モデルが代替モデルより良好で、CFI=.95、NFI=.93、TLI=.93、RMSEA=.106。満足・ロイヤルティとの理論的関係も概ね再現。", url: "https://hdl.handle.net/1959.13/920528" },
         { title: "Brand Relationships and Risk: Influence of Risk Avoidance and Gender on Brand Consumption", authors: "Lee, Workman, & Jung", year: 2016, context: "米国大学生が挙げたお気に入りのファッション・ブランド75種", sample: "米国の大学生221名", itemCount: 8, responseFormat: "7件法", language: "English", adaptation: "BTS 8項目を使用し、研究内では項目を合計してブランド信頼得点を算出。", result: "研究内の尺度信頼性はα=.88～.92の範囲。ブランド信頼はリスク回避と正に相関し、性別差は確認されなかった。", doi: "10.1186/s40852-016-0041-0", url: "https://doi.org/10.1186/s40852-016-0041-0" },
       ],
       itemPublicationStatus: "not-published", items: [],
@@ -6691,7 +6691,7 @@ const ATLAS_DATA = {
           "result": "Table 2のαは魅力.894、専門性.944、信頼.930。Table 4/5 Model 1で購買意向への信頼β=.345、専門性β=.408は有意、魅力β=−.003は非有意。PLS-SEM・5,000回bootstrap。後続モデルの一部CIとt値の不整合を一般化せず、横断関連として記録。",
           "doi": "10.1108/ebr-02-2021-0032",
           "url": "https://doi.org/10.1108/EBR-02-2021-0032",
-          "fullTextUrl": "https://www.researchgate.net/publication/351269353_Social_media_influencer_marketing_The_moderating_role_of_materialism",
+          "fullTextUrl": "https://doi.org/10.1108/EBR-02-2021-0032",
           "sourceLocator": "Sections 3.1–3.2、Tables 2, 4–5（Koay著者公開の掲載論文本文；オンライン2021、巻号2022）",
           "verifiedAt": "2026-10-02"
         },
