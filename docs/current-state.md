@@ -1,6 +1,17 @@
 # Current state
 
-最終更新: 2026-10-21
+最終更新: 2026-10-22
+
+## v0.106.0 の追加（職場のソーシャル・キャピタル、NAQ-R と ACAP-14 の使用研究）
+
+- 132概念・180尺度・210使用研究・68選択ガイド・16関係。概念 `workplace-social-capital`（職場のソーシャル・キャピタル）と尺度 `kouvonen-wsc-8`（WSC-8）を追加。`einarsen-naq-r-22` と `flatten-acap-14` に使用研究を各1件追加。関係は16のまま。選択ガイドは67から68（新概念に1つ）。
+- WSC-8 は Kouvonen ら（2006）。BMC Public Health, 6, 251。DOI `10.1186/1471-2458-6-251`（Crossref の公開日 2006-10-13、CC BY 2.0、PMC1618843）。`sourceUrl` は DOI のみ。原典に略称はなく、呼称は 8-item measure of social capital at work。レコード略称は WSC-8。8項目。認知的は項目3, 5, 8、構造的は項目1, 2, 4, 6, 7。補足分類は bonding が項目3, 4, 5、bridging が項目6, 7、linking が項目1, 2, 8。5件法（Table 1 注は 1＝fully disagree～5＝fully agree。項目7のみ 1＝very little～5＝very much）。採点は全項目の合計。逆転の記載はない。カットオフはない。旗艦の α は女性 0.88、男性 0.88。`usagePermission` は `unknown`。論文は CC BY 2.0 だが、尺度の利用許諾の記載はない。`itemPublicationStatus` は `source-open`。原典 Table 1 に英文があるが転載しない。`items` は空。実施言語は本文に明記がない。2007年の訂正（DOI `10.1186/1471-2458-7-90`）は特性不安の符号化のみで、WSC の項目・α・件数は変わらない。開発論文は使用研究に入れない。
+- 日本語は `usage-example`。Hori ら（2019）が同じ8項目を日本の就業者に使用した。回答者は日本語版か英語版を選べた。Odagiri ら（2010）の学会抄録は未確認なので `validated` にしない。`japaneseEvidence` は1件（kind は `usage-example`）。
+- WSC-8 の使用研究は Hori ら（2019）の1件。BMC Public Health, 19, 919。DOI `10.1186/s12889-019-7244-9`（2019-07-09、CC BY 4.0、PMC6617579）。フル8項目。5件法。8項目の平均。α は男性 0.940、女性 0.935。つくばサイエンスシティの就業者、分析 6,325名（男4,030、女2,295）。2017年2–3月のウェブ調査。
+- NAQ-R（`einarsen-naq-r-22`）に Galanis, Moisoglou, Katsiroumpa, & Sourtzi（2024）を1件。それまで空。DOI `10.3934/publichealth.2024031`（AIMS Public Health, 11(2), 614–627。CC BY 4.0、PMC11252585）。フル22項目。5件法 never～daily、過去6か月、合計22–110。行為者を上司と同僚に限定した点は adaptation。この標本の α=0.963。ギリシャの病院看護職450名。旗艦の項目数、回答形式、利用条件、日本語状態は変えていない。
+- ACAP-14（`flatten-acap-14`）に Yang, Zheng, Xie, & Tian（2022）を1件。それまで空。DOI `10.3389/fpsyg.2022.818844`（2022-05-30、CC BY、PMC9189394）。フル14項目（獲得3・同化4・変換4・活用3）。全尺度共通の5件法への変更は adaptation。旗艦の7件法は変えない。この標本の α=0.920。中国・珠江デルタの新興企業214社。実施言語は本文に明記がない。
+- 日本語の検証済みは25のまま。関連版は14のまま。未確認は109のまま。日本語使用例は17から18（追加した WSC-8 が `usage-example`）。登録版そのものが3・4項目の尺度は29のまま。使用研究側の3・4項目は27のまま（追加した使用研究は8項目、22項目、14項目）。
+- 見送りは ACAP-14 の Hernández-Perlines & Xu（2018）、Sancho-Zamora（2022。引用先が Flatten, Greve, & Brettel 2011 EMR で別論文）、NAQ-R の Peng（2025）と Du（2026。Xun らの中国語改訂版で次元構成が異なる）、NBJSQ の3項目 WSC、Odagiri（2010）の学会抄録。既存 HOLD は変更していない。確認は [2026-10-22ログ](dev/logs/2026-10-22-daily-expansion.md)。
 
 ## v0.105.0 の更新（ResearchGate の URL）
 
