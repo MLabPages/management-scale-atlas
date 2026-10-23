@@ -1,6 +1,17 @@
 # Current state
 
-最終更新: 2026-10-22
+最終更新: 2026-10-23
+
+## v0.107.0 の追加（職場のガスライティング、WSC-8 のイタリアと日本の使用研究）
+
+- 133概念・181尺度・212使用研究・69選択ガイド・16関係。概念 `workplace-gaslighting`（職場のガスライティング）と尺度 `kukreja-pandey-gwq-12`（GWQ-12）を追加。`kouvonen-wsc-8` に使用研究を2件追加。関係は16のまま。選択ガイドは68から69（新概念に1つ）。
+- GWQ-12 は Kukreja, P., & Pandey, J.（2023）。Frontiers in Psychology, 14, 1099485。DOI `10.3389/fpsyg.2023.1099485`（Crossref の公開日 2023-03-30、CC BY 4.0）。`sourceUrl` は DOI のみ。原典の略称は GWQ。レコード略称は GWQ-12。12項目。二次因子 gaslighting の下に一次因子が2つ（矮小化 trivialization 7項目、苦痛付与 affliction 5項目）。過去6か月の頻度の5件法（1＝Never～5＝Always）。教示は「How often did you have these experiences at work in the past 6 months?」相当。項目はすべて上司の行動について部下が回答する。21項目プールを専門家11名で内容確認し、プレテスト35名。EFA はインドのサービス業従業員205名（主因子法・Promax。項目−全体相関などで7項目を除き、その後2項目を削除。KMO 0.920）。CFA は別のインドのサービス業従業員216名。二次因子モデルは χ²/df=1.244、CFI=0.992、RMSEA=0.034、SRMR=0.030。CR は矮小化 0.909、苦痛付与 0.876、全体 0.953。AVE は 0.588、0.587。法則論的妥当性は米国 Prolific の3時点、最終 N=258。総 N=679。Cronbach α は矮小化 0.925、苦痛付与 0.876（米国 N=258 の時点2）。総合 α の記載はない。役割葛藤 r=0.367、職務満足 r=−0.299。採点方法（合計か平均か）は本文に明記なし。各項目の次元帰属は原典 Table 2 の表記から特定できないため、項目番号での次元割当は掲載しない。実施言語は本文に明記がない。`usagePermission` は `unknown`。論文は CC BY 4.0 だが、尺度の利用許諾の記載はない。`itemPublicationStatus` は `source-open`。原典 Table 2 に項目があるが転載しない。`items` は空。`usageStudies` は空。開発論文は使用研究に入れない。
+- 日本語は `unconfirmed`。韓国語版（Kim et al., 2026, Asian Nurs Res）とペルシア語版（Gheshlagh et al., 2025, BMC Nurs）は翻訳版の検証研究で登録しない。Katsiroumpa／Galanis らの Gaslighting at Work Scale（2025 プレプリント）は別尺度で、本尺度の使用研究にしない。
+- WSC-8（`kouvonen-wsc-8`）の使用研究は1件から3件。既存の Hori ら（2019）は残す。旗艦の5件法、合計採点、`usagePermission`、`itemPublicationStatus`、`japaneseVersionStatus`（`usage-example`）、`verifiedAt`（2026-10-22）は変えていない。
+- Magnavita, N., Chiorri, C., Chirico, F., & Meraglia, I.（2025）。European Journal of Investigation in Health, Psychology and Education, 15(4), 53。DOI `10.3390/ejihpe15040053`（Crossref の公開日 2025-04-03、CC BY 4.0、PMC12025400）。フル8項目。Conti et al.（2021）のイタリア語版。5件法（1＝fully disagree～5＝fully agree）、合計 8–40。α=0.929。イタリア・ラツィオ州19社の労働衛生サーベイランス（2019年）。リスク作業者1,512名中1,309名（86.6%。男性491・女性818）。産業・商業・医療など。職場のソーシャル・キャピタルは Work Ability Score を正に予測し、職場の不快事（work annoyance）が WAS に与える影響を調整した。開発者は著者に入っていない。
+- Mine, T., Tsuboi, S., Yodogawa, Y., Imafuku, M., Inokuma, H., & Minowa, J.（2026）。Frontiers in Public Health, 14, 1718705。DOI `10.3389/fpubh.2026.1718705`（Crossref の公開日 2026-03-16、CC BY 4.0）。イニシャルは出版社ページの given name（Tomosa、Satoshi、Yumi、Masahiro、Hiroko、Junko）に合わせた。フル8項目。Kouvonen（2006）の日本語版（Kawachi ら 2013 の書籍に基づく）。4件法（1＝strongly disagree～4＝strongly agree）、合計 8–32。「上司」を園長・施設長に置き換えた点は adaptation。α=0.88。全国の保育施設から無作為抽出した5,000施設（2024年2–5月）。保育士の有効回答2,470名。WSC を四分位で4群化し、非常に高い群に比べ非常に低い群で主観的健康不良の調整オッズ比 5.60（95%CI 3.24–9.70）、休憩取得を追加調整後 4.43（95%CI 2.40–7.00）。同じ文献を `japaneseEvidence` に kind `usage-example` で1件追加した。検証研究ではないため `validated` にしない。`japaneseEvidence` は1件から2件。
+- 日本語の検証済みは25のまま。関連版は14のまま。未確認は109から110（追加した GWQ-12 が `unconfirmed`）。日本語使用例は18のまま（WSC-8 は `usage-example` のまま）。登録版そのものが3・4項目の尺度は29のまま。使用研究側の3・4項目は27のまま（追加した使用研究はいずれも8項目）。
+- 見送りは GWQ の韓国語版・ペルシア語版、Katsiroumpa／Galanis らの別尺度、GWQ の開発論文。既存 HOLD は変更していない。確認は [2026-10-23ログ](dev/logs/2026-10-23-daily-expansion.md)。
 
 ## v0.106.0 の追加（職場のソーシャル・キャピタル、NAQ-R と ACAP-14 の使用研究）
 
