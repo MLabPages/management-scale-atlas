@@ -1,6 +1,15 @@
 # Current state
 
-最終更新: 2026-10-25
+最終更新: 2026-10-26
+
+## v0.110.0 の更新（GAAIS の notes）
+
+- 134概念・183尺度・217使用研究・70選択ガイド・16関係。件数は v0.109.0 から変えていない。`meta.version` は `0.110.0`。`meta.updated` は 2026-10-26。`meta.scope` は `134概念・183尺度` のまま。
+- `schepman-rodway-gaais-20` の notes から、日本語版 GAAIS-J で除外された項目 Neg3 の英語の項目本文1文を削除した。項目番号 Neg3 と、GAAIS-J では除外されたという事実は残した。同じ英文は `japaneseStatusNote` にもあったので、同じように削った。`scoring`、`applicationEvidence`、概念の caution、`japaneseEvidence` の `sourceLocator` にはその英文はなかった。
+- notes の「usageStudies は空」は、使用研究が Tuncer と Tuncer（2024）の1件である、に書き直した。書誌と数値は新たに作っていない。既存の `usageStudies` の中身は変えていない。
+- notes の「Sindermann らの ATAI … は別尺度で未登録」は、ATAI（`sindermann-atai-5`、Sindermann ら 2021）が同じ概念 `attitudes-toward-ai` に登録済みで、GAAIS とは得点を合算しない、に書き直した。短縮版 GAAIS-10 と Kieslich らの TAI は未登録のまま。
+- 旗艦の項目数、回答形式、採点、信頼性、利用条件、日本語状態、`verifiedAt`（2026-10-24）、`scoring`、他の尺度・概念は変えていない。`app.js` は変えていない。
+- 確認は [2026-10-26ログ](dev/logs/2026-10-26-gaais-notes.md)。
 
 ## v0.109.0 の追加（ATAI、GAAIS と UWES-9 の使用研究）
 
