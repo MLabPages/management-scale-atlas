@@ -1,6 +1,16 @@
 # Current state
 
-最終更新: 2026-10-27
+最終更新: 2026-10-28
+
+## v0.113.0 の追加（AIAS-4、使用研究）
+
+- 135概念・185尺度・221使用研究・71選択ガイド・16関係。既存概念 `attitudes-toward-ai` に尺度 `grassini-aias-4`（AIAS-4）を追加。新概念は作っていない。`usageStudies` を1件追加。関係は16のまま。選択ガイドは71のまま（同じ概念内の choice 追加）。`meta.version` は `0.113.0`。`meta.updated` は 2026-10-28。`meta.scope` は `135概念・185尺度`。
+- AIAS-4 は Grassini, S.（2023）。Frontiers in Psychology, 14, 1191628。DOI `10.3389/fpsyg.2023.1191628`。Crossref で著者・題名・巻・論文番号が一致。公開 2023-07-24。CC BY 4.0。`sourceUrl` は DOI のみ。PMC や ResearchGate の URL は使わない。Zenodo DOI `10.5281/zenodo.7757534`（採点説明つき）は notes に記すだけで `sourceUrl` にはしない。4項目・単一因子。10件法（1＝Not at all～10＝Completely Agree）。最終4項目に逆転項目はない。初期5項目の逆転項目（項目4、AI の人類への脅威）は Study 1 で削除し、残ったのは原番号1・2・3・5。単一因子の総合得点（高いほど肯定的）。合計か平均かの具体的な採点規則は本文では確認していないため書かない。GAAIS・ATAI・TAI とは合算しない。Wang & Wang の AI Anxiety Scale（AIAS）とは別尺度。`usagePermission` は `open`。論文は CC BY 4.0。尺度は補足資料と Zenodo で公開され、論文を引用すれば自由に使えると著者が明記。`itemPublicationStatus` は `source-open`。項目本文は転載しない。`items` は空。`japaneseVersionStatus` は `unconfirmed`。`language` は English。`versionType` は `original`。`parentScaleId` は空。`recordStatus` は `verified-metadata`。`verifiedAt` は 2026-10-28。開発論文は使用研究に入れない。
+- Study 1（EFA）は英国 Prolific N=230。初期5項目、最尤法・oblimin、KMO .827 で2因子（F1 α .892・ω .892、F2 α .496・ω .504、5項目全体 α .830・ω .860）。4項目で KMO .83、負荷 .892/.856/.821/.778、α .902・ω .904、M 5.48・SD 1.99。Study 2（CFA）は米国 Prolific N=300。χ²(2)=2.49、p=.289、CFI .999、TLI .998、RMSEA .0285（90% CI 0–.122）、標準化負荷 .941/.838/.757/.839。Study 2 の α は「良好で Study 1 と同程度」と記載されるのみで、数値は書いていない。収束的妥当性は MTUAS の肯定的態度と r=.484（S1）/.535（S2）、否定的態度と −.301/−.353、不安と .245/.144。女性の得点が低い。倫理審査は現地法により不要と記載。`psychometricEvidence` は開発論文の2件。
+- 使用研究は Talik, W.（2026）。PLOS One, 21(3), e0342317。DOI `10.1371/journal.pone.0342317`。Crossref で著者 Wiesław Talik・題名・21(3) e0342317・CC BY 4.0・2026-03-11 が一致。`url` は DOI のみ。`fullTextUrl` は付けない。PMC12978485 は URL にしない。原版4項目。10件法（1–10）。合計得点（4項目の和）。ポーランドの代表性標本。Pollster Research Institute のパネルで CAWI。外れ値102件除外後 N=922（18–83歳、M 48.45、SD 16.82、女性 478名 51.8%）。データ取得 2023-12-20。この標本の Cronbach α=.93。合計 M 22.49・SD 8.51。肯定的志向と r=.15（p<.001）、神経症傾向と r=−.11（p<.001）、外向性・開放性・協調性・誠実性とは有意な関連なし。肯定的志向による媒介は部分的に支持。`language` は「未記載（ポーランドの調査。AIAS-4 の翻訳手続きは本文に記載なし）」。ポーランド語とは断定しない。開発者 Grassini は著者に含まれない。開発論文・検証研究ではない。旗艦の採点（合計か平均かは本文未確認）は変えない。使用研究の `verifiedAt` は 2026-10-28。
+- `attitudes-toward-ai` の decisionGuide.choices に AIAS-4 の choice を1つ追加した。4項目・単一因子で一般的態度を短く測るとき。reason に、10件法、Study 1 の α .902、CFA は良好、逆転項目なし、CC BY で引用すれば自由に使える、ATAI・GAAIS とは合算しない、Wang & Wang の AIAS とは別尺度、と書いた。caution に「Grassini の AIAS-4 は単一因子4項目で、ATAI・GAAIS とは合算しない。Wang & Wang の AI 不安尺度（AIAS）とは別物」を追記した。概念の references に AIAS-4 の DOI を足した。`relatedConcepts` と relations は変えていない。GAAIS と ATAI の旗艦値・`verifiedAt`・notes は変えていない。
+- 日本語の検証済みは26のまま。関連版は14のまま。未確認は112から113（追加した AIAS-4 が `unconfirmed`）。日本語使用例は18のまま。言語的妥当性確認は2、翻訳・因子構造等の検討は5、日本語で独自開発は6、開発論文内の日本語検証は1のまま。登録版そのものが3・4項目の尺度は29から30（AIAS-4 は4項目）。使用研究側の3・4項目は27から28（追加した使用研究は4項目）。
+- 見送りは、ATAI 日本語版 Hitsuwari & Takano（2025）。VOR 本文取得不可、かつ preprint 内の項目割当が食い違うため HOLD。TAI の独立使用研究は見つからず。Cai（2023）は中国語版の検証研究、Zhu（2026）は TAI と AI 不安尺度の混成5項目のため使用研究にしない。テクノストレス Ragu-Nathan（2008）は原典本文未確認で HOLD。ペルー・スペイン語版とトルコ語版の AIAS-4 検証研究は、数値を載せず使用研究にも入れない。既存 HOLD（CSR-17、Aad-3、UTAUT-SI／FC、P–O fit-3、RC-3、Price Consciousness 5）は変更していない。`app.js` は変えていない。確認は [2026-10-28ログ](dev/logs/2026-10-28-daily-expansion.md)。
 
 ## v0.112.0 の追加（AIの脅威知覚、GAAIS の使用研究）
 
