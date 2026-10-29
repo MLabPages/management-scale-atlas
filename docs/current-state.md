@@ -1,6 +1,18 @@
 # Current state
 
-最終更新: 2026-10-28
+最終更新: 2026-10-29
+
+## v0.114.0 の追加（AI不安、AIAS-4 の使用研究）
+
+- 136概念・186尺度・223使用研究・72選択ガイド・16関係。概念 `ai-anxiety`（AI不安）と尺度 `wang-wang-aias-21`（表示略称 AIAS-21。原典略称は AIAS）を追加。`grassini-aias-4` の `usageStudies` を2件追加。関係は16のまま。選択ガイドは71から72（新概念に1つ）。`meta.version` は `0.114.0`。`meta.updated` は 2026-10-29。`meta.scope` は `136概念・186尺度`。
+- AIAS-21 は Wang, Y.-Y., & Wang, Y.-S.（2022）。Interactive Learning Environments, 30(4), 619–634。DOI `10.1080/10494820.2019.1674887`。`sourceUrl` は DOI のみ。登録年は巻の年 2022。オンライン 2019-10-14、印刷 2022-04。論文はオープンアクセス、CC BY-NC-ND 4.0。21項目・4次元（Table 2）。学習 Learning 8、雇用代替 Job replacement 6、社会技術的盲目 Sociotechnical blindness 4、AIの構成 AI configuration 3。7件法（Likert型・同意の程度。両端の言葉は原典に明記なし）。採点は21項目の合計点。原典の規準値は最小21・最大136・M 91.409・SD 26.570・中央値 88。指定値をそのまま記録し、項目数と件法からの再計算はしない。全体 α .964、学習 .974、雇用代替 .917、社会技術的盲目 .917、AI構成 .961。基準関連 r = .864。学習意欲行動と r = .190（p<.01）。因子間相関 .494–.725。EFA のみで CFA は未実施（著者が今後の課題と明記）。標本は台湾のオンライン調査 N=301、非無作為抽出。実施言語は指定範囲にないため推測しない。`usagePermission` は `unknown`。尺度の利用許諾の明記はない。`itemPublicationStatus` は `not-published`。GAAIS と同じく CC BY-NC-ND 4.0 のため `source-open` にはしない。項目本文は転載しない。`items` は空。`usageStudies` は空。開発論文は使用研究に入れない。`japaneseVersionStatus` は `unconfirmed`。ドイツ語版・インドネシア語版・トルコ語版の検証研究はあるが、数値は載せず使用研究にも入れない。`versionType` は `original`。`parentScaleId` は空。`recordStatus` は `verified-metadata`。`verifiedAt` は 2026-10-29。
+- 定義は、AI に対する不安。AI一般への評価的態度（`attitudes-toward-ai`）や、特定領域での AI 機能への脅威知覚（`perceived-ai-threat`、TAI）とは別概念で、得点は合算しない。分野は同じ「技術受容・情報システム」。`relatedConcepts` は存在する `attitudes-toward-ai`、`perceived-ai-threat`、`technology-readiness`。`attitudes-toward-ai` と `perceived-ai-threat` はすでに相互リンクなので、それぞれに `ai-anxiety` を足した。`technology-readiness` への逆リンクは足していない（2026-10-07 の判断。関連概念は対称である必要はない）。関係レコードは追加しない。
+- `attitudes-toward-ai` の choice reason と caution、および `grassini-aias-4` の `applicationEvidence.summary` と notes にある「Wang & Wang の AI 不安尺度とは別」は、別概念 `ai-anxiety` の AIAS-21（`wang-wang-aias-21`）を指す文言に最小限だけ直した。旗艦の α、回答形式、採点、利用条件、項目数は変えていない。
+- AIAS-4（`grassini-aias-4`）の使用研究は1件から3件。既存の Talik（2026）は残し、その後ろに追加した。旗艦の採点（合計か平均かは開発論文本文では未確認）、回答形式、`usagePermission`、項目数は変えていない。尺度の `verifiedAt` は 2026-10-29。心理測定根拠と Talik の `verifiedAt` は 2026-10-28 のまま。
+- Türk, N., Batuk, B., Kaya, A., & Yıldırım, O.（2025）。BMC Psychology, 13, 1257。DOI `10.1186/s40359-025-03559-2`。`url` は DOI のみ。`fullTextUrl` は付けない。生成AI受容の予測モデル（AIリテラシー・AI自己効力感・AI学習不安と同時測定）。トルコの大学生 N=356（女性74.4%、18–46歳、M 22.71）。4項目・10件法（1 = not at all〜10 = completely agree、原版どおり）。言語はトルコ語。検証済みトルコ語版ではなく、本研究内で専門家4名が翻訳・逆翻訳。α = .89、ω = .89。CFA は χ²/df 2.52、RMSEA .06、CFI .99、TLI .99。合計点 M 26.64、SD 7.81。生成AI受容 r = .57、AI自己効力感 .23、AIリテラシー .12、AI学習不安 −.18。開発者 Grassini は著者に含まれない。開発論文・検証研究ではない。`verifiedAt` は 2026-10-29。
+- Adiyan, N. N., & Lule, N. O.（2026）。BMC Medical Education, 26, 1162。DOI `10.1186/s12909-026-09506-y`。`url` は DOI のみ。デジタル健康教育（身体への肯定感 BAS、電子健康食リテラシー e-HDL との関連）。トルコ Gaziantep 大学の学生 N=440（18–30歳、女性70.5%、平均 21.20）。4項目・10件法（strongly disagree〜strongly agree）。言語はトルコ語。Arslan らの検証済みトルコ語版を原著者の許諾のもと使用。項目の削除・改変なし。両端の言葉が原版（not at all〜completely agree）と異なる点と、平均点で採点した点は adaptation。α = .949。M 5.47、SD 2.62。BAS r = .356、e-HDL r = .326。男性が高い（5.93 vs 5.28, p = .027）。回帰は BAS β = .325、e-HDL β = .247、BMI β = .107。開発者 Grassini は著者に含まれない。`verifiedAt` は 2026-10-29。
+- 日本語の検証済みは26のまま。関連版は14のまま。未確認は113から114（追加した AIAS-21 が `unconfirmed`）。日本語使用例は18のまま。言語的妥当性確認は2、翻訳・因子構造等の検討は5、日本語で独自開発は6、開発論文内の日本語検証は1のまま。登録版そのものが3・4項目の尺度は30のまま（AIAS-21 は21項目）。使用研究側の3・4項目は28のまま（追加した使用研究はどちらも4項目で、AIAS-4 は既に4項目の使用研究がある）。
+- 見送りは、AIAS-21 のドイツ語版・インドネシア語版・トルコ語版の検証研究（数値を載せず、使用研究にも入れない）。AIAS-4 のペルー・スペイン語版の検証研究は、従来どおり数値を載せず使用研究にも入れない。既存 HOLD（CSR-17、Aad-3、UTAUT-SI／FC、P–O fit-3、RC-3、Price Consciousness 5）は変更していない。`app.js` は変えていない。確認は [2026-10-29ログ](dev/logs/2026-10-29-daily-expansion.md)。
 
 ## v0.113.0 の追加（AIAS-4、使用研究）
 
