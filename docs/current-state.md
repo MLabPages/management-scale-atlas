@@ -1,6 +1,15 @@
 # Current state
 
-最終更新: 2026-10-29
+最終更新: 2026-10-30
+
+## v0.115.0 の追加（AIAS-4 と AIAS-21 の使用研究）
+
+- 136概念・186尺度・225使用研究・72選択ガイド・16関係。新概念・新尺度は作っていない。`grassini-aias-4` の `usageStudies` を1件追加（3件から4件）。`wang-wang-aias-21` の `usageStudies` に初の1件を追加（0件から1件）。関係は16のまま。選択ガイドは72のまま。`meta.version` は `0.115.0`。`meta.updated` は 2026-10-30。`meta.scope` は `136概念・186尺度` のまま。
+- AIAS-4（`grassini-aias-4`）の使用研究は3件から4件。既存の Talik（2026）、Türk ら（2025）、Adiyan と Lule（2026）は残し、その後ろに追加した。旗艦の採点（合計か平均かは開発論文本文では未確認）、回答形式、`usagePermission`、項目数は変えていない。尺度の `verifiedAt` は 2026-10-30。心理測定根拠と Talik の `verifiedAt` は 2026-10-28 のまま。Türk らと Adiyan と Lule の `verifiedAt` は 2026-10-29 のまま。
+- Semerci Çakmak, V., & Yılmaz, C.（2026）。Journal of Evaluation in Clinical Practice, 32(4), e70498。DOI `10.1111/jep.70498`。`url` は DOI のみ。`fullTextUrl` は付けない。Crossref で著者 Vahide Semerci Çakmak・Cansu Yılmaz、オンライン 2026-06-16、CC BY-NC 4.0 が一致。集中治療室看護師のAIリテラシー（AILS）とAIへの態度の関連（横断研究）。トルコ中部黒海地方の2病院（公立1・教育研究病院1）の ICU 看護師 N=280（母集団321の87%、ICU 経験6か月以上、平均 33.47±7.12歳、女性63.9%、学士以上72.1%、96.4%がAI研修なし）。2025-06-01〜07-15 に対面で収集。4項目・10件法（1＝Strongly Disagree〜10＝Strongly Agree）。言語はトルコ語。Arslan・Esin・Ayyıldız のトルコ語版を使用。本文は Arslan et al. (2023) と記すが、引用文献20は BMC Public Health 25, 1244（2025）、DOI `10.1186/s12889-025-22507-8` で年が食い違う（記録のみ）。4項目の平均点で採点。両端の言葉は原版（Not at all〜Completely Agree）と異なる。α = .97（本標本。.93 は Arslan 版の参照値）。M 6.26、SD 2.74（1–10）。AILS（M 39.87±6.69、α .77）と r = .72（p<.05）。AIAS-4 を目的変数とする回帰は F = 100.383、R² = .647（調整 .640）、AILS β = .485、独身 β = .237、学士以上 β = .184、男性 β = .074、36歳以上 β = −.086。若い・男性・独身・高学歴の看護師で得点が高い。開発者 Grassini は著者に含まれない。開発論文・検証研究ではない。項目本文は転載しない。`verifiedAt` は 2026-10-30。
+- AIAS-21（`wang-wang-aias-21`）の使用研究は0件から1件。Wu, H., & Wee, E. H.（2026）。Scientific Reports, 16, 23881。DOI `10.1038/s41598-026-59141-2`。`url` は DOI のみ。`fullTextUrl` は付けない。Crossref で著者 Houyu Wu・Eng Hoe Wee、公開 2026-06-22、CC BY 4.0 が一致。大学教員のAI自己効力感（AISE、Wang & Chuang 2024）とAI不安の関連。中国四川省の公立師範大学の専任教員 N=350（配布370、教員母集団1,381、女性197・男性153、平均 41.90±8.42歳）。2025年9〜11月に収集。予備調査 n=120。21項目・7件法（Likert型）。言語は中国語。著者らが原著者の許諾を得て中国語に翻訳し、項目は改変なし。4次元（学習・雇用代替・社会技術的盲目・AI構成）をそのまま使用。予備調査（n=120）で α .88、KMO .84、4因子で分散の約62.5%。回帰では平均点を使用（記述統計は合計点）。本標本の α は全体 .85、学習 .79、雇用代替 .84、社会技術的盲目 .88、AI構成 .79。合計点 M 91.29、SD 17.92（範囲 35–131）。AISE 合計と r = −.59（p<.01）、年齢と r = −.16（学習は −.28）。開発者 Wang・Wang は著者に含まれない。開発論文・検証研究ではない。項目本文は転載しない。旗艦の採点、回答形式、規準値、`usagePermission`（`unknown`）、言語欄は変えていない。尺度の `verifiedAt` は 2026-10-30。心理測定根拠の `verifiedAt` は 2026-10-29 のまま。
+- 日本語の検証済みは26のまま。関連版は14のまま。未確認は114のまま。日本語使用例は18のまま。言語的妥当性確認は2、翻訳・因子構造等の検討は5、日本語で独自開発は6、開発論文内の日本語検証は1のまま。登録版そのものが3・4項目の尺度は30のまま。使用研究側の3・4項目は28のまま（AIAS-4 は既に4項目の使用研究がある。追加した AIAS-21 の使用研究は21項目）。
+- 見送りは、新規概念の候補は全て HOLD。AAAW（AIへの態度、Park・Woo・Kim 2024、JOOP 97(3), 920–951、DOI `10.1111/joop.12502`。出版版は購読制でプレプリントのみ確認、出版版未確認）。SNAIL（AIリテラシー、Laupichler ら 2023、Computers in Human Behavior Reports 12, 100338、本文取得不可）。AISES（AI自己効力感、Wang & Chuang 2024、購読制）。DAI（AI依存、Morales-García ら 2024、Frontiers in Education、医学生標本で経営学の範囲か要判断）。AIAS-4 Han 2026 は特定できず見送り。AIAS-21 Liu ら 2025（BMC Nursing）は原典の年・α の引用に食い違いがあり見送り。AIAS-21 のトルコ語16項目5件法版（Akkaya 版）使用研究は改変版のため見送り。既存の HOLD（CSR-17、Aad-3、UTAUT-SI／FC、P–O fit-3、RC-3 usage、Price Consciousness 5、ATAI 日本語版 Hitsuwari & Takano 2025、テクノストレス Ragu-Nathan 2008、EmpRes）は変更していない。`app.js` は変えていない。確認は [2026-10-30ログ](dev/logs/2026-10-30-daily-expansion.md)。
 
 ## v0.114.0 の追加（AI不安、AIAS-4 の使用研究）
 
