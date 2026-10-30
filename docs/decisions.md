@@ -1,5 +1,13 @@
 # Decisions
 
+## 2026-10-31: AAAW は職場でのAI適用への態度。DAI は AI依存。どちらも注記付きで登録する
+
+- セマンティック版は v0.116.0。概念は136から138。尺度は186から188。使用研究は225のまま。選択ガイドは72から74。関係は16のまま。開発論文は `usageStudies` に入れない。項目本文は空。`itemPublicationStatus` は GAAIS・AIAS-21 と同じ `not-published`。機能用とデータ用で版を分けない。
+- AAAW は既存の `attitudes-toward-ai` に入れない。概念 ID は `attitudes-toward-ai-at-work`。尺度 ID は `park-woo-kim-aaaw-25`。原典の定義は、職場での AI 適用に対する労働者の多面的態度である。プレプリントは、一般人口向けの既存尺度では職場を捉えきれないとし、Schepman & Rodway（2020）の GAAIS を一般的態度の尺度として併記する。Study 3 は GAAIS を併存尺度として使う。分野は「組織行動・人的資源」。GAAIS・ATAI・AIAS-4・AIAS-21・TAI・DAI とは合算しない。`attitudes-toward-ai` と `ai-anxiety` の `relatedConcepts` と caution、および GAAIS・ATAI・AIAS-4・AIAS-21・TAI の採点に、合算しない旨を足す。`technology-readiness` への逆リンクは足さない。
+- AAAW の数値は PsyArXiv（DOI `10.31234/osf.io/sxdp9`）の本文と表。出版版 DOI `10.1111/joop.12502` は Crossref で書誌が一致してから `doi` と `sourceUrl` に使う。出版版の本文は未確認。notes に、数値はプレプリントの値で、出版版で項目や値が変わっている可能性がある、と書く。本文の信頼性 .84–.90 と、Table 3 の adaptability .91 は両方残し、一方に寄せない。各次元の項目数は Table 1 を数えた値。合計か平均かは書かない。
+- DAI は新概念 `ai-dependence`（AI依存）。尺度 ID は `morales-garcia-dai-5`。表示略称は DAI。抄録の DIA は同じ尺度。AI不安と AI への態度とは別概念で、`relatedConcepts` を相互に足す。notes に、開発標本はペルーの医学生で、組織や消費者の場面での妥当性は未検証、と書く。中間アンカーと採点式は本文にないので書かない。本文の「α and ω = 87」は、Table 3 の 0.87 を採る。
+- 韓国語の K-AAAW（抄録上27項目）は本文未確認のため登録しない。SNAIL、AISES、既存 HOLD は変更しない。`app.js` は変えない。
+
 ## 2026-10-17: BAT-12 を短縮版として足す。PLB-22 の使用研究は Meng ら。BAT-23 の使用研究は Brulin ら
 
 - セマンティック版は v0.100.0。概念は128のまま。尺度は174から175。使用研究は197から199。選択ガイドは64のまま。関係は16のまま。開発論文は `usageStudies` に入れない。BAT-12 の項目本文は空、`itemPublicationStatus` は `not-published`。機能用とデータ用で版を分けない。
