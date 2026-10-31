@@ -1,5 +1,13 @@
 # Decisions
 
+## 2026-10-31: MAILS は AIリテラシー。AIAS-4 と AIAS-21 に使用研究を1件ずつ足す
+
+- セマンティック版は v0.117.0。概念は138から139。尺度は188から189。使用研究は225から227。選択ガイドは74から75。関係は16のまま。開発論文は `usageStudies` に入れない。項目本文は空。MAILS の `itemPublicationStatus` は GAAIS・AIAS-21 と同じ `not-published`。機能用とデータ用で版を分けない。
+- 概念 ID は `ai-literacy`（AIリテラシー）。尺度 ID は `carolus-mails-34`。原典は Carolus ほか（2023）、DOI `10.1016/j.chbah.2023.100014`。34項目を一つの合計にしない。二次因子 AI literacy は18項目。Create AI は別構成概念。AI Self-efficacy と AI Self-competency は心理的メタ能力。AI Ethics の α は出版版が「= 75」と印刷しているので、0.75 には補わない。`usagePermission` は `unknown`。論文は CC BY-NC-ND 4.0 だが、尺度の利用許諾の明記はない。`attitudes-toward-ai` にだけ逆リンクと caution を足す。`technology-readiness` への逆リンクは足さない。
+- AIAS-4 の使用研究は Arslan ら（2026）、DOI `10.1186/s12889-026-28997-4`。トルコ語版の使用で、検証研究ではない。開発者 Grassini は著者に含まれない。旗艦の採点と回答形式は変えない。
+- AIAS-21 の使用研究は Russo ら（2025）、DOI `10.3389/fpsyg.2025.1559457`。イタリア語のバックトランスレーション。検証研究ではない。開発者は著者に含まれない。合計か平均かは本文にないので断定しない。旗艦の合計採点は変えない。
+- AILS（Wang, Rau, & Yuan, 2023）は出版社本文が取れないため登録しない。SNAIL、短縮版 MAILS、既存 HOLD は変更しない。`app.js` は変えない。
+
 ## 2026-10-31: AAAW は職場でのAI適用への態度。DAI は AI依存。どちらも注記付きで登録する
 
 - セマンティック版は v0.116.0。概念は136から138。尺度は186から188。使用研究は225のまま。選択ガイドは72から74。関係は16のまま。開発論文は `usageStudies` に入れない。項目本文は空。`itemPublicationStatus` は GAAIS・AIAS-21 と同じ `not-published`。機能用とデータ用で版を分けない。
