@@ -1,5 +1,13 @@
 # Decisions
 
+## 2026-11-01: 不当なタスクは BITS-8。ATAI と AIAS-21 に使用研究を1件ずつ足す
+
+- セマンティック版は v0.118.0。概念は139から140。尺度は189から190。使用研究は227から229。選択ガイドは75から76。関係は16のまま。開発論文は `usageStudies` に入れない。項目本文は空。BITS-8 の `itemPublicationStatus` は `not-published`。機能用とデータ用で版を分けない。
+- 概念 ID は `illegitimate-tasks`（不当なタスク）。尺度 ID は `semmer-bits-8`。原典は Semmer, Tschan, Meier, Facchin, & Jacobshagen（2010）、DOI `10.1111/j.1464-0597.2009.00416.x`。Crossref の container-title は Applied Psychology。誌名の柱は Applied Psychology: An International Review。オンラインは 2009-12-18、印刷は 2010-01。登録年は印刷年。8項目。不必要なタスク4、不合理なタスク4。旗艦の回答形式は Study 1 の5件法。Study 2 の7件法で置き換えない。全体 α は .83 と .88。下位尺度の α は書かない。Table 1 の平均 2.16 は 1–5 の範囲にある。平均採点とは断定しない。初期の9項目版は登録しない。`usagePermission` は `unknown`。ライセンスは Wiley の vor 条件。`relatedConcepts` は存在する `organizational-justice`、`role-ambiguity-role-conflict`、`workplace-deviance`、`psychological-contract-breach`。相手側への逆リンクは足さない。
+- ATAI の使用研究は Sáez-Velasco ら（2025）、DOI `10.3390/su17073096`。5項目、11件法、項目割当は原版と一致する。本文は Fear を rejection と呼ぶ。この標本の α は受容 0.614、拒否 0.693。N=23。開発者は著者に含まれない。旗艦の項目割当と11件法は変えない。
+- AIAS-21 の使用研究は Liu ら（2025）、DOI `10.1186/s12912-025-04142-1`。21項目、7件法、合計点、この標本の全体 α は 0.98。有効450名。方法節の原典年（2023）と引用文献（2022）、および AI構成 α の引用 0.916 と原典記録 .961 の食い違いは残す。0.916 はこの標本の α にしない。開発者の Wang, Y.-Y. と Wang, Y.-S. は著者に含まれない。同じ論文の GAAIS は15項目なので、登録済み20項目の使用研究にしない。旗艦の合計採点と規準値は変えない。
+- MAILS の独立した使用研究、GWQ-12 の使用研究、CS-12 の日本語版、AILS、SNAIL、MAILS 短縮版、ATAI 日本語版、テクノストレス、EmpRes、AISES、K-AAAW は変更しない。LMWB は CFA の df が10項目と両立しないため登録しない。`app.js` は変えない。
+
 ## 2026-10-31: MAILS は AIリテラシー。AIAS-4 と AIAS-21 に使用研究を1件ずつ足す
 
 - セマンティック版は v0.117.0。概念は138から139。尺度は188から189。使用研究は225から227。選択ガイドは74から75。関係は16のまま。開発論文は `usageStudies` に入れない。項目本文は空。MAILS の `itemPublicationStatus` は GAAIS・AIAS-21 と同じ `not-published`。機能用とデータ用で版を分けない。
