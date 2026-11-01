@@ -1,6 +1,18 @@
 # Current state
 
-最終更新: 2026-10-31
+最終更新: 2026-11-01
+
+## v0.118.0 の追加（不当なタスク、ATAI と AIAS-21 の使用研究）
+
+- 140概念・190尺度・229使用研究・76選択ガイド・16関係。概念は139から140。尺度は189から190。使用研究は227から229。選択ガイドは75から76。関係は16のまま。`meta.version` は `0.118.0`。`meta.updated` は 2026-11-01。`meta.scope` は `140概念・190尺度`。
+- 概念 `illegitimate-tasks`（不当なタスク）と尺度 `semmer-bits-8`（BITS-8）を追加した。分野は「組織行動・人的資源」。組織的公正、役割葛藤、逆生産的行動、心理的契約の不履行とは別概念で、得点は合算しない。`relatedConcepts` は存在する4概念。相手側への逆リンクは足していない。
+- BITS-8 は Semmer, N. K., Tschan, F., Meier, L. L., Facchin, S., & Jacobshagen, N.（2010）。Applied Psychology, 59(1), 70–96。DOI `10.1111/j.1464-0597.2009.00416.x`。`sourceUrl` は DOI のみ。Crossref で著者・題名・巻号頁、オンライン 2009-12-18、印刷 2010-01 が一致。ライセンスは Wiley の vor 条件で、CC ではない。登録年は印刷年。誌名の柱は Applied Psychology: An International Review。8項目。不必要なタスク4、不合理なタスク4。旗艦の回答形式は Study 1 の5件法（1＝never～5＝frequently）。同じ論文の Study 2 は7件法（1＝never～7＝frequently）で、旗艦は置き換えていない。全体 α は Study 1 が .83（N=199）、Study 2 が .88（N=205）。下位尺度の α は本文にない。採点（合計か平均か）の明示はない。Table 1 の平均 2.16 は 1–5 の範囲にあり、8項目合計の理論範囲 8–40 とは一致しない。平均採点とは断定していない。初期の9項目版は登録していない。`usagePermission` は `unknown`。`itemPublicationStatus` は `not-published`。項目本文は転載しない。`items` は空。`usageStudies` は空。開発論文の2研究は使用研究に入れない。`japaneseVersionStatus` は `unconfirmed`。Study 2 の実施言語はフランス語。Study 1 はドイツ語圏スイスで、質問紙言語の明記はない。`verifiedAt` は 2026-11-01。
+- ATAI（`sindermann-atai-5`）の使用研究は1件から2件。既存の Laupichler ら（2024）は残し、その後ろに追加した。旗艦の項目割当、11件法、採点の説明、`usagePermission` は変えていない。尺度の `verifiedAt` は 2026-11-01。心理測定根拠の `verifiedAt` は 2026-10-25 のまま。Laupichler らの `verifiedAt` は 2026-10-26 のまま。
+- Sáez-Velasco, S., Alaguero-Rodríguez, M., Rodríguez-Cano, S., & Delgado-Benito, V.（2025）。Sustainability, 17(7), 3096。DOI `10.3390/su17073096`。`url` は DOI のみ。Crossref で著者・題名、2025-03-31、CC BY 4.0 が一致。ブルゴス大学のビデオゲームデザイン学位4年、便宜標本 N=23（男性14、女性9、21–44歳、M 24.04）。2024年10–11月。5項目・11件法（0＝strongly disagree～10＝strongly agree）。受容は P2 と P4 の平均、拒否は P1・P3・P5 の平均。原版の Fear を本文は rejection と呼ぶ。項目の割当は原版と一致する。この標本の α は受容 0.614、拒否 0.693。受容の平均 6.43、拒否の平均 4.7。開発者は著者に含まれない。N=23 は小さい。実施言語の明記はない。項目本文は転載しない。`verifiedAt` は 2026-11-01。
+- AIAS-21（`wang-wang-aias-21`）の使用研究は2件から3件。既存の Wu と Wee（2026）、Russo ら（2025）は残し、その後ろに追加した。旗艦の合計採点、7件法、規準値、`usagePermission`、言語欄は変えていない。尺度の `verifiedAt` は 2026-11-01。心理測定根拠の `verifiedAt` は 2026-10-29 のまま。Wu と Wee の `verifiedAt` は 2026-10-30 のまま。Russo らの `verifiedAt` は 2026-10-31 のまま。
+- Liu, S., Xiao, Y., Nie, M., Yuan, X., Wang, L., Wang, M., & Wu, Z.（2025）。BMC Nursing, 24, 1511。DOI `10.1186/s12912-025-04142-1`。`url` は DOI のみ。Crossref で著者・題名、2025-11-21、論文番号 1511、CC BY-NC-ND 4.0 が一致。湖南省の看護師。配布478、有効450。女性437名（97.11%）。2025年4月5–15日。倫理は LYEC2025-0062。21項目・7件法。合計点。この標本の全体 α は 0.98。得点は 61.95 ± 24.92。方法節は原典を2023年と書き、引用文献は2022年。原典の AI構成 α として 0.916 を引用するが、原典から記録した値は .961。引用値であり、この標本の α ではない。開発者の Wang, Y.-Y. と Wang, Y.-S. は著者に含まれない。同じ論文の GAAIS は15項目で、登録済み20項目版の使用研究にはしていない。項目本文は転載しない。`verifiedAt` は 2026-11-01。
+- 日本語の検証済みは26のまま。関連版は14のまま。未確認は117から118（追加した BITS-8 が `unconfirmed`）。日本語使用例は18のまま。言語的妥当性確認は2、翻訳・因子構造等の検討は5、日本語で独自開発は6、開発論文内の日本語検証は1のまま。登録版そのものが3・4項目の尺度は30のまま（BITS-8 は8項目）。使用研究側の3・4項目は28のまま（追加は5項目と21項目）。
+- 見送りは、MAILS の独立した使用研究（Koch ら 2024 の短縮版は本文未確認のまま。エクアドルの高校生を対象とした MDPI 論文は妥当性検証が題名で、使用研究にしていない）。GWQ-12 の使用研究（ギリシャの看護師・ホワイトカラーの論文は Katsiroumpa／Galanis らの11項目 Gaslighting at Work Scale で、GWQ-12 ではない。ペルシア語版・韓国語版は検証研究）。GAAIS の追加使用（劉ら 2025 と重慶の看護師研究は中国語15項目版で、登録済み20項目ではない）。CS-12 の日本語版（JAAS の論文は7項目で、12項目版ではない）。AILS、SNAIL、MAILS 短縮版、ATAI 日本語版 Hitsuwari & Takano 2025、テクノストレス Ragu-Nathan 2008、EmpRes、AISES、K-AAAW、Güler 2026、Wu 2026 は変更していない。LMWB（Frontiers in Psychology, DOI `10.3389/fpsyg.2026.1803662`）は10項目・α 0.937 を本文で確認したが、10項目の CFA 表が df=2 で、項目数と適合度表が両立しないため登録していない。`app.js` は変えていない。確認は [2026-11-01ログ](dev/logs/2026-11-01-illegitimate-tasks-usage.md)。
 
 ## v0.117.0 の追加（AIリテラシー、AIAS-4 と AIAS-21 の使用研究）
 
