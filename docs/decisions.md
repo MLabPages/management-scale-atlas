@@ -1,5 +1,12 @@
 # Decisions
 
+## 2026-11-02: 職場のエウダイモニック・ウェルビーイングは EWWS。GAAIS と AIAS-21 に同じ論文の使用研究を足す
+
+- セマンティック版は v0.119.0。概念は140から141。尺度は190から191。使用研究は229から231。選択ガイドは76から77。関係は16のまま。開発論文は `usageStudies` に入れない。項目本文は空。EWWS の `itemPublicationStatus` は `source-open`。機能用とデータ用で版を分けない。
+- 概念 ID は `eudaimonic-workplace-well-being`（職場のエウダイモニック・ウェルビーイング）。尺度 ID は `bartels-ewws-8`。原典は Bartels, Peterson, & Reina（2019）、DOI `10.1371/journal.pone.0215957`。PLOS ONE, 14(4), e0215957。2019-04-25。CC BY 4.0。8項目。対人4、個人内4。5件法。検証標本の係数αは全体 .87–.90、個人内 .83–.85、対人 .87–.93。探索的因子分析の r はαにしない。採点（合計か平均か）は書かない。`usagePermission` は `unknown`。`relatedConcepts` は存在する `job-satisfaction`、`work-engagement`、`meaningful-work`、`thriving-at-work`。相手側への逆リンクは足さない。
+- GAAIS と AIAS-21 の使用研究は同じ Zeng ら（2026）、DOI `10.3389/fpubh.2026.1918134`。GAAIS は20項目（肯定12、否定8）。AIAS-21 は21項目。開発者は著者に含まれない。旗艦の採点と回答形式は変えない。GAAIS の項目番号1–12／13–20は、この論文の割り当てとして残し、原典の番号とは同一視しない。AIAS-21 の理論範囲21–147は、原典の最大136に置き換えない。
+- BITS-8 の Gahrmann と Klumb（2024）は、不合理タスクのαの数値が本文抽出で確認できないため登録しない。MAILS、AILS、SNAIL、ATAI 日本語版、テクノストレス、EmpRes、AISES、K-AAAW、GAAIS の Atalla と Rózsa、CS-12 日本語、LMWB、GWQ-12 は変更しない。`app.js` は変えない。
+
 ## 2026-11-01: 不当なタスクは BITS-8。ATAI と AIAS-21 に使用研究を1件ずつ足す
 
 - セマンティック版は v0.118.0。概念は139から140。尺度は189から190。使用研究は227から229。選択ガイドは75から76。関係は16のまま。開発論文は `usageStudies` に入れない。項目本文は空。BITS-8 の `itemPublicationStatus` は `not-published`。機能用とデータ用で版を分けない。
