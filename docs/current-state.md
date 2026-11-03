@@ -1,6 +1,17 @@
 # Current state
 
-最終更新: 2026-11-02
+最終更新: 2026-11-03
+
+## v0.120.0 の追加（職場の退屈、BITS-8 の使用研究）
+
+- 142概念・192尺度・232使用研究・78選択ガイド・16関係。概念は141から142。尺度は191から192。使用研究は231から232。選択ガイドは77から78。関係は16のまま。`meta.version` は `0.120.0`。`meta.updated` は 2026-11-03。`meta.scope` は `142概念・192尺度`。
+- 概念 `workplace-boredom`（職場の退屈）と尺度 `reijseger-dubs-6`（DUBS）を追加した。分野は「組織行動・人的資源」。バーンアウト、ワーク・エンゲイジメント、職務満足、静かな退職とは別概念で、得点は合算しない。`relatedConcepts` は存在する4概念。相手側への逆リンクは足していない。
+- DUBS は Reijseger, G., Schaufeli, W. B., Peeters, M. C. W., Taris, T. W., van Beek, I., & Ouweneel, E.（2013）。Anxiety, Stress & Coping, 26(5), 508–525。DOI `10.1080/10615806.2012.720676`。`sourceUrl` は DOI のみ。Crossref で著者・題名・巻号頁、issued 2013-09 が一致。ライセンス欄は空。登録年は印刷年。PDF のヘッダは Accepted author version posted online 2012-09-10、Published online 2012-09-21。確認した全文は Taylor & Francis のダウンロード表記（University Library Utrecht、2013-09-16）が付いた PDF で、本文の頁送りは印刷頁の組版ではない。初期8項目から2項目を除いた6項目・単一因子。旗艦の回答形式は Sample 1 の7件法（0＝never～6＝always）。Sample 2 と Sample 3 は5件法（1＝never～5＝always）で、旗艦は置き換えていない。Sample 1 の6項目の係数αは .80（N=2,342）。項目合計相関の平均は .55。6項目の主成分は分散の51.0%。Study 2 の Table 2（標準化、N=6,315）の対角は .87。Table 2 の平均 0.00 は素点ではない。採点（合計か平均か）の明示はない。`usagePermission` は `unknown`。`itemPublicationStatus` は `not-published`。項目本文は転載しない。`items` は空。`usageStudies` は空。開発論文は使用研究に入れない。実施言語は、オランダの就業者であることと表の項目が英語であること以外、明記がない。`verifiedAt` は 2026-11-03。
+- 日本語は `validated`。Kawada, Shimazu, Tokita, Miyanaka, & Schaufeli（2022）。Journal of Occupational Health, 64(1), e12354。DOI `10.1002/1348-9585.12354`。出版社ページは Published 2022-08-25。Crossref の published-print は 2022-01-13。CC BY-NC-ND 4.0。6項目。7件法（0＝never～6＝always）。合計したうえで平均。この標本の α = .88。分析は第3波の1,358名（2020-12-08〜17。第1波1,600名の追跡。休業または欠損の27名を除外）。平均年齢41.1（SD 10.4）。男性692名（51.0%）。1因子の CFA は、論文の表記で Δχ²[9] = 271.38、CFI = 0.94、TLI = 0.89、SRMR = 0.04、RMSEA = 0.14。Table 5 の6項目は原典が残した6項目と一致する。方法節が書く落ち着かなさは Table 5 にはない。Appendix S1 の日本語文は開いていない。第4波の日付は本文が 2020-03-08〜20 と書き、第3波より前になる。年は直していない。再検査は両方に答えた1,229名で、本文は間隔を3か月、ICC = 0.62 と書く。倫理は Public Health Research Center 20E0004。開発者 Schaufeli は共著者なので使用研究に入れない。検証済みは26から27。未確認は119のまま。
+- BITS-8（`semmer-bits-8`）の使用研究は0件から1件。旗艦の5件法（1＝never～5＝frequently）、項目数、`usagePermission`、日本語は変えていない。尺度の `verifiedAt` は 2026-11-03。心理測定根拠の `verifiedAt` は 2026-11-01 のまま。
+- Ma, Q., & Xie, Y.（2024）。Behavioral Sciences, 14(7), 600。DOI `10.3390/bs14070600`。`url` は DOI のみ。Crossref で著者・題名、2024-07-14、CC BY 4.0 が一致。山東省のエネルギー企業。Time 1 は460名、無効54名を除外。Time 2 は335名（72.83%。335/460 と一致し、有効406名に対する割合ではない）。最終285名（61.96%）。男性41.1%、学士75.4%、平均年齢31歳（SD 6.936）。8項目（不必要4、不合理4）。引用7は Semmer ほか（2010）の Applied Psychology, 59, 70–96。中国語。Brislin の翻訳・逆翻訳。5件法。アンカーの言葉は本文と付録にない。この標本の α は 0.88。Table 2 の平均 2.45（SD 0.72）は 1–5 の範囲にあり、8項目合計の 8–40 とは一致しない。合計か平均かは明記がない。開発者は著者に含まれない。項目本文は転載しない。`verifiedAt` は 2026-11-03。
+- 日本語の検証済みは26から27（追加した DUBS が `validated`）。関連版は14のまま。未確認は119のまま。日本語使用例は18のまま。言語的妥当性確認は2、翻訳・因子構造等の検討は5、日本語で独自開発は6、開発論文内の日本語検証は1のまま。登録版そのものが3・4項目の尺度は30のまま（DUBS は6項目、BITS-8 は8項目）。使用研究側の3・4項目は28のまま（追加は8項目）。
+- 見送りは、EWWS の使用研究。Fatemi、Vagharseyyedin、Askari-Noghani（2024、DOI `10.1080/01612840.2024.2371942`）は抄録が EWWS の使用を書くが、出版社の本文で項目数・回答形式・αを確認していない。インドネシアの相関研究（DOI `10.54373/imeij.v6i7.4567` など）は、開いた出版社ページに項目数・回答形式・αがない。インドネシア語版の適応（DOI `10.24036/rapun.v13i2.117090`）は検証研究。BITS-8 の Gahrmann と Klumb（2024）、FSSB-SF、感情労働の ELS、AILS、SNAIL、AISES、MAILS 短縮版 Koch 2024、K-AAAW、GAAIS Atalla 2024、ATAI 日本語版（OSF登録のみ）は変更していない。`app.js` は変えていない。確認は [2026-11-03ログ](dev/logs/2026-11-03-dubs-bits-usage.md)。
 
 ## v0.119.0 の追加（職場のエウダイモニック・ウェルビーイング、GAAIS と AIAS-21 の使用研究）
 
