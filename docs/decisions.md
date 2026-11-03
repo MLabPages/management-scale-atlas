@@ -1,5 +1,13 @@
 # Decisions
 
+## 2026-11-03: 職場の退屈は DUBS。BITS-8 の使用研究は Ma と Xie
+
+- セマンティック版は v0.120.0。概念は141から142。尺度は191から192。使用研究は231から232。選択ガイドは77から78。関係は16のまま。開発論文は `usageStudies` に入れない。項目本文は空。DUBS の `itemPublicationStatus` は `not-published`。機能用とデータ用で版を分けない。
+- 概念 ID は `workplace-boredom`（職場の退屈）。尺度 ID は `reijseger-dubs-6`。原典は Reijseger ほか（2013）、DOI `10.1080/10615806.2012.720676`。Anxiety, Stress & Coping, 26(5), 508–525。登録年は印刷年。オンラインは 2012-09-21。確認した全文は出版社配信の accepted author version で、印刷頁の組版ではない。6項目・単一因子。初期8項目は登録しない。旗艦の回答形式は Sample 1 の7件法。Sample 2 と Sample 3 の5件法で置き換えない。Sample 1 の6項目の α は .80。Table 2 の対角 .87 は標準化得点。`usagePermission` は `unknown`。`relatedConcepts` は存在する `burnout`、`work-engagement`、`job-satisfaction`、`quiet-quitting`。相手側への逆リンクは足さない。
+- 日本語は `validated`。Kawada ほか（2022）、DOI `10.1002/1348-9585.12354`。6項目は Table 5 が原典の残した項目と一致する。方法節の落ち着かなさは表に寄せない。Appendix S1 は開いていない。開発者 Schaufeli は共著者なので使用研究にしない。第4波の年は本文のまま残す。
+- BITS-8 の使用研究は Ma と Xie（2024）、DOI `10.3390/bs14070600`。8項目。中国語。5件法。アンカーは書かない。この標本の α は 0.88。N=285。72.83% は 335/460。開発者は著者に含まれない。旗艦の5件法は変えない。
+- EWWS の使用研究は、抄録または項目数・回答形式・αが本文にないため登録しない。Gahrmann と Klumb（2024）、FSSB-SF、ELS、AILS、SNAIL、AISES、MAILS 短縮版、K-AAAW、GAAIS Atalla 2024、ATAI 日本語版は変更しない。`app.js` は変えない。
+
 ## 2026-11-02: 職場のエウダイモニック・ウェルビーイングは EWWS。GAAIS と AIAS-21 に同じ論文の使用研究を足す
 
 - セマンティック版は v0.119.0。概念は140から141。尺度は190から191。使用研究は229から231。選択ガイドは76から77。関係は16のまま。開発論文は `usageStudies` に入れない。項目本文は空。EWWS の `itemPublicationStatus` は `source-open`。機能用とデータ用で版を分けない。
