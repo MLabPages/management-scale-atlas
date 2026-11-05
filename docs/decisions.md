@@ -1,5 +1,18 @@
 # Decisions
 
+## 2026-11-05: 従業員レジリエンスの旗艦は2015年技術報告。JMP の DOI は併記のみ
+
+- セマンティック版は v0.122.0。概念は143から144。尺度は193から194。使用研究は234から236。選択ガイドは79から80。関係は16のまま。開発論文と技術報告は `usageStudies` に入れない。項目本文は空。EmpRes の `itemPublicationStatus` は `not-published`。機能用とデータ用で版を分けない。
+- 概念 ID は `employee-resilience`（従業員レジリエンス）。尺度 ID は `naswall-empres-9`。旗艦の数値は Näswall, Kuntz, & Malinen（2015）の技術報告のみ。Resilient Organisations Research Report 2015/04。ISSN 1178-7279。DOI はない。`sourceUrl` は Resilient Organisations の公式 PDF。ResearchGate と第三者 PDF は使わない。表紙の題は Measurement Properties。引用指定は Technical Report。登録の題名は引用指定に合わせる。表紙の題は notes に残し、一方に寄せない。
+- 9項目・単一因子。旗艦の回答形式は方法節の7件法（1＝Never～7＝Almost always）。導入の Never～Always では置き換えない。本文の分散54%と Table 2、表の 54.07 と Table 1、固有値 4.87 は両方残す。α は .91。有効 N は listwise 後の295（送付363、回答302）。採点（合計か平均か）は書かない。
+- 査読版 Näswall, Malinen, Kuntz, & Hodliffe（2019）、DOI `10.1108/jmp-02-2018-0102` は、概念の `references` と尺度の notes に置く。Crossref の書誌は一致する。表のαとNは未確認なので、旗艦のαとNにしない。`doi` と `sourceUrl` にはしない。2013年の初版（Research Report 2013/06）は、項目とアンカーを直す前の版なので、同じレコードにしない。
+- `usagePermission` は `research-use`。技術報告 2.2 は、引用と匿名化データの提供を求め、詳細は著者へ連絡するよう書く。既存列挙値は `unknown`、`open`、`research-use`、`permission-required`、`commercial`。有償の実施ライセンスではないので `commercial` にしない。条件の記載があるので `unknown` にしない。使用前の許可審査とは書いていないので、NAQ 型の `permission-required`（画面は「申請が必要」）にはしない。無条件の公開でもないので `open` にしない。残る `research-use`（画面は「研究利用可」）に、引用と匿名化データの依頼を `usagePermissionNote` で書く。学術は無料・商業は事前許諾、とは技術報告が書いていない。その違いは notes に残す。新しい列挙値は作らない。
+- 技術報告の表に項目がある。アトラスには転載しない。`itemPublicationStatus` を `source-open` にすると画面が「原著で公開」になる。項目本文を画面に出さない指定に合わせ、`not-published` とする。
+- `relatedConcepts` は存在する `psychological-capital`、`work-engagement`、`thriving-at-work`、`burnout`。相手側への逆リンクは足さない。関係レコードは追加しない。日本語は `unconfirmed`。大会抄録のみの日本語は根拠にしない。
+- 使用研究は Mao ら（2022）、DOI `10.3389/fpsyg.2022.901085`。9項目。5件法の同意は旗艦の頻度7件法からの adaptation。この標本の α は 0.949。女性224と男性640の合計は最終884と一致しない。開発者は著者に含まれない。
+- DUBS の使用研究は van den Berg と Beute（2021）、DOI `10.1016/j.jenvp.2021.101641`。6項目。1＝never～7＝always。6項目の平均。α=.91 は3波の平均。N=40。旗艦の 0–6 は変えない。心理測定根拠の `verifiedAt` は 2026-11-03 のまま。
+- FSSB-SF、FSSB-14／FSSB-J、EmpRes の日本語、JMP 2019 の表の係数、Ojică 2022、Spanouli、WCS のポルトガル語検証、Fatemi らの EWWS、DUBS の3項目抜粋、ELS、テクノストレスの原典、MQQS は変更しない。`app.js` は変えない。
+
 ## 2026-11-03: 職場の退屈は DUBS。BITS-8 の使用研究は Ma と Xie
 
 - セマンティック版は v0.120.0。概念は141から142。尺度は191から192。使用研究は231から232。選択ガイドは77から78。関係は16のまま。開発論文は `usageStudies` に入れない。項目本文は空。DUBS の `itemPublicationStatus` は `not-published`。機能用とデータ用で版を分けない。

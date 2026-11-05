@@ -1,6 +1,18 @@
 # Current state
 
-最終更新: 2026-11-04
+最終更新: 2026-11-05
+
+## v0.122.0 の追加（従業員レジリエンス、DUBS の使用研究）
+
+- 144概念・194尺度・236使用研究・80選択ガイド・16関係。概念は143から144。尺度は193から194。使用研究は234から236。選択ガイドは79から80。関係は16のまま。`meta.version` は `0.122.0`。`meta.updated` は 2026-11-05。`meta.scope` は `144概念・194尺度`。
+- 概念 `employee-resilience`（従業員レジリエンス）と尺度 `naswall-empres-9`（EmpRes）を追加した。分野は「組織行動・人的資源」。心理的資本、ワーク・エンゲイジメント、職場での繁栄、バーンアウトとは別概念で、得点は合算しない。`relatedConcepts` は存在する `psychological-capital`、`work-engagement`、`thriving-at-work`、`burnout`。相手側への逆リンクは足していない。
+- 旗艦の数値は技術報告のみ。Näswall, K., Kuntz, J., & Malinen, S.（2015）。Employee Resilience Scale (EmpRes): Technical Report。Resilient Organisations Research Report 2015/04。ISSN 1178-7279。August 2015。DOI はない。`sourceUrl` は Resilient Organisations の公式 PDF。2026-11-05 にその PDF を開いた。表紙の題は Measurement Properties。引用指定は Technical Report。著者は表紙と引用指定が3名。掲載ページの HTML は開いていない。9項目・単一因子。探索的因子分析は主軸因子法、direct oblimin。本文は分散の54%、Table 2 と書く。表題は Table 1、分散 54.07、固有値 4.87。一致しないので、どちらにも寄せない。旗艦の回答形式は方法節の7件法（1＝Never～7＝Almost always）。導入は Never～Always と書く。係数αは .91。送付363、回答302（本文は83%）、listwise 後の有効 N=295。ニュージーランドの白カラー従業員。採点（合計か平均か）の明示はない。`usagePermission` は `research-use`。技術報告 2.2 は、引用と匿名化データの提供を求め、詳細は著者へ連絡するよう書く。有償ライセンスや使用前の許可審査とは書いていない。学術無料・商業は事前許諾、とも書いていない。新しい列挙値は作らない。`itemPublicationStatus` は `not-published`。表に項目があるが転載しない。`items` は空。`japaneseVersionStatus` は `unconfirmed`。`versionType` は `original`。`recordStatus` は `verified-metadata`。`verifiedAt` は 2026-11-05。
+- 査読版は notes と概念の references に併記のみ。Näswall, Malinen, Kuntz, & Hodliffe（2019）。Journal of Managerial Psychology, 34(5), 353–367。DOI `10.1108/jmp-02-2018-0102`。Crossref で著者・題名・巻号頁、issued 2019-07-01 が一致。ライセンス欄は Emerald の tdm で、CC ではない。表のαとNは未確認なので旗艦にしない。`doi` と `sourceUrl` にはしない。2013年の初版（Research Report 2013/06。項目を削り、文言とアンカーを直す前）は同じレコードにしない。2013年の項目数とαは、2015年の技術報告からは特定しない。開発論文と技術報告は使用研究に入れない。
+- EmpRes の使用研究は0件から1件。Mao, Y., Lai, Y., Zhai, Y., Xie, M., Yu, J., Wang, Q., Lu, S., Ma, J., & Bonaiuto, M.（2022）。Frontiers in Psychology, 13, 901085。DOI `10.3389/fpsyg.2022.901085`。`url` は DOI のみ。Crossref で著者・題名・13巻・論文番号 901085、2022-07-01、VOR の CC BY 4.0 が一致。9項目。Näswall et al.（2015）を引用。中国語。Brislin の翻訳・逆翻訳。5件法（1＝strongly disagree～5＝strongly agree）。旗艦の頻度7件法からの変更は adaptation。この標本の α は 0.949。中央政府所有の建設系組織の常勤前線従業員。900名に接触し、最終884名。本文は女性224名、男性640名。合計は864で、884と一致しない。本文の 0.85 は Zhu ら（2019）の参照値。開発者は著者に含まれない。引用文献の2015年は4名と題名 Measurement Properties で、技術報告の引用指定とは一致しない。どちらにも寄せない。項目本文は転載しない。`verifiedAt` は 2026-11-05。
+- DUBS（`reijseger-dubs-6`）の使用研究は0件から1件。旗艦の7件法（0＝never～6＝always）、項目数、`usagePermission`、日本語は変えていない。尺度の `verifiedAt` は 2026-11-05。心理測定根拠の `verifiedAt` は 2026-11-03 のまま。
+- van den Berg, A. E., & Beute, F.（2021）。Journal of Environmental Psychology, 76, 101641。DOI `10.1016/j.jenvp.2021.101641`。`url` は DOI のみ。Crossref で著者 Agnes E. van den Berg、Femke Beute、題名、76巻、論文番号 101641、issued 2021-08、VOR の CC BY 4.0 が一致。6項目・単一因子。1＝never～7＝always。6項目の平均。この研究の α=.91 は3波の平均。N=40（オランダ、バーンアウトまたはストレス関連、女性31）。旗艦は 0–6 なので、1–7 は adaptation。開発者は著者に含まれない。項目本文は転載しない。`verifiedAt` は 2026-11-05。
+- 日本語の検証済みは27のまま。関連版は14のまま。未確認は120から121（追加した EmpRes が `unconfirmed`）。日本語使用例は18のまま。言語的妥当性確認は2、翻訳・因子構造等の検討は5、日本語で独自開発は6、開発論文内の日本語検証は1のまま。登録版そのものが3・4項目の尺度は30のまま（EmpRes は9項目、DUBS は6項目）。使用研究側の3・4項目は28のまま（追加は6項目と9項目）。
+- 見送りは、FSSB-SF、FSSB-14／FSSB-J、EmpRes の日本語（大会抄録のみ）、EmpRes の JMP 2019 の表の係数、Ojică 2022、Spanouli（別尺度）、WCS のポルトガル語検証、Fatemi らの EWWS、DUBS の Li ら（2024）の3項目抜粋、感情労働の ELS、テクノストレスの原典、MQQS、および前回までの HOLD。`app.js` は変えていない。確認は [2026-11-05ログ](dev/logs/2026-11-05-empres-dubs-usage.md)。
 
 ## v0.121.0 の追加（職場のコンパッション、EWWS と BITS-8 の使用研究）
 
