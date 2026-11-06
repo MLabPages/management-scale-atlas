@@ -1,6 +1,17 @@
 # Current state
 
-最終更新: 2026-11-05
+最終更新: 2026-11-06
+
+## v0.123.0 の追加（SLAW-3、PELS、GAAIS の使用研究）
+
+- 144概念・196尺度・237使用研究・80選択ガイド・16関係。概念は144のまま。尺度は194から196。使用研究は236から237。選択ガイドは80のまま（既存概念への choice 追加）。関係は16のまま。`meta.version` は `0.123.0`。`meta.updated` は 2026-11-06。`meta.scope` は `144概念・196尺度`。
+- 概念は新設していない。`workplace-loneliness` に尺度 `ayase-slaw-3`（SLAW-3）、`empowering-leadership` に尺度 `schermuly-pels-24`（PELS）を追加した。相手側への逆リンクは足していない。関係レコードは追加していない。
+- SLAW-3 は Ayase, Shimazu, Tokita, Sakamaki, & Kawakami。Journal of Occupational Health, 68(1), uiaf068。DOI `10.1093/joccuh/uiaf068`。`sourceUrl` は DOI のみ。Crossref で著者・題名・68巻1号、オンライン 2025-11-27、印刷 2026-01-06、VOR の CC BY 4.0 が一致。登録年は印刷年。3項目・単一次元。5件法（1＝Never～5＝Often/Almost always）。α=.91。分析標本は日本の常勤従業員1,228名。LAWS-16 の項目削除版ではない。一般的孤独感の3項目尺度に職場の文脈を足した短い代替。`parentScaleId` は空。`versionType` は `original`。同じ論文の SLAW-1 は登録していない。`usagePermission` は `unknown`。`itemPublicationStatus` は `source-open`。方法節と Table 2 に英語の項目があるが転載しない。`items` は空。`usageStudies` は空。開発論文は使用研究に入れない。実施言語の明記はない。`japaneseVersionStatus` は `unconfirmed`。`verifiedAt` は 2026-11-06。Table 2 の Total 平均 7.82 は項目平均の和と一致する。合計とは断定していない。
+- PELS は Schermuly, Algner, & Lorenz（2025）。Frontiers in Psychology, 16, 1539085。DOI `10.3389/fpsyg.2025.1539085`。`sourceUrl` は DOI のみ。Crossref で著者・題名・16巻・論文番号、2025-07-22、CC BY 4.0 が一致。24項目。6次元×各4（sense making、coaching、participation、transfer of power、competence development、leading by example）。7件法（1＝I do not agree at all～7＝I fully agree）。初期64項目からドイツ標本の遺伝的アルゴリズムで24項目に絞り、米国標本で検証した。Study 1 はドイツ362名、米国290名。Study 2 は照合後175名、6週間の r=0.83。全体 α は Study 2 の t1 0.96、t2 0.97。ωt も同じ。Study 1 の全体 α は本文にない。Table 1 の sense making の α は 89/0.95 と印刷されている。0.89 には直していない。Ahearne の LEB-10 と Arnold の ELQ とは別尺度。`usagePermission` は `unknown`。`itemPublicationStatus` は `source-open`。Table 1 の項目は転載しない。`items` は空。`usageStudies` は空。開発論文は使用研究に入れない。`japaneseVersionStatus` は `unconfirmed`。Study 2 の実施国は参加者節に明記がない。`verifiedAt` は 2026-11-06。
+- GAAIS（`schepman-rodway-gaais-20`）の使用研究は4件から5件。既存4件は残し、その後ろに Bergdahl ら（2023）の Study 2 だけを追加した。旗艦の5件法、項目平均、`usagePermission`、`itemPublicationStatus` は変えていない。心理測定根拠の `verifiedAt` は 2026-10-24 のまま。既存4件の `verifiedAt` は変えていない。尺度の `verifiedAt` は 2026-11-06。
+- Bergdahl, Latikka, Celuch, Savolainen, Soares Mantere, Savela, & Oksanen（2023）。Telematics and Informatics, 82, 102013。DOI `10.1016/j.tele.2023.102013`。`url` は DOI のみ。Crossref で著者・題名・82巻・102013、issued 2023-08、VOR の CC BY-NC-ND 4.0 が一致。出版 PDF はオンライン 2023-06-29。フル20項目（肯定12・否定8）。7件法（1–7。両端の言葉は Study 2 の節にない）。合計したうえで 1–7 に戻す。旗艦の5件法と項目平均からの変更は adaptation。McDonald ω は T1 が肯定 0.92、否定 0.88、T2 が肯定 0.93、否定 0.88。フィンランド。T1 N=1,226（2021年5–6月）、T2 N=828（2022年5–6月）。同じ論文の Study 1 は短縮8項目なので、この使用研究にしない。Schepman と Rodway は著者に含まれない。項目本文は転載しない。`verifiedAt` は 2026-11-06。
+- 日本語の検証済みは27のまま。関連版は14のまま。未確認は121から123（追加した SLAW-3 と PELS が `unconfirmed`）。日本語使用例は18のまま。言語的妥当性確認は2、翻訳・因子構造等の検討は5、日本語で独自開発は6、開発論文内の日本語検証は1のまま。登録版そのものが3・4項目の尺度は30から31（SLAW-3 は3項目。PELS は24項目）。使用研究側の3・4項目は28のまま（追加は20項目）。
+- 見送りは、SLAW-1、同じ論文の LAWS を `wright-laws-16` の使用研究に足すこと、Bergdahl らの Study 1 の短縮8項目、PELS の初期64項目、および前回までの HOLD。`app.js` は変えていない。確認は [2026-11-06ログ](dev/logs/2026-11-06-slaw3-pels-gaais.md)。
 
 ## v0.122.0 の追加（従業員レジリエンス、DUBS の使用研究）
 

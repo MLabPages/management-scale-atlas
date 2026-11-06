@@ -1,5 +1,13 @@
 # Decisions
 
+## 2026-11-06: SLAW-3 は LAWS-16 の項目削除版にしない。PELS は LEB-10 と別尺度。GAAIS の使用は Bergdahl らの Study 2 だけ
+
+- セマンティック版は v0.123.0。概念は144のまま。尺度は194から196。使用研究は236から237。選択ガイドは80のまま。関係は16のまま。開発論文は `usageStudies` に入れない。項目本文は空。機能用とデータ用で版を分けない。
+- SLAW-3 の尺度 ID は `ayase-slaw-3`。既存概念 `workplace-loneliness` に足す。新概念は作らない。原典は Ayase ほか、DOI `10.1093/joccuh/uiaf068`。Journal of Occupational Health, 68(1), uiaf068。オンラインは 2025-11-27、印刷は 2026-01-06。登録年は印刷年。3項目・単一次元。5件法（1＝Never～5＝Often/Almost always）。α=.91。分析標本は1,228名。`parentScaleId` は空。`versionType` は `original`。LAWS-16 から項目を抜いた短縮版ではない。一般的孤独感の3項目尺度に職場の文脈を足した短い代替である。その旨は notes と選択ガイドに書く。同じ論文の SLAW-1 は登録しない。`usagePermission` は `unknown`。論文は CC BY 4.0 だが、尺度の利用許諾の明記はない。原著者の許諾は、元の3項目を改めるためのもので、利用条件にはしない。`itemPublicationStatus` は `source-open`。方法節と Table 2 に項目がある。転載しない。実施言語の明記はないので、日本語は `unconfirmed`。Table 2 の Total 平均 7.82 は項目平均の和と一致する。合計とは断定しない。同じ論文が基準として使った LAWS は、`wright-laws-16` の使用研究に足さない。
+- PELS の尺度 ID は `schermuly-pels-24`。既存概念 `empowering-leadership` に足す。原典は Schermuly, Algner, & Lorenz（2025）、DOI `10.3389/fpsyg.2025.1539085`。24項目・6次元×4。7件法。Study 2 の全体 α は t1 0.96、t2 0.97。ωt も同じ。Study 1 の全体 α は書かない。Table 1 の sense making の α は印刷の 89/0.95 のまま残し、0.89 に直さない。Ahearne の LEB-10 と Arnold の ELQ とは別尺度。`usagePermission` は `unknown`。`itemPublicationStatus` は `source-open`。Table 1 は転載しない。Study 2 の実施国は断定しない。`psychometricEvidence` は1件にまとめる。複数件に分けると、使用研究が空の尺度の画面が「複数環境・日本語での検証根拠あり」になる。
+- GAAIS の使用研究は Bergdahl ら（2023）、DOI `10.1016/j.tele.2023.102013` の Study 2 だけ。フル20項目。7件法と、合計したうえで 1–7 に戻す採点は adaptation。旗艦の5件法と項目平均は変えない。ω は T1 が肯定 0.92、否定 0.88、T2 が肯定 0.93、否定 0.88。T1 N=1,226、T2 N=828。同じ論文の Study 1（短縮8項目）はこの使用研究にしない。Study 1 がフィンランド語と書いたことを、Study 2 の言語には転用しない。Schepman と Rodway は著者に含まれない。`url` は DOI のみ。大学リポジトリの URL は保存しない。
+- 選択ガイドは、既存の2概念に choice を1つずつ足す。ガイドの件数は増えない。`app.js` は変えない。前回までの HOLD は変更しない。
+
 ## 2026-11-05: 従業員レジリエンスの旗艦は2015年技術報告。JMP の DOI は併記のみ
 
 - セマンティック版は v0.122.0。概念は143から144。尺度は193から194。使用研究は234から236。選択ガイドは79から80。関係は16のまま。開発論文と技術報告は `usageStudies` に入れない。項目本文は空。EmpRes の `itemPublicationStatus` は `not-published`。機能用とデータ用で版を分けない。
