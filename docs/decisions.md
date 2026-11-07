@@ -1,5 +1,15 @@
 # Decisions
 
+## 2026-11-07: FSSB-SF は4項目の原版として登録する。14項目版と改変版は混ぜない。EmpRes の追加使用は ω のまま
+
+- セマンティック版は v0.124.0。概念は144から145。尺度は196から197。使用研究は237から239。選択ガイドは80から81。関係は16のまま。開発論文は `usageStudies` に入れない。項目本文は空。FSSB-SF の `itemPublicationStatus` は `not-published`。機能用とデータ用で版を分けない。
+- 概念 ID は `family-supportive-supervisor-behaviors`（家族支援的上司行動）。尺度 ID は `hammer-fssb-sf-4`。表示略称は FSSB-SF。原典は Hammer, Kossek, Bodner, & Crain（2013）、DOI `10.1037/a0032612`。Journal of Occupational Health Psychology, 18(3), 285–296。`sourceUrl` は DOI のみ。4項目・超一次元。各次元（emotional support、instrumental support、role modeling、creative work-family management）から1項目。5件法（1＝strongly disagree～5＝strongly agree）。旗艦の係数αは Study 1 の .823 と Study 2 の .88。採点（合計か平均か）は書かない。
+- `versionType` は `original`。短縮だが、この論文自体が FSSB-SF の開発である。`parentScaleId` は空。Hammer ら（2009）の FSSB-14 は未登録なので、推測でリンクしない。`usagePermission` は `unknown`。APA の VOR PDF は未開封。数値は PMC 著者原稿（PMC3863646）と二次の OA 使用研究の方法節。出版版で値が違う可能性は notes に書く。PMC の URL は保存しない。`itemPublicationStatus` を `source-open` にすると画面が「原著で公開」になり、リンク先は未開封の VOR になる。転載しない方針に合わせ、`not-published` とする。
+- `relatedConcepts` は存在する `work-family-conflict` だけ。一般的な上司支援は未登録なので入れない。相手側への逆リンクは足さない。関係レコードは追加しない。日本語は `unconfirmed`。Kawasumi ら（J UOEH 2026）は日本語の14項目版なので、SF の日本語根拠にしない。
+- 使用研究は Escribano（2022）、DOI `10.3389/fpsyg.2022.1026352`。フル4項目。5件法は旗艦と同じ。この標本の α=.91。チリの民間銀行。部下205名、上司84名の対応。開発者は著者に含まれない。Luo ら（2022、DOI `10.3389/fpsyg.2022.992458`）の3項目・6件法、Yang ら（2023、DOI `10.3389/fpsyg.2023.1079201`）の7件法は、この4項目版の使用研究にしない。
+- EmpRes の使用研究は Caniëls（2023）、DOI `10.3389/fpsyg.2022.1066909`。巻は13、公開は 2023-01-09。Näswall et al.（2019）の9項目を明示。オランダのリーダー—フォロワー dyad、最終146組。信頼性は McDonald の ω=0.80。α に書き換えない。回答形式の再記述はないので、旗艦の7件法は変えない。心理測定根拠の `verifiedAt` は 2026-11-05 のまま。JMP 2019 の表の係数は旗艦にしない。
+- FSSB-14 本体、Kawasumi の14項目日本語、ELS（Brotheridge）、AILS、SNAIL、前回までの HOLD は変更しない。`app.js` は変えない。
+
 ## 2026-11-06: SLAW-3 は LAWS-16 の項目削除版にしない。PELS は LEB-10 と別尺度。GAAIS の使用は Bergdahl らの Study 2 だけ
 
 - セマンティック版は v0.123.0。概念は144のまま。尺度は194から196。使用研究は236から237。選択ガイドは80のまま。関係は16のまま。開発論文は `usageStudies` に入れない。項目本文は空。機能用とデータ用で版を分けない。

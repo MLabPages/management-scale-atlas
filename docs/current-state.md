@@ -1,6 +1,17 @@
 # Current state
 
-最終更新: 2026-11-06
+最終更新: 2026-11-07
+
+## v0.124.0 の追加（家族支援的上司行動、EmpRes の使用研究）
+
+- 145概念・197尺度・239使用研究・81選択ガイド・16関係。概念は144から145。尺度は196から197。使用研究は237から239。選択ガイドは80から81。関係は16のまま。`meta.version` は `0.124.0`。`meta.updated` は 2026-11-07。`meta.scope` は `145概念・197尺度`。
+- 概念 `family-supportive-supervisor-behaviors`（家族支援的上司行動）と尺度 `hammer-fssb-sf-4`（FSSB-SF）を追加した。分野は「組織行動・人的資源」。定義は、上司が部下の仕事役割と家庭（非仕事）役割を支援する行動。ワーク・ファミリー・コンフリクトの解消そのものや、一般的な上司支援とは別。`relatedConcepts` は存在する `work-family-conflict` のみ。一般的な上司支援は未登録なので入れていない。相手側への逆リンクは足していない。関係レコードは追加していない。
+- FSSB-SF は Hammer, Kossek, Bodner, & Crain（2013）。Journal of Occupational Health Psychology, 18(3), 285–296。DOI `10.1037/a0032612`。`sourceUrl` は DOI のみ。Crossref で著者 Leslie B. Hammer、Ellen Ernst Kossek、Todd Bodner、Tori Crain、題名、2013、Journal of Occupational Health Psychology、18巻3号、285–296 が一致。ライセンス欄は空。親は Hammer ら（2009）の FSSB-14（未登録）。`parentScaleId` は空。`versionType` は `original`。短縮だが、開発論文自体が FSSB-SF の開発である。4項目・超一次元（emotional support、instrumental support、role modeling、creative work-family management から各1）。5件法（1＝strongly disagree～5＝strongly agree）。旗艦の係数αは、Study 1 の FSSB-SF が .823（元の小売標本の短縮）、Study 2 が .88（情報技術専門職823名と上司219名の検証標本）。採点（合計か平均か）の明示はない。APA の VOR PDF は未開封。数値は PMC 著者原稿（PMC3863646）および二次の OA 使用研究の方法節と照合した。出版版で値が違う可能性がある。PMC の URL は載せていない。`usagePermission` は `unknown`。`itemPublicationStatus` は `not-published`。`items` は空。開発論文は使用研究に入れない。`japaneseVersionStatus` は `unconfirmed`。Kawasumi ら（J UOEH 2026）は日本語の14項目版なので、FSSB-SF の日本語根拠にしない。`verifiedAt` は 2026-11-07。
+- FSSB-SF の使用研究は0件から1件。Escribano, P. I.（2022）。Frontiers in Psychology, 13, 1026352。DOI `10.3389/fpsyg.2022.1026352`。`url` は DOI のみ。Crossref で著者 Pablo I. Escribano、題名、公開 2022-12-06、CC BY 4.0 が一致。Hammer ら（2013）の FSSB-SF のフル4項目。5件法（1＝strongly disagree～5＝strongly agree）は旗艦と同じ。この標本の α=.91。チリの民間銀行。部下205名、上司84名の対応。開発者は著者に含まれない。項目本文は転載しない。`verifiedAt` は 2026-11-07。
+- EmpRes（`naswall-empres-9`）の使用研究は1件から2件。既存の Mao ら（2022）は残し、その後ろに追加した。旗艦の7件法頻度、9項目、`usagePermission`（`research-use`）、日本語は変えていない。心理測定根拠の `verifiedAt` は 2026-11-05 のまま。Mao らの `verifiedAt` は 2026-11-05 のまま。尺度の `verifiedAt` は 2026-11-07。
+- Caniëls, M. C. J.（2023）。Frontiers in Psychology, 13, 1066909。DOI `10.3389/fpsyg.2022.1066909`（巻は13、公開 2023-01-09）。`url` は DOI のみ。Crossref で著者 Marjolein C. J. Caniëls、題名、公開 2023-01-09、CC BY 4.0 が一致。Näswall et al.（2019）の9項目 resilience at work / EmpRes を明示。オランダのリーダー—フォロワー dyad。最終146組。信頼性は McDonald の ω=0.80。係数αにはしない。回答形式の再記述はない。旗艦の7件法は変えない。開発者は著者に含まれない。JMP 2019 の表の係数は旗艦にしない。項目本文は転載しない。`verifiedAt` は 2026-11-07。
+- 日本語の検証済みは27のまま。関連版は14のまま。未確認は123から124（追加した FSSB-SF が `unconfirmed`）。日本語使用例は18のまま。言語的妥当性確認は2、翻訳・因子構造等の検討は5、日本語で独自開発は6、開発論文内の日本語検証は1のまま。登録版そのものが3・4項目の尺度は31から32（FSSB-SF は4項目）。使用研究側の3・4項目は28から29（Escribano は4項目。Caniëls は9項目）。
+- 見送りは、FSSB-14 本体、Luo ら（2022、DOI `10.3389/fpsyg.2022.992458`。role modeling を除いた3項目・6件法）、Yang ら（2023、DOI `10.3389/fpsyg.2023.1079201`。Hammer 2009 引用の4項目・7件法）、Kawasumi らの日本語14項目版、感情労働の ELS（Brotheridge）、AILS、SNAIL、および前回までの HOLD。`app.js` は変えていない。確認は [2026-11-07ログ](dev/logs/2026-11-07-fssb-sf-empres.md)。
 
 ## v0.123.0 の追加（SLAW-3、PELS、GAAIS の使用研究）
 
