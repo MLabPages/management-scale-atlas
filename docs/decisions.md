@@ -1,5 +1,12 @@
 # Decisions
 
+## 2026-11-09: 取り残されることへの恐れは Przybylski らの10項目。EWWS の追加使用は Karaca の博士論文
+
+- セマンティック版は v0.126.0。概念は146から147。尺度は198から199。使用研究は240から241。選択ガイドは82から83。関係は16のまま。開発論文は `usageStudies` に入れない。項目本文は空。FoMO の `itemPublicationStatus` は `not-published`。機能用とデータ用で版を分けない。
+- 概念 ID は `fear-of-missing-out`（取り残されることへの恐れ）。尺度 ID は `przybylski-fomo-10`。表示略称は FoMO。論文の呼称は FoMOs。原典は Przybylski, Murayama, DeHaan, & Gladwell（2013）、DOI `10.1016/j.chb.2013.02.014`。Computers in Human Behavior, 29(4), 1841–1848。オンラインは 2013-04-09。登録年は巻の年。`sourceUrl` は DOI のみ。10項目・単一次元。5件法（1＝Not at all true of me～5＝Extremely true of me）。得点は10項目の平均。旗艦の係数αは Study 1 の .87（N=1,013）。Study 2 の .90 と Study 3 の .89 で旗艦は置き換えない。25項目の適合度は10項目の適合度にしない。`usagePermission` は `unknown`。出版版は Elsevier の All rights reserved。`relatedConcepts` は空。衝動購買と物質主義は未接続のまま、caution で分ける。相手側への逆リンクは足さない。関係レコードは追加しない。日本語は `unconfirmed`。
+- EWWS の使用研究は Karaca（2023）。博士論文。DOI はない。`url` は大学リポジトリのハンドル。フル8項目。5件法の両端は旗艦と同じ。この標本の α=0.904（N=300）。Table 2 の AVE 0.608 と Table 8 の AVE 0.605、Table 4 の平均 3.42 と Table 9 の 3.413 は、どちらにも寄せない。Q7 と Q8 の負荷は 0.70 未満だが、項目は除いていない。表注の Beck Translated は直さない。開発者は著者に含まれない。旗艦の5件法と日本語は変えない。
+- WCS のポルトガル語検証、6指標へ合わせた教師調査、EWWS の α の帰属が本文で閉じないインドネシアの論文、ATAI ではない12項目の態度尺度、前回までの HOLD は変更しない。`app.js` は変えない。
+
 ## 2026-11-08: 英語の WFES は本文未開封なので HOLD。日本語18項目は別レコード。FSSB-SF の追加使用は Zhao らの4項目
 
 - セマンティック版は v0.125.0。概念は145から146。尺度は197から198。使用研究は239から240。選択ガイドは81から82。関係は16のまま。開発論文と検証論文は `usageStudies` に入れない。項目本文は空。機能用とデータ用で版を分けない。想定件数（概念146・尺度198・使用研究240・選択ガイド82・検証済み28）と一致した。
