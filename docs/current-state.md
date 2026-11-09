@@ -1,6 +1,16 @@
 # Current state
 
-最終更新: 2026-11-08
+最終更新: 2026-11-09
+
+## v0.126.0 の追加（取り残されることへの恐れ、EWWS の使用研究）
+
+- 147概念・199尺度・241使用研究・83選択ガイド・16関係。概念は146から147。尺度は198から199。使用研究は240から241。選択ガイドは82から83。関係は16のまま。`meta.version` は `0.126.0`。`meta.updated` は 2026-11-09。`meta.scope` は `147概念・199尺度`。開発論文は使用研究に入れない。項目本文は空。機能用とデータ用で版を分けない。
+- 概念 `fear-of-missing-out`（取り残されることへの恐れ）と尺度 `przybylski-fomo-10`（FoMO）を追加した。分野は「消費者行動特性」。定義は、他者が自分のいないところで報酬となる経験をしているかもしれない、という蔓延した不安（Przybylski, Murayama, DeHaan, & Gladwell, 2013）。衝動購買、物質主義、知覚楽しさとは別で、得点は合算しない。開発論文はそれらを測っていないので、`relatedConcepts` は空。相手側への逆リンクは足していない。関係レコードは追加していない。
+- FoMO は Przybylski, Murayama, DeHaan, & Gladwell（2013）。Computers in Human Behavior, 29(4), 1841–1848。DOI `10.1016/j.chb.2013.02.014`。`sourceUrl` は DOI のみ。Crossref で著者・題名・29巻4号・1841–1848、issued 2013-07、ライセンスは Elsevier の tdm が一致。2026-11-09 に、頁番号 1841–1848 と誌名ヘッダがある出版版の組版を開いた。Available online は 2013-04-09。ScienceDirect の HTML は開いていない。第三者サイトの URL は保存していない。登録年は巻の年。論文の呼称は FoMOs。表示略称は FoMO。10項目・単一次元。初期32項目から、確認的因子分析で25項目、段階反応モデルで10項目。25項目の χ²(275)=1778.1、RMSEA=.073、SRMR=.056 は、10項目の適合度にしていない。5件法（1＝Not at all true of me～5＝Extremely true of me）。得点は10項目の平均。旗艦の係数αは、10項目を決めた Study 1 の .87（N=1,013。男性672、女性341。平均年齢28.5）。Study 2 の .90（N=2,079）と Study 3 の .89（N=87）は旗艦にしていない。逆転の指示はない。`usagePermission` は `unknown`。出版版は 2013 Elsevier Ltd. All rights reserved。尺度の利用許諾の明記はない。`itemPublicationStatus` は `not-published`。付録に項目があるが転載しない。`items` は空。`usageStudies` は空。開発論文の3研究は使用研究に入れない。`japaneseVersionStatus` は `unconfirmed`。`verifiedAt` は 2026-11-09。
+- EWWS（`bartels-ewws-8`）の使用研究は1件から2件。既存の de Vries ら（2022）は残し、その後ろに追加した。旗艦の5件法、項目数、`usagePermission`、日本語は変えていない。心理測定根拠の `verifiedAt` は 2026-11-02 のまま。de Vries らの `verifiedAt` は 2026-11-04 のまま。尺度の `verifiedAt` は 2026-11-09。
+- Karaca, G.（2023）。Enhancing Workplace Well-Being: Employee Perspective。Eastern Mediterranean University の経営学博士論文。June 2023。DOI はない。`url` はハンドル https://hdl.handle.net/11129/6296 のみ。Crossref にこの論文の DOI はない。Bartels ら（2019）の8項目。5件法（1＝strongly disagree～5＝strongly agree）。中間のアンカーは本文にない。トルコ語。Brislin（1970）のバックトランスレーション。表注は Beck Translated と印刷されている。この標本の α は 0.904。仮説1–8の Table 2 は合成信頼性 0.924、AVE 0.608。仮説9–19の Table 8 は同じ α、rho_A 0.910、rho_C 0.924、AVE 0.605。Table 4 の平均は 3.42（SD 1.00）、Table 9 は 3.413（SD 0.996）。どちらにも寄せていない。分析は300名（回収368名から、全項目に答えていない68名を除く。男性113、女性187。年齢19–58、平均34）。Q7 の負荷は 0.611、Q8 は 0.599。本文は 0.70 未満を例外と書くが、項目は除いていない。倫理は ETK00-2021-0013。開発者は著者に含まれない。検証論文ではない。項目本文は転載しない。`verifiedAt` は 2026-11-09。
+- 日本語の検証済みは28のまま。関連版は14のまま。未確認は124から125（追加した FoMO が `unconfirmed`）。日本語使用例は18のまま。言語的妥当性確認は2、翻訳・因子構造等の検討は5、日本語で独自開発は6、開発論文内の日本語検証は1のまま。登録版そのものが3・4項目の尺度は32のまま（FoMO は10項目）。使用研究側の3・4項目は29のまま（追加は8項目）。
+- 見送りは、WCS のポルトガル語検証（DOI `10.1027/2698-1866/a000113`。検証研究。回答の両端も旗艦の Almost never true～Almost always true ではなく strongly disagree～strongly agree）、Rohaeni ら（2026、DOI `10.62710/ajx3rs87`。指標は6つ、5件法、教師向けに文言を合わせた適応で、12項目・7件法の WCS ではない）、Febrina と Salendu（2023、DOI `10.12928/empathy.v6i2.27360`。8項目と5件法は書くが、α=0.89 は Bartels の引用で、0.83 はこの標本の係数とは書いていない）、Satmaz と Adıyaman（2026、DOI `10.3389/fpsyg.2026.1946898`。12項目のトルコ語版で、ATAI の5項目ではない）、および前回までの HOLD。`app.js` は変えていない。確認は [2026-11-09ログ](dev/logs/2026-11-09-fomo-ewws-usage.md)。
 
 ## v0.125.0 の追加（ワーク・ファミリー・エンリッチメントの日本語版、FSSB-SF の使用研究）
 
