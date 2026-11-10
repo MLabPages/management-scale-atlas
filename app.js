@@ -68,7 +68,7 @@ const doiUrl = (s) => (s.doi ? `https://doi.org/${encodeURIComponent(s.doi.trim(
 
 function usageSummary(s) {
   const evidence = (s.usageEvidence || []).find((e) => e.kind === "systematic-review-count");
-  return evidence ? `レビュー内 ${evidence.count}研究` : "利用研究数は未集計";
+  return evidence ? `レビュー内 ${evidence.count}研究` : "";
 }
 
 function observedItemCounts(s) {
@@ -248,11 +248,12 @@ function japaneseEvidenceHtml(s) {
   return `<div class="detail-section japanese-evidence"><h3>日本語での利用・翻訳の状況</h3><p><span class="badge">${esc(status)}</span></p><p>${esc(s.japaneseStatusNote || "根拠の確認中です。")}</p>${links}</div>`;
 }
 
-function usageEvidenceHtml(s) {
+function reviewUsageNoteHtml(s) {
   const entries = s.usageEvidence || [];
-  if (!entries.length) return `<div class="detail-section usage-evidence"><h3>尺度の利用実績</h3><p><span class="badge neutral">未集計</span></p><p>この尺度を実際に使用した研究数は、まだ系統的に集計していません。「未集計」は利用例がないという意味ではありません。</p></div>`;
-  return `<div class="detail-section usage-evidence"><h3>尺度の利用実績</h3><div class="usage-count">${esc(entries[0].count)}<span>研究</span></div><p><strong>${esc(entries[0].label)}</strong></p><p>${esc(entries[0].scope)}</p><p class="sub">確認日：${esc(entries[0].checkedAt)}。原著論文の引用数ではなく、レビュー著者が尺度使用を確認した研究数です。レビューの対象期間・領域外は含みません。</p><ul class="evidence-list">${entries.map((e) => `<li><span class="evidence-kind">利用数の根拠</span><strong>${esc(e.title)}</strong><br><span class="sub">${esc(e.year)}年${e.denominator ? `・レビュー内母数 ${esc(e.denominator)}研究` : ""}</span> <a href="${esc(e.url)}" target="_blank" rel="noopener noreferrer">根拠文献を開く ↗</a></li>`).join("")}</ul></div>`;
+  if (!entries.length) return "";
+  return `<div class="review-usage-note"><strong>参考：レビューでの使用数</strong><ul>${entries.map((e) => `<li>${esc(e.label)}${e.denominator ? `（対象${esc(e.denominator)}研究）` : ""}。${esc(e.title)}（${esc(e.year)}） <a href="${esc(e.url)}" target="_blank" rel="noopener noreferrer">根拠文献 ↗</a></li>`).join("")}</ul><p class="sub">そのレビューの対象期間・分野内の件数で、文献全体での使用回数ではありません。</p></div>`;
 }
+
 
 function psychometricEvidenceHtml(s) {
   const entries = s.psychometricEvidence || [];
@@ -269,12 +270,12 @@ function applicationEvidenceHtml(s) {
 
 function usageStudiesHtml(s) {
   const entries = s.usageStudies || [];
-  if (!entries.length) return `<div class="detail-section usage-studies"><h3>この尺度を使った先行研究</h3><p><span class="badge neutral">登録準備中</span></p><p class="sub">個別の使用研究はまだ登録していません。利用研究がないという意味ではありません。</p></div>`;
+  if (!entries.length) return `<div class="detail-section usage-studies"><h3>この尺度を使った先行研究</h3><p><span class="badge neutral">登録準備中</span></p><p class="sub">個別の使用研究はまだ登録していません。利用研究がないという意味ではありません。</p>${reviewUsageNoteHtml(s)}</div>`;
   const itemCounts = [...new Set(entries.map((e) => e.itemCount).filter(Boolean))].sort((a, b) => a - b);
   const languages = [...new Set(entries.map((e) => e.language).filter(Boolean))].sort();
   const years = [...new Set(entries.map((e) => e.year).filter(Boolean))].sort((a, b) => b - a);
   const controls = entries.length > 1 ? `<div class="study-filters"><label>対象・文脈<input type="search" data-study-query placeholder="例：観光、従業員、日本"></label><label>項目数<select data-study-items><option value="">すべて</option>${itemCounts.map((x) => `<option value="${x}">${x}項目</option>`).join("")}</select></label><label>言語<select data-study-language><option value="">すべて</option>${languages.map((x) => `<option value="${esc(x)}">${esc(x)}</option>`).join("")}</select></label><label>年代<select data-study-year><option value="">すべて</option>${years.map((x) => `<option value="${x}">${x}年以降</option>`).join("")}</select></label><button type="button" class="text-button" data-study-clear>条件をクリア</button></div><p class="study-filter-count"><strong data-study-visible>${entries.length}</strong>／${entries.length}件を表示</p>` : "";
-  return `<div class="detail-section usage-studies"><h3>この尺度を使った先行研究 <span class="badge">${entries.length}件</span></h3><p class="sub">尺度開発論文の引用ではなく、本文・表・付録などで使用方法を確認できた研究です。研究文脈により項目表現や回答件法が異なる場合があります。</p>${controls}<div class="study-list">${entries.map((e) => `<article class="study-card" data-study-card data-study-items="${esc(e.itemCount || "")}" data-study-language="${esc(e.language || "")}" data-study-year="${esc(e.year || "")}" data-study-search="${esc([e.title, e.authors, e.context, e.sample, e.adaptation].filter(Boolean).join(" ").toLowerCase())}"><div class="study-card-head"><span class="evidence-kind">${esc(e.context || "利用研究")}</span><span class="badge">${esc(e.itemCount)}項目</span></div><h4>${esc(e.title)}</h4><p class="sub">${esc([e.authors, e.year].filter(Boolean).join("（") + (e.authors && e.year ? "）" : ""))}</p><dl><div><dt>対象・標本</dt><dd>${esc(e.sample || "本文を確認")}</dd></div><div><dt>回答・言語</dt><dd>${esc([e.responseFormat, e.language].filter(Boolean).join("・") || "本文を確認")}</dd></div><div><dt>使い方</dt><dd>${esc(e.adaptation || "原典に基づき使用")}</dd></div>${e.result ? `<div><dt>報告された測定情報</dt><dd>${esc(e.result)}</dd></div>` : ""}</dl>${e.url ? `<a href="${esc(e.url)}" target="_blank" rel="noopener noreferrer">先行研究を開く ↗</a>` : ""}</article>`).join("")}</div><p class="empty-state study-filter-empty" data-study-empty hidden>条件に合う使用研究がありません。</p></div>`;
+  return `<div class="detail-section usage-studies"><h3>この尺度を使った先行研究 <span class="badge">${entries.length}件</span></h3>${reviewUsageNoteHtml(s)}<p class="sub">尺度開発論文の引用ではなく、本文・表・付録などで使用方法を確認できた研究です。研究文脈により項目表現や回答件法が異なる場合があります。</p>${controls}<div class="study-list">${entries.map((e) => `<article class="study-card" data-study-card data-study-items="${esc(e.itemCount || "")}" data-study-language="${esc(e.language || "")}" data-study-year="${esc(e.year || "")}" data-study-search="${esc([e.title, e.authors, e.context, e.sample, e.adaptation].filter(Boolean).join(" ").toLowerCase())}"><div class="study-card-head"><span class="evidence-kind">${esc(e.context || "利用研究")}</span><span class="badge">${esc(e.itemCount)}項目</span></div><h4>${esc(e.title)}</h4><p class="sub">${esc([e.authors, e.year].filter(Boolean).join("（") + (e.authors && e.year ? "）" : ""))}</p><dl><div><dt>対象・標本</dt><dd>${esc(e.sample || "本文を確認")}</dd></div><div><dt>回答・言語</dt><dd>${esc([e.responseFormat, e.language].filter(Boolean).join("・") || "本文を確認")}</dd></div><div><dt>使い方</dt><dd>${esc(e.adaptation || "原典に基づき使用")}</dd></div>${e.result ? `<div><dt>報告された測定情報</dt><dd>${esc(e.result)}</dd></div>` : ""}</dl>${e.url ? `<a href="${esc(e.url)}" target="_blank" rel="noopener noreferrer">先行研究を開く ↗</a>` : ""}</article>`).join("")}</div><p class="empty-state study-filter-empty" data-study-empty hidden>条件に合う使用研究がありません。</p></div>`;
 }
 
 function bindUsageStudyFilters() {
@@ -369,7 +370,7 @@ function scaleOverviewHtml(s) {
     ? `<ul class="dimension-chips">${dims.map((d) => `<li>${esc(d)}</li>`).join("")}</ul>`
     : `<p class="sub">下位次元は未登録です。</p>`;
   const studies = (s.usageStudies || []).length;
-  return `<div class="detail-section scale-overview" id="detail-overview"><h3>尺度の概要</h3><div class="overview-stats"><div><span>項目数</span><strong>${s.itemCount}<small>項目</small></strong><em>${otherCounts.length ? `研究では${esc(otherCounts.join("・"))}項目版も使用` : "登録版の項目数"}</em></div><div><span>下位次元</span><strong class="is-text">${esc(dimensionLabel)}</strong><em>${esc(measurementStyle(s))}</em></div><div><span>回答形式</span><strong class="is-text">${esc(responseMain)}</strong><em>${esc(responseNote)}</em></div><div><span>版区分</span><strong class="is-text">${esc(versionTypeLabel(s))}</strong><em>${esc(s.abbreviation)}・${esc(s.year)}年</em></div></div><div class="overview-dimensions"><span class="overview-label">${dims.length > 1 ? "下位次元の内訳" : "測定内容"}</span>${chips}</div><dl class="overview-meta"><div><dt>対象者</dt><dd>${esc((s.targetPopulation || []).join("、") || "未登録")}</dd></div><div><dt>日本語</dt><dd>${esc(labels[s.japaneseVersionStatus])}</dd></div><div><dt>利用条件</dt><dd>${esc(labels[s.usagePermission])}${usagePermissionNoteHtml(s)}</dd></div><div><dt>使用先行研究</dt><dd>${studies ? `${studies}件を登録` : "未登録"}・${esc(usageSummary(s))}</dd></div></dl></div>`;
+  return `<div class="detail-section scale-overview" id="detail-overview"><h3>尺度の概要</h3><div class="overview-stats"><div><span>項目数</span><strong>${s.itemCount}<small>項目</small></strong><em>${otherCounts.length ? `研究では${esc(otherCounts.join("・"))}項目版も使用` : "登録版の項目数"}</em></div><div><span>下位次元</span><strong class="is-text">${esc(dimensionLabel)}</strong><em>${esc(measurementStyle(s))}</em></div><div><span>回答形式</span><strong class="is-text">${esc(responseMain)}</strong><em>${esc(responseNote)}</em></div><div><span>版区分</span><strong class="is-text">${esc(versionTypeLabel(s))}</strong><em>${esc(s.abbreviation)}・${esc(s.year)}年</em></div></div><div class="overview-dimensions"><span class="overview-label">${dims.length > 1 ? "下位次元の内訳" : "測定内容"}</span>${chips}</div><dl class="overview-meta"><div><dt>対象者</dt><dd>${esc((s.targetPopulation || []).join("、") || "未登録")}</dd></div><div><dt>日本語</dt><dd>${esc(labels[s.japaneseVersionStatus])}</dd></div><div><dt>利用条件</dt><dd>${esc(labels[s.usagePermission])}${usagePermissionNoteHtml(s)}</dd></div><div><dt>使用先行研究</dt><dd>${studies ? `${studies}件を登録` : "未登録"}</dd></div></dl></div>`;
 }
 
 function adoptionCautions(s) {
@@ -594,7 +595,7 @@ function filtered() {
     const shortFormMatch = !shortForm || (shortForm === "registered" ? shortProfile.registered : shortForm === "usage" ? shortProfile.usageCounts.length : shortProfile.registered || shortProfile.usageCounts.length || shortProfile.evidenceCounts.length);
     return (!q || hay.includes(q)) && (!domain || c.domain === domain) && (!style || measurementStyleKey(s) === style) && japaneseMatch && practiceMatch && permissionMatch && shortFormMatch && s.itemCount <= max;
   });
-  if ($("#usage-sort").value === "usage") scales.sort((a, b) => ((b.usageEvidence || [])[0]?.count || -1) - ((a.usageEvidence || [])[0]?.count || -1));
+  if ($("#usage-sort").value === "usage") scales.sort((a, b) => (b.usageStudies || []).length - (a.usageStudies || []).length);
   if ($("#usage-sort").value === "year-new") scales.sort((a, b) => b.year - a.year);
   if ($("#usage-sort").value === "year-old") scales.sort((a, b) => a.year - b.year);
   if ($("#usage-sort").value === "practice") scales.sort((a, b) => practiceScore(b) - practiceScore(a));
@@ -607,9 +608,8 @@ function scaleCard(s) {
   const selected = state.compare.has(s.id);
   const evidenceCount = (s.japaneseEvidence || []).length;
   const psychometricCount = (s.psychometricEvidence || []).length;
-  const usageKnown = (s.usageEvidence || []).length > 0;
   const shortLabel = shortFormLabel(s);
-  return `<article class="scale-card"><p class="card-kicker">${esc(c.nameJa)} / ${esc(c.nameEn)}</p><h3>${esc(s.name)}</h3><p class="sub">${esc(s.abbreviation)} ・ ${s.year}年 ・ 書誌確認済み</p><div class="badges"><span class="badge">登録版 ${s.itemCount}項目</span><span class="badge">${esc(measurementStyle(s))}</span><span class="badge">${esc(versionTypeLabel(s))}</span><span class="badge">${esc(labels[s.japaneseVersionStatus])}</span><span class="badge warn">${esc(labels[s.usagePermission])}</span>${shortLabel ? `<span class="badge short-form-badge">${esc(shortLabel)}</span>` : ""}${(s.usageStudies || []).length ? `<span class="badge study-badge">使用先行研究 ${s.usageStudies.length}件</span>` : ""}</div><div class="card-meta"><p class="practice-summary">${esc(practiceSummary(s))}</p><p class="usage-summary ${usageKnown ? "known" : ""}">${esc(usageSummary(s))}${usageKnown ? "（対象レビュー内）" : ""}</p><p class="jp-summary">日本語情報：${esc(labels[s.japaneseVersionStatus])}${evidenceCount ? `（根拠${evidenceCount}件）` : ""}${psychometricCount ? ` ／ 測定情報${psychometricCount}件` : ""}</p></div>${sourceLinks(s)}<div class="card-actions"><button class="detail-button" type="button" data-scale="${s.id}">詳細を見る</button><button class="compare-button ${selected ? "selected" : ""}" type="button" data-compare="${s.id}">${selected ? "比較から外す" : "比較に追加"}</button></div></article>`;
+  return `<article class="scale-card"><p class="card-kicker">${esc(c.nameJa)} / ${esc(c.nameEn)}</p><h3>${esc(s.name)}</h3><p class="sub">${esc(s.abbreviation)} ・ ${s.year}年 ・ 書誌確認済み</p><div class="badges"><span class="badge">登録版 ${s.itemCount}項目</span><span class="badge">${esc(measurementStyle(s))}</span><span class="badge">${esc(versionTypeLabel(s))}</span><span class="badge">${esc(labels[s.japaneseVersionStatus])}</span><span class="badge warn">${esc(labels[s.usagePermission])}</span>${shortLabel ? `<span class="badge short-form-badge">${esc(shortLabel)}</span>` : ""}${(s.usageStudies || []).length ? `<span class="badge study-badge">使用先行研究 ${s.usageStudies.length}件</span>` : ""}</div><div class="card-meta"><p class="practice-summary">${esc(practiceSummary(s))}</p><p class="jp-summary">日本語情報：${esc(labels[s.japaneseVersionStatus])}${evidenceCount ? `（根拠${evidenceCount}件）` : ""}${psychometricCount ? ` ／ 測定情報${psychometricCount}件` : ""}</p></div>${sourceLinks(s)}<div class="card-actions"><button class="detail-button" type="button" data-scale="${s.id}">詳細を見る</button><button class="compare-button ${selected ? "selected" : ""}" type="button" data-compare="${s.id}">${selected ? "比較から外す" : "比較に追加"}</button></div></article>`;
 }
 
 function bindCards() {
@@ -771,7 +771,7 @@ function usagePermissionNoteHtml(scale) {
 function openScale(id) {
   const s = ATLAS_DATA.scales.find((x) => x.id === id);
   const c = concepts.get(s.conceptId);
-  $("#detail-body").innerHTML = `<p class="sub">尺度詳細・${esc(recordStatusLabels[s.recordStatus] || s.recordStatus)}</p><h2 class="detail-title">${esc(s.name)}</h2><p class="detail-concept-line">${esc(c.nameJa)} / ${esc(c.nameEn)}</p><div class="detail-section source-summary"><h3>原典・文献情報</h3><p><strong>${esc(s.sourceTitle || "原典タイトル未登録")}</strong><br><span class="sub">${esc(s.authors.join("、"))}（${s.year}）${s.journal ? `・${esc(s.journal)}` : ""}</span></p>${sourceLinks(s)}</div>${scaleOverviewHtml(s)}${scaleRelationshipHtml(s)}${alternativeScalesHtml(s)}${adoptionCautionsHtml(s)}<div class="sample-notice detail-scope-note"><strong>確認範囲：</strong>原典、DOI、登録版の項目数、下位次元を確認しています。実使用版、日本語情報、利用研究数、心理測定情報は根拠の強さを区別します。<br><span class="sub">最終確認日：${esc(s.verifiedAt || ATLAS_DATA.meta.updated)}</span></div>${usageStudiesHtml(s)}${applicationEvidenceHtml(s)}${usageEvidenceHtml(s)}${psychometricEvidenceHtml(s)}${japaneseEvidenceHtml(s)}${scaleItemsHtml(s)}`;
+  $("#detail-body").innerHTML = `<p class="sub">尺度詳細・${esc(recordStatusLabels[s.recordStatus] || s.recordStatus)}</p><h2 class="detail-title">${esc(s.name)}</h2><p class="detail-concept-line">${esc(c.nameJa)} / ${esc(c.nameEn)}</p><div class="detail-section source-summary"><h3>原典・文献情報</h3><p><strong>${esc(s.sourceTitle || "原典タイトル未登録")}</strong><br><span class="sub">${esc(s.authors.join("、"))}（${s.year}）${s.journal ? `・${esc(s.journal)}` : ""}</span></p>${sourceLinks(s)}</div>${scaleOverviewHtml(s)}${scaleRelationshipHtml(s)}${alternativeScalesHtml(s)}${adoptionCautionsHtml(s)}<div class="sample-notice detail-scope-note"><strong>確認範囲：</strong>原典、DOI、登録版の項目数、下位次元を確認しています。実使用版、日本語情報、使用先行研究、心理測定情報は根拠の強さを区別します。<br><span class="sub">最終確認日：${esc(s.verifiedAt || ATLAS_DATA.meta.updated)}</span></div>${usageStudiesHtml(s)}${applicationEvidenceHtml(s)}${psychometricEvidenceHtml(s)}${japaneseEvidenceHtml(s)}${scaleItemsHtml(s)}`;
   addDetailJumpNav();
   $("#detail-dialog").showModal();
   $("#detail-dialog").scrollTop = 0;
@@ -1116,7 +1116,6 @@ function renderCompareTable(scales) {
     ["親尺度", (s) => parentScaleCompareLabel(s)],
     ["実使用・検証", (s) => practiceSummary(s)],
     ["使用先行研究件数", (s) => `${(s.usageStudies || []).length}件`],
-    ["利用研究数", (s) => usageSummary(s)],
     ["登録版項目数", (s) => s.itemCount],
     ["確認できた使用項目数", (s) => observedItemCounts(s).join("・") || "未整理"],
     ["下位次元", (s) => s.dimensions.join("、")],

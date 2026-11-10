@@ -36,21 +36,6 @@
   font-size: 0.78rem;
 }
 
-.usage-summary {
-  margin: 10px 0 0;
-  padding: 7px 9px;
-  border-radius: 6px;
-  background: var(--bg);
-  color: var(--soft);
-  font-size: 0.78rem;
-  font-weight: 700;
-}
-
-.usage-summary.known {
-  color: var(--accent);
-  border-left: 3px solid var(--accent2);
-}
-
 .practice-summary {
   margin: 10px 0 0;
   padding: 8px 10px;
@@ -62,18 +47,18 @@
   font-weight: 700;
 }
 
-.usage-count {
-  margin: 6px 0;
-  color: var(--accent);
-  font-size: 2rem;
-  font-weight: 800;
-  line-height: 1;
+.review-usage-note {
+  margin: 8px 0 10px;
+  padding: 8px 10px;
+  border-left: 3px solid var(--accent2);
+  border-radius: 6px;
+  background: #f2f8f7;
+  font-size: 0.8rem;
 }
-
-.usage-count span {
-  margin-left: 5px;
-  font-size: 0.9rem;
-}
+.review-usage-note strong { color: var(--accent); }
+.review-usage-note ul { margin: 4px 0 0; padding-left: 18px; }
+.review-usage-note li { margin: 2px 0; }
+.review-usage-note .sub { margin: 4px 0 0; font-size: 0.74rem; }
 
 .evidence-list {
   list-style: none;

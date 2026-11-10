@@ -570,7 +570,6 @@ label {
 }
 
 .card-meta .practice-summary,
-.card-meta .usage-summary,
 .card-meta .jp-summary {
   margin: 0;
   padding: 0;
@@ -583,16 +582,6 @@ label {
 .card-meta .practice-summary {
   color: var(--accent);
   font-weight: 700;
-}
-
-.card-meta .usage-summary {
-  color: var(--soft);
-  font-weight: 600;
-}
-
-.card-meta .usage-summary.known {
-  color: var(--accent);
-  border: 0;
 }
 
 .card-meta .jp-summary {
