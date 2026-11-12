@@ -1,5 +1,13 @@
 # Decisions
 
+## 2026-11-12: 職場での所属感は Lee-Baggley らの7項目。件法の両端は二つ。ZEF の使用は Emmamally らの15項目。ATAI の追加使用は Lialiou らの5項目
+
+- セマンティック版は v0.129.0。概念は149から150。尺度は201から202。使用研究は245から247。選択ガイドは85から86。関係は16のまま。開発論文は `usageStudies` に入れない。BWS の項目本文は空。`itemPublicationStatus` は `source-open`。機能用とデータ用で版を分けない。詳細画面の概要は、項目数・下位次元・回答形式・版区分を上部に出す。両端が一致しない10件法は、一つの文言に寄せない。
+- 概念 ID は `belonging-at-work`（職場での所属感）。尺度 ID は `lee-baggley-bws-7`。表示略称は BWS。原典は Lee-Baggley, Bakour, Howatt, Gilin, & Etezad（2026）、DOI `10.1371/journal.pone.0346786`。PLOS ONE, 21(4), e0346786。Crossref の container-title は PLOS One。公開は 2026-04-10。`sourceUrl` は DOI のみ。7項目・単一次元。10件法。Table 1 は 1（low）～10（high）。方法節は 1＝Low Inclusion「Never Feeling Included」～10＝High Inclusion「always feeling included」。一方に寄せない。旗艦の係数αは Study 1 の .95（分析1,535名）と Study 2 の .96（分析3,148名）。Table 2 の注の study was 1 was は直さない。Study 2 の確認的因子分析は残差相関を自由にし、df = 10。純粋な1因子の自由度にしない。本文が Chen の基準として書く RMSEA = .001 は直さない。`usagePermission` は `unknown`。論文は CC BY 4.0 だが、尺度の利用許諾の明記はない。`relatedConcepts` は存在する `workplace-loneliness`、`psychological-safety`、`inclusive-leadership`。相手側への逆リンクは足さない。関係レコードは追加しない。日本語は `unconfirmed`。調査期間の月日の順は断定しない。Study 1 の性別の合計1,502と分析1,535、Study 2 の男性76%と表の2,356は、どちらにも寄せない。
+- ZEF の使用研究は Emmamally, Wentzel, & Brysiewicz（2024）、DOI `10.4102/hsag.v29i0.2675`。フル15項目。13項目と頻度2項目の件法は旗艦と同じ。この標本の α は 0.96。分析 n=146。招待の321名と316名、回答率47.4%と148/316、得点の15–75と mean 3.12 は、どちらにも寄せない。実施言語は断定しない。開発者は著者に含まれない。旗艦の二つの件法と15項目の平均は変えない。
+- ATAI の使用研究は Lialiou ら（2026）、DOI `10.3390/nursrep16040133`。フル5項目。受容2、恐れ3。11件法の両端は旗艦と同じ。この標本の α は受容 0.857、恐れ 0.715。最終276名。方法節の全体平均と、結果の下位尺度平均は、どちらにも寄せない。ギリシャ語版の検証論文は under press で開いていない。開発者は著者に含まれない。旗艦の項目割当と11件法は変えない。
+- タイの ZEF、件法を一つに書いた中国の ZEF、指定の HOLD、VIE の26項目を閉じた独立使用、PELS の開発者による紹介、SLAW-3 の韓国語検証は変更しない。`app.js` は変えない。
+
 ## 2026-11-11: ビデオ会議の疲労は Fauville らの15項目。件法は二つ。FSSB-SF の追加使用は Jiang らの4項目。CS-12 の追加使用は Chen らの12項目
 
 - セマンティック版は v0.128.0。概念は148から149。尺度は200から201。使用研究は243から245。選択ガイドは84から85。関係は16のまま。開発論文は `usageStudies` に入れない。ZEF の項目本文は空。`itemPublicationStatus` は `source-open`。機能用とデータ用で版を分けない。
