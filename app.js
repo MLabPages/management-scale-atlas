@@ -223,7 +223,107 @@ function sourceLinks(s) {
   return `<div class="source-links"><a href="${scholarUrl(s)}" target="_blank" rel="noopener noreferrer">Google Scholar ↗</a>${s.doi ? `<a href="${doiUrl(s)}" target="_blank" rel="noopener noreferrer">DOI ↗</a>` : "<span>DOI未登録</span>"}${originalLink}</div>`;
 }
 
+function atlasItemsTable() {
+  if (typeof ATLAS_ITEMS === "undefined" || !ATLAS_ITEMS || typeof ATLAS_ITEMS !== "object") return null;
+  return ATLAS_ITEMS;
+}
+
+function publishedItemRecord(scaleId) {
+  const record = atlasItemsTable()?.[scaleId];
+  if (!record || record.published !== true || !Array.isArray(record.items) || !record.items.length) return null;
+  return record;
+}
+
+function scaleHasPublishedItemText(s) {
+  if (publishedItemRecord(s.id)) return true;
+  return (s.items || []).length > 0 && s.itemPublicationStatus !== "not-published";
+}
+
+function linkifyEscaped(text) {
+  return esc(text).replace(/https?:\/\/[^\s<]+/g, (url) => {
+    const trimmed = url.replace(/[)）.,。]+$/g, "");
+    const rest = url.slice(trimmed.length);
+    return `<a href="${trimmed}" target="_blank" rel="noopener noreferrer">${trimmed}</a>${rest}`;
+  });
+}
+
+function omitNonpublicationClaim(text) {
+  if (!text || !/転載しな|転載せず|収録しない/.test(text)) return text || "";
+  const sentences = String(text).split("。").map((sentence) => sentence
+    .replace(/本サイトには項目本文を転載せず、?/g, "")
+    .replace(/(?:が、|だが、|、)?(?:本サイト|アトラス)には転載しない/g, "")
+    .replace(/(?:だが|が)転載しない/g, "")
+    .replace(/項目本文は(?:アトラスに)?転載しない/g, "")
+    .replace(/項目本文は収録しない/g, "")
+    .replace(/^[、,\s]+|[、,\s]+$/g, "")
+    .trim()).filter((sentence) => sentence);
+  const joined = sentences.join("。").trim();
+  if (!joined) return "";
+  return joined.endsWith("。") ? joined : `${joined}。`;
+}
+
+function publishedText(scale, text) {
+  return publishedItemRecord(scale?.id) ? omitNonpublicationClaim(text) : (text || "");
+}
+
+function notesBesidePublishedItems(notes) {
+  const text = omitNonpublicationClaim(notes);
+  return text ? `<p class="sub">${esc(text)}</p>` : "";
+}
+
+function anchorHtml(anchors) {
+  if (!anchors || typeof anchors !== "object") return "";
+  const labels = anchors.labels && typeof anchors.labels === "object" ? anchors.labels : null;
+  const points = labels
+    ? Object.keys(labels)
+      .filter((key) => labels[key] != null && String(labels[key]).trim())
+      .sort((a, b) => Number(a) - Number(b))
+      .map((key) => `${esc(key)}＝${esc(String(labels[key]))}`)
+    : [];
+  const parts = [];
+  if (anchors.instructions) parts.push(`<p>${esc(anchors.instructions)}</p>`);
+  if (points.length) parts.push(`<p><strong>回答アンカー：</strong>${points.join("、")}</p>`);
+  else if (anchors.min != null && anchors.max != null) parts.push(`<p><strong>回答アンカー：</strong>${esc(String(anchors.min))}–${esc(String(anchors.max))}</p>`);
+  for (const note of Array.isArray(anchors.notes) ? anchors.notes : []) {
+    if (note) parts.push(`<p class="sub">${linkifyEscaped(String(note))}</p>`);
+  }
+  return parts.join("");
+}
+
+function itemLicenseHtml(record) {
+  const license = String(record.license || "");
+  const licenseLink = record.licenseUrl
+    ? `<a href="${esc(record.licenseUrl)}" target="_blank" rel="noopener noreferrer">${esc(license)}</a>`
+    : esc(license);
+  const lead = /^CC BY \d+(?:\.\d+)?$/.test(license)
+    ? `${licenseLink} の下で原典から転載。`
+    : `転載条件：${licenseLink}。項目本文は原典から転載。`;
+  const source = record.sourceUrl
+    ? `<a href="${esc(record.sourceUrl)}" target="_blank" rel="noopener noreferrer">${esc(record.sourceCitation || "")}</a>`
+    : esc(record.sourceCitation || "");
+  const extra = record.additionalCitation ? `<br><span class="sub">短縮版の論文：${esc(record.additionalCitation)}</span>` : "";
+  const unmodified = record.unmodifiedRequired ? `<p><span class="badge warn">改変不可・引用必須</span></p>` : "";
+  const questionnaire = record.questionnaireUrl ? `<p class="sub"><a href="${esc(record.questionnaireUrl)}" target="_blank" rel="noopener noreferrer">公式質問票 ↗</a></p>` : "";
+  const terms = record.officialTermsUrl ? `<p class="sub"><a href="${esc(record.officialTermsUrl)}" target="_blank" rel="noopener noreferrer">公式の利用条件 ↗</a></p>` : "";
+  const notice = record.licenseNotice ? `<p class="sub">${linkifyEscaped(String(record.licenseNotice))}</p>` : "";
+  const location = record.sourceLocation ? `<p class="sub">${esc(record.sourceLocation)}</p>` : "";
+  return `<p>${lead}${source}${extra}</p>${unmodified}${questionnaire}${terms}${notice}${location}`;
+}
+
+function publishedItemsHtml(s, record) {
+  const list = record.items.map((item) => {
+    const dimension = item.dimension ? `<span class="evidence-kind">${esc(item.dimension)}</span>` : "";
+    const reverse = item.reverse === true ? `<span class="badge warn">逆転</span>` : "";
+    const english = item.textOriginal ? `<br><span class="sub">英語（原表の併記）：${esc(item.textOriginal)}</span>` : "";
+    return `<li>${dimension}${reverse}${esc(item.text)}${english}</li>`;
+  }).join("");
+  const stem = record.stem ? `<p>${esc(record.stem)}</p>` : "";
+  return `<div class="detail-section item-reprint"><h3>尺度項目 <span class="badge">${record.items.length}項目</span></h3>${stem}<ol class="evidence-list">${list}</ol>${anchorHtml(record.anchors)}${itemLicenseHtml(record)}${notesBesidePublishedItems(s.notes)}</div>`;
+}
+
 function scaleItemsHtml(s) {
+  const published = publishedItemRecord(s.id);
+  if (published) return publishedItemsHtml(s, published);
   const items = s.items || [];
   if (items.length) {
     return `<div class="detail-section"><h3>尺度項目 <span class="badge">${items.length}項目</span></h3><ol class="evidence-list">${items.map((item) => {
@@ -258,14 +358,14 @@ function reviewUsageNoteHtml(s) {
 function psychometricEvidenceHtml(s) {
   const entries = s.psychometricEvidence || [];
   if (!entries.length) return `<div class="detail-section psychometric-evidence"><h3>信頼性・妥当性</h3><p class="sub">標本・信頼性・妥当性の詳細情報は未登録です。原典を確認してください。</p></div>`;
-  return `<div class="detail-section psychometric-evidence"><h3>信頼性・妥当性</h3><ul class="evidence-list">${entries.map((e) => `<li><span class="evidence-kind">${esc(e.label)}</span><strong>${esc(e.result)}</strong><br><span class="sub">標本：${esc(e.sample)}<br>検討：${esc(e.methods)}</span>${e.url ? ` <a href="${esc(e.url)}" target="_blank" rel="noopener noreferrer">根拠を開く ↗</a>` : ""}</li>`).join("")}</ul></div>`;
+  return `<div class="detail-section psychometric-evidence"><h3>信頼性・妥当性</h3><ul class="evidence-list">${entries.map((e) => `<li><span class="evidence-kind">${esc(publishedText(s, e.label))}</span><strong>${esc(publishedText(s, e.result))}</strong><br><span class="sub">標本：${esc(publishedText(s, e.sample))}<br>検討：${esc(publishedText(s, e.methods))}</span>${e.url ? ` <a href="${esc(e.url)}" target="_blank" rel="noopener noreferrer">根拠を開く ↗</a>` : ""}</li>`).join("")}</ul></div>`;
 }
 
 function applicationEvidenceHtml(s) {
   const entries = s.applicationEvidence || [];
   const counts = observedItemCounts(s);
   if (!entries.length) return `<div class="detail-section application-evidence"><h3>実際の研究での使われ方</h3><p><span class="badge neutral">調査中</span></p><p>原版以外の項目数、反復利用、複数研究での再検証はまだ整理できていません。これは利用例がないという意味ではありません。</p></div>`;
-  return `<div class="detail-section application-evidence"><h3>実際の研究での使われ方</h3><p><strong>確認できた項目数：</strong>${esc(counts.join("・"))}項目</p><p class="sub">原版、公式短縮版、翻訳版、研究ごとの抜粋・改変版を含みます。項目数が同じでも内容が同一とは限りません。</p><ul class="evidence-list">${entries.map((e) => `<li><span class="evidence-kind">実使用・版の根拠</span><strong>${esc(e.label)}</strong><br>${esc(e.summary)}<br><span class="sub">${esc(e.title)}${e.year ? `（${esc(e.year)}）` : ""}</span>${e.url ? ` <a href="${esc(e.url)}" target="_blank" rel="noopener noreferrer">根拠を開く ↗</a>` : ""}</li>`).join("")}</ul></div>`;
+  return `<div class="detail-section application-evidence"><h3>実際の研究での使われ方</h3><p><strong>確認できた項目数：</strong>${esc(counts.join("・"))}項目</p><p class="sub">原版、公式短縮版、翻訳版、研究ごとの抜粋・改変版を含みます。項目数が同じでも内容が同一とは限りません。</p><ul class="evidence-list">${entries.map((e) => `<li><span class="evidence-kind">実使用・版の根拠</span><strong>${esc(publishedText(s, e.label))}</strong><br>${esc(publishedText(s, e.summary))}<br><span class="sub">${esc(e.title)}${e.year ? `（${esc(e.year)}）` : ""}</span>${e.url ? ` <a href="${esc(e.url)}" target="_blank" rel="noopener noreferrer">根拠を開く ↗</a>` : ""}</li>`).join("")}</ul></div>`;
 }
 
 function usageStudiesHtml(s) {
@@ -716,7 +816,7 @@ function coverageRecord(c) {
   const japanese = scales.filter((s) => s.japaneseVersionStatus !== "unconfirmed").length;
   const psychometric = scales.filter((s) => (s.psychometricEvidence || []).length).length;
   const permission = scales.filter((s) => s.usagePermission !== "unknown").length;
-  const publishedItems = scales.filter((s) => (s.items || []).length > 0 && s.itemPublicationStatus !== "not-published").length;
+  const publishedItems = scales.filter((s) => scaleHasPublishedItemText(s)).length;
   return { concept: c, scales, short, usageScales, usageStudies, japanese, psychometric, permission, publishedItems };
 }
 
@@ -732,7 +832,7 @@ function renderCoverage() {
   const withJapanese = allScales.filter((s) => s.japaneseVersionStatus !== "unconfirmed").length;
   const withPsychometric = allScales.filter((s) => (s.psychometricEvidence || []).length).length;
   const knownPermission = allScales.filter((s) => s.usagePermission !== "unknown").length;
-  const withItems = allScales.filter((s) => (s.items || []).length > 0 && s.itemPublicationStatus !== "not-published").length;
+  const withItems = allScales.filter((s) => scaleHasPublishedItemText(s)).length;
   $("#coverage-summary").innerHTML = [
     ["3・4項目候補の根拠", withShort], ["個別使用研究あり", withUsage], ["日本語情報あり", withJapanese],
     ["測定検証情報あり", withPsychometric], ["利用条件を登録", knownPermission], ["項目本文を掲載", withItems],

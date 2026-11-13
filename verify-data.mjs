@@ -84,7 +84,7 @@ function readTokens(source) {
   return tokens;
 }
 
-function findDuplicateObjectKeys(source) {
+function findDuplicateObjectKeys(source, fileLabel = "data.js") {
   const duplicates = [];
   const objectStack = [];
   const tokens = readTokens(source);
@@ -109,7 +109,7 @@ function findDuplicateObjectKeys(source) {
       if (currentObject.keys.has(token.value)) {
         const first = lineAndColumn(source, currentObject.keys.get(token.value));
         const duplicate = lineAndColumn(source, token.start);
-        duplicates.push(`data.js:${duplicate.line}:${duplicate.column} のキー「${token.value}」は、${first.line}:${first.column}ですでに定義されています。`);
+        duplicates.push(`${fileLabel}:${duplicate.line}:${duplicate.column} のキー「${token.value}」は、${first.line}:${first.column}ですでに定義されています。`);
       } else {
         currentObject.keys.set(token.value, token.start);
       }
@@ -311,6 +311,64 @@ function validateAtlas(atlas, duplicateErrors = []) {
   };
 }
 
+function loadItems(filePath) {
+  if (!fs.existsSync(filePath)) return { items: null, duplicateErrors: [], missing: true };
+  const source = fs.readFileSync(filePath, "utf8");
+  const duplicateErrors = findDuplicateObjectKeys(source, "items.js");
+  const context = { window: {} };
+  vm.runInNewContext(source, context, { filename: filePath, timeout: 1_000 });
+  return { items: context.window?.ATLAS_ITEMS, duplicateErrors, missing: false };
+}
+
+function isHttpUrl(value) {
+  if (!isNonEmptyText(value)) return false;
+  try {
+    const url = new URL(value.trim());
+    return url.protocol === "http:" || url.protocol === "https:";
+  } catch {
+    return false;
+  }
+}
+
+function validateItems(items, atlas) {
+  const errors = [];
+  if (items == null) return errors;
+  if (!items || typeof items !== "object" || Array.isArray(items)) {
+    errors.push("items.js: ATLAS_ITEMS は尺度IDをキーとするオブジェクトが必要です。");
+    return errors;
+  }
+  const scales = new Map((atlas?.scales || []).filter((scale) => isNonEmptyText(scale?.id)).map((scale) => [scale.id, scale]));
+  for (const [id, record] of Object.entries(items)) {
+    const fieldPath = `ATLAS_ITEMS.${id}`;
+    if (!scales.has(id)) errors.push(`${fieldPath}: 尺度ID「${id}」が data.js に存在しません。`);
+    if (!record || typeof record !== "object" || Array.isArray(record)) {
+      errors.push(`${fieldPath}: オブジェクトが必要です。`);
+      continue;
+    }
+    if (!isNonEmptyText(record.license)) errors.push(`${fieldPath}.license: ライセンスの記載が必要です。`);
+    if (!isHttpUrl(record.licenseUrl)) errors.push(`${fieldPath}.licenseUrl: http または https のライセンスURLが必要です。`);
+    if (record.published !== true) continue;
+    if (!isNonEmptyText(record.sourceCitation)) errors.push(`${fieldPath}.sourceCitation: 出典の記載が必要です。`);
+    if (!isHttpUrl(record.sourceUrl)) errors.push(`${fieldPath}.sourceUrl: http または https の出典URLが必要です。`);
+    if (!Array.isArray(record.items) || record.items.length === 0) {
+      errors.push(`${fieldPath}.items: published の尺度には項目配列が必要です。`);
+      continue;
+    }
+    const expected = scales.get(id)?.itemCount;
+    if (expected !== record.items.length) {
+      errors.push(`${fieldPath}.items: 項目数 ${record.items.length} が data.js の itemCount ${expected ?? "不明"} と一致しません。`);
+    }
+    record.items.forEach((item, index) => {
+      const itemPath = `${fieldPath}.items[${index}]`;
+      if (!item || typeof item !== "object" || !isNonEmptyText(item.text)) errors.push(`${itemPath}.text: 空でない項目本文が必要です。`);
+      if (typeof item.reverse !== "boolean") errors.push(`${itemPath}.reverse: true または false が必要です。`);
+      if (item.dimension != null && !isNonEmptyText(item.dimension)) errors.push(`${itemPath}.dimension: 空でない文字列が必要です。`);
+    });
+  }
+  addUrlAndDoiErrors(items, "ATLAS_ITEMS", errors);
+  return errors;
+}
+
 function runSelfTest() {
   const duplicateErrors = findDuplicateObjectKeys("const ATLAS_DATA = { meta: {}, meta: {}, concepts: [], scales: [] };");
   if (duplicateErrors.length !== 1) throw new Error("自己テスト失敗: 重複キーを検出できません。");
@@ -366,7 +424,30 @@ function runSelfTest() {
   if (!mirrorErrors.some((error) => error.includes("fullTextUrl") && error.includes("researchgate.net"))) {
     throw new Error("自己テスト失敗: fullTextUrl の ResearchGate URL を検出できません。");
   }
-  console.log("自己テスト: ルート・ネストした重複キー、ID・参照・形式エラー、ResearchGate の URL を検出できました。");
+  const itemAtlas = { scales: [{ id: "sa", itemCount: 2 }] };
+  const invalidItems = validateItems({
+    "missing-scale": { published: true, license: "", licenseUrl: "notaurl", items: [{ text: "", reverse: "no" }] },
+    sa: { published: true, license: "CC BY 4.0", licenseUrl: "https://creativecommons.org/licenses/by/4.0/", sourceCitation: "", sourceUrl: "https://www.researchgate.net/publication/1", items: [{ text: "only", reverse: false }] },
+  }, itemAtlas);
+  for (const expected of ["存在しません", "ライセンス", "licenseUrl", "sourceCitation", "項目数", "text", "reverse", "researchgate.net"]) {
+    if (!invalidItems.some((error) => error.includes(expected))) throw new Error(`項目本文の自己テスト失敗: 「${expected}」を検出できません。`);
+  }
+  const validItems = validateItems({
+    sa: {
+      published: true,
+      license: "CC BY 4.0",
+      licenseUrl: "https://creativecommons.org/licenses/by/4.0/",
+      sourceCitation: "Author (2020).",
+      sourceUrl: "https://doi.org/10.1000/example",
+      items: [{ text: "one", reverse: false }, { text: "two", reverse: true, dimension: "A" }],
+    },
+  }, itemAtlas);
+  if (validItems.length) throw new Error(`項目本文の自己テスト失敗: 妥当な項目を拒否しました。${validItems.join(" / ")}`);
+  const unpublished = validateItems({
+    sa: { published: false, license: "CC BY 4.0", licenseUrl: "https://creativecommons.org/licenses/by/4.0/", items: [{ text: "only", reverse: false }] },
+  }, itemAtlas);
+  if (unpublished.length) throw new Error(`項目本文の自己テスト失敗: 非掲載の件数差を拒否しました。${unpublished.join(" / ")}`);
+  console.log("自己テスト: ルート・ネストした重複キー、ID・参照・形式エラー、ResearchGate の URL、項目本文のID・件数・ライセンスを検出できました。");
 }
 
 function printSummary(summary) {
@@ -391,7 +472,15 @@ if (argument !== undefined && argument !== "--self-test") {
 } else {
   try {
     const { atlas, duplicateErrors } = loadAtlas(path.resolve("data.js"));
+    const itemsFile = path.resolve("items.js");
+    const loadedItems = loadItems(itemsFile);
+    const itemErrors = loadedItems.missing ? [] : [...loadedItems.duplicateErrors, ...validateItems(loadedItems.items, atlas)];
+    if (!loadedItems.missing && (loadedItems.items == null || typeof loadedItems.items !== "object" || Array.isArray(loadedItems.items))) {
+      itemErrors.push("items.js: window.ATLAS_ITEMS が読み込めません。");
+    }
     const { errors, summary } = validateAtlas(atlas, duplicateErrors);
+    errors.push(...itemErrors);
+    if (loadedItems.missing) console.log("items.js はありません。項目本文の検査はスキップしました。");
     if (errors.length > 0) {
       console.error(`データ検証に失敗しました（${errors.length}件）。`);
       for (const error of errors) console.error(`- ${error}`);
@@ -399,6 +488,11 @@ if (argument !== undefined && argument !== "--self-test") {
     } else {
       console.log("データ検証に成功しました。");
       printSummary(summary);
+      if (!loadedItems.missing && loadedItems.items && typeof loadedItems.items === "object") {
+        const published = Object.values(loadedItems.items).filter((record) => record?.published === true);
+        const itemCount = published.reduce((count, record) => count + (record.items?.length || 0), 0);
+        console.log(`掲載する項目本文: ${published.length}尺度・${itemCount}項目`);
+      }
     }
   } catch (error) {
     console.error(`データ検証に失敗しました: ${error.message}`);

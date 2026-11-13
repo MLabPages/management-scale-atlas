@@ -2,16 +2,16 @@
 
 ## 概要
 
-Management Scale Atlas は、`index.html`、`styles.css`、`app.js`、`data.js` で動くビルド不要の静的 Web アプリです。データと UI ロジックを分離し、研究設計はブラウザ内に保存します。
+Management Scale Atlas は、`index.html`、`styles.css`、`app.js`、`data.js` で動くビルド不要の静的 Web アプリです。オープンライセンスで転載できる項目本文だけを `items.js` に分けています。データと UI ロジックを分離し、研究設計はブラウザ内に保存します。
 
 ## データの流れ
 
-1. `data.js` の `ATLAS_DATA` から概念、尺度、根拠文献、使用研究を読み込む。
+1. `data.js` の `ATLAS_DATA` から概念、尺度、根拠文献、使用研究を読み込む。`items.js` は `data.js` の後に読み、`window.ATLAS_ITEMS` に掲載してよい項目本文だけを置く。ファイルが無くても詳細画面は従来の表示になる。
 2. `app.js` が概念・尺度・対象者・研究領域・日本語根拠・項目数などで検索と絞り込みを行う。
 3. 詳細画面で原典、DOI、研究使用例、日本語情報、利用条件を表示する。
 4. 比較画面で最大 8 尺度の負担・項目数・根拠を並べる。
 5. 研究設計は役割、採用メモ、根拠文献、項目数などを `localStorage` に保存し、CSV/JSON で出力する。
-6. `verify-data.mjs` が JavaScript として `data.js` を読み、ID参照・形式・重複・必須項目を検証する。
+6. `verify-data.mjs` が JavaScript として `data.js` を読み、ID参照・形式・重複・必須項目を検証する。`items.js` があるときは、尺度ID、掲載する項目数、ライセンス欄も検証する。
 7. `data.js`の`relations`は既存根拠への尺度ID・記録種別・URL（必要時はラベル）を参照する。配列順序を参照に使わない。`relation-model.js`が根拠を解決し、論文重複を除去し、関連概念リンクから調査待ちの組合せを生成する。
 8. `relations.js`が関係のマトリクス、フィルター、出典詳細、CSV/JSON出力を担当する。`concept`レベルと特定の2尺度版の`scale`レベルを分ける。
 9. `collect-literature.mjs`は同じ関係モデルと`collection-targets.json`から調査キューを生成する。接続時はCrossrefから書誌候補だけを収集し、検索ログを保存する。`data.js`を書き換えず、候補JSONをJavaScriptとして評価しない。
@@ -20,7 +20,7 @@ Management Scale Atlas は、`index.html`、`styles.css`、`app.js`、`data.js` 
 
 - 検索・比較・研究設計は通常ブラウザ内で完結する。
 - 外部リンクは原典、DOI、Google Scholar 等を利用者が確認するために表示する。
-- `data.js` に原典で公開されていない尺度項目本文や未確認の利用条件を推測して収録しない。
+- `data.js` に原典で公開されていない尺度項目本文や未確認の利用条件を推測して収録しない。転載できる本文は `items.js` に置き、`published: true` の尺度だけ詳細画面へ出す。
 - 実際のデータの正確性は、画面ロジックではなく登録された出典と根拠文献に依存する。
 
 ## 変更時の依存

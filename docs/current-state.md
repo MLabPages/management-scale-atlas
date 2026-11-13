@@ -1,6 +1,16 @@
 # Current state
 
-最終更新: 2026-11-12
+最終更新: 2026-11-13
+
+## v0.130.0（オープンライセンスの項目本文）
+
+- 版は v0.130.0。機能用とデータ用で版を分けない。`meta.version` は `0.130.0`。`meta.updated` は 2026-11-12 のまま。`meta.scope` は `150概念・202尺度` のまま。概念・尺度・使用研究・選択ガイド・関係の件数は v0.129.0 から変えていない。
+- 項目本文は `items.js` の `window.ATLAS_ITEMS` に置く。`data.js` の尺度レコード、空の `items`、`itemPublicationStatus`、`usagePermission` は変えていない。定時拡充が触る本文データを、この変更には入れていない。
+- 詳細画面は、`published: true` で項目がある尺度だけ、既存の尺度項目欄に本文・回答アンカー・逆転の印・ライセンスと出典を出す。`items.js` が無いとき、および掲載しない尺度は、これまでの表示のまま。検索、比較、研究設計、CSV/JSON の列は変えていない。収録状況の「項目本文を掲載」は、`items.js` で掲載する尺度を数える。
+- 掲載は15尺度・166項目。Sense of Agency Scale 13、CBE-BL 6、J-MVS-P6 6、PELS 24、CPC-12R 12、GWQ-12 12、AIAS-4 4、DAI 5、EWWS 8、WCS 12、BAT-23 23、BAT-12 12、BWS 7、CX Scale 18、VEQ-AG 4。id の不一致と、項目数の不一致はなかった。
+- 掲載しないもの。区分 A のうち原文が確定していない WSC-8、ATAI、TAI、VIE、ZEF。区分 B 28、C 8、不明 146（TIS-6 を含む）。BAT-23 と BAT-12 は原文のまま出し、改変不可・2020年論文の引用必須を表示する。
+- `data.js` の既存メモに残る「転載しない」は、ファイルを書き換えない。掲載する尺度の詳細画面では、その文だけ表示から外す。
+- 戻し方は、この変更を revert する。項目本文の掲載だけが消え、尺度レコードは残る。確認は [2026-11-13ログ](dev/logs/2026-11-13-open-license-items.md)。区分の要約は [items-license-audit.md](items-license-audit.md)。
 
 ## v0.129.0 の追加（職場での所属感、ZEF と ATAI の使用研究）
 
