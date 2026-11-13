@@ -1,5 +1,13 @@
 # Decisions
 
+## 2026-11-13: 従業員経験は Yang と Zhang の20項目。職場の関係欲求は同僚向け20項目。UWES-9 の追加使用は Hanc らの9項目
+
+- セマンティック版は v0.131.0。概念は150から152。尺度は202から204。使用研究は247から248。選択ガイドは86から88。関係は16のまま。開発論文は `usageStudies` に入れない。項目本文は空。機能用とデータ用で版を分けない。`app.js` と `items.js` は変えない。
+- 概念 ID は `employee-experience`（従業員経験）。尺度 ID は `yang-zhang-exs-20`。表示略称は EXS。原典は Yang と Zhang（2025）、DOI `10.1057/s41599-025-04926-5`。Humanities and Social Sciences Communications, 12, 605。公開は 2025-05-02。`sourceUrl` は DOI のみ。20項目・5次元×4。5件法（1＝strongly disagree～5＝strongly agree）。旗艦の係数αは、確認的因子分析 N=427 の 0.87。df=160 は5つの相関因子と一致する。探索的因子分析の表の全体 0.76 と、本文の36項目の 0.76 は寄せない。Study 5 の 0.85 は算出人数が書けないので旗艦にしない。`usagePermission` は `unknown`。論文は CC BY-NC-ND 4.0。`itemPublicationStatus` は `not-published`。掲載候補にしない。`relatedConcepts` は存在する `job-satisfaction`、`work-engagement`、`customer-experience`。相手側への逆リンクは足さない。日本語は `unconfirmed`。
+- 概念 ID は `workplace-relational-needs`（職場の関係欲求の満足）。尺度 ID は `hanc-wrnss-20`。表示略称は W-RNSS。原典は Hanc、Žvelc、Bajec（2024）、DOI `10.3389/fpsyg.2024.1419765`。Frontiers in Psychology, 15, 1419765。公開は 2024-06-27。20項目・5次元。各次元の項目数は書かない。5件法（1＝completely disagree～5＝completely agree）。下位は平均、全体は全項目の平均。旗艦の係数αは Table 5 の全体 0.93（N=273）。下位は 0.89、0.87、0.83、0.77、0.81。抄録の厳密な不等号は、表の端に寄せない。バイファクターの AIC は抄録と Table 2 で一致しない。BIC は一致する。一般の RNSS は未登録。`parentScaleId` は空。`versionType` は `original`。原著者 Žvelc は共著者なので、この論文は使用研究にしない。`usagePermission` は `unknown`。論文は CC BY 4.0。20項目の全文表はないので、`itemPublicationStatus` は `not-published`。掲載候補にしない。`relatedConcepts` は存在する `work-engagement`、`job-satisfaction`、`burnout`。相手側への逆リンクは足さない。日本語は `unconfirmed`。
+- UWES-9 の使用研究は Hanc ら（2024）の同じ論文。フル9項目。0＝never～6＝always, every day。旗艦の7件法（0–6）と同じ件数。この標本の α は全体 0.93、活力 0.84、熱意 0.88、没頭 0.83。N=273。スロベニア語。Tement（2014）の DOI は転記しない。開発者は著者に含まれない。旗艦の回答形式と9項目の平均、日本語は変えない。
+- SMMWC、ω だけのソーシャルメディア疲労尺度、df が合わない LMWB、件法を変えた FoMO、SLAW-3 の韓国語検証、指定の HOLD、WCS・GWQ-12・PELS・VIE の前回までの見送りは変更しない。`app.js` は変えない。
+
 ## 2026-11-13: 項目本文は、出版版が CC BY 等で所在を確認できた尺度だけ items.js に載せる
 
 - セマンティック版は v0.130.0。機能用とデータ用で版を分けない。概念は150、尺度は202、使用研究は247、選択ガイドは86、関係は16のまま。`meta.updated` は 2026-11-12 のまま。`data.js` の尺度レコードは変えない。変えたのは `meta.version` だけ。
