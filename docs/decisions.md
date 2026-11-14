@@ -1,5 +1,12 @@
 # Decisions
 
+## 2026-11-14: 電子商取引のバーチャル・アンカーの知能は Zhong らの18項目。略称は論文にない。GWQ-12 の追加使用は El-Sayed らの12項目
+
+- セマンティック版は v0.132.0。概念は152から153。尺度は204から205。使用研究は248から249。選択ガイドは88から89。関係は16のまま。開発論文は `usageStudies` に入れない。項目本文は空。機能用とデータ用で版を分けない。`app.js` と `items.js` は変えない。
+- 概念 ID は `virtual-anchor-intelligence`（電子商取引のバーチャル・アンカーの知能）。尺度 ID は `zhong-evhis-18`。表示略称は EVHIS。原典は Zhong、Xie、Yang、Zhao（2025）、DOI `10.3390/jtaer20040326`。Journal of Theoretical and Applied Electronic Commerce Research, 20(4), 326。公開は 2025-11-21。`sourceUrl` は DOI のみ。18項目。誘導4、認識4、分析5、フィードバック5。7件法（1＝strongly disagree～7＝strongly agree）。旗艦の係数αは、尺度評価の Table 9（N=536）の次元別 0.939、0.909、0.883、0.935。18項目全体の単一 α は書かない。同じ論文の有効659名の次元別 α は寄せない。抄録の「残りの次元は正」と、本文の H1b（認識は負）は寄せない。4.6節の尺度名は E-commerce Virtual Host Intelligence Scale。題名は virtual anchor。Host と anchor は寄せない。論文は略称を印刷していない。表示略称 EVHIS は、4.6節の尺度名の頭字語で、論文に印刷された略称ではない。`usagePermission` は `unknown`。論文は CC BY 4.0。`itemPublicationStatus` は `source-open`。Table 7 は転載しない。掲載候補にはしない。`relatedConcepts` は存在する `virtual-influencer-effectiveness`、`brand-anthropomorphism`。相手側への逆リンクは足さない。日本語は `unconfirmed`。Institutional Review Board Statement は Not applicable。質問紙の言語は断定しない。
+- GWQ-12 の使用研究は El-Sayed ら（2025）、DOI `10.1111/nin.12697`。フル12項目。過去6か月の 1＝never～5＝always は旗艦と同じ。アラビア語。この標本の α は全体 0.891。分析594名。方法節の次元の α 0.86 と 0.842 は原典の引用。旗艦の 0.925 と 0.876 には寄せない。確認的因子分析の IFI=922 は直さない。開発者は著者に含まれない。旗艦の5件法と日本語は変えない。
+- 遠隔勤務スキルの RWSS（DOI `10.1371/journal.pone.0299074`）は、最終36項目の回答形式が本文で閉じないので登録しない。指定の HOLD は変更しない。`app.js` は変えない。
+
 ## 2026-11-13: 従業員経験は Yang と Zhang の20項目。職場の関係欲求は同僚向け20項目。UWES-9 の追加使用は Hanc らの9項目
 
 - セマンティック版は v0.131.0。概念は150から152。尺度は202から204。使用研究は247から248。選択ガイドは86から88。関係は16のまま。開発論文は `usageStudies` に入れない。項目本文は空。機能用とデータ用で版を分けない。`app.js` と `items.js` は変えない。

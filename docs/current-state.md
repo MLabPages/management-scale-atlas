@@ -1,6 +1,16 @@
 # Current state
 
-最終更新: 2026-11-13
+最終更新: 2026-11-14
+
+## v0.132.0 の追加（電子商取引のバーチャル・アンカーの知能、GWQ-12 の使用研究）
+
+- 153概念・205尺度・249使用研究・89選択ガイド・16関係。概念は152から153。尺度は204から205。使用研究は248から249。選択ガイドは88から89。関係は16のまま。`meta.version` は `0.132.0`。`meta.updated` は 2026-11-14。`meta.scope` は `153概念・205尺度`。開発論文は使用研究に入れない。機能用とデータ用で版を分けない。`app.js`、`items.js`、`index.html`、CSS、`verify-data.mjs` は変えていない。項目本文は載せていない。
+- 概念 `virtual-anchor-intelligence`（電子商取引のバーチャル・アンカーの知能）と尺度 `zhong-evhis-18`（EVHIS）を追加した。分野は「広告・消費者情報処理」。バーチャル・インフルエンサーを推薦者として評価する効果そのものではなく、ブランドの擬人化知覚そのものでもない。得点は合算しない。`relatedConcepts` は存在する `virtual-influencer-effectiveness`、`brand-anthropomorphism`。相手側への逆リンクは足していない。関係レコードは追加していない。
+- EVHIS は Zhong, Xie, Yang, & Zhao（2025）。Journal of Theoretical and Applied Electronic Commerce Research, 20(4), 326。DOI `10.3390/jtaer20040326`。`sourceUrl` は DOI のみ。Crossref で著者 Linling Zhong、Yuxi Xie、Yongzhong Yang、Yanxiang Zhao、題名、20巻4号、326、issued 2025-11-21、VOR の CC BY 4.0 が一致。出版版の著者行も Yuxi Xie。受領 2025-09-26、改訂 2025-11-16、受理 2025-11-17、公開 2025-11-21。2026-11-14 に出版版の PDF で本文と Table 7、Table 9–13、Table 17 を確認した。4.6節の尺度名は E-commerce Virtual Host Intelligence Scale。題名は virtual anchor。Host と anchor は寄せていない。論文は略称を印刷していない。表示略称 EVHIS は、4.6節の尺度名の頭字語で、論文に印刷された略称ではない。18項目。誘導、認識、分析、フィードバックが 4、4、5、5。初期20項目から2項目を除いた。7件法（1＝strongly disagree～7＝strongly agree）。旗艦の係数αは、尺度評価の Table 9（N=536）。誘導 0.939、認識 0.909、分析 0.883、フィードバック 0.935。18項目全体の単一 α はない。KMO は 0.934。Bartlett の χ² は 3842.884、df=153。確認的因子分析は N=268。X²/df=1.289、RMSEA=0.033、CFI=0.99、TLI=0.988。同じ論文の予測妥当性（有効659名）の次元別 α は 0.924、0.895、0.881、0.9。寄せていない。抄録は誘導が参加に負で、残りの次元は正と書く。本文は H1a と H1b が支持されないと書き、認識も負だとする。寄せていない。`usagePermission` は `unknown`。論文は CC BY 4.0 だが、尺度の利用許諾の明記はない。`itemPublicationStatus` は `source-open`。Table 7 に項目がある。転載しない。`items` は空。`usageStudies` は空。Institutional Review Board Statement は Not applicable。Informed Consent Statement も Not applicable。質問紙の言語は断定していない。`japaneseVersionStatus` は `unconfirmed`。`verifiedAt` は 2026-11-14。
+- GWQ-12（`kukreja-pandey-gwq-12`）の使用研究は0件から1件。旗艦の5件法、項目数、`usagePermission`、日本語は変えていない。心理測定根拠の `verifiedAt` は 2026-10-23 のまま。尺度の `verifiedAt` は 2026-11-14。
+- El-Sayed, Alsenany, Atta, Othman, & Asal（2025）。Nursing Inquiry, 32, e12697。DOI `10.1111/nin.12697`。`url` は DOI のみ。Crossref で著者・題名、32巻1号、issued 2025-01、オンライン 2025-01-13、ライセンスは Wiley の VOR 条件が一致。2026-11-14 に出版版を開いた。© 2025 John Wiley & Sons Ltd。Kukreja と Pandey（2023）の12項目。矮小化7、苦痛付与5。過去6か月、1＝never～5＝always は旗艦と同じ。アラビア語。バックトランスレーション。この標本の α は全体 0.891。分析594名（配布600から外れ値6件を除く。適格性の確認は680名。パイロット50名は最終分析に入らない）。方法節の次元の α 0.86 と 0.842 は、文末が原典の引用。旗艦の 0.925 と 0.876 とは一致しない。寄せていない。確認的因子分析の IFI は 922 と印刷されている。0.922 には直していない。平均得点 3.96（SD 0.75）は 1–5 の範囲。平均採点とは断定していない。開発者は著者に含まれない。項目本文は転載しない。`verifiedAt` は 2026-11-14。
+- 日本語の検証済みは28のまま。関連版は14のまま。未確認は130から131（追加した EVHIS が `unconfirmed`）。日本語使用例は18のまま。言語的妥当性確認は2、翻訳・因子構造等の検討は5、日本語で独自開発は6、開発論文内の日本語検証は1のまま。登録版そのものが3・4項目の尺度は32のまま（EVHIS は18項目）。使用研究側の3・4項目は29のまま（追加は12項目）。
+- 見送りは、遠隔勤務スキルの RWSS（Benligiray、Güngör、Akbaş、2024。DOI `10.1371/journal.pone.0299074`。36項目、5次元、次元別 α、CC BY 4.0 は読める。最終36項目を何件法で回答させたかは、確認した本文で閉じていない。内容確認の7件法は重要度）、指定の HOLD。`items.js` は変えていない。確認は [2026-11-14ログ](dev/logs/2026-11-14-vai-gwq.md)。
 
 ## v0.131.0 の追加（従業員経験、職場の関係欲求の満足、UWES-9 の使用研究）
 
