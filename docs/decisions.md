@@ -1,5 +1,13 @@
 # Decisions
 
+## 2026-11-16: ソーシャルメディア上のマインドフルネスは Li と Chen の19項目。職場の孤立と孤独の状態は Nakamura らの16項目。AIAS-4 の追加使用は Wang と Niu の4項目
+
+- セマンティック版は v0.134.0。概念は155から157。尺度は207から209。使用研究は250から251。選択ガイドは91から93。関係は16のまま。開発論文は `usageStudies` に入れない。項目本文は空。機能用とデータ用で版を分けない。`app.js` と `items.js` は変えない。
+- 概念 ID は `social-media-mindfulness`（ソーシャルメディア上のマインドフルネス）。尺度 ID は `li-chen-smms-19`。表示略称は SMMS。原典は Li と Chen（2026）、DOI `10.3389/fpsyg.2026.1660076`。Frontiers in Psychology, 17, 1660076。公開は 2026-06-12。`sourceUrl` は DOI のみ。19項目。非判断6、第2因子6、記述4、無反応3。7件法（1＝never or very rarely true～7＝always or almost always true）。旗艦の係数αは、確認的因子分析 N=373 の 0.832、0.875、0.844、0.812。19項目全体の単一 α は書かない。探索的因子分析の α で置き換えない。第2因子の awareness-acceptance と attention-acceptance は寄せない。結論の SMMs と SMMS は寄せない。表示略称 SMMS は、論文が印刷した綴りの一つ。表注が CR を二つの意味で使うことと、無反応の CR 0.808、非判断の AVE 0.475、相関 0.692 と平方根 0.689、Study 2 の 46.44% と広東・浙江の人数、二つの倫理番号は、どちらにも寄せない。`usagePermission` は `unknown`。論文は CC BY 4.0。`itemPublicationStatus` は `source-open`。Table 1 と Table 2 は転載しない。掲載候補にはしない。`relatedConcepts` は存在する `fear-of-missing-out`。FFMQ と MAAS は未登録。相手側への逆リンクは足さない。日本語は `unconfirmed`。質問紙は中国語。表の項目は英語。
+- 概念 ID は `workplace-isolation-loneliness-state`（職場の孤立と孤独の状態）。尺度 ID は `nakamura-wils-16`。表示略称は WILS。原典は Nakamura ほか（2026）、DOI `10.3389/forgp.2025.1699454`。Frontiers in Organizational Psychology, 3, 1699454。公開は 2026-01-20。登録年は issued の2026。巻の表示は Volume 3 - 2025。`sourceUrl` は DOI のみ。16項目・4次元×4。4件法（1＝does not apply～4＝applies）。旗艦の係数αは Study 1 の N=648 の 0.89、0.87、0.91、0.88。16項目全体の単一 α は書かない。因子間相関の本文の下限と表の 0.52、確認的因子分析の空の span、第4因子の presence と sense、男性49%と女性50%、方法節の代表と限界の便宜標本、助成番号のスペース、例示英語と Table 1 は寄せない。空の span は χ² に補わない。`usagePermission` は `unknown`。論文は CC BY 4.0。`itemPublicationStatus` は `source-open`。Table 1 は転載しない。掲載候補にはしない。`relatedConcepts` は存在する `workplace-loneliness`、`belonging-at-work`。LAWS-16 と SLAW-3 とは合算しない。相手側への逆リンクは足さない。日本語は `original-japanese`。表の英語は便宜訳で、英語版の検証ではない。
+- AIAS-4 の使用研究は Wang と Niu（2026）、DOI `10.3389/fpsyg.2026.1955267`。フル4項目。中国語。5件法は旗艦の10件法からの変更。この研究の α は 0.95。分析1,323名。Table 1 の平均 3.939 は、4項目合計の下限4を下回る。方法節の同意と倫理声明の法定代理人の同意は寄せない。開発者は著者に含まれない。旗艦の10件法、`usagePermission`、日本語は変えない。
+- 消費者のイノベーション疲労（DOI `10.3390/jtaer21060191`）は、合成信頼性だけで係数αがないので登録しない。職場の内巻への態度（DOI `10.1057/s41599-026-08150-7`）は、WIAS の係数αがなく、7件法の両端は同時に使った知覚尺度の節にあり、WIAS の回答形式としては閉じていないので登録しない。従業員の予防的健康へのイニシアチブ（DOI `10.1186/s40359-025-03040-0`）は、回答者の両端が専門家評定の5件法と分かれていないので登録しない。指定の HOLD は変更しない。`app.js` は変えない。
+
 ## 2026-11-15: 職場のプレクラスティネーションは Guo らの18項目。公務員のミッション・ヴァレンスは Liu らの12項目。CS-12 の追加使用は Xie らの12項目
 
 - セマンティック版は v0.133.0。概念は153から155。尺度は205から207。使用研究は249から250。選択ガイドは89から91。関係は16のまま。開発論文は `usageStudies` に入れない。項目本文は空。機能用とデータ用で版を分けない。`app.js` と `items.js` は変えない。
