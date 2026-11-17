@@ -1,5 +1,13 @@
 # Decisions
 
+## 2026-11-17: 従業員のデジタル・ディスコネクションは Jin らの30項目。リーダーの全体的感情伝染への気づきは Petitta と Jiang の13項目。GAAIS の追加使用は Eminoğlu らの20項目
+
+- セマンティック版は v0.135.0。概念は157から159。尺度は209から211。使用研究は251から252。選択ガイドは93から95。関係は16のまま。開発論文は `usageStudies` に入れない。項目本文は空。機能用とデータ用で版を分けない。`app.js` と `items.js` は変えない。
+- 概念 ID は `employee-digital-disconnection`（従業員のデジタル・ディスコネクション）。尺度 ID は `jin-chinese-edds-30`。表示略称は Chinese-EDDS。原典は Jin、Li、Wang、Zhang（2026）、DOI `10.3389/fpubh.2026.1762986`。Frontiers in Public Health, 14, 1762986。公開は 2026-02-03。`sourceUrl` は DOI のみ。30項目。私的ICTの仕事外7、仕事関連ICTの仕事外8、私的ICTの仕事中8、仕事関連ICTの仕事中7。5件法（1＝never or not applicable at all～5＝always or completely applicable）。旗艦の係数αは全標本 N=795 の全体 0.925、次元別 0.888、0.938、0.944、0.875。探索的因子分析の400名と、確認的因子分析の395名に分けた係数αは書かない。4因子の df=399 は30項目と一致する。8因子の df=712 は寄せない。Verlinden らの3次元30項目とは同じ尺度にしない。著者の所属大学と、倫理審査の大学は寄せない。`usagePermission` は `unknown`。論文は CC BY 4.0。`itemPublicationStatus` は `not-published`。結論が Appendix A に項目を示すと書く一方、確認した HTML 抽出に全文はなかった。掲載候補にはしない。`relatedConcepts` は存在する `recovery-experience`、`burnout`。相手側への逆リンクは足さない。日本語は `unconfirmed`。質問紙は中国語。
+- 概念 ID は `leader-holistic-contagion-awareness`（リーダーの全体的感情伝染への気づき）。尺度 ID は `petitta-lahcs-13`。表示略称は LAHCS。原典は Petitta と Jiang（2026）、DOI `10.3390/ejihpe16050061`。European Journal of Investigation in Health, Psychology and Education, 16(5), 61。公開は 2026-04-29。`sourceUrl` は DOI のみ。13項目。探索6、行動の変化2、情緒的交換への気づき3、距離への気づき2。5件法の頻度（1＝Never～5＝Always）。旗艦の係数αは Table 4。括弧外は 0.87、0.90、0.86、0.85。括弧内は 0.86、0.86、0.85、0.81。13項目全体の単一 α は書かない。確認的因子分析の df=59 は13項目・4相関因子と一致する。下位標本の 753 と 701、746 と 692 は寄せない。表注が二つの相関をどちらも対角の下と書くことは直さない。prevention、Behavioral Change、orientation to include LAHC、Includes LAHC は寄せない。項目生成の LACHS は直さない。表示略称 LAHCS は、題名と抄録が印刷した綴り。Study 2 のイタリア186名と188名は寄せない。`usagePermission` は `unknown`。論文は CC BY 4.0。`itemPublicationStatus` は `source-open`。Appendix A は転載しない。掲載候補にはしない。`relatedConcepts` は存在する `transformational-leadership`、`servant-leadership`、`leader-member-exchange`。相手側への逆リンクは足さない。日本語は `unconfirmed`。開発時の質問紙はイタリア語。
+- GAAIS の使用研究は Eminoğlu、Kuşlu、Çakır（2025）、DOI `10.5336/nurses.2024-107691`。フル20項目。肯定12、否定8。トルコ語。5件法の両端の語は、この論文の GAAIS の節にない。この研究の α は全体 0.821、肯定 0.851、否定 0.835。標本414名。合計点の平均 65.87 は、20項目の合計の範囲に入り、項目平均の上限を上回る。開発者は著者に含まれない。旗艦の5件法と項目平均、日本語は変えない。
+- 職場での神経可塑性リテラシーは、固有値の記述と Factor 2 の 0.789 が閉じておらず、次元ごとの項目数も閉じていないので登録しない。CS-12 の日本語は、7項目の論文と、標本の信頼性がない訳文なので登録しない。指定の HOLD は変更しない。`app.js` は変えない。
+
 ## 2026-11-16: ソーシャルメディア上のマインドフルネスは Li と Chen の19項目。職場の孤立と孤独の状態は Nakamura らの16項目。AIAS-4 の追加使用は Wang と Niu の4項目
 
 - セマンティック版は v0.134.0。概念は155から157。尺度は207から209。使用研究は250から251。選択ガイドは91から93。関係は16のまま。開発論文は `usageStudies` に入れない。項目本文は空。機能用とデータ用で版を分けない。`app.js` と `items.js` は変えない。
