@@ -1,6 +1,18 @@
 # Current state
 
-最終更新: 2026-11-18
+最終更新: 2026-11-19
+
+## v0.137.0 の追加（組織的非人間化、QQBS、QQS-9 の使用研究）
+
+- 162概念・215尺度・254使用研究・98選択ガイド・16関係。概念は161から162。尺度は213から215。使用研究は253から254。選択ガイドは97から98。関係は16のまま。`meta.version` は `0.137.0`。`meta.updated` は 2026-11-19。`meta.scope` は `162概念・215尺度`。開発論文は使用研究に入れない。機能用とデータ用で版を分けない。`app.js`、`items.js`、`index.html`、CSS、`verify-data.mjs` は変えていない。項目本文は載せていない。
+- 概念 `organizational-dehumanization`（組織的非人間化）と尺度 `kazazoglu-mods-34`（MODS）を追加した。分野は「組織行動・人的資源」。組織的支援そのものではなく、組織的公正そのものでも、心理的契約の不履行そのものでもない。得点は合算しない。`relatedConcepts` は存在する `perceived-organizational-support`、`organizational-justice`、`psychological-contract-breach`。相手側への逆リンクは足していない。関係レコードは追加していない。
+- MODS は Kazazoglu、Sahin、Guzeller、Ilhan-Findikoglu、Findikoglu（2026）。PLOS ONE, 21(7), e0351254。DOI `10.1371/journal.pone.0351254`。`sourceUrl` は DOI のみ。Crossref で著者 Semin Kazazoglu、Dilruba Sahin、Cem Oktay Guzeller、Dilek Ilhan-Findikoglu、Fuat Findikoglu、題名、PLOS One、21巻7号、e0351254、issued 2026-07-06、VOR の CC BY 4.0 が一致。Received 2026-03-07、Accepted 2026-05-25、Published 2026-07-06。34項目。価値の切り下げ21、道具化13。当初38項目から EFA で4項目削除。5件法（1＝strongly disagree～5＝strongly agree）。否定的表現の逆転項目番号は本文に列挙なし。旗艦の係数αは CFA 標本（n=263）の価値の切り下げ .93、道具化 .96、全体 .96。EFA は n=318、計581。CFA は χ²=1196.15、df=524、χ²/df=2.28、CFI=.99、NFI=.97、RMSEA=.074、SRMR=.045（GFI=.78、AGFI=.75）。df=524 は34項目・2相関因子の自由度526とは一致しない。寄せていない。論文は略称を印刷していない。表示略称 MODS は、尺度名の頭字語。S1 Appendix の最終番号1–34と Table 1 の原番号の対応は、付録に因子名の明記がないので断定していない。`usagePermission` は `unknown`。論文は CC BY 4.0 だが、尺度の利用許諾の明記はない。`itemPublicationStatus` は `source-open`。S1 Appendix は転載しない。`items` は空。`usageStudies` は空。質問紙はトルコ語。英語訳は国際読者向けで、英語版の検証はない。`japaneseVersionStatus` は `unconfirmed`。`verifiedAt` は 2026-11-19。大学教員標本でのみ検証。Caesens らの単一次元尺度は未登録。
+- 既存概念 `quiet-quitting` に尺度 `li-qqbs-15`（QQBS）を追加した。概念定義は Galanis 中心の記述を最小限調整し、Li ら（2026）の2側面にも触れた。`decisionGuide` に choice を1つ追加した。caution に QQS-9 と別尺度・得点を混ぜない・医療職標本でのみ検証と書いた。
+- QQBS は Li、Sun、Zhang（2026）。Frontiers in Public Health, 14, 1773183。DOI `10.3389/fpubh.2026.1773183`。`sourceUrl` は DOI のみ。Crossref で著者 Qing-lin Li、Tao Sun、Xiang Zhang、題名、14巻、1773183、issued 2026-03-12、VOR の CC BY 4.0 が一致。Received 2025-12-23、Accepted 2026-02-26、Published 2026-03-12。原典の略称は QQBS。15項目。役割の縮小と行動の惰性8、認知的崩壊と心理的離脱7。初期25項目から15項目。5件法（1＝strongly disagree～5＝strongly agree）。本調査（CFA）n=407。係数αは全体 .921、下位尺度 .874 と .900。本文はどちらの下位尺度かを明記していないので対応づけていない。折半信頼性 .803。CFA は CFI=.959、IFI=.960、RMSEA=.065。`usagePermission` は `unknown`。論文は CC BY だが、尺度の利用許諾の明記はない。`itemPublicationStatus` は `source-open`。`items` は空。`usageStudies` は空。質問紙は中国語。`japaneseVersionStatus` は `unconfirmed`。`verifiedAt` は 2026-11-19。QQS-9 とは別尺度。
+- QQS-9（`galanis-qqs-9`）の使用研究は1件から2件。既存の Xu ら（2025）は残し、その後ろに追加した。旗艦の回答形式、逆転、`usagePermission`、日本語は変えていない。Xu らの `verifiedAt` は 2026-10-20 のまま。尺度の `verifiedAt` は 2026-11-19。
+- Ghahramani、Nemati、Hazrati、Gholami、Eskandari、Gholami、Bagheri Lankarani（2026）。Brain and Behavior, 16(5), e71439。DOI `10.1002/brb3.71439`。`url` は DOI のみ。Crossref で著者・題名、16巻5号、e71439、issued 2026-04-29、VOR の CC BY 4.0 が一致。PMC13128962。イラン2州13病院の看護師、分析 N=754（女性541）。Galanis ら（2023）の9項目。表面妥当性（項目削除なし）、CVI 0.89。この標本の α=0.66。ROC の cutoff 2.38 と有病率 59.5% は旗艦に採用していない。本文の Questions 5・7 の頻度形式と Questions 7・8・9 の逆転は、原典番号との対応が本文にないため旗艦に寄せていない。実施言語・翻訳手続きは本文に記載なし。開発者は著者に含まれない。主目的は有病率と予測因子。検証研究ではない。
+- 日本語の検証済みは28のまま。関連版は14のまま。未確認は138から140（追加した MODS と QQBS が `unconfirmed`）。日本語使用例は18のまま。言語的妥当性確認は2、翻訳・因子構造等の検討は5、日本語で独自開発は7、開発論文内の日本語検証は1のまま。登録版そのものが3・4項目の尺度は32のまま（MODS は34項目、QQBS は15項目）。使用研究側の3・4項目は29のまま（追加は9項目。QQS-9 には既に9項目の使用がある）。
+- 見送りは、MAILS（AIリテラシー）の使用研究候補 Arranz-García ほか 2026（Front Educ, DOI `10.3389/feduc.2026.1846955`）。スペイン語版の検証研究で、回答形式を原版の0–10から5件法（never～always）に変更しているため使用研究にしない。既存の HOLD（NLWLS、CS-12 日本語、ATAI 5件法版、WILS・SMMS・WPS・MV-12・BWS の独立使用、消費者のイノベーション疲労、WIAS、従業員の予防的健康イニシアチブ、MSMW、職場のAI信頼、職場の幸福目録、職場の尊厳、RWSS、EmpRes 等）は変更していない。`items.js` は変えていない。確認は [2026-11-19ログ](dev/logs/2026-11-19-mods-qqbs-qqs.md)。
 
 ## v0.136.0 の追加（グリーンハッシングへの態度、職場のエゴイズム、Thriving-10 の使用研究）
 
