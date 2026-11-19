@@ -1,0 +1,8 @@
+# 2026-11-19 組織的非人間化、QQBS、QQS-9 の使用研究
+
+- セマンティック版は v0.137.0。概念162、尺度215、使用研究254、選択ガイド98、関係16。`app.js`、`items.js`、`index.html`、CSS、`verify-data.mjs` は変えていない。項目本文は載せていない。
+- 新規は、組織的非人間化。DOI `10.1371/journal.pone.0351254`。Crossref は 2026-07-06、PLOS One、21巻7号、e0351254、CC BY 4.0。著者は Semin Kazazoglu、Dilruba Sahin、Cem Oktay Guzeller、Dilek Ilhan-Findikoglu、Fuat Findikoglu。34項目。価値の切り下げ21、道具化13。5件法（1＝strongly disagree～5＝strongly agree）。CFA 標本の係数αは .93、.96、全体 .96。EFA n=318、CFA n=263、計581。CFA の df=524 は、34項目・2相関因子の自由度526とは一致しない。寄せていない。表示略称 MODS は、尺度名の頭字語で、論文に印刷された略称ではない。S1 Appendix の最終番号と Table 1 の原番号の対応は、付録に因子名の明記がないので断定していない。逆転項目番号は本文に列挙なし。大学教員標本。Caesens らの単一次元尺度は未登録。項目本文は転載していない。
+- 新規は、静かな退職の QQBS。DOI `10.3389/fpubh.2026.1773183`。Crossref は 2026-03-12、Frontiers in Public Health、14巻、1773183、CC BY 4.0。著者は Qing-lin Li、Tao Sun、Xiang Zhang。原典の略称は QQBS。15項目。役割の縮小と行動の惰性8、認知的崩壊と心理的離脱7。5件法。本調査407名の係数αは全体 .921、下位尺度 .874 と .900。下位の対応づけは本文にないのでしていない。QQS-9 とは別尺度。得点は混ぜない。医療職標本でのみ検証。項目本文は転載していない。概念定義は Galanis 中心の記述を最小限調整し、decisionGuide に choice を1つ追加した。
+- QQS-9 の使用研究は Ghahramani ほか（2026）。DOI `10.1002/brb3.71439`。Crossref は 2026-04-29、Brain and Behavior、16巻5号、e71439、CC BY 4.0。PMC13128962。イラン13病院の看護師754名。Galanis ら（2023）の9項目。この標本の α は 0.66。表面妥当性（項目削除なし）、CVI 0.89。ROC の cutoff 2.38 と有病率 59.5% は旗艦に採用していない。本文の Questions 番号の頻度形式・逆転は、原典番号との対応が本文にないため旗艦に寄せていない。実施言語・翻訳手続きは本文に記載なし。開発者は著者に含まれない。主目的は有病率と予測因子。
+- 見送り。MAILS の Arranz-García ほか 2026（DOI `10.3389/feduc.2026.1846955`）は、スペイン語版の検証で回答形式を原版の0–10から5件法（never～always）に変更しているため使用研究にしない。指定の HOLD は変更していない。
+- 確認は `node --check data.js`、`node --check items.js`、`node --check app.js`、`node --check verify-data.mjs`、`node verify-data.mjs`、`node verify-data.mjs --self-test`、`git diff --check`。
