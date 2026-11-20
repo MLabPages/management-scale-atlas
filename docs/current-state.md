@@ -1,6 +1,18 @@
 # Current state
 
-最終更新: 2026-11-19
+最終更新: 2026-11-20
+
+## v0.138.0 の追加（失敗から学ぶ風土、JCS・PES の使用研究）
+
+- 163概念・216尺度・256使用研究・99選択ガイド・16関係。概念は162から163。尺度は215から216。使用研究は254から256。選択ガイドは98から99。関係は16のまま。`meta.version` は `0.138.0`。`meta.updated` は 2026-11-20。`meta.scope` は `163概念・216尺度`。開発論文は使用研究に入れない。機能用とデータ用で版を分けない。`app.js`、`items.js`、`index.html`、CSS、`verify-data.mjs` は変えていない。項目本文は載せていない。
+- 概念 `learning-from-mistakes-climate`（失敗から学ぶ風土）と尺度 `lee-wo-lmcs-17`（LMCS）を追加した。分野は「組織行動・人的資源」。心理的安全性そのものではなく、組織学習能力そのものでも、ワーク・エンゲイジメントそのものでもない。得点は合算しない。`relatedConcepts` は存在する `psychological-safety`、`organizational-learning-capability`、`work-engagement`。相手側への逆リンクは足していない。関係レコードは追加していない。
+- LMCS は Lee と Wo（2022）。Frontiers in Psychology, 13, 911311。DOI `10.3389/fpsyg.2022.911311`。`sourceUrl` は DOI のみ。Crossref で著者 Michelle Chin Chin Lee、Su Woan Wo、題名、13巻、911311、issued 2022-08-08、VOR の CC BY 4.0 が一致。公開 2022-08-08。原典の略称は LMCS。17項目・単一次元。専門家パネルで23項目→CFA（N=554）で因子負荷 .40 未満の6項目（原典番号 6, 10, 16, 19, 20, 21）を削除して17項目1因子。5件法（1＝strongly disagree～5＝strongly agree）。逆転項目の記載なし。合計か平均かは本文に明記なし。高得点ほど失敗から学ぶ風土が肯定的。最終モデル（誤差共分散5組を許容）χ²/df=3.764、CFI=.926、GFI=.911、AGFI=.880、RMSEA=.071、SRMR=.0466、標準化負荷 .460–.750。係数α=.921、McDonald ω=.922。再検査は10–14日後 n=468、総得点 r=.611、項目 r=.196–.398、ICC はすべて有意。学習風土（LCS, Nikolova ら 2014）、UWES-3、チーム心理的安全性（Edmondson 1999 の7項目）との関係で収束・基準関連・予測妥当性を支持と報告。標本はマレーシアの企業に勤めるホワイトカラー従業員 554名（18–66歳、平均32.28歳 SD12.40）、SNS による便宜標本、インターン・フリーランス・勤続6か月未満は除外。実施言語は本文に明記なし。論文の項目表記は英語の付録。`usagePermission` は `unknown`。論文は CC BY 4.0 だが、尺度の利用許諾の明記はない。`itemPublicationStatus` は `source-open`。Appendix A に項目がある。転載しない。`items` は空。`usageStudies` は空。`japaneseVersionStatus` は `unconfirmed`。`verifiedAt` は 2026-11-20。
+- JCS（`job-crafting-scale-tims`）の使用研究は2件から3件。既存の Mori ら（2023）と Akın ら（2014）は残し、その後ろに追加した。旗艦の5件法、21項目、`usagePermission`、日本語は変えていない。尺度の `verifiedAt` は 2026-11-20。
+- Miser（2026）。Frontiers in Psychology, 17, 1792640。DOI `10.3389/fpsyg.2026.1792640`。`url` は DOI のみ。Crossref で著者 Evin Miser、題名、17巻、1792640、issued 2026-05-11、VOR の CC BY 4.0 が一致。公開 2026-05-11。トルコ・アンカラの技術開発区の ICT 企業で働く専門職。回答403名、分析314名。Tims ら（2012）の4次元21項目、Akın ら（2014）のトルコ語適応版。5件法（1＝Strongly disagree～5＝Strongly agree。論文は全尺度共通でこの形式と記載）。Table 3 で JCS 全体 α=.820、下位次元 α は構造的資源の増加 .869、妨害的要求の減少 .779、社会的資源の増加 .794、挑戦的要求の増加 .816。ジョブ・クラフティングは知覚業績に正の関係、心理的エンパワーメントの媒介は支持されなかった。開発者は著者に含まれない。
+- PES / PEQ（`spreitzer-psychological-empowerment-scale`）の使用研究は2件から3件。既存の Monje Amor ら（2021）と Ochoa Pacheco ら（2023）は残し、その後ろに同じ Miser（2026）を追加した。旗艦の7件法、12項目、`usagePermission`、日本語の `validated` は変えていない。尺度の `verifiedAt` は 2026-11-20。
+- 同じ論文の PES。12項目・4次元（meaning, autonomy, competence, impact）。旗艦の Self-determination を本文は autonomy と書く。寄せていない。トルコ語適応版。5件法（1＝Strongly disagree～5＝Strongly agree）。Table 3 で全体 α=.878、下位次元 α は competence .832、meaning .800、autonomy .870、impact .859。媒介仮説は支持されなかった。開発者は著者に含まれない。
+- 日本語の検証済みは28のまま。関連版は14のまま。未確認は140から141（追加した LMCS が `unconfirmed`）。日本語使用例は18のまま。言語的妥当性確認は2、翻訳・因子構造等の検討は5、日本語で独自開発は7、開発論文内の日本語検証は1のまま。登録版そのものが3・4項目の尺度は32のまま（LMCS は17項目）。使用研究側の3・4項目は29のまま（追加は21項目と12項目。JCS には既に21項目の使用がある。PES には既に12項目の使用がある）。
+- 見送りは、MAILS（AIリテラシー）の使用研究候補 Arranz-García ほか 2026、NLWLS、CS-12 日本語、ATAI 5件法版・日本語版、WILS・SMMS・WPS・MV-12・BWS の独立使用など、指定の HOLD。`items.js` は変えていない。確認は [2026-11-20ログ](dev/logs/2026-11-20-lmcs-jcs-pes.md)。
 
 ## v0.137.0 の追加（組織的非人間化、QQBS、QQS-9 の使用研究）
 
