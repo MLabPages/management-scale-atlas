@@ -1,0 +1,8 @@
+# 2026-11-21 仕事関連の困難（WRCQ）、DAI・AAAW の使用研究
+
+- セマンティック版は v0.139.0。概念164、尺度217、使用研究258、選択ガイド100、関係16。`app.js`、`items.js`、`index.html`、CSS、`relations.js`、`relation-model.js`、`verify-data.mjs` は変えていない。項目本文は載せていない（15尺度・166項目のまま）。
+- 新規は、仕事関連の困難（職場のクリティカリティ）。DOI `10.3389/fpubh.2026.1791989`。Crossref は 2026-05-08、Frontiers in Public Health、14巻、1791989、CC BY 4.0。著者は Stefano Livellara、Anna Comotti、Elisa Carena、Matteo Bonzini、Giovanna Castellini。原典の略称は WRCQ。39項目・5次元（IH、IC、OD、PD、OC）。各次元の項目数は本文に明記なし。3件法（never=1, sometimes=2, often=3）。総得点は全項目の平均（範囲1–3）。全体 α=0.91。CFA（WLSMV）は5因子相関と二次因子を支持。NAQ-R と r=0.75。ミラノの職業ストレス・ハラスメントセンターの臨床標本317名。イタリア語で開発。項目本文は転載していない。職場いじめ・職場インシビリティとは別概念。NAQ-R 側の caution に一言追記した。
+- DAI の使用研究は Korkmaz と Toraman（2026）。DOI `10.1186/s12909-026-08675-0`。Crossref は 2026-01-27、BMC Medical Education、26巻、306、CC BY-NC-ND 4.0。トルコの医学生 N=958。Savaş（2024）のトルコ語版（DOI 10.56639/jsar.1509301。Crossref 未確認のため URL にせず文字のみ）。本文の件法は Strongly Disagree～Strongly Agree で、旗艦のアンカー表記とは異なる。この標本の α=0.817、ω=0.806。本文の CFA の自由度が5項目単一因子と整合しないため、適合度の数値は採らない。開発者は著者に含まれない。旗艦の件法・日本語・usagePermission は変えていない。
+- AAAW の使用研究は Cui、Li、Shi、Zhao（2026）。DOI `10.3389/fmed.2026.1942864`。Crossref は 2026-10-29、Frontiers in Medicine、13巻、1942864、CC BY 4.0。中国の臨床看護師、有効305名。Li ら（2026）の中国語版（DOI 10.12102/j.issn.1009-6493.2026.03.011。Crossref 未確認のため URL にせず文字のみ）。項目14–21を逆転。この標本の全体 α=0.949。開発者は著者に含まれない。旗艦の値・日本語・usagePermission は変えていない。
+- 見送り。NLWLS、CS-12 日本語、ATAI 5件法版・日本語版、WILS・SMMS・WPS・MV-12・BWS の独立使用、MAILS 使用研究 Arranz-García 2026、テクノストレス Ragu-Nathan 2008、Price Consciousness 5 など、指定の HOLD は変更していない。DAI の Peru 2025 Data and Metadata 論文（DOI `10.56294/dm2025210`）は未確認のため不採用。
+- 確認は `node --check data.js`、`node verify-data.mjs`、`git diff --check`。
