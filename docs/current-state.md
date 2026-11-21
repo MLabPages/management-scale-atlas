@@ -1,6 +1,18 @@
 # Current state
 
-最終更新: 2026-11-20
+最終更新: 2026-11-21
+
+## v0.139.0 の追加（仕事関連の困難、DAI・AAAW の使用研究）
+
+- 164概念・217尺度・258使用研究・100選択ガイド・16関係。概念は163から164。尺度は216から217。使用研究は256から258。選択ガイドは99から100。関係は16のまま。`meta.version` は `0.139.0`。`meta.updated` は 2026-11-21。`meta.scope` は `164概念・217尺度`。開発論文は使用研究に入れない。機能用とデータ用で版を分けない。`app.js`、`items.js`、`index.html`、CSS、`relations.js`、`relation-model.js`、`verify-data.mjs` は変えていない。項目本文は載せていない（15尺度・166項目のまま）。
+- 概念 `work-related-criticalities`（仕事関連の困難（職場のクリティカリティ））と尺度 `livellara-wrcq-39`（WRCQ）を追加した。分野は「組織行動・人的資源」。職場いじめそのものではなく、職場インシビリティそのものでもない。得点は合算しない。`relatedConcepts` は存在する `workplace-bullying`、`workplace-incivility`。相手側への逆リンクは足していない。関係レコードは追加していない。職場いじめ（NAQ-R）の caution に、WRCQ を別概念として一言追記した。
+- WRCQ は Livellara、Comotti、Carena、Bonzini、Castellini（2026）。Frontiers in Public Health, 14, 1791989。DOI `10.3389/fpubh.2026.1791989`。`sourceUrl` は DOI のみ。Crossref で著者 Stefano Livellara、Anna Comotti、Elisa Carena、Matteo Bonzini、Giovanna Castellini、題名、14巻、1791989、issued 2026-05-08、VOR の CC BY 4.0 が一致。公開 2026-05-08。Brief Research Report。原典の略称は WRCQ。39項目・5次元（IH、IC、OD、PD、OC）。各次元の項目数は本文に明記なし。3件法（never=1, sometimes=2, often=3）。総得点は全項目の平均（範囲1–3）。全体 α=0.91（95%CI 0.90–0.93）、下位 .83／.74／.63／.70／.71。CFA（WLSMV）は5因子相関と二次因子を支持し、単一因子は劣る。NAQ-R と r=0.75。標本はミラノの Policlinico 病院の職業ストレス・ハラスメントセンターの労働者317名（女性61%、平均年齢50.5）。臨床・高リスク標本で一般就労者への一般化・カットオフ・スクリーニングは未検証と著者が明記。イタリア語で開発。`usagePermission` は `unknown`。論文は CC BY 4.0 だが、尺度の利用許諾の明記はない。`itemPublicationStatus` は `not-published`。補足資料の英訳つき質問票は転載しない。`items` は空。`usageStudies` は空。`japaneseVersionStatus` は `unconfirmed`。`verifiedAt` は 2026-11-21。
+- DAI（`morales-garcia-dai-5`）の使用研究は0件から1件。旗艦の件法、日本語、`usagePermission` は変えていない。心理測定根拠の `verifiedAt` は 2026-10-31 のまま。尺度の `verifiedAt` は 2026-11-21。
+- Korkmaz と Toraman（2026）。BMC Medical Education, 26, 306。DOI `10.1186/s12909-026-08675-0`。`url` は DOI のみ。Crossref で著者 Güneş Korkmaz、Çetin Toraman、題名、26巻、306、issued 2026-01-27、ライセンス CC BY-NC-ND 4.0 が一致。トルコの医学部6校の医学生 N=958。Savaş（2024）のトルコ語版（DOI 10.56639/jsar.1509301。Crossref 未確認のため URL にせず文字のみ）。本文の5件法は 1＝Strongly Disagree～5＝Strongly Agree で、旗艦のアンカー表記とは異なる。合計点 5–25。この標本の α=0.817、ω=0.806。本文の CFA の自由度が5項目単一因子と整合しないため、適合度の数値は採らない。開発者は著者に含まれない。
+- AAAW（`park-woo-kim-aaaw-25`）の使用研究は0件から1件。旗艦の値、日本語、`usagePermission` は変えていない。心理測定根拠の `verifiedAt` は 2026-10-31 のまま。尺度の `verifiedAt` は 2026-11-21。
+- Cui、Li、Shi、Zhao（2026）。Frontiers in Medicine, 13, 1942864。DOI `10.3389/fmed.2026.1942864`。`url` は DOI のみ。Crossref で著者 Xuan Cui、Haihong Li、Min Shi、Ting Zhao、題名、13巻、1942864、issued 2026-10-29、VOR の CC BY 4.0 が一致。中国の三級甲等病院1施設の臨床看護師、有効305名。Li ら（2026）の中国語版（DOI 10.12102/j.issn.1009-6493.2026.03.011。Crossref 未確認のため URL にせず文字のみ）。25項目・6次元、項目14–21を逆転。この標本の全体 α=0.949。項目平均 3.46（SD 0.68）。POS・ジョブ・クラフティングと正相関。開発者は著者に含まれない。
+- 日本語の検証済みは28のまま。関連版は14のまま。未確認は141から142（追加した WRCQ が `unconfirmed`）。日本語使用例は18のまま。言語的妥当性確認は2、翻訳・因子構造等の検討は5、日本語で独自開発は7、開発論文内の日本語検証は1のまま。登録版そのものが3・4項目の尺度は32のまま（WRCQ は39項目）。使用研究側の3・4項目は29のまま（追加は5項目と25項目。DAI には既に5項目の旗艦がある）。
+- 見送りは、NLWLS、CS-12 日本語、ATAI 5件法版・日本語版、WILS・SMMS・WPS・MV-12・BWS の独立使用、MAILS 使用研究 Arranz-García 2026、テクノストレス Ragu-Nathan 2008、Price Consciousness 5 など、指定の HOLD。DAI の Peru 2025 Data and Metadata 論文（DOI `10.56294/dm2025210`）は未確認のため不採用。`items.js` は変えていない。確認は [2026-11-21ログ](dev/logs/2026-11-21-wrcq-dai-aaaw.md)。
 
 ## v0.138.0 の追加（失敗から学ぶ風土、JCS・PES の使用研究）
 
