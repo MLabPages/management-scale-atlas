@@ -1,37 +1,37 @@
-# 項目本文の掲載可否（2026-11-13）
+# 項目本文の掲載可否（2026-11-23 更新）
 
 対象は v0.129.0 時点の 150概念・202尺度。区分は、公開サイトへ項目本文を転載してよいかを見たもので、尺度の利用条件 `usagePermission` とは別である。根拠は出版版のライセンス、公式配布、原典の項目所在に限る。1行ごとの根拠は [items-license-audit.csv](items-license-audit.csv)。
 
 | 区分 | 定義 | 件数 | 今回の掲載 |
 |---|---|---|---|
-| A | 出版版が CC BY（または公式に自由利用と明記）で、項目本文が論文本文・付録・公式配布物にある | 20 | 原文を確定できた 15 |
-| B | 非商用のみ、NC/ND、条件の食い違い、研究利用のみ、権利が原典に残りうる | 28 | 載せない |
+| A | 項目本文が論文本文・付録・公式配布物にあり、出版版の CC BY や公式の条件が転載の根拠になる | 19 | 14 |
+| B | 非商用のみ、NC/ND、条件の食い違い、研究利用のみ、元尺度の権利が残りうる | 29 | 載せない |
 | C | 商用・有料、または事前許諾が必須 | 8 | 載せない |
 | 不明 | 転載を許すライセンスも、掲載不可の明記も確認できなかった | 146 | 載せない |
 
 合計 202。
 
-## 掲載した15尺度（166項目）
+## 掲載していた15尺度の再確認
 
-原文は `items.js`。文言は変えていない。
+2026-11-23 に掲載中だった15尺度・166項目を、出版社版の項目欄とライセンス、必要に応じて補足資料・公式質問票と照合した。確認日現在の掲載は14尺度・160項目。
 
-| 尺度 | id | 項目数 |
-|---|---|---|
-| Sense of Agency Scale（SoAS） | `sense-of-agency-scale` | 13 |
-| Consumer Brand Engagement Beyond the Likes Scale（CBE-BL 6） | `consumer-brand-engagement-beyond-likes-6` | 6 |
-| Japanese Material Values Scale – Positive-worded 6-item form（J-MVS-P6） | `j-mvs-p6-ohno-6` | 6 |
-| Psychological Empowerment Leadership Scale（PELS） | `schermuly-pels-24` | 24 |
-| Compound Psychological Capital Scale – Revised（CPC-12R） | `dudasova-cpc-12r` | 12 |
-| Gaslighting at Work Questionnaire（GWQ-12） | `kukreja-pandey-gwq-12` | 12 |
-| AI Attitude Scale（AIAS-4） | `grassini-aias-4` | 4 |
-| Dependence on Artificial Intelligence Scale（DAI） | `morales-garcia-dai-5` | 5 |
-| Eudaimonic Workplace Well-being Scale（EWWS） | `bartels-ewws-8` | 8 |
-| Workplace Compassion Scale（WCS） | `mandliya-wcs-12` | 12 |
-| Burnout Assessment Tool（BAT-23） | `schaufeli-bat-23` | 23 |
-| Burnout Assessment Tool – 12 item（BAT-12） | `hadzibajramovic-bat-12` | 12 |
-| Belonging at Work Scale（BWS） | `lee-baggley-bws-7` | 7 |
-| Customer Experience Scale for Omnichannel Environments（CX Scale） | `customer-experience-scale-gahler-18` | 18 |
-| Virtual Embodiment Questionnaire – Control / Agency Subscale（VEQ-AG） | `virtual-embodiment-questionnaire-agency` | 4 |
+| 尺度 | 項目数 | 判定 | 出典と転載根拠 |
+|---|---:|---|---|
+| SoAS | 13 | 掲載継続 | [Frontiers](https://doi.org/10.3389/fpsyg.2017.01552) の Table 1。CC BY 4.0。 |
+| CBE-BL 6 | 6 | 掲載継続 | [Frontiers](https://doi.org/10.3389/fpsyg.2021.692000) の Table 2。CC BY 4.0。 |
+| J-MVS-P6 | 6 | 掲載停止（B） | [BMC Psychology](https://doi.org/10.1186/s40359-022-00889-3) の補足資料2で原文を確認。原著には元尺度開発者から得た掲載許可の記載があり、第三者による再掲載まで含むことは確認できなかった。[慶應前野研究室](https://lab.sdm.keio.ac.jp/maenolab/J-MVS-P6.htm) は原文を公開している。 |
+| PELS | 24 | 掲載継続 | [Frontiers](https://doi.org/10.3389/fpsyg.2025.1539085) の Table 1 と続表。CC BY 4.0。 |
+| CPC-12R | 12 | 掲載継続 | [PLOS ONE](https://doi.org/10.1371/journal.pone.0247114) の [S1 Appendix](https://doi.org/10.1371/journal.pone.0247114.s005)。CC BY 4.0。レジリエンス3項目は [訂正記事](https://doi.org/10.1371/journal.pone.0301794) とも一致。 |
+| GWQ-12 | 12 | 掲載継続 | [Frontiers](https://doi.org/10.3389/fpsyg.2023.1099485) の Table 2。CC BY 4.0。 |
+| AIAS-4 | 4 | 掲載継続 | [Frontiers](https://doi.org/10.3389/fpsyg.2023.1191628) の本文。候補5項目から第4項目を除いた版。CC BY 4.0。 |
+| DAI | 5 | 掲載継続 | [Frontiers](https://doi.org/10.3389/feduc.2024.1323898) の Table 2。スペイン語と英語の両方を照合。CC BY 4.0。 |
+| EWWS | 8 | 掲載継続 | [PLOS ONE](https://doi.org/10.1371/journal.pone.0215957) の Appendix。CC BY 4.0。 |
+| WCS | 12 | 掲載継続 | [Frontiers](https://doi.org/10.3389/fpsyg.2023.1142309) の Appendix A。CC BY 4.0。 |
+| BAT-23 | 23 | 掲載継続 | [開発論文](https://pmc.ncbi.nlm.nih.gov/articles/PMC7766078/) の Appendix B・Table A2。CC BY 4.0。 |
+| BAT-12 | 12 | 掲載継続 | [公式英語質問票](https://burnoutassessmenttool.be/wp-content/uploads/2020/08/BAT-English.pdf) の短縮版マークと [短縮版論文](https://doi.org/10.1186/s12889-022-12946-y) で版を確認。項目本文は CC BY 4.0 の開発論文 Appendix B にも収録。 |
+| BWS | 7 | 掲載継続 | [PLOS ONE](https://doi.org/10.1371/journal.pone.0346786) の Table 1 を出版 XML で照合。CC BY 4.0。 |
+| CX Scale | 18 | 掲載継続 | [Sage 出版版](https://doi.org/10.1177/10946705221126590) の Table 3 と Rights and permissions。CC BY 4.0。 |
+| VEQ-AG | 4 | 掲載継続 | [IEEE 出版版 PDF](https://ieeexplore.ieee.org/ielx7/2945/9254192/09199571.pdf) の Table 3 の Agency 部分と第1頁のライセンス表示。CC BY 4.0。 |
 
 BAT-23 と BAT-12 は、論文の CC BY 4.0 に加え、公式が無償・事前許諾不要と書き、同時に改変不可・指定文献の引用必須とする。原文のまま掲載する。
 

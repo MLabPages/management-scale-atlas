@@ -347,7 +347,12 @@ function validateItems(items, atlas) {
     }
     if (!isNonEmptyText(record.license)) errors.push(`${fieldPath}.license: ライセンスの記載が必要です。`);
     if (!isHttpUrl(record.licenseUrl)) errors.push(`${fieldPath}.licenseUrl: http または https のライセンスURLが必要です。`);
-    if (record.published !== true) continue;
+    if (record.published !== true) {
+      if (record.items?.length || record.stem || record.anchors?.instructions) {
+        errors.push(`${fieldPath}: 非掲載の項目本文や教示を公開ファイルに含めないでください。`);
+      }
+      continue;
+    }
     if (!isNonEmptyText(record.sourceCitation)) errors.push(`${fieldPath}.sourceCitation: 出典の記載が必要です。`);
     if (!isHttpUrl(record.sourceUrl)) errors.push(`${fieldPath}.sourceUrl: http または https の出典URLが必要です。`);
     if (!Array.isArray(record.items) || record.items.length === 0) {
@@ -446,7 +451,9 @@ function runSelfTest() {
   const unpublished = validateItems({
     sa: { published: false, license: "CC BY 4.0", licenseUrl: "https://creativecommons.org/licenses/by/4.0/", items: [{ text: "only", reverse: false }] },
   }, itemAtlas);
-  if (unpublished.length) throw new Error(`項目本文の自己テスト失敗: 非掲載の件数差を拒否しました。${unpublished.join(" / ")}`);
+  if (!unpublished.some((error) => error.includes("非掲載の項目本文"))) {
+    throw new Error("項目本文の自己テスト失敗: 非掲載の項目本文が公開ファイルに残っていました。");
+  }
   console.log("自己テスト: ルート・ネストした重複キー、ID・参照・形式エラー、ResearchGate の URL、項目本文のID・件数・ライセンスを検出できました。");
 }
 

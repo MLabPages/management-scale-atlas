@@ -2,9 +2,9 @@
 // DOI、原典、項目数、下位次元は原著論文または公式資料で確認。
 const ATLAS_DATA = {
   meta: {
-    version: "0.140.0",
+    version: "0.140.1",
     status: "initial-real-data",
-    updated: "2026-11-22",
+    updated: "2026-11-23",
     scope: "164概念・217尺度",
   },
 
@@ -6180,7 +6180,7 @@ const ATLAS_DATA = {
       japaneseEvidence: [
         { kind: "psychometric-validation", label: "検証済み日本語短縮版（J-MVS-P6）", authors: "Ohno, Lee, & Maeno", year: 2022, title: "The Japanese version of the Material Values Scale: construct assessment and relationship with age, personality, and subjective well-being", doi: "10.1186/s40359-022-00889-3", url: "https://doi.org/10.1186/s40359-022-00889-3" },
       ],
-      validationStudies: [], usagePermission: "open", usageEvidence: [],
+      validationStudies: [], usagePermission: "unknown", usageEvidence: [],
       psychometricEvidence: [
         { label: "日本オンライン標本でのEFA/CFAと併存的妥当性", sample: "日本のオンライン調査500名（20–69歳、年齢帯・性別割付）", methods: "18項目J-MVSから肯定項目プールをEFA/CFA。Model 11（J-MVS-P6）。年齢・性格・主観的ウェルビーイングとの関連。", result: "2因子（φ=.55）。CFI=.986, TLI=.974, SRMR=.035, RMSEA=.055。全体α=.776。Success/Centrality CR=.700 AVE=.448、Happiness CR≈.80 AVE=.575。年齢と負相関、INCOM能力と正相関、SHS/SWLS等と負相関。著者は日本向け物質主義尺度としてJ-MVS-P6を提案。", url: "https://doi.org/10.1186/s40359-022-00889-3" },
       ],
@@ -6192,7 +6192,7 @@ const ATLAS_DATA = {
         { title: "Feelings of Personal Relative Deprivation and Subjective Well-Being in Japan", authors: "Ohno, Lee, & Maeno", year: 2023, context: "日本のオンライン調査で個人的相対的剥奪・社会比較・物質主義・主観的ウェルビーイングの関係を検討", sample: "日本の成人500名（20–69歳、年齢帯・性別割付；MyVoiceパネル）", itemCount: 6, responseFormat: "5件法", language: "Japanese", adaptation: "公開済みJ-MVS-P6をそのまま使用（6項目）。MVS-9/MVS-6/J-MVS-18ではない。分析データはOhno et al. 2022の開発論文と同一調査・別焦点である点を明記。", result: "α=.776、M=2.80。PRDと物質主義の相関 r=.451。能力比較SCO→PRD→物質主義の部分媒介を報告。", doi: "10.3390/bs13020158", url: "https://doi.org/10.3390/bs13020158" },
       ],
       itemPublicationStatus: "source-open", items: [], verifiedAt: "2026-09-05",
-      notes: "原著はCC BY 4.0。項目本文は本サイトに転載せず、慶應前野研究室の掲載ページへリンクする（Additional file 2にもJ-MVS全文あり）。MVS-9やMVS-6の代替ラベルとして扱わない。成功／中心性が1因子に統合されている点に注意。",
+      notes: "項目本文は慶應前野研究室の掲載ページと原著の補足資料2で確認できる。原著はCC BY 4.0だが、著者が元尺度開発者から得た許可の範囲は確認できないため、本サイトでの転載を見合わせている。MVS-9やMVS-6の代替ラベルとして扱わない。成功／中心性が1因子に統合されている点に注意。",
       recordStatus: "verified-metadata",
     },
     {

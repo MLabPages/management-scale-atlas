@@ -138,64 +138,6 @@ window.ATLAS_ITEMS = {
       }
     ]
   },
-  "j-mvs-p6-ohno-6": {
-    "published": true,
-    "license": "CC BY 4.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
-    "licenseNotice": "原著（BMC Psychology）は CC BY 4.0。研究室ページのフッターはサイト著作権表示があるが、項目本文は CC BY の Additional file 2 から書き起こした。",
-    "sourceCitation": "Ohno, H., Lee, KT., & Maeno, T. (2022). The Japanese version of the Material Values Scale: construct assessment and relationship with age, personality, and subjective well-being. BMC Psychology, 10, 200.",
-    "sourceUrl": "https://doi.org/10.1186/s40359-022-00889-3",
-    "sourceLocation": "Additional file 2（The Japanese version of the Material Value Scale (J-MVS); 項目1,5,12,15,17,18 に *）",
-    "anchors": {
-      "min": 1,
-      "max": 5,
-      "labels": {
-        "1": "まったくあてはまらない",
-        "5": "かなりあてはまる"
-      },
-      "notes": [
-        "日本語アンカーラベルは著者研究室ページ（https://lab.sdm.keio.ac.jp/maenolab/J-MVS-P6.htm）。Additional file 2 は “5-point scale” とのみ記す。次元ラベル（成功/中心性・幸福）も研究室ページの注記による。"
-      ]
-    },
-    "items": [
-      {
-        "text": "高価な家，車，衣服を持つ人々に私は憧れを抱く",
-        "reverse": false,
-        "dimension": "成功/中心性",
-        "textOriginal": "I admire people who own expensive homes, cars, and clothes."
-      },
-      {
-        "text": "私は，人々に印象づけるようなものを持つのが好きだ",
-        "reverse": false,
-        "dimension": "成功/中心性",
-        "textOriginal": "I like to own things that impress people."
-      },
-      {
-        "text": "私はとても贅沢な生活が好きだ",
-        "reverse": false,
-        "dimension": "成功/中心性",
-        "textOriginal": "I like a lot of luxury in my life."
-      },
-      {
-        "text": "もし私が今持っていないものを持てるようになったら，私の人生はもっと良くなるだろう",
-        "reverse": false,
-        "dimension": "幸福",
-        "textOriginal": "My life would be better if I owned certain things I don’t have."
-      },
-      {
-        "text": "もし，もっと多くのものを買う余裕があったとしたら，私はもっと幸せになれるだろう",
-        "reverse": false,
-        "dimension": "幸福",
-        "textOriginal": "I’d be happier if I could afford to buy more things."
-      },
-      {
-        "text": "欲しいもの全てを買う余裕がないことが，時々私をかなり悩ませる",
-        "reverse": false,
-        "dimension": "幸福",
-        "textOriginal": "It sometimes bothers me quite a bit that I can’t afford to buy all the things I’d like."
-      }
-    ]
-  },
   "schermuly-pels-24": {
     "published": true,
     "license": "CC BY 4.0",
@@ -343,7 +285,7 @@ window.ATLAS_ITEMS = {
     "published": true,
     "license": "CC BY 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
-    "licenseNotice": "論文は CC BY 4.0。抄録は CPC-12R を “a free-to-use measure of Psychological Capital” と記す。",
+    "licenseNotice": "© 2021 Dudasova et al. 補足資料 S1 Appendix の原文を転載。レジリエンス3項目は2024年の訂正（https://doi.org/10.1371/journal.pone.0301794）とも一致。",
     "sourceCitation": "Dudasova, L., Prochazka, J., Vaculik, M., & Lorenz, T. (2021). Measuring psychological capital: Revision of the Compound Psychological Capital Scale (CPC-12). PLOS ONE, 16(3), e0247114.",
     "sourceUrl": "https://doi.org/10.1371/journal.pone.0247114",
     "sourceLocation": "S1 Appendix. CPC-12R in Czech and English. https://doi.org/10.1371/journal.pone.0247114.s005 (DOCX)",
@@ -956,7 +898,7 @@ window.ATLAS_ITEMS = {
     "license": "CC BY 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "licenseNotice": "PLOS ONE 出版版（CC BY 4.0）。",
-    "sourceCitation": "Lee-Baggley, D., Bakour, H., Howatt, B., Gilin, D., & Etezad, E. (2026). Belonging at Work Scale. PLOS ONE, 21(4), e0346786.",
+    "sourceCitation": "Lee-Baggley, D., Bakour, H., Howatt, B., Gilin, D., & Etezad, E. (2026). Development and validation of the belonging at work scale: Association with mistreatment and leaves. PLOS ONE, 21(4), e0346786.",
     "sourceUrl": "https://doi.org/10.1371/journal.pone.0346786",
     "sourceLocation": "Table 1. Belonging at Work Scale Items.",
     "anchors": {
