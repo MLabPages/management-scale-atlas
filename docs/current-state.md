@@ -1,6 +1,14 @@
 # Current state
 
-最終更新: 2026-11-21
+最終更新: 2026-11-22
+
+## v0.140.0 の追加（DAI の使用研究）
+
+- 164概念・217尺度・259使用研究・100選択ガイド・16関係。概念・尺度・選択ガイド・関係は不変。使用研究は258から259。`meta.version` は `0.140.0`。`meta.updated` は 2026-11-22。`meta.scope` は `164概念・217尺度`。開発論文は使用研究に入れない。機能用とデータ用で版を分けない。`app.js`、`items.js`、`index.html`、CSS、`relations.js`、`relation-model.js`、`verify-data.mjs` は変えていない。項目本文は載せていない（15尺度・166項目のまま）。
+- DAI（`morales-garcia-dai-5`）の使用研究は1件から2件。既存の Korkmaz と Toraman（2026）は残し、その後ろに追加した。旗艦の件法、日本語、`usagePermission` は変えていない。心理測定根拠の `verifiedAt` は 2026-10-31 のまま。Korkmaz の `verifiedAt` は 2026-11-21 のまま。尺度の `verifiedAt` は 2026-11-22。
+- Chavez Sosa と Huancahuire-Vega（2026）。JMIR Formative Research, 10, e82667。DOI `10.2196/82667`。`url` は DOI のみ。Crossref で著者 Janett V. Chavez Sosa、Salomon Huancahuire-Vega、題名、10巻、e82667、issued 2026-05-05 が一致。論文は CC BY 4.0。ペルー（リマ）の私立大学の医学部生 N=187（女性58.8%、年齢中央値22）、2025年前期、横断調査。原版 DAI-5 を改変せず。5項目・単一次元。5件法（1＝Totally false to me～5＝Describes me perfectly）、合計 5–25。旗艦の Completely false for me～Describes me perfectly とはアンカー表記がわずかに異なる。この標本の α=.859。DASS-21 の不安（ρ=.336）・抑うつ（ρ=.316）・ストレス（ρ=.277）と正の関連。実施言語は本文で未確認のため推測しない。開発者は著者に含まれない。
+- 日本語の検証済みは28のまま。関連版は14のまま。未確認は142のまま。日本語使用例は18のまま。言語的妥当性確認は2、翻訳・因子構造等の検討は5、日本語で独自開発は7、開発論文内の日本語検証は1のまま。登録版そのものが3・4項目の尺度は32のまま。使用研究側の3・4項目は29のまま（追加は5項目。DAI には既に5項目の旗艦と使用がある）。
+- 見送りは、指定の HOLD。`items.js` は変えていない。確認は [2026-11-22ログ](dev/logs/2026-11-22-dai-chavez-sosa.md)。
 
 ## v0.139.0 の追加（仕事関連の困難、DAI・AAAW の使用研究）
 
