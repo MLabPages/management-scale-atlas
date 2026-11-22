@@ -6,7 +6,7 @@
 
 ## ライセンス
 
-[MIT License](LICENSE) は、同ファイルに列挙したアプリと開発ツールのソースコードに適用されます。Copyright (c) 2026 MLabPages
+[MIT License](LICENSE) は、同ファイルに列挙したアプリと開発ツールのソースコードに適用されます。Copyright (c) 2026 H. Makino
 
 尺度データ（`data.js`）、転載した質問項目（`items.js`）、収集対象リスト（`collection-targets.json`）、文献情報やドキュメントは MIT の適用範囲外です。検索結果や研究設計のエクスポートに含まれる尺度・文献情報も同様です。
 
