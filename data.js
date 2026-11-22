@@ -2,9 +2,9 @@
 // DOI、原典、項目数、下位次元は原著論文または公式資料で確認。
 const ATLAS_DATA = {
   meta: {
-    version: "0.139.0",
+    version: "0.140.0",
     status: "initial-real-data",
-    updated: "2026-11-21",
+    updated: "2026-11-22",
     scope: "164概念・217尺度",
   },
 
@@ -10922,11 +10922,27 @@ const ATLAS_DATA = {
           url: "https://doi.org/10.1186/s12909-026-08675-0",
           verifiedAt: "2026-11-21",
         },
+        {
+          title: "Anxiety and Depression Associated With the Dependent Use of Generative AI in Medical Students: Cross-Sectional Study",
+          authors: "Janett V. Chavez Sosa & Salomon Huancahuire-Vega",
+          year: 2026,
+          context: "ペルー（リマ）の私立大学の医学部生における、生成AI依存と DASS-21 の不安・抑うつ・ストレスの関連",
+          sample: "ペルー（リマ）の私立大学の医学部生 N=187（女性58.8%、年齢中央値22）。2025年前期の横断調査。開発者の Morales-García らは著者に含まれない。",
+          itemCount: 5,
+          responseFormat: "5件法（1＝Totally false to me～5＝Describes me perfectly。合計 5–25。旗艦の Completely false for me～Describes me perfectly とはアンカー表記がわずかに異なる）",
+          language: "本文に明記なし",
+          adaptation: "原版 DAI-5 を改変せずに使用。5項目・単一次元。合計点 5–25、逆転の記載なし。実施言語は本文で未確認のため推測しない。旗艦の件法・日本語・usagePermission は変えない。開発論文ではない。項目本文は転載しない。",
+          result: "この標本の Cronbach α=.859。DASS-21 の不安（ρ=.336）・抑うつ（ρ=.316）・ストレス（ρ=.277）と正の関連。",
+          doi: "10.2196/82667",
+          url: "https://doi.org/10.2196/82667",
+          sourceLocator: "JMIR Formative Research, 10, e82667。DOI 10.2196/82667。Crossref の issued は 2026-05-05。論文は CC BY 4.0。DAI の節。項目本文は転載しない",
+          verifiedAt: "2026-11-22",
+        },
       ],
       itemPublicationStatus: "not-published",
       items: [],
-      verifiedAt: "2026-11-21",
-      notes: "Morales-García, W. C., Sairitupa-Sanchez, L. Z., Morales-García, S. B., & Morales-García, M.（2024）。Development and validation of a scale for dependence on artificial intelligence in university students。Frontiers in Education, 9, 1323898。DOI 10.3389/feduc.2024.1323898。sourceUrl は https://doi.org/10.3389/feduc.2024.1323898 のみ。Crossref で著者 Wilter C. Morales-García、Liset Z. Sairitupa-Sanchez、Sandra B. Morales-García、Mardel Morales-García、題名、Frontiers in Education、9巻、論文番号 1323898、公開 2024-03-12、CC BY 4.0 が一致。versionType は original。parentScaleId は空。新概念 ai-dependence（AI依存）に追加する。定義は、自動システムに意思決定・課題・確認を過度に頼る傾向または必要。抄録の略称は DIA、方法と結論の略称は DAI。同じ5項目尺度として登録し、表示略称は DAI。AI不安（AIAS-21）や AI への態度（GAAIS・ATAI・AIAS-4・AAAW）とは別概念で、得点は合算しない。5項目・単一因子。項目生成の5成分は因子ではない。5件法（Likert。両端は Completely false for me ～ Describes me perfectly。中間のアンカーは本文に明記なし）。合計か平均かの採点規則は本文に明記がない。Table 3 の α と ω は 0.87。本文の「α and ω = 87」は小数点がないため、表の 0.87 を採る。CFA は χ²(5)=8.450、p=0.133、CFI=0.99、TLI=0.98、RMSEA=0.05（90% CI 0.00–0.09）、SRMR=0.02。KMO 0.88。分散の割合 0.65。標本はペルーの医学生528名（EFA 226、CFA 302）。18–37歳、M=20.31、SD=3.8、女性53.0%。対面。倫理は 2023-CEUPeU-033。開発標本はペルーの医学生で、組織や消費者の場面での妥当性は未検証。usagePermission は unknown。論文は CC BY 4.0 だが、尺度の利用許諾の明記はない。itemPublicationStatus は not-published。GAAIS・AIAS-21 と同じ扱い。項目本文はアトラスに転載しない。items は空。開発論文は使用研究に入れない。usageStudies は Korkmaz & Toraman（2026）のフル5項目1件。DOI 10.1186/s12909-026-08675-0。BMC Medical Education, 26, 306。公開 2026-01-27。CC BY-NC-ND 4.0。Crossref で著者 Güneş Korkmaz、Çetin Toraman、題名、26巻、306、issued 2026-01-27、ライセンス CC BY-NC-ND 4.0 が一致。トルコの医学生 N=958。Savaş（2024）のトルコ語版（DOI 10.56639/jsar.1509301。Crossref 未確認のため URL にせず文字のみ）。本文の件法は 1＝Strongly Disagree～5＝Strongly Agree で、旗艦のアンカー表記とは異なる。この標本の α=0.817、ω=0.806。本文の CFA の自由度が5項目単一因子と整合しないため、適合度の数値は採らない。旗艦の件法・日本語・usagePermission は変えていない。心理測定根拠の verifiedAt は 2026-10-31 のまま。尺度の verifiedAt は 2026-11-21。日本語は unconfirmed。Table 2 の項目はスペイン語。recordStatus は verified-metadata。関係レコードは追加しない。",
+      verifiedAt: "2026-11-22",
+      notes: "Morales-García, W. C., Sairitupa-Sanchez, L. Z., Morales-García, S. B., & Morales-García, M.（2024）。Development and validation of a scale for dependence on artificial intelligence in university students。Frontiers in Education, 9, 1323898。DOI 10.3389/feduc.2024.1323898。sourceUrl は https://doi.org/10.3389/feduc.2024.1323898 のみ。Crossref で著者 Wilter C. Morales-García、Liset Z. Sairitupa-Sanchez、Sandra B. Morales-García、Mardel Morales-García、題名、Frontiers in Education、9巻、論文番号 1323898、公開 2024-03-12、CC BY 4.0 が一致。versionType は original。parentScaleId は空。新概念 ai-dependence（AI依存）に追加する。定義は、自動システムに意思決定・課題・確認を過度に頼る傾向または必要。抄録の略称は DIA、方法と結論の略称は DAI。同じ5項目尺度として登録し、表示略称は DAI。AI不安（AIAS-21）や AI への態度（GAAIS・ATAI・AIAS-4・AAAW）とは別概念で、得点は合算しない。5項目・単一因子。項目生成の5成分は因子ではない。5件法（Likert。両端は Completely false for me ～ Describes me perfectly。中間のアンカーは本文に明記なし）。合計か平均かの採点規則は本文に明記がない。Table 3 の α と ω は 0.87。本文の「α and ω = 87」は小数点がないため、表の 0.87 を採る。CFA は χ²(5)=8.450、p=0.133、CFI=0.99、TLI=0.98、RMSEA=0.05（90% CI 0.00–0.09）、SRMR=0.02。KMO 0.88。分散の割合 0.65。標本はペルーの医学生528名（EFA 226、CFA 302）。18–37歳、M=20.31、SD=3.8、女性53.0%。対面。倫理は 2023-CEUPeU-033。開発標本はペルーの医学生で、組織や消費者の場面での妥当性は未検証。usagePermission は unknown。論文は CC BY 4.0 だが、尺度の利用許諾の明記はない。itemPublicationStatus は not-published。GAAIS・AIAS-21 と同じ扱い。項目本文はアトラスに転載しない。items は空。開発論文は使用研究に入れない。usageStudies は Korkmaz & Toraman（2026）と Chavez Sosa & Huancahuire-Vega（2026）のフル5項目2件。Korkmaz は DOI 10.1186/s12909-026-08675-0。BMC Medical Education, 26, 306。公開 2026-01-27。CC BY-NC-ND 4.0。Crossref で著者 Güneş Korkmaz、Çetin Toraman、題名、26巻、306、issued 2026-01-27、ライセンス CC BY-NC-ND 4.0 が一致。トルコの医学生 N=958。Savaş（2024）のトルコ語版（DOI 10.56639/jsar.1509301。Crossref 未確認のため URL にせず文字のみ）。本文の件法は 1＝Strongly Disagree～5＝Strongly Agree で、旗艦のアンカー表記とは異なる。この標本の α=0.817、ω=0.806。本文の CFA の自由度が5項目単一因子と整合しないため、適合度の数値は採らない。Chavez Sosa は DOI 10.2196/82667。JMIR Formative Research, 10, e82667。Crossref で著者 Janett V. Chavez Sosa、Salomon Huancahuire-Vega、題名、10巻、e82667、issued 2026-05-05 が一致。論文は CC BY 4.0。ペルー（リマ）の私立大学の医学部生 N=187。原版 DAI-5 を改変せず。5件法（1＝Totally false to me～5＝Describes me perfectly）、合計 5–25。この標本の α=.859。DASS-21 の不安（ρ=.336）・抑うつ（ρ=.316）・ストレス（ρ=.277）と正の関連。実施言語は本文で未確認のため推測しない。Korkmaz の verifiedAt は 2026-11-21 のまま。旗艦の件法・日本語・usagePermission は変えていない。心理測定根拠の verifiedAt は 2026-10-31 のまま。尺度の verifiedAt は 2026-11-22。日本語は unconfirmed。Table 2 の項目はスペイン語。recordStatus は verified-metadata。関係レコードは追加しない。",
       recordStatus: "verified-metadata",
     },
     {
