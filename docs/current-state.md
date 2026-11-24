@@ -1,8 +1,20 @@
 # Current state
 
-最終更新: 2026-11-23
+最終更新: 2026-11-24
 
 アプリと開発ツールのソースコードに [MIT License](../LICENSE) を適用した。尺度データと転載項目については [README のライセンス欄](../README.md#ライセンス) を参照。
+
+## v0.142.0 の追加（消費者が知覚するAIの共感、OSA-18・MTE-24 の使用研究）
+
+- 166概念・219尺度・262使用研究・102選択ガイド・16関係。概念は165から166。尺度は218から219。使用研究は260から262。選択ガイドは101から102（新概念に選択ガイド1件を既存の流儀どおり追加）。関係は16のまま。`meta.version` は `0.142.0`。`meta.updated` は 2026-11-24。`meta.scope` は `166概念・219尺度`。開発論文は使用研究に入れない。機能用とデータ用で版を分けない。`app.js`、`items.js`、`index.html`、CSS、`relations.js`、`relation-model.js`、`verify-data.mjs` は変えていない。項目本文は載せていない（14尺度・160項目のまま）。
+- 概念 `consumer-perceived-artificial-empathy`（消費者が知覚するAIの共感（人工的共感））と尺度 `chu-ae-24`（AE-24）を追加した。分野は「サービス・顧客関係」（AI顧客サービス接点での知覚。既存の AI 態度概念は技術受容だが、本概念はサービス接点の共感知覚のためこちらを選んだ）。AI一般への評価的態度そのものではなく、顧客経験そのものでもない。得点は合算しない。`relatedConcepts` は存在する `attitudes-toward-ai`、`customer-experience`、`perceived-enjoyment`。相手側への逆リンクは足していない。関係レコードは追加していない。既存概念への caution 追記はしていない。
+- AE-24（消費者が知覚するAIの共感）は Chu、Ji、Li、Prentice（2026）。International Journal of Consumer Studies, 50(6), e70280。DOI `10.1111/ijcs.70280`。`sourceUrl` は DOI のみ。Crossref で著者 Heng Chu、Chunli Ji、Mingwei Li、Catherine Prentice、題名、50巻6号、e70280、issued 2026-11 が一致。Crossref の license は CC BY-NC 4.0。出版社ページに Open Access、First published 2026-11-11。原典は「AE scale」と呼び、正式な略称はない。アトラス側の便宜略称は AE-24。24項目・6次元（Perceptiveness 4、Attentiveness 5、Comprehensiveness 4、Adaptability 4、Authenticity 4、Respectfulness 3）。7件法（1＝Strongly Disagree～7＝Strongly Agree）。逆転項目の記載なし。採点方法（合計・平均）は本文に明記なし。カットオフなし。Table 6（N=476）の次元別 α .870／.894／.851／.855／.870／.851。全体 α の記載はない。最終項目削減は同じ検証標本上で行われ、著者自身が再現が必要と限界に記載。予測妥当性（N=537）：AI エージェント信頼 R²=.690、継続利用意図 R²=.668。標本は中国の消費者。実施言語は本文に明記なし。論文の項目表は英語。`usagePermission` は `unknown`。論文は CC BY-NC 4.0 だが、尺度の利用許諾の明記はない（TAI・ATAI・OSA-18 と同じ扱い）。`itemPublicationStatus` は `source-open`。`items` は空。`usageStudies` は空。`japaneseVersionStatus` は `unconfirmed`。`verifiedAt` は 2026-11-24。
+- OSA-18（`zhao-tian-xin-osa-18`）の使用研究は0件から1件。旗艦の値、日本語、`usagePermission` は変えていない。心理測定根拠の `verifiedAt` は 2026-11-23 のまま。尺度の `verifiedAt` は 2026-11-24。
+- Wan、Zeng、Zhang（2025）。Frontiers in Psychology, 15, 1462376。DOI `10.3389/fpsyg.2024.1462376`。`url` は DOI のみ。Crossref で著者 Xueli Wan、Jie Zeng、Ling Zhang、題名、15巻、1462376、issued 2025-01-08、license CC BY 4.0 が一致。Europe PMC PMC11750794（cc by）。中国四川省の教員養成系大学生 N=457。Zhao ら（2017）の18項目をそのまま使用。Brislin 逆翻訳の中国語。5件法（1＝strongly disagree～5＝strongly agree）、合計 18–90。この標本の α＝0.959（全体）。決定木モデルによる実質的研究。開発者は著者に含まれない。
+- MTE-24（`kim-ritchie-mccormick-mte-24`）の使用研究は0件から1件。旗艦の値、`responseFormat`、日本語、`usagePermission` は変えていない。psychometricEvidence の `verifiedAt` は 2026-10-15 のまま。尺度の `verifiedAt` は 2026-11-24。
+- Su（2025）。Frontiers in Psychology, 16, 1521716。DOI `10.3389/fpsyg.2025.1521716`。`url` は DOI のみ。Crossref で著者 Qiaolan Su（単著）、題名、16巻、1521716、issued 2025-03-31、license CC BY 4.0 が一致。Europe PMC PMC11995712（cc by）。中国広西チワン族自治区の大学生 N=880。Kim ら（2012）の24項目。Table 2 の7次元。5件法。原典の件法との一致は未確認。次元別 α .879–.922。全体 α の記載はない。SEM による実質的研究。開発者は著者に含まれない。
+- 日本語の検証済みは28のまま。関連版は14のまま。未確認は143から144（追加した AE-24 が `unconfirmed`）。日本語使用例は18のまま。言語的妥当性確認は2、翻訳・因子構造等の検討は5、日本語で独自開発は7、開発論文内の日本語検証は1のまま。登録版そのものが3・4項目の尺度は32のまま（AE-24 は24項目）。使用研究側の3・4項目は29のまま（追加は18項目と24項目）。
+- 見送りは、HOLD 継続の QF（静かな解雇）、α 不記載の使用研究、CIF、AAAW の Karachi 研究、ATAI 日本語版 Hitsuwari & Takano 2025、テクノストレス Ragu-Nathan 2008、MAILS 使用研究 Arranz-García 2026、SNAIL、AISES、ESS-10 改変版、TAI の usagePermission 見直しは変更していない。`items.js` は変えていない。確認は [2026-11-24ログ](dev/logs/2026-11-24-ae-osa-mte.md)。
 
 ## v0.141.0 の追加（オンライン・ショッピング依存、TAI の使用研究）
 
