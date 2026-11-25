@@ -1,8 +1,19 @@
 # Current state
 
-最終更新: 2026-11-24
+最終更新: 2026-11-25
 
 アプリと開発ツールのソースコードに [MIT License](../LICENSE) を適用した。尺度データと転載項目については [README のライセンス欄](../README.md#ライセンス) を参照。
+
+## v0.143.0 の追加（ケアリング・リーダーシップ CLS-27、PA-12 の使用研究）
+
+- 167概念・220尺度・263使用研究・103選択ガイド・16関係。概念は166から167。尺度は219から220。使用研究は262から263。選択ガイドは102から103（新概念に選択ガイド1件を既存の流儀どおり追加）。関係は16のまま。`meta.version` は `0.143.0`。`meta.updated` は 2026-11-25。`meta.scope` は `167概念・220尺度`。開発論文は使用研究に入れない。機能用とデータ用で版を分けない。`app.js`、`items.js`、`index.html`、CSS、`relations.js`、`relation-model.js`、`verify-data.mjs` は変えていない。項目本文は載せていない（14尺度・160項目のまま）。
+- 概念 `caring-leadership`（ケアリング・リーダーシップ（看護管理者））と尺度 `zhang-caring-leadership-27`（CLS-27）を追加した。分野は「組織行動・人的資源」（既存のリーダーシップ系概念と同じ）。サーバント・リーダーシップ、職場のコンパッション、倫理的リーダーシップとは別概念であり、得点は合算しない。`relatedConcepts` は存在する `servant-leadership`、`workplace-compassion`、`ethical-leadership`。相手側への逆リンクは足していない。関係レコードは追加していない。既存概念への caution 追記はしていない。
+- CLS-27（ケアリング・リーダーシップ（看護））は Zhang、Huang、Peng、Fei、Xu、Liu、Zhang、Chen、Chen（2026）。PLOS One, 21(3), e0342972。DOI `10.1371/journal.pone.0342972`。`sourceUrl` は DOI のみ。Crossref で著者9名・題名・PLOS One 21巻3号 e0342972・issued 2026-03-02・license CC BY 4.0 が一致。受付 2025-01-17、受理 2026-01-29。原典は「Caring Leadership Scale」と呼び、正式な略称はない。アトラス側の便宜略称は CLS-27。27項目・5次元（Benevolence toward others 6、Appreciation of uniqueness 4、Facilitation of self-actualization 4、Maintenance of mutual benefit 3、Motivation through charisma 10。件数は EFA の Table 2。Ae はカリスマ由来9＋Ad6）。5件法（1＝strongly disagree～5＝strongly agree）。逆転項目の記載なし。採点方法（合計・平均）は本文に明記なし。カットオフなし。有効 N=2,125（EFA 1,062／CFA 1,063）。Table 3 の α：総尺度 .993、次元別 .967／.964／.980／.962／.989。CFA 修正後 RMSEA .078、CFI .964。因子間相関 r=.916–.961 で弁別妥当性は著者自身が十分には支持されないと限界に記載。α が .96–.99 と非常に高く、著者も冗長性の可能性に言及。抄録は「項目分析で12項目削除」と書くが、本文は EFA で12項目削除と書く。本文の記述を採る。最終版の項目一覧は補足資料 S3 にあると本文が述べるが、アトラスでは未確認。標本は中国の三次病院6施設の臨床看護師。実施言語は本文に明記なし。`usagePermission` は `unknown`。論文は CC BY 4.0 だが、尺度の利用許諾の明記はない（OSA-18・AE-24 と同じ扱い）。`itemPublicationStatus` は `source-open`。`items` は空。`usageStudies` は空。`japaneseVersionStatus` は `unconfirmed`。`verifiedAt` は 2026-11-25。
+- PA-12（`williams-vaske-place-attachment-12`）の使用研究は0件から1件。旗艦の値、`responseFormat`、日本語、`usagePermission` は変えていない。psychometricEvidence の `verifiedAt` は 2026-10-15 のまま。尺度の `verifiedAt` は 2026-11-25。
+- Huo、Tian、Wang、Xu、Tang（2025）。Frontiers in Psychology, 16, 1543861。DOI `10.3389/fpsyg.2025.1543861`。`url` は DOI のみ。Crossref で著者 Xing Huo、Haibo Tian、Zhipeng Wang、Jiao Xu、Zhifeng Tang、題名、16巻、1543861、issued 2025-04-02、license CC BY 4.0 が一致。中国杭州・西湖で走る長距離ランニング愛好者。回収603、虚偽検出で33除外、分析 N=570。Williams & Vaske（2003）の12項目（place identity 6、place dependence 6）。場所名を West Lake に置換。5件法は旗艦と同じ。この標本の α は place identity .89、place dependence .90（全体 α の記載なし）。CFA は χ²=93.97、df=54、RMSEA .05、GFI .97、CFI .94、TLI .91。12項目・2相関因子の CFA の自由度は通常53で、報告の df=54 とは一致しない（値は直さず注記のみ）。倫理委員会承認の記載はなく、倫理声明は画像等の公開同意のみ。実施言語は本文に明記なし。開発者は著者に含まれない。検証研究ではない。
+- 日本語の検証済みは28のまま。関連版は14のまま。未確認は144から145（追加した CLS-27 が `unconfirmed`）。日本語使用例は18のまま。言語的妥当性確認は2、翻訳・因子構造等の検討は5、日本語で独自開発は7、開発論文内の日本語検証は1のまま。登録版そのものが3・4項目の尺度は32のまま（CLS-27 は27項目）。使用研究側の3・4項目は29のまま（追加は12項目。PA-12 には既に12項目の旗艦がある）。
+- 次回候補は AE-24・MTE-24・OSA-18 の2件目、GWQ-12・WRCQ・ATAI・DES-15・CLS-27 の使用研究。
+- 見送りは、DES-15 の使用研究（Li & Wang 2026 は α 不記載、Yang 2025 は「23項目」と記述して使用項目数が不明確）、キャリア持続可能性（Kim, Lee, & Jin 2024。回答形式が本文に明記なし）、OSA-18 の2件目（トルコの研究は5次元のトルコ語適応版で原版6次元と異なる）、GWQ-12（Atta ほか 2025 は本文未確認・有料、ペルシャ語版・トルコ語版は検証研究）、HOLD 継続の QF（静かな解雇）などは変更していない。`items.js` は変えていない。確認は [2026-11-25ログ](dev/logs/2026-11-25-cls-pa12-huo.md)。
 
 ## v0.142.0 の追加（消費者が知覚するAIの共感、OSA-18・MTE-24 の使用研究）
 
