@@ -1,8 +1,21 @@
 # Current state
 
-最終更新: 2026-11-25
+最終更新: 2026-11-26
 
 アプリと開発ツールのソースコードに [MIT License](../LICENSE) を適用した。尺度データと転載項目については [README のライセンス欄](../README.md#ライセンス) を参照。
+
+## v0.144.0 の追加（リーダーの率先行動 LTCB-15、MTE-24・ATAI の使用研究）
+
+- 168概念・221尺度・265使用研究・104選択ガイド・16関係。概念は167から168。尺度は220から221。使用研究は263から265。選択ガイドは103から104（新概念に選択ガイド1件を既存の流儀どおり追加）。関係は16のまま。`meta.version` は `0.144.0`。`meta.updated` は 2026-11-26。`meta.scope` は `168概念・221尺度`。開発論文は使用研究に入れない。機能用とデータ用で版を分けない。`app.js`、`items.js`、`index.html`、CSS、`relations.js`、`relation-model.js`、`verify-data.mjs` は変えていない。項目本文は載せていない（14尺度・160項目のまま）。
+- 概念 `leadership-taking-charge`（リーダーの率先行動（テイキング・チャージ））と尺度 `bai-ltcb-15`（LTCB-15）を追加した。分野は「組織行動・人的資源」。従業員のテイキング・チャージ（Morrison & Phelps 系）そのものではなく、変革型リーダーシップそのものでもない。得点は合算しない。`relatedConcepts` は存在する `transformational-leadership`、`proactive-personality`、`innovative-work-behavior`、`employee-voice`。相手側への逆リンクは足していない。関係レコードは追加していない。既存概念への caution 追記はしていない。
+- LTCB-15 は Bai、Li、Xu、Wang（2025）。Frontiers in Psychology, 16, 1578771。DOI `10.3389/fpsyg.2025.1578771`。`sourceUrl` は DOI のみ。Crossref で著者 Guanglin Bai、Shuhui Li、Yan Xu、Guijin Wang、題名、16巻、1578771、issued 2025-08-06、license CC BY 4.0 が一致。原典は略称を印刷していない。アトラス側の便宜略称は LTCB-15。15項目・3次元（Initiative change 5、Taking responsibility 5、Not fearing risks 5。件数は EFA の Table 3）。初期26→18→EFA 後15。5件法。15項目の EFA／CFA の節は両端の語を書いていない。Study 3（9項目短縮版）の測定節は 1＝Strongly Disagree～5＝Strongly Agree。一方に寄せない。逆転項目の記載なし。採点方法（合計・平均）は本文に明記なし。カットオフなし。有効493を EFA 249／CFA 244 に分割。Table 5 の α：全体 0.977、次元別 0.943／0.957／0.955（N=244）。CFA 三因子 χ²=204.758、df=84、RMSEA=0.077、CFI=0.976。df=84 は通例の87（Table 6 Model 1）と一致しない。寄せない。9項目短縮版（Study 3 α=0.928、N=316）は登録しない。`usagePermission` は `unknown`。論文は CC BY 4.0 だが、尺度の利用許諾の明記はない。`itemPublicationStatus` は `source-open`。Table 3 に項目がある。転載しない。`items` は空。`usageStudies` は空。`japaneseVersionStatus` は `unconfirmed`。`verifiedAt` は 2026-11-26。
+- MTE-24（`kim-ritchie-mccormick-mte-24`）の使用研究は1件から2件。既存の Su（2025）は残し、その後ろに追加した。旗艦の値、`responseFormat`、日本語、`usagePermission` は変えていない。psychometricEvidence の `verifiedAt` は 2026-10-15 のまま。Su の `verifiedAt` は 2026-11-24 のまま。尺度の `verifiedAt` は 2026-11-26。
+- Yu、Chang、Ramanpong（2019）。Forests, 10(8), 636。DOI `10.3390/f10080636`。`url` は DOI のみ。Crossref で著者 Chia-Pin Yu、Wei-Chun Chang、Jittakon Ramanpong、題名、10巻8号、636、issued 2019-07-28、license CC BY 4.0 が一致。台湾渓頭自然教育園区の来訪者。配布450、無効24、有効 N=426。Kim ら（2012）の24項目（7次元）。7件法（1＝I have not experienced at all～7＝I have experienced very much）。次元別 α：Refreshment .854、Involvement .898、Hedonism .814、Knowledge .872、Novelty .923、Meaningfulness .910、Local culture .830。全体 α の記載はない。WOM・再訪意向との重回帰（実質的研究）。開発者は著者に含まれない。
+- ATAI（`sindermann-atai-5`）の使用研究は3件から4件。既存の Laupichler・Sáez-Velasco・Lialiou は残し、その後ろに追加した。旗艦の項目割当・11件法・日本語・`usagePermission` は変えていない。心理測定根拠の `verifiedAt` は 2026-10-25 のまま。尺度の `verifiedAt` は 2026-11-26。
+- Henrich、Formella-Zimmermann、Gübert、Dierkes（2023）。Frontiers in Education, 8, 1216318。DOI `10.3389/feduc.2023.1216318`。`url` は DOI のみ。Crossref で著者 Marvin Henrich、Sandra Formella-Zimmermann、Jennifer Gübert、Paul W. Dierkes、題名、8巻、1216318、issued 2023-08-10、license CC BY 4.0 が一致。ドイツのゲーテ大学校外ラボを訪れた高校生 N=171。Sindermann らの5項目。Fear 3・Acceptance 2。5件法は旗艦の11件法からの変更。この標本の α は Fear 0.656、Acceptance 0.618。開発者は著者に含まれない。検証研究ではない。
+- 日本語の検証済みは28のまま。関連版は14のまま。未確認は145から146（追加した LTCB-15 が `unconfirmed`）。日本語使用例は18のまま。言語的妥当性確認は2、翻訳・因子構造等の検討は5、日本語で独自開発は7、開発論文内の日本語検証は1のまま。登録版そのものが3・4項目の尺度は32のまま（LTCB-15 は15項目）。使用研究側の3・4項目は29のまま（追加は24項目と5項目。ATAI には既に5項目の旗艦と使用がある）。
+- 次回候補は AE-24・OSA-18 の2件目、GWQ-12・WRCQ・CLS-27・DES-15 の使用研究、GAIL（生成AIリテラシー、Liu ら 2025 DOI `10.3390/bs15060811`。開発標本の次元別 α が本文で閉じないため今回見送り）。
+- 見送りは、GAIL（次元別 Cronbach α が開発標本で閉じない・EFA「311 data points」と有効278の食い違い）、OSA-18 の2件目（Ayhan & Seki Öz 2022 は Kartal のトルコ語適応で、前回 HOLD の5次元トルコ語版と同系統の可能性があり次元数が本文で閉じない）、AE-24・WRCQ・CLS-27 の独立使用（開発直後で適格な使用研究未確認）、GWQ-12（指定 HOLD の Atta ほか・ペルシャ語版・トルコ語版）、DES-15（指定 HOLD）、QF（静かな解雇）、ATAI 日本語版 Hitsuwari & Takano 2025、α 不記載の使用研究、TAI の usagePermission 見直しは変更していない。`items.js` は変えていない。確認は [2026-11-26ログ](dev/logs/2026-11-26-ltcb-mte-atai.md)。
 
 ## v0.143.0 の追加（ケアリング・リーダーシップ CLS-27、PA-12 の使用研究）
 
