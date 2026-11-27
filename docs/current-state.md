@@ -1,10 +1,24 @@
 # Current state
 
-最終更新: 2026-11-26
+最終更新: 2026-11-27
 
 アプリと開発ツールのソースコードに [MIT License](../LICENSE) を適用した。尺度データと転載項目については [README のライセンス欄](../README.md#ライセンス) を参照。
 
+## v0.145.0 の追加（顧客経験におけるAI採用 SAIACE-16、PA-12・QQS-9 の使用研究）
+
+- 169概念・222尺度・267使用研究・105選択ガイド・16関係。概念は168から169。尺度は221から222。使用研究は265から267。選択ガイドは104から105（新概念に選択ガイド1件を既存の流儀どおり追加）。関係は16のまま。`meta.version` は `0.145.0`。`meta.updated` は 2026-11-27。`meta.scope` は `169概念・222尺度`。開発論文は使用研究に入れない。機能用とデータ用で版を分けない。`app.js`、`items.js`、`index.html`、CSS、`relations.js`、`relation-model.js`、`verify-data.mjs` は変えていない。項目本文は載せていない（14尺度・160項目のまま）。
+- 概念 `ai-adoption-in-customer-experience`（顧客経験におけるAI採用（オンライン購買））と尺度 `cruz-tarrillo-saiace-16`（SAIACE-16）を追加した。分野は「サービス・顧客関係」。AI一般への態度そのものではなく、顧客経験そのものでも、AIリテラシーそのものでもない。得点は合算しない。`relatedConcepts` は存在する `attitudes-toward-ai`、`customer-experience`、`ai-literacy`、`consumer-perceived-artificial-empathy`。相手側への逆リンクは足していない。関係レコードは追加していない。既存概念への caution 追記はしていない。
+- SAIACE-16 は Cruz-Tarrillo、Tarrillo-Paredes、Haro-Zea、Díaz Saavedra（2026）。Frontiers in Artificial Intelligence, 8, 1712614。DOI `10.3389/frai.2025.1712614`。`sourceUrl` は DOI のみ。Crossref で著者 José Joel Cruz-Tarrillo、Jose Tarrillo-Paredes、Karla Liliana Haro-Zea、Robin Alexander Díaz Díaz Saavedra、題名、8巻、1712614、issued 2026-01-20、license CC BY 4.0 が一致。原典は略称を印刷していない。アトラス側の便宜略称は SAIACE-16。16項目・4次元（Trust in AI 4、Perception of AI 4、Knowledge of AI 4、Shopping experience 4）。初期20→内容重複等で4削除。5件法（1＝totally disagree～5＝totally agree）。逆転項目の記載なし。採点方法（合計・平均）は本文に明記なし。カットオフなし。N=528。Table 2 の次元別 α 0.919／0.923／0.838／0.908。全体 α の記載はない。CFA χ²=181.798、df=98（16項目・4相関因子と一致）、CFI=0.988。CFA の節は RMSEA を 0.40 と書き、考察は 0.040 と書く。考察は χ²=1,855 とも書く（χ²/df の値を χ² と書いた記述）。一方に寄せない。因子名は Trust/Confidence・Shopping/Purchase と揺れる。寄せない。標本はペルーのオンライン購買消費者（リマとサンマルティン）。実施言語は本文に明記なし。`usagePermission` は `unknown`。論文は CC BY 4.0 だが、尺度の利用許諾の明記はない。`itemPublicationStatus` は `source-open`。Table 2 に項目がある。転載しない。`items` は空。`usageStudies` は空。`japaneseVersionStatus` は `unconfirmed`。`verifiedAt` は 2026-11-27。
+- PA-12（`williams-vaske-place-attachment-12`）の使用研究は1件から2件。既存の Huo（2025）は残し、その後ろに追加した。旗艦の値、`responseFormat`、日本語、`usagePermission` は変えていない。psychometricEvidence の `verifiedAt` は 2026-10-15 のまま。Huo の `verifiedAt` は 2026-11-25 のまま。尺度の `verifiedAt` は 2026-11-27。
+- Chang、Sheng、Wei、Fang、Wen（2026）。Frontiers in Psychology, 16, 1678177。DOI `10.3389/fpsyg.2025.1678177`。`url` は DOI のみ。Crossref で著者 Baorui Chang、Huanyu Sheng、Yanhan Wei、Jiandong Fang、Yaping Wen、題名、16巻、1678177、issued 2026-01-12、license CC BY 4.0 が一致。中国広西の大学生。配布1,091、有効 N=1,019。Williams & Vaske（2003）の12項目（place identity 6、place dependence 6）を現住都市へ適用。7件法は旗艦の5件法からの変更。この標本の α は全体 0.91、identity 0.94、dependence 0.94。Study 2（操作チェック4項目）は使用研究にしない。開発者は著者に含まれない。
+- QQS-9（`galanis-qqs-9`）の使用研究は2件から3件。既存の Xu・Ghahramani は残し、その後ろに追加した。旗艦の回答形式、逆転、`usagePermission`、日本語は変えていない。Xu／Ghahramani の `verifiedAt` は維持。尺度の `verifiedAt` は 2026-11-27。
+- Jin、Yang、Chen、Mao、Wang、Tung（2026）。Journal of Nursing Management, 2026, 2963982。DOI `10.1155/jonm/2963982`。`url` は DOI のみ。Crossref で著者6名・題名・Journal of Nursing Management・2026巻・license CC BY 4.0（開始 2026-10-21）が一致。浙江の三次病院の臨床看護師。回収312、有効 N=307。Galanis らの9項目の中国語版。3次元。LPA は9項目を指標に使用。本文の QQS 節は件法を再記述していない。この標本の α=0.774。カットオフ 2.06 で有病率 76.2%（中国看護師での未検証と本文が注記）。カットオフは旗艦に採用しない。開発者は著者に含まれない。検証研究ではない。
+- 日本語の検証済みは28のまま。関連版は14のまま。未確認は146から147（追加した SAIACE-16 が `unconfirmed`）。日本語使用例は18のまま。言語的妥当性確認は2、翻訳・因子構造等の検討は5、日本語で独自開発は7、開発論文内の日本語検証は1のまま。登録版そのものが3・4項目の尺度は32のまま（SAIACE-16 は16項目）。使用研究側の3・4項目は29のまま（追加は12項目と9項目。PA-12 には既に12項目の旗艦と使用がある。QQS-9 には既に9項目の旗艦と使用がある）。
+- 次回候補は AE-24・OSA-18 の2件目（6次元原版の独立使用）、GWQ-12・WRCQ・CLS-27・DES-15・LTCB-15 の使用研究、GAIL（根拠が揃えば）。
+- 見送りは、RRMQ（Waśkiewicz 2025、DOI `10.3390/admsci15100379`。Cronbach α の数値が本文で閉じない）、Nyrhinen ら 2023（DOI `10.1111/ijcs.12961`。Zhao 系だが本文 Table 2 は9項目でフル18ではない）、Arayici ら 2026（DOI `10.3390/bs16081441`。トルコ語5次元適応で前回 HOLD と同系統）、CLS-27 の Zhang ら 2024 BMC Nursing（開発者共著のため使用研究にしない）、OSA-18 のトルコ語5次元版、GWQ-12 の指定 HOLD、DES-15 の指定 HOLD、QF、ATAI 日本語版、α 不記載の使用研究、GAIL、TAI の usagePermission 見直し。`items.js` は変えていない。確認は [2026-11-27ログ](dev/logs/2026-11-27-saiace-pa12-qqs.md)。
+
 ## v0.144.0 の追加（リーダーの率先行動 LTCB-15、MTE-24・ATAI の使用研究）
+
 
 - 168概念・221尺度・265使用研究・104選択ガイド・16関係。概念は167から168。尺度は220から221。使用研究は263から265。選択ガイドは103から104（新概念に選択ガイド1件を既存の流儀どおり追加）。関係は16のまま。`meta.version` は `0.144.0`。`meta.updated` は 2026-11-26。`meta.scope` は `168概念・221尺度`。開発論文は使用研究に入れない。機能用とデータ用で版を分けない。`app.js`、`items.js`、`index.html`、CSS、`relations.js`、`relation-model.js`、`verify-data.mjs` は変えていない。項目本文は載せていない（14尺度・160項目のまま）。
 - 概念 `leadership-taking-charge`（リーダーの率先行動（テイキング・チャージ））と尺度 `bai-ltcb-15`（LTCB-15）を追加した。分野は「組織行動・人的資源」。従業員のテイキング・チャージ（Morrison & Phelps 系）そのものではなく、変革型リーダーシップそのものでもない。得点は合算しない。`relatedConcepts` は存在する `transformational-leadership`、`proactive-personality`、`innovative-work-behavior`、`employee-voice`。相手側への逆リンクは足していない。関係レコードは追加していない。既存概念への caution 追記はしていない。
