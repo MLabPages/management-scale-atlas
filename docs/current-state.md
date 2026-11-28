@@ -1,8 +1,21 @@
 # Current state
 
-最終更新: 2026-11-27
+最終更新: 2026-11-28
 
 アプリと開発ツールのソースコードに [MIT License](../LICENSE) を適用した。尺度データと転載項目については [README のライセンス欄](../README.md#ライセンス) を参照。
+
+## v0.146.0 の追加（組織健康行動 OHBI-17、OSA-18・DES-15 の使用研究）
+
+- 170概念・223尺度・269使用研究・106選択ガイド・16関係。概念は169から170。尺度は222から223。使用研究は267から269。選択ガイドは105から106（新概念に選択ガイド1件を既存の流儀どおり追加）。関係は16のまま。`meta.version` は `0.146.0`。`meta.updated` は 2026-11-28。`meta.scope` は `170概念・223尺度`。開発論文は使用研究に入れない。機能用とデータ用で版を分けない。`app.js`、`items.js`、`index.html`、CSS、`relations.js`、`relation-model.js`、`verify-data.mjs` は変えていない。項目本文は載せていない（14尺度・160項目のまま）。
+- 概念 `organizational-health-behavior`（組織健康行動）と尺度 `alzuman-ohbi-17`（OHBI-17）を追加した。分野は「組織行動・人的資源」。職務満足そのものではなく、ワーク・エンゲイジメントそのものでも、組織コミットメントそのものでもない。得点は合算しない。`relatedConcepts` は存在する `work-engagement`、`job-satisfaction`、`organizational-commitment`。相手側への逆リンクは足していない。関係レコードは追加していない。既存概念への caution 追記はしていない。
+- OHBI-17 は Alzuman、Jaafari、Ali、Ali、Bakadam（2025）。Frontiers in Psychology, 16, 1689559。DOI `10.3389/fpsyg.2025.1689559`。`sourceUrl` は DOI のみ。Crossref で著者 Abad Alzuman、Muath Al Jaafari、Zaiba Ali、Rahila Ali、Lina Ibrahim Bakadam、題名、16巻、1689559、issued 2025-12-02、license CC BY 4.0 が一致。原典の略称は OHBI。アトラス側の表示略称は OHBI-17。定量 Subscale A の17項目・5次元（Awareness 4、Appreciation 3、Relations 3、Employee engagement 4、Communication satisfaction 3）。Jaafari ら（2023、DOI `10.3390/su151813650`）の先行版を改訂した更新版であり、同一版とはみなさない。5件法（1＝strongly disagree～5＝strongly agree）。逆転なし。合計 17–85。定性 Subscale B（10項目）は itemCount に入れない。EFA N=1,066（サウジ IT）。信頼性・CFA N=7,548。Table 7 の α：全体 0.885、次元別 0.909／0.897／0.900／0.890／0.921。Table 6（EFA 標本）の全体 0.885 と寄せない。CFA の χ²=2418.198／χ²/df=22.19／CFI=0.960／RMSEA=0.053 と、別節の χ²=1517.18／CFI=0.978／RMSEA=0.041 は寄せない。`usagePermission` は `unknown`。論文は CC BY 4.0 だが、尺度の利用許諾の明記はない。`itemPublicationStatus` は `source-open`。Table 16 に項目がある。転載しない。`items` は空。`usageStudies` は空。`japaneseVersionStatus` は `unconfirmed`。`verifiedAt` は 2026-11-28。
+- OSA-18（`zhao-tian-xin-osa-18`）の使用研究は1件から2件。既存の Wan（2025）は残し、その後ろに追加した。旗艦の値、日本語、`usagePermission` は変えていない。psychometricEvidence の `verifiedAt` は 2026-11-23 のまま。Wan の `verifiedAt` は 2026-11-24 のまま。尺度の `verifiedAt` は 2026-11-28。
+- Shabbir、Bibi、Tahir、Syed、Khan（2024）。Qlantic Journal of Social Sciences and Humanities, 5(4), 147–157。DOI `10.55737/qjssh.v-iv(CP).24150`。`url` は DOI のみ。Crossref で著者 Hijab Shabbir、Neelam Bibi、Laraib Tahir、Umm Eman Syed、Anam Khan、題名、issued 2024-12-30、license CC BY-NC 4.0 が一致。パキスタンの私立大学の若年成人 N=300（男性130・女性170、年齢18–39）。Zhao ら（2017）の18項目・6次元。5件法（1＝completely disagree～5＝completely agree）。この標本の α＝0.82（Table 2）。方法節の原典 .95 はこの標本の α にしない。実施言語は本文に明記なし。開発者は著者に含まれない。検証研究ではない。
+- DES-15（`hosany-gilbert-des-15`）の使用研究は0件から1件。旗艦の7件法、日本語、`usagePermission` は変えていない。psychometricEvidence の `verifiedAt` は 2026-10-15 のまま。尺度の `verifiedAt` は 2026-11-28。
+- Kovačić & Šagovnović（2023）。Psihologija, 56(3), 371–398。DOI `10.2298/PSI210626025K`。`url` は DOI のみ。Crossref で著者 Sanja Kovacic、Ivana Sagovnovic、題名、issued 2023、license CC BY-SA 4.0 が一致。ノヴィ・サドの国内外観光客 N=203。Hosany & Gilbert（2010）のフル15項目（Joy 5、Love 5、Positive surprise 5）。5件法（1＝strongly disagree～5＝strongly agree）は旗艦の7件法からの変更。この標本の α は Joy 0.865、Love 0.881、Positive surprise 0.845（Table 5）。全体 α の記載はない。開発者は著者に含まれない。検証研究ではない。
+- 日本語の検証済みは28のまま。関連版は14のまま。未確認は147から148（追加した OHBI-17 が `unconfirmed`）。日本語使用例は18のまま。言語的妥当性確認は2、翻訳・因子構造等の検討は5、日本語で独自開発は7、開発論文内の日本語検証は1のまま。登録版そのものが3・4項目の尺度は32のまま（OHBI-17 は17項目）。使用研究側の3・4項目は29のまま（追加は18項目と15項目。OSA-18 には既に18項目の旗艦と使用がある）。
+- 次回候補は AE-24 の使用研究、GWQ-12・WRCQ・CLS-27・LTCB-15・SAIACE-16 の使用研究、GAIL（根拠が揃えば）。
+- 見送りは、GAIL（次元別 Cronbach α が開発標本で閉じない）、Turkish OSA 5次元適応、WSEAS OSA（α が閉じない）、Frontiers splitting OSA（α 帰属が曖昧）、Li IJERPH OSAT（Zhao の OSA-18 ではない）、DES Li Frontiers（α 不記載）、GWQ-12（ペルシャ語版は開発者共著・トルコ語検証・GWS 別尺度）、AE-24・WRCQ・LTCB-15・CLS-27 の適格な独立使用（未確認または指定 HOLD）、QF、TAI の usagePermission、α 不記載の使用研究、RRMQ、Nyrhinen、CLS Zhang BMC（開発者共著）、GAIS ハンガリー語版、ATAI 日本語版。`items.js` は変えていない。確認は [2026-11-28ログ](dev/logs/2026-11-28-ohbi-osa-des.md)。
 
 ## v0.145.0 の追加（顧客経験におけるAI採用 SAIACE-16、PA-12・QQS-9 の使用研究）
 
